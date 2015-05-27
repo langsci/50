@@ -1,0 +1,23 @@
+\section{Selecting categories}
+
+\todo{Nieuw experiment -> nwe data (stlrselspA)}
+In the previous experiment the speaker took a list of distinctive concepts, ordered by their meaning score. When the speaker found a matching WM association, it produced the utterance belonging to it. In this experiment, the speaker searches for all categories matching WM associations and selects the one with the highest association score for the utterance. Since all meaning scores are 0, the hearer also has no information on how good a meaning is. 
+
+\begin{table}
+\begin{tabular}{||l|c|c|c||}
+\hline\hline
+Score & Avg & Stdev & Std\\\hline
+
+\hline
+\end{tabular}
+\caption{The results of combining single sized concept sets and conjunctions of concept sets.}
+\label{t:cat:sel}
+\end{table}
+
+Table \ref{t:cat:sel} shows the results of the experiment. The communicative success and discriminative success are higher than both experiments presented before. In comparison with the basic experiment (B) the CS is better with a significance of $p=0.0078$, in comparison with the single sized concepts experiment (SSC) the significance is $p=0.0000$. In comparison to both experiment B and SSC, the discriminative success is better with a significance of $p=0.0000$. The discriminative success is higher than in the previous experiments, since there are now more configurations of categories that may be distinctive. Such increase naturally reflects on the communicative success although to a lesser extend.
+
+A slight difference is found for the distinctiveness. It is lower than in the basic experiment with a significance of $p=0.0.0040$ and it is higher than for the SSC ($p=0.0016$). Specificity is better than both B and SSC ($p=0.0288$ and %p=0.0004$ resp.). Both parsimony and consistency show values between B and SSC with significance for parsimony $p=0.0004$ (B) and $p=0.0002$ (SSC), and for consistency $p=0.0028$ (B) and $p=0.0002$ (SSC). These measures already show what could be predicted. The communication system is better than the communication system for SSC, since it also use conjunctions of categories to conceptualize. On the other hand the communication system is worse than the basic experiment, since it also has single sized concepts that are less useful for communication.
+
+To see if the robots actually prefer to use conjunctions of categories at the basis of their concepts, figure \ref{f:cat:comp} is illustrative.
+
+

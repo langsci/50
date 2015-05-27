@@ -1,0 +1,22 @@
+set term post eps 22
+set nok
+set xrange [0:10000]
+set yrange [0:1]
+set data style lines
+set xlabel "LGs"
+set ylabel "F"
+set nolabel
+set label "L0" at 3200,0.35
+set label "L2" at 2000,0.2
+set label "L1" at 6400,0.85
+#set label "L3" at 3000,0.8
+#set label "mufe" at 4200,0.41
+#set label "woso" at 2300,0.41
+#set label "teko" at 7800,0.36
+#set label "nusi" at 1700,0.84
+#set label "M-24" at 900,0.18
+#set label "M-47" at 900,0.22
+#set label "M-67" at 4000,0.31
+#set label "M-49" at 5000,0.83
+#set label "L3" at 8750,0.03
+plot "fr0-1oli.txt" using 1:2, "fr0-1oli.txt" using 1:3, "fr0-1oli.txt" using 1:4, "fr0-1oli.txt" using 1:5#, "fr0-1oli.txt" using 1:6, "fr0-1oli.txt" using 1:7, "fr0-1oli.txt" using 1:8, "fr0-1oli.txt" using 1:9, "fr0-1oli.txt" using 1:10, "fr0-1oli.txt" using 1:11, "fr0-1oli.txt" using 1:12, "fr0-1oli.txt" using 1:13, "fr0-1oli.txt" using 1:14, "fr0-1oli.txt" using 1:15, "fr0-1oli.txt" using 1:16, "fr0-1oli.txt" using 1:17, "fr0-1oli.txt" using 1:18, "fr0-1oli.txt" using 1:19, "fr0-1oli.txt" using 1:20, "fr0-1oli.txt" using 1:21, "fr0-1oli.txt" using 1:22

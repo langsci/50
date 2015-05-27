@@ -1,0 +1,44 @@
+\section{Contributions}
+
+How does this thesis contribute to the field of artificial intelligence and cognitive science? The main contributions made in this thesis that there is an autonomous system that is grounded in the real world of which no parts of the ontology or lexicon is pre-defined. Furthermore, the relative position of the robots that participate in the language games is highly uncertain. In addition, the thesis investigates different types of extra-linguistic information that the robots can use to develop a shared lexicon.
+
+Table \ref{t:intro:contrib} shows the contributions of research that is most relevant to this work. The table lists some aspects that the various researchers have contributed in their work. The aspects that are listed are thought to be most relevant to this work.
+
+\begin{table}
+\begin{tabular}{||l|c|c|c|c|c|c|c||}
+\hline\hline
+Aspect & B & C & D & O & R & S & V & Y\\\hline
+Grounded in real world & Y & N & N & N & Y & Y & Y & Y\\
+Language pre-defined & Y & Y & N & N & N.A. & N & N & Y\\
+Meaning pre-defined & Y/N & N & N & Y & N & N & N & Y\\
+Prototypes & N & N & N & N.A. & Y & N & Y & N\\
+#Meanings given & Y/N & N & N & Y & N & N & N & Y\\
+#Forms given & Y & Y & N & Y & N.A. & N & N & Y\\
+Known position & N & N & N & N.A. & N.A. & Y & N & N\\
+Camera vision & N & N.A. & N.A. & N.A. & N & Y & N & N\\
+Autonomous & Y & Y & Y & Y & Y & Y & Y & N\\
+Extra-linguistic & N & N & Y & Y & N.A. & N & Y & N\\
+\hline\hline
+\end{tabular}
+\caption{Various aspects investigated by different researchers. Each column of the table is reserved for a particular research. The related work in this table is from (the group of): B - Billard, C - Cangelosi, D - De Jong, O - Oliphant, R - Rosenstein, S - Steels, V - Vogt, Y - Yanco and Stein. The other abbreviations in the table stand for Y - yes, N - no and N.A. - not appicable.}
+\label{t:intro:contrib}
+\end{table}
+
+Of the related work, the work of \cite{cangelosiparisi:1998,dejong:2000,oliphant:1997} is not grounded in the real world. The work of Cangelosi et al. and of De Jong is grounded only in simulations. This makes the grounding process relatively easy, because it avoids the problems that come about when categorising the real world. Oliphant does not ground meaning at all. The work of this thesis is grounded in the real world.
+
+Some researchers, notably \cite{billard:1997a,cangelosiparisi:1998,yancostein}, pre-define the language. I.e. they define how a word-form relates to a behaviour or real world phenomenon. Although in the work of Yanco and Stein the robots learn the language, the researchers have pre-defined the language and they provide feedback whether the language is used successfully. \citeN{rosenstein:1998a} do not model language yet. Hence the question if they pre-define the language is not applicable. In the work done at the VUB AI Lab no such relationships are given to the agents. This is also not given in the work of Mike \citeN{oliphant:1997}. This means that the agents construct the language themselves. 
+
+Meaning is pre-defined if the agents have some representation of the meaning pre-programmed. This is done in the work of \cite{billard:1997a,oliphant:1997,yancostein}. In the work of Billard and Hayes, the meaning is only given to the teacher robot. The student robot learns the representation of the meaning. Oliphant's agents only have abstract meanings that have no relation to the real world. In the work that is done in most of Steels' group the agents construct their own ontology of meanings.
+
+Of the researchers that are compared with this work, only \citeN{rosenstein:1998a} makes use of prototypes as a way of defining categories. All other work makes use of some other definition. This does not mean that the use of prototypes is uncommon in artificial intelligence, but it is uncommon in the 'grounding of language community'.
+
+Quite some researchers pre-define the number of meanings and/or forms that is, or should arise in the language \cite{billard:1997a,cangelosiparisi:1998,oliphant:1997,yancostein}. Naturally, language is not bound by the number of meanings and forms. Therefore, the number of meanings and forms that may come about is unbound in this thesis.
+
+It may be useful if the position of the robot in relation to other robots and objects in their environment is known exactly. Especially for technical purposes, like pointing to an object. However, such information is not always known to the language users. In the Talking Heads experiment, the robots have knowledge about their own position (which is fixed) and the position of the other robot, and they can calculate the position of objects in their world. Such information is not available to the robots in this thesis. This is one of the main differences between the Talking Heads and the current experiments. Another difference with the Talking Heads is the use of camera vision, rather than low-level sensing. Still other differences are at the implementation of the model. These differences have been discussed above and will be discussed more in chapter \ref{ch:discussion}.
+
+Except the work of \citeN{yancostein} all experiments are autonomous, i.e. without the intervention of a human. Yanco and Stein give their robots feedback about the effect of their communication. This feedback is used to reinforce the connections between form and meaning. The system designed in this thesis is completely autonomous. The only intervention taken is to place the robots at a close distance rather than letting them find each other. This is done in order to speed up the experiments. In previous implementations, the robots did find each other themselves \cite{steelsvogt:1997}. There is no intervention at the grounding and learning level involved.
+
+As explained, one of the research goals is to investigate the importance of extra linguistic information that guides the lexicon development. This has also been investigated by \citeN{oliphant:1997a} and \citeN{dejong:2000}.
+
+So, in many respects the research that is presented in this thesis is unique. It takes on many aspects of a grounded language experiment that is not shared by other experiments. The experiment that comes closest is the Talking Heads experiment. The results of the experiments from this thesis will therefore be compared in more detail at the end of this thesis.
+

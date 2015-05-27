@@ -1,0 +1,519 @@
+\chapter{Language Games}\label{ch:lg}
+
+\section{Introduction}
+
+In order to investigate the evolution of meaning and lexicon the robots engage in a series of language games. Every language game can be thought of as a communication act in which the robots communicate about an object (in this case a light source). The goal of a language game is for the two robots to identify the same referent through the exchange of linguistic and/or nonlinguistic information. If this does not succeed they can adjust their set of meanings and/or lexicons so they may be successful in future games.
+
+\p
+The notion of a language game was first introduced by Ludwig \citeN{wittgenstein:1958}. Wittgenstein called every language use a language game. The meaning of the language game depends, according to Wittgenstein, on the {\em how} the game is used. Wittgenstein gave some examples of different types of language games:
+
+\begin{quote}
+\begin{itemize}
+\item Giving orders, and obeying them
+\item Describing the appearances of an object, or giving its measurements
+\item Constructing an object from a description (a drawing)
+\item Reporting an event
+\item Speculating about an event
+\item ... 
+\end{itemize}
+\cite[p. 11 (par. 22)]{wittgenstein:1958}
+\end{quote}
+
+The point Wittgenstein made was that the meaning of a word not necessarily refers to a particular real-world object nor does a word always has the same meaning. Its meaning depends on its usage in the language game. In the experiments done at the AI Lab the type of usage is expressed with different types of games. Besides the basic term of language game, the following games have been introduced {\em naming games} \cite{steels:1996a}, {\em discrimination games} \cite{steels:1996b}, {\em imitation games} \cite{deboer:1997}, {\em guessing games} \cite{steelskaplan:1999}, {\em identification games} \cite{vogt:1999a} and {\em follow me games} \cite{vogt:1999a}. All games, except the discrimination and identification games which model categorization, model a communication act. The discrimination and identification games model categorization. All types of games will be discussed in this dissertation, except the imitation games, which are used to model the emergence of phonetic vowel systems \cite{deboer:1997,deboer:1999}. Most games form a subpart of what is called here a language game.
+
+\p
+In the context of this work, a language game is the complete process of performing a communication act. As mentioned in chapters \ref{ch:introduction} and \ref{ch:overview}, grounding language is strongly influenced by an agent's interaction with its environment. Since it is assumed that language and conceptual structures are complex dynamical adaptive systems, these systems can be defined by their mechanical processes and the systems boundary conditions \cite{prigogine}. So, to develop a robot capable of constructing conceptual structures and language, one has to define such mechanisms and boundary conditions of the system. The mechanism has already been chosen, namely the {\em selectionist approach} taken \cite{steels:1996a,steels:1996b}. The boundary conditions will be defined (for a great deal) by the {\em physical bodies} and the {\em physical interaction} of the robots with their ecological niche. 
+
+\p
+This chapter discusses the interactions of the robots with their environment. It defines the language game scenario in detail, defining the physical interaction in which a context setting is acquired. The next chapter describes the higher cognitive functions of categorization and naming. The physical interaction is processed on-board of the robot, whereas the cognitive functions are processed off-line on a PC. The next section introduces the scenario. In section \ref{s:lg:scenario} implementation issues of the scenario are discussed. Section \ref{f:lg:perception} discusses the perception and segmentation during a language game. A physical implementation of pointing is introduced in section \ref{s:lg:pointing}. Section \ref{s:lg:architecture} discusses the software architecture of the implementation. Then section \ref{s:lg:offboard} discusses the advantages of on-board vs. off-board processing as a methodology of experimenting with robots. A final section of this chapter summarizes this chapter.
+
+
+\section{The Basic Scenario}\label{s:lg:scenario}
+
+In chapter 1 the basic scenario of the language games has been introduced. Before the scenario is discussed in more detail, the introduction is repeated here for clarity. And although this chapter discusses the language game scenario already in detail, more details about the implementation can be found in appendix \ref{a:lg}.
+
+\begin{table}
+\centering
+\begin{tabular}{||c|c||}
+\hline\hline
+{\bf SPEAKER} & {\bf HEARER}\\
+\hline
+\multicolumn{2}{||c||}{{\em Get together and align}}\\\hline
+\multicolumn{2}{||c||}{Perception and segmentation}\\\hline
+Topic choice & --\\\hline
+{\em Pointing} & {\em Topic selection}\\\hline
+\multicolumn{2}{||c||}{Categorization}\\\hline
+Production & --\\\hline
+-- & Understanding\\\hline
+\multicolumn{2}{||c||}{Feedback}\\\hline
+\multicolumn{2}{||c||}{Adaptation}\\\hline\hline
+\end{tabular}
+\caption{The language game scenario (1). {\em Pointing} and {\em Topic selection} may be omitted for pragmatic reasons. See the text for more details.}
+\label{t:scenario1}
+\end{table}
+
+
+
+So, how is a language game organized? Table \ref{t:scenario1} shows the structure of the language game scenario. In a language game two robots - a {\em speaker} and a {\em hearer} - get together and determine the context of the game by means of a specialized perception task\footnote{In early experiments \cite{steelsvogt:1997} the robots came together autonomously. This finding each other, however, took approximately 1.5 minutes for each language game. So, to speed up the experiments this is now done by the researcher.}. The perception results in a {\em percept} which is segmented resulting in a set of {\em segments}. The segments refer to the light sources as they are detected by the robot. The speaker chooses one segment from the context to be the topic of the language game and tries to categorize this segment by playing a discrimination game. The hearer identifies one or more segments from the context as a possible topic an tries to categorize this (these) segment(s). The way the hearer identifies the topic differs in various experiments as will be described later in this chapter. The process of categorization will be described in the next chapter.
+
+After the speaker has chosen a topic and grounded the meaning of this segment,  i.e. after it categorized the segment, it encodes this meaning into an one-word expression. The hearer decodes this word-form into its meaning by searching its lexicon. If this meaning is coherent with the categorized meaning of the topic, then the language game {\bf may} be a success. The success of the language game can be determined in various ways. The idea is that a language game is successful when the speaker and the hearer communicated about the same referent. If the language game was not a success, then the lexicon has to be adapted either by word creation (if the speaker could not encode the meaning) or by word adoption (if the hearer could not decode the expression) or by decreasing association scores. Association scores are increased when the language game is successful. The process of the {\em linguistic communication} after categorization and {\em lexicon adaptation} is called a {\bf naming game} (or sometimes guessing game) and, like the categorization will be explained in chapter \ref{ch:naming}. Figure \ref{f:scheme} shows a schematic overview of the language games.
+
+\begin{figure}
+\centering
+\subfigure[]{\psfig{figure=lang_games//schema1.eps,width=5.5cm}}
+\subfigure[]{\psfig{figure=lang_games//schema2.eps,width=5.5cm}}\\
+\subfigure[]{\psfig{figure=lang_games//schema3.eps,width=5.5cm}}
+\caption{A temporal overview of the language game scenario. (a) The robots get together aligned and rotate in order to perceive their surroundings. (b) The speaker produces an utterance and the hearer tries to understand the speaker. (c) When the hearer `thinks' it understood the speaker, it points to the topic as part of the feedback.}
+\label{f:scheme}
+\end{figure}
+
+So, what are important issues and tasks for two robots that try to communicate the name of some things they can {\em perceptually detect}\footnote{The term {\em seeing} is deliberately omitted to indicate the fact that the robots do not have vision in the same sense humans have. If the term seeing is used, it is meant to indicate perceptual detection.} in a particular context? On of the tasks is perception. How do the robots perceive their surroundings? Since the robots only have low-level sensors in the front, their visual field is very narrow. It is difficult to draw much information from these sensors when the robots stand still. Therefore the robots rotate 360 degrees to observe their near surroundings. Their visual fields then consist of a time series of sensory data. From this data, the robots can extract sensory information relating to the referents by processing certain characteristics of the time series. 
+
+Another task for the robots is to extract a {\em coherent} context of perceptual features. This is a non-trivial problem, since the robots cannot detect exactly the same scene when they are not at the same position. The problem is solved to have both robots standing close to each other and then assume their visual fields are the same. In order to enable the robots to map their own context onto the other robot's context, some pre-assumptions are made. The main assumption is that both robots have an indication of the other robot's orientation, for this the robots are facing each other before and after the perception.
+
+In the original experiments all the processing, including the meaning and language formation, was done on-board on the robots \cite{steelsvogt:1997}. But, since the robots failed to enhance the lexicon due to memory deficiency and because the robots' batteries only work for one hour while the experiments take much more time, a large part of the processing is done off-board on a personal computer. This has more advantages which will be discussed in section \ref{s:cm:onboard}. The sensory information that the robots detect during perception is sent to the PC by the radio link. And after the robots recorded the sensory information of a language game, segmentation, categorization and naming are further processes on the PC.
+
+
+In table \ref{t:scenario2} a closer look is taken at the language game scenario as introduced above. The table again shows the basic of the language game schematically, only in more detail than table \ref{t:scenario1}. Another look at the scenario is presented in appendix \ref{a:lg}, where the approach is closer to the implementation of the architecture in PDL. Before the table is reintroduced it is good to take notice of some observations, which will be discussed in more detail in section \ref{s:architecture}: 
+
+\begin{itemize}
+\item To play a language game, a robot has to perform a sequence of actions. These actions need to be planned. The planning is preprogrammed as a script using finite state automata. There is a finite state automaton (FSA) one for each role the robots can play: the speaker or hearer. Each FSA is active all the time and when no language game is played, both robots are in state 0. A process called \texttt{DefaultBehavior} decides when an agent goes into state 1 of the {\em speaker-FSA} or {\em hearer-FSA}. In each state a set of dynamic processes is activated or inhibited. This way the implementation causes PDL to incorporate a hierarchical structure, which was not the purpose of its original design.\footnote{It should be noted that this architecture, although close, is not to be equalized with the {\em subsumption architecture} of \citeN{brooks:1990}. In the subsumption architecture each dynamic process is a FSA itself where the system can only be in this state or not. Pre- and post-conditions evaluate when system enters or exits the state.}
+\item The language game scenario is a parallel process in which two robots cooperate autonomously. In order to synchronize these two parallel processes, the robots use pre-programmed radio communication. The robots playing a language game process dependent, but parallel operating finite state automata. A signal is broadcasted when both robots should transfer to another state simultaneously.
+\end{itemize}
+
+\newpage
+\setlongtables
+\begin{longtable}{||p{0.5cm}|p{4.5cm}|p{4.5cm}||}
+\multicolumn{3}{p{10.4cm}}{\center{\bf The Language Game Scenario (2).}\\ In the first column the states of the FSA are numbered. The state of the speaker is given before the colon, the hearer's state behind. The columns of the {\bf SPEAKER} and {\bf HEARER} give a detailed description of the behavior performed in that state.}
+\hline
+S & {\bf SPEAKER} & {\bf HEARER}\\
+\hline
+\endfirsthead
+\multicolumn{3}{l}{\small\slshape continued from previous page}
+\hline
+\endhead
+\hline
+\multicolumn{3}{r}{\small\slshape continued on next page}
+\endfoot
+\hline
+\caption{The Language Game Scenario (2).}
+\endlastfoot
+\centering
+0:0 & \multicolumn{2}{p{9cm}||}{Both robots move arbitrarily in the environment until one robot detects the near presence of the other. The first robot makes contact with the radio message \texttt{communicate}. If the other robot receives this message it will \texttt{confirm} the first one. This robot enters state 1 of the speaker, the second goes into state 1 of the hearer.}
+\\ \hline
+4:3 & The speaker rotates 360 degrees for the perception task. During this phase the speaker segments the sensory space to reduce the amount of raw sensory data, see section \ref{s:lg:segmenting}\footnote{In the experiments the sensor data is actually sent via the radio link to the PC, where the segmenting is processed. Originally it was done simultaneous to the perception, therefore it is classified here.}. The speaker finishes rotating when it detects a maximum of IR, then it stops and sends a message \texttt{perceived}. & The hearer waits for the message \texttt{perceived} while it emits IR.\\\hline
+5:4 & The speaker waits for the message \texttt{perceived} while it emits IR.& The hearer rotates 360 degrees to do perception. During this phase the hearer segments the sensory space to reduce the amount of raw sensory data. The hearer finishes rotating when it detects a maximum of IR, then it stops and sends a message \texttt{perceived}.\\\hline
+6:5\footnote{Here starts the off-line processing.} & The speaker chooses a topic\footnote{In some experiments the speaker gives the hearer information about the position of the topic by a process called {\em pointing}. This pointing is discussed in section \ref{s:lg:pointing}.}. & \multirow{3}{4.5cm}[-1cm]{Hearer does nothing until it receives a word-form.} \\\cline{1-2}
+7:5 & The speaker categorizes the topic by playing a discrimination game (see chapter \ref{ch:dg}). &\\\cline{1-2}
+8:5 & The speaker encodes the category of the topic and communicates the resulting word-form to the hearer. &\\\hline
+9:6 & \multirow{2}{4.5cm}[-2.5cm]{The speaker waits until the hearer gives feedback about the LG.} & If the hearer receives a message without a word-form, it goes to state 9. Otherwise the hearer categorizes the segments that it will consider to be the topic (see chapter \ref{ch:ng} for more details). For each such segment the hearer plays a single discrimination game.\\\cline{1-1}\cline{3-3}
+9:7 & & If categorization succeeds, the hearer decodes the received word-form into one or more associated categories from the lexicon. The hearer then tries to match these categories with the ones it categorized from the perception.\\\hline
+9:8 & \multicolumn{2}{p{9cm}||}{Feedback about the naming process (or language game) is determined. In principle, the game is successful when both robots chose the same referent as the topic.}\\\hline
+10:9 & \multicolumn{2}{p{9cm}||}{Both robots adapt their lexicon according to the outcome of the game}
+\label{t:scenario2}
+\end{longtable}
+
+\p
+How the physical behaviors of the robots are implemented in PDL is presented in appendix \ref{a:lg}. The physical behaviors are controlled on-board for states 1-5 for the speaker and 1-4 for the hearer. The rest of the behaviors are carried out on the PC and will be discussed in more detail the next chapters. To speed up the experiments the searching and alignment to each other (states S0-S3 and H0-H2) are skipped in these experiments order to save a lot of time. The robots are able to find and align each other \cite{steelsvogt:1997,vogt:1998a,vogt:1998b}, but this causes the processing of one language game to take about $1 \frac{1}{2} \mbox{min}$ on the average.
+
+
+\section{Perception and Segmentation}\label{f:lg:perception}
+
+When both robots are aligned (at the end of state S3 and H2) they are assumed to stand close to each other and the {\em perception} can start. What is meant with perception here is that the robots observe their surroundings to construct a landscape view from which a {\em context} can be derived. The context then forms the basis for the discrimination and  language game \cite{steels:1996a,steels:1996b}. So, the perception does {\bf not} include categorization; it is only a task in which raw sensory data is acquired. 
+
+Suppose that an agent observes a particular scene with sensors that can detect light coming from the outside world\footnote{An agent may also detect with sensors that inspect its internal state.}. Such an observation results in a set of raw sensory data that represents the scene. Depending on the sensors that the agent uses, the format of the data can be very differently. A robot with camera vision usually gets some kind of bitmap representing $n \times m$ pixels. Each pixel can be described by a number referring to the color of that pixel and/or to its brightness or other features. As in most vision applications the vision routines needs to pre-process the raw data in order to find regions of interest in the observed scene. Specially designed filters (usually more than one) filter the raw data. From the filtered image the system can find particular regions of interest (or {\em segments} for short) describing these regions with certain features like {\bf position}, {\bf color} or {\bf shape}. The aim of our model is to categorize these segments.
+
+The robots used in the experiments are equipped with low-level sensors, which can only detect light from the environment without spatial information, let alone discriminative information. In order to get a spatial and discriminative view of an environment, either the robot needs to have a spatially distributed array of sensors or the robot needs to move. Because of the physical limitations of the robots (and the SMBII in particular) it is opted to let the robots move. This way a higher resolution scan can be obtained from the environment.
+
+The perception is completely done on-board of the robots, whereas for practical reasons the segmentation is carried out off-board. The raw sensory data is transmitted to the PC using the radio link. However, the idea is that it is done simultaneously, and in the original experiments it was done this way \cite{steelsvogt:1997}. This is why both processes are discussed in this section.
+
+\subsection{Perception}
+
+Perception is done by letting the robots rotate (ideally) $360^o$ and record their sensory information while doing so. It is opted to let the robots rotate, since the light sensors cannot detect spatial information. Invoking a circular array of light sensors has been considered, but appeared to be technically difficult with the available resources. So, in order to obtain spatial information the robots rotate around their axis.
+
+\begin{figure}[t]
+\centerline{\psfig{figure=lang_games//perception1.eps,width=11.4cm}}
+\caption{The perception of a robot's surroundings as in the main experiments. See the text for explanation.}
+\label{f:perception1}
+\end{figure}
+
+\p
+Figure \ref{f:perception1} shows a landscape view of a robot's perception as recorded in the setup of the main experiments where the light sources are placed at different height positions (section \ref{s:setup:main}). The perception took $60$ PDL cycles ($=1.5 s$) and as would be expected from the setup four peaks of intensity are detected. Each peak {\em corresponds} to one of the four light sources in the environment. Remember that corresponding means that the sensor with the highest intensity at a peak detects the light source that is placed at the same height as the sensor itself. The intensity of each peak is dependent on the distance of the robot to the light source. Figure \ref{f:perception1} shows that at time step $7$ sensor $s0$ sensed a peak of value $201$, $s1$ sensed a small intensity of value $9$, $s2$ value $7$ and $s3$ $3$. At time $18$ there is a main peak of value $59$ for sensor $s1$, $s0$ has value $56$, $s2$ $11$ and $s3$ $3$. Sensor $s2$ shows a maximum at time $28$ with value $48$ with values $5$, $41$ and $6$ for sensors $s0$, $s1$ and $s3$ resp.. Sensor $s3$ sensed a maximum from $40$ to $43$ of $248$ with values $3$, $3$ and $10$ for sensors $s0$ to $s2$. Table \ref{t:perception1} summarizes the above more clearly.
+
+\begin{table}
+\centering
+\begin{tabular}{||c|r|r|r|r|r||}
+\hline\hline
+R & t & $s0$ & $s1$ & $s2$ & $s3$\\
+\hline
+1 & 7 & 201 & 9 & 7 & 3\\
+2 & 18 & 56 & 59 & 11 & 3\\
+3 & 28 & 5 & 41 & 48 & 6\\
+4 & 42 & 3 & 3 & 10 & 248\\
+\hline\hline
+\end{tabular}
+\caption{Interesting peaks in figure \ref{f:perception1}. The table lists the region of interest R, of which the highest intensity is reached at time $t$ with intensities of sensors $s0$, $s1$, $s2$ and $s3$.}
+\label{t:perception1}
+\end{table}
+
+
+These peaks can all be explained with the characteristics of the sensors seen in figure \ref{f:setup:wlcalibration}, page \pageref{f:setup:wlcalibration}. The robot clearly senses light sources $L0$ and $L3$ nearby; the corresponding sensors show high values and almost all other sensors show noise values. Light sources $L1$ and $L2$ are further away. The corresponding light sensors show relative low values and some adjacent sensors show values that are close to the relevant sensors. All low values (appr. $<10$) between the peaks are noise values (section \ref{s:setup:main}). A peak starts when one of the sensor values increases the noise value of that sensor and it ends when all sensor values become less or equal to that value. So, each peak has a certain width. The region of such peaks could be called a {\em region of interest}.
+
+\begin{figure}
+\centerline{\psfig{figure=lang_games//perception2.eps,width=11.4cm}}
+\caption{The perception of the hearer in the same language game situation as in figure \ref{f:perception1}.}
+\label{f:perception2}
+\end{figure}
+
+After the speaker finished its perception, the hearer starts its perception. That the hearer does not perceive the same view as the speaker can clearly be seen in figure \ref{f:perception2}. This figure shows the landscape view of the hearer during the same language game. If one looks carefully, one can see similarities, but there is no straight forward mapping. If one looks closely, there are five peaks of interest (see table \ref{t:perception2}). However, although peak 4 is interesting, according to the definition just given, it is part of the same region of interest as in peak 3 because the intensity does not drop below the noise value.
+
+\begin{table}
+\centering
+\begin{tabular}{||c|r|r|r|r|r||}
+\hline\hline
+Nr. & t & $s0$ & $s1$ & $s2$ & $s3$\\
+\hline
+1 & 1 & 4 & 25 & 30 & 7\\
+2 & 8 & 7 & 3 & 7 & 150\\
+3 & 40 & 247 & 5 & 4 & 6\\
+4 & 47 & 38 & 24 & 4 & 3\\
+5 & 54 & 12 & 4 & 21 & 8\\
+\hline\hline
+\end{tabular}
+\caption{Interesting peaks in figure \ref{f:perception2}.}
+\label{t:perception2}
+\end{table}
+
+\p
+Peaks 1 and 5 both appear to correspond to $L2$. Although the times at which the peaks are observed lie far apart, these peaks are detected under almost the same orientation of the robot, namely in the front. This fits well with the perception of $L2$ in figure \ref{f:perception1}, which is behind the speaker. Peaks 2 and 3 (corresponding to $L3$ and $L0$ resp.) can also be well related to the observation of the speaker. Peak 4, however, does not clearly correspond to a light source. One would expect to detect $L1$, both intuitively as from the perception of the speaker. Sensor $s1$ does indeed show a peak here, but $s0$ shows the highest peak. It may be possible that the robot here senses a reflection of light source $L0$, although measurements have shown that this is not likely. It is more likely that the robot is so far away from light source $L1$ that the light has already diverged so much that the correspondence between sensor and light source is not valid anymore, despite the calibration, but cf. figure \ref{f:setup:calibration}.
+
+As mentioned, the robots rotate $360^o$ during the perception starting face-to-face. This, however is not true in most experiments reported here. The robots actually rotate approximately $720^o$ starting back-to-back. But, the visual field recorded contains $360^o$ starting from the moment the rotating robot passes the other robot (IR source) face-to-face. This is done to eliminate unwanted side-effects from the acceleration and deceleration of the robots at the beginning and finish of the perception. See the presentation of the results in section \ref{s:xxx}.
+
+\subsection{Segmentation}
+
+It is very common in visual systems that the amount of input needs to be reduced for, e.g. computational reasons. Usually the raw image contains one or more regions of interest. These regions of interest can be dependent on the task of the agent. For instance for a frog only small moving spots on the visual field are interesting, since these may be edible flies. In the application described here, the regions of interest are indirectly defined by the goal of the experiments, namely categorizing and naming the light sources. What does a robot detect of a light source? In figures \ref{f:perception1} and \ref{f:perception2} it is clear that the robots detect peaks of intensity of the sensory stimuli in contrast to some background noise. So, one might say that we define the regions of interest those regions where the intensity of at least one sensor increases a certain noise value. This can be modeled with the Hamilton function $H(s_i-\Theta_i)$, where $s_i$ is the sensor value of sensor $i$ at a certain time, $\Theta_i$ is the noise value of sensor $i$ and $H(x)$ is the Hamilton function\footnote{Note that the noise value may vary per sensor. The values that are used are shown in table \ref{t:setup:noise} on page \pageref{t:setup:noise}.}:
+
+\begin{eqnarray}
+H(x)= \left \{ \begin{array}{rl}
+	x & \mbox{if $x \geq 0$}\\
+0 & \mbox{if $x < 0$} \end{array} \right. \end{eqnarray}
+
+
+Applying this function to figure \ref{f:perception1} results in figure \ref{f:regions}.  Although in the original figure there were only $4$ regions of interest identified the above method identifies $6$ regions. The two additional regions come from small perturbations in the landscape that exceeds the noise values a little bit. This does not necessarily mean that these perturbations cannot be due to noise, but it can also be due to reflection.
+
+\begin{figure}[t]
+\centerline{\psfig{figure=lang_games//region1.eps,width=11.4cm}}
+\caption{The for noise filtered perceptual view of robot $r0$ as seen in figure \ref{f:perception1}.The noise values are taken from table \ref{t:setup:noise} at page \pageref{t:setup:noise}.}
+\label{f:region1}
+\end{figure}
+
+It is desirable to describe each region of interest with one vector of low and {\em equal} dimension. Equal dimension is use for consistency in the data, which makes the computational processing easier. The raw data has now been reduced from a $4$ dimensional time series of $60$ data points to $6$ regions of dimension $4$ and length $7$, $8$, $8$, $8$, $1$ and $1$ resp. making a total of $33$ data points. This is already a reduction of approximately $50\%$, but considering that there are only four light sources in the robots' environment and the computational processes needed for categorization (see next chapter), this is still quite a lot. So, a second process (or function) may be introduced to transform the information from the regions of interest in a uniform vector representation.
+
+\p
+To introduce such a transformation the notion of a {\em sensory channel} is defined. A sensory channel $sc_j$ is a function $f_{i,j}:S_i\rightarrow S_i'$, where $S_i$ is the real-valued sensory space $i$ for some region and $S_i'=[0,1]$ the real-valued space of the sensory channel that transforms the sensory space $i$ into sensory channel space $i$. There is no necessary one-to-one relation of a sensory space to the sensory channel space. In some applications a certain sensor can be transformed differently, resulting in more than one sensory channel. Likewise there may be a mapping of a multidimensional sensory space to a lower dimensional sensory channel space. Thus there may also be one-to-many and many-to-one relations between $S$ and $S'$. However, in the experiments reported here there is a one-to-one relation between a region of interest in the sensory space of one sensor to one value in the sensory channel space.
+
+How the function $f$ is defined depends on the information one wants to extract from a sensed region and may be dependent on the task. Since the task is to name the referents, the agent needs to ground the sensory information into a symbolic structure that is as invariant as possible. A lot of work in categorizing the data is saved when the function already extracts invariant information. So, what is invariant information of the light sources the robots can detect? It certainly are not the absolute values of the peaks' intensities. Such values causes the robots to categorize the light sources and its distance to the robot as can be seen in figure \ref{f:setup:calibration}, page \pageref{f:setup:calibration}. This was the case in the experiments reported in \cite{steelsvogt:1997,vogt:1998b}, where in every region of interest returned the maximum intensity for each sensor as the value for the corresponding sensory channel.
+
+The sensory channels measuring the maximum intensity are defined formally as follows: Suppose the perception and noise filtering yield regions $R_0,\ldots,R_n$, where each region $R_k=\{{\bf s}_{k,0},\ldots,{\bf s}_{k,m}\}$. Region $k$ is described by a set of time series ${\bf s}_{k,i}=\{\tau_{k,i,0},\ldots,\tau_{k,i,r}\}$ for sensor $i$ and sensor values $\tau_{k,i,l}$, where $l=0,1,\ldots,r$. The function of the sensory channel $sc_i$ can now be defined as:
+
+\begin{eqnarray}f_i({\bf s}_{k,i}) = \max_{{\bf s}_{k,i}} (\tau_{k,i,l})\end{eqnarray}
+
+\p
+For each region $R_k$ the function $f_i$ will be applied on every sensor over the time period that $R_k$ exists. Thus the region $R_k$ is reduced to a {\em segment} $S_k=\{f_0({\bf s}_{k,0}),\ldots,f_m({\bf s}_{k,m})\}$ where $m$ is the amount of sensors (or sensory channels) the robots have. In the example given in figure \ref{f:region1}, this would yield $6 \times 4 = 24$ (6 regions, 4 sensors) data points instead of $60 \times 4 = 240$ points. A reduction of $90 \%$. The whole process of reducing the raw sensory data into a representation like the above is called {\em segmentation} and results in a set of segments, called the {\em context}. Note that this representation is still sub-symbolic; the segments are described in real-valued functions over the sensory readings and therefore vary from situation to situation. Applying the above function to the measurements in figure \ref{f:region1} yield the segments given in table \ref{t:sc_distance}.
+
+\begin{table}
+\centering
+\begin{tabular}{||c|r|r|r|r|r||}
+\hline\hline
+S & t & $sc0$ & $sc1$ & $sc2$ & $sc3$\\
+\hline
+1 & 7 & 196 & 4 & 0 & 0\\
+2 & 18 & 51 & 54 & 4 & 0\\
+3 & 28 & 0 & 36 & 40 & 1\\
+4 & 40 & 0 & 0 & 2 & 243\\
+5 & 50 & 0 & 0 & 0 & 2\\
+6 & 59 & 3 & 0 & 0 & 0\\
+\hline\hline
+\end{tabular}
+\caption{Segments S after applying the sensory channels measuring the maximum intensities of figure \ref{f:region1}.}
+\label{t:sc_distance}
+\end{table}
+
+
+\p
+As mentioned, the above sensory channels only extract absolute sensor values, and thus information about the distance of the robot to the light source. Since the robots can move `freely' in their environment, the distance between a robot and a light source varies throughout the experiment and is therefore not an {\bf invariant} measure. But what are invariant measures of a region that corresponds to a light source? This is a question that is hard to answer, because it might be the case that there are no concrete invariant measures. Lighting conditions change, temperatures are changing, the power supply of the batteries is not stable etc... In brief, the environment (including its inhabitants) is dynamic. Therefore it is necessary not to look for invariant, but for {\em semi-invariant} sensory channels. Channels that respond to stimuli with a similar {\em tendency} independent of, say, distance\footnote{Identifying (or categorizing) referents should be independent of distance. Of course one can detect the distance to a light source with a invariant tendency, but then one should define one (or more) channel(s) that yield similar outputs for distances to different light sources. A problem that will not be tackled here.}. 
+
+
+\begin{figure}[t]
+\centerline{\psfig{figure=lang_games//boundingbox.eps,width=11.4cm}}
+\caption{This figure shows how the filling ratio of a region can be determined, see text for an explanation. The figure shows how the environment is perceived in the original setup (see chapter \ref{ch:setup}). Each region of a sensor is bounded by a box BB. Note that the bounding boxes starting at time $0$ coincide with the bounding boxes that are active at the end of the perception. This is because the robot is assumed to rotate $360^o$ and the start point and end point is thus the same.}
+\label{f:boundingbox}
+\end{figure}
+
+In \cite{vogt:1998a,vogt:1998c} the sensory channels calculated the filling-ratio of a region in a bounding-box that could be drawn around it  (or {\em filling-ratio} for short), see figure \ref{f:boundingbox}. Suppose again there is a region of interest $R_k$ defined as above, then the sensory channels calculating the filling-ratios are defined as follows:
+
+\begin{eqnarray}f_i({\bf s}_{k,i}) = \left \{ \begin{array}{cl}
+\frac{\sum_{l=0}^{r} \tau_{k,i,l}}{M \cdot r} & \text{if $(M \cdot r) > 0$}\\
+0 & \text{otherwise} \end{array} \right.
+\end{eqnarray}
+
+\p
+with $M=\max_{{\bf s}_{k,i}} (\tau_{k,i,l})$ and $r$ the length of the region. So, this sensory channel calculates the ratio of the area of a region to its bounding box.
+
+The segments were positioned at the middle of the region and when for different sensors the position of a region were closer to each other than a certain {\em resolution}, the regions were assumed to belong to the same referent (or segment). This way figure \ref{f:boundingbox} would yield the context shown in table \ref{t:sc_fillingratio}.
+
+\begin{table}
+\centering
+\begin{tabular}{||c|r|r|r|r||}
+\hline\hline
+S & t & $WL$ & $ML$ & $IR$\\
+\hline
+1 & 14 & 0.00 & 0.42 & 0.48\\
+2 & 25 & 0.53 & 0.00 & 0.00\\
+3 & 63 & 0.00 & 0.46 & 0.00\\
+\hline\hline
+\end{tabular}
+\caption{Segments S after applying the sensory channels measuring the filling-ration of figure \ref{f:boundingbox}. Note that although there were four light sources, the robot only distinguished three in the segmentation. This is due to the assumption that regions of different sensors belong to the same segment when they have been observed within a window of time period $10$ around the position of one observation.}
+\label{t:sc_fillingratio}
+\end{table}
+
+\p
+The sensory channels discussed so far were used in experiments of the original setup. In the experiments presented here the aim is to categorize light sources that are positioned at different heights. Calculating the filling-ratio is in such a task not very effective, because the filling-ratio may be the same for every sensor that is activated within a certain region. A better `invariant' would be the relative activity of a sensor in a particular region.
+
+To calculate these relative values in a region, one can take the maximum value of highest peak as the normal and normalize all maximum values of the peaks within that region. Formally we have:
+
+\begin{eqnarray}
+f_i({\bf s}_{k,i}) = \frac{\max_{{\bf s}_{k,i}} (\tau_{k,i,l})}{\max_{R_k} (\max_{{\bf s}_{k,i}} (\tau_{k,i,l}))}
+\end{eqnarray}
+
+\p
+This function will yield a value $1$ for the sensory channel to which the sensor reads the highest peak in a region. All other sensory channels yield a value between $[0,1]$. Applying this sensory channel to the perception of figure \ref{f:region1} would result in the context given in table \ref{t:sc_relative}.
+
+\begin{table}
+\centering
+\begin{tabular}{||c|r|r|r|r|r||}
+\hline\hline
+S & t & $sc0$ & $sc1$ & $sc2$ & $sc3$\\
+\hline
+1 & 7 & 1.00 & 0.02 & 0.00 & 0.00\\
+2 & 18 & 0.94 & 1.00 & 0.07 & 0.00\\
+3 & 28 & 0.00 & 0.90 & 1.00 & 0.03\\
+4 & 40 & 0.00 & 0.00 & 0.01 & 1.00\\
+5 & 50 & 0.00 & 0.00 & 0.00 & 1.00\\
+6 & 59 & 1.00 & 0.00 & 0.00 & 0.00\\
+\hline\hline
+\end{tabular}
+\caption{Segments S after applying the sensory channels measuring the relative intensity of a sensor in a given region.}
+\label{t:sc_relative}
+\end{table}
+
+\p
+Table \ref{t:sc_relative} yields a.o. segments which are only detected in a region of only $1$ time step long, i.e. segments 5 and 6. Since these are segments that are probably due to noise or from small reflections, the segmentation discards segments that do not last any longer than $1$ time step. This way the implementation of the segmentation yields a context that  only consist of the first 4 segments when applying to the percept shown in figure \ref{f:region1}.
+
+\p
+All the so far defined sensory channels have been implemented on the robots \cite{steelsvogt:1997,vogt:1998b}. Only the latter sensory channel is used in the experiments reported here. Several others have been introduced like one for categorizing spatial categories as in \cite{steels:1996d}. Still other sensory channels have been designed for usage in the Talking Heads experiments \cite{belpaeme:1998,steelskaplan:1999}. In the Talking Heads experiment as well as in this application the sensory channels were designed by hand. \citeN{dejong:1999} and \citeN{belpaeme:1999}\footnote{Note that Belpaeme calls the sensory channels {\em feature detectors}.} have shown that such channels can resp. be learned or evolved.
+
+\subsection{Summary}
+
+In this section the perception and segmentation of the robots has been defined. The perception consists only of viewing the robot's environment by rotating 360 degrees. This results in a landscape view of the robot's surroundings. During the segmentation process the robots identify regions of interest and extract sensory information from such regions using sensory channels. These sensory channels describe the segments by information that would be effective in a particular task. Optimally, these sensory channels extract invariant information from the sensory input. Three different types of sensory channels have been introduced, although only one will actually be used. The perception and segmentation result in a context of segments that relates to detected light sources in the robots' environment. This context, however, still describes the segments with a subsymbolic representation. The categorization, conceptualizaton and lexicalization will transform this representation into a symbolic representation.
+
+\section{Pointing}\label{s:lg:pointing}
+
+\todo{TODO: Compare with theory about mutual attention and feedback}
+
+While playing language games, humans often use pointing to draw the attention on the topic of the conversation. Especially when a new word is to be learned.  In the early naming game model \cite{steels:1996a}, it was assumed that both agents participating a game know what the game's topic is prior to the linguistic interaction. So, the two agents somehow had to draw a mutual attention to one of the elements in the context. In simulations this has been implemented very simplistic and straightforward. It worked because the assumption was that both agents shared exactly the same context and that the topic was assigned by the simulation \cite{steels:1996a}. As the previous section showed, physical robots do not perceive exactly the same scene and are therefore frequently not capable to observe a shared context of segments, although there is usually a substantial cross-section.
+
+It has been shown in later experiments that prior knowledge about the topic is not necessary to bootstrap a language (see chapter \ref{ch:results} and \cite{vogt:1998c,steelskaplan:1999}). In this case topic knowledge seemed to be a necessary part of the feedback. When feedback was given such that both robots could determine that they were communicating the same topic, the language game could be considered successful. So, pointing might be used to establish mutual attention or feedback.
+
+Pointing was first implemented as a physical mechanism \cite{steelsvogt:1997}. For technical and practical reasons, in later versions pointing has been implemented off-board. This section will first describe the physical pointing and discuss some technical problems with it. The second part of this section will discuss how pointing has been implemented as an off-board process. In later chapters discussions will frequently turn towards the issue of pointing as a possible necessity for bootstrapping language. Those discussion will, however, mainly deal with more fundamental issues than the actual (physical) implementation. This subsection will only present the technical details of the implementation.
+
+\subsection{Physical Pointing}
+
+\begin{figure}
+\centerline{\psfig{figure=lang_games//pointing1.eps,width=11.4cm}}
+\caption{A schematic overview of the experimental setup during pointing. The pointing robot emits IR in four perpendicular directions (shaded cones). When this robot orients itself to the direction of the topic, the other robot can determine approximately this direction (or at least its quadrant) by counting the peaks of IR that are passing by.}
+\label{f:pointing1}
+\end{figure}
+
+The idea of physical pointing is that a robot orients itself in the direction in which it detected the topic, so it rotates a certain angle. The other robot tries to determine in which direction the first robot orients. The angle can be estimated by counting the peaks of IR that passes by. Note that from the start the pointing robot is emitting in four perpendicular directions.
+
+
+Figure \ref{f:pointing1} shows the experimental setup of the pointing. Initially, the two robots are assumed to stand opposite of each other at close distance and facing each other. The robot that needs to point emits IR in four directions while the other robot does not emit IR. If the pointing robot rotates $360^o$, the observing robot detects a signal as shown in figure \ref{f:pointing2}.
+
+\begin{figure}[t]
+\centerline{\psfig{figure=lang_games//pointing2.eps,width=11.4cm}}
+\caption{The sensation of IR that the observing robot detects when the pointing robot is rotating $360^o$.}
+\label{f:pointing2}
+\end{figure}
+
+This figure shows that from the starting position the intensity of the IR decreases. Three clear peaks show up in the middle. A last peak is formed at the end. The resulting 4 peaks (peak 1 and 5 belong to each other) cut up the circle into four quadrants. Although the angle could be estimated through interpolating the signal between two peaks, it has been opted to be satisfied when the observing robot identified the quadrant by counting passing. This already caused many technical problems. As can be seen in figure \ref{f:pointing2} between the two main peaks at times 51 and 85 there are relative small peaks of IR that need to be filtered out. Therefore a threshold has been introduced. This threshold, however, should depend on the initial distance of the robots to each other (a similar IR characteristics can be measures as observed for the WL in figure \ref{f:setup:calibration}). So, a threshold was calculated every time before pointing started as a value that was $90 \%$ of the IR intensity at time step $0$.
+
+\begin{figure}[t]
+\centering
+\subfigure[$45^o$]{\psfig{figure=lang_games//pointing45.eps,width=5.4cm}}
+\subfigure[Aside]{\psfig{figure=lang_games//pointinglarge.eps,width=5.4cm}}\\
+\subfigure[$45^o$]{\psfig{figure=lang_games//align45.eps,width=3.5cm}}
+\subfigure[Aside]{\psfig{figure=lang_games//misalign.eps,width=3.5cm}}
+\caption{This figure shows what the observing robot detects when pointing is carried out if the two robots are not aligned perfectly. In figure (a) the alignment of the two robots deflected with $45^o$ (see situation (c)). And in figure (b) the orientation of the robots were all right, but the were not aligned in one line (situation (d)). Note that although the rotation time in the two plots varies largely, the figures show a rotation of $360^o$.}
+\label{f:pointingmisalign}
+\end{figure}
+
+\p
+The introduction of such a threshold, however did not solve other technical problems. Look for instance at figure \ref{f:pointingmisalign} (a0 and (c) which the observation of the pointing when the robots are misaligned with an angle of $45^o$. No clear peaks that divide the space into four quadrants can be seen anymore. If the robots are oriented `facing each other' (i.e. their orientation is mirrored as it should be), but the alignment is not on the same axis, then some nice and clear peaks can be observed (figure \ref{f:poiningmisalign} (b) and (d)), although it is clear that this observation is quite different than the one in figure \ref{f:pointing2}. Besides it is clear that the initial intensity of IR is sometimes lower than the maximum intensity and $90 \%$ of this will be too low for the threshold to filter out local maxima.
+
+\subsection{Off-board pointing}
+
+Although the principle of pointing looks nice, the physical implementation introduced big problems. Because this engineering problem is not within the scope of the thesis, a simpler solution based on the same principle was found. The pointing robot now transfered the angle under which it observed the topic to the other robot by either radio communication or off-line on the PC. This way the problem of detecting and estimating the angle was omitted. But other even more fundamental problems remained as can be seen in figure \ref{f:pointingproblems}.
+
+\begin{figure}[t]
+\centering
+\subfigure[]{\psfig{figure=lang_games//pointing3.eps,width=3.5cm}}
+\subfigure[]{\psfig{figure=lang_games//pointing4.eps,width=3.5cm}}
+\subfigure[]{\psfig{figure=lang_games//pointing6.eps,width=3.5cm}}\\
+\subfigure[]{\psfig{figure=lang_games//foa.eps,width=3.5cm}}
+\subfigure[]{\psfig{figure=lang_games//pointing5.eps,width=3.5cm}}
+\subfigure[]{\psfig{figure=lang_games//deadangle.eps,width=3.5cm}}
+\caption{Fundamental problems that arise with the originally proposed solution of pointing. See text for the discussion.}
+\label{f:pointingproblems}
+\end{figure}
+
+
+\p
+In the figures (a) to (c) and (e) four situations are shown that might occur during pointing. The figures show two robots and a referent. The robots are displayed as arrow-like figures and the referent is the black dot. The pointing robot is oriented towards the referent, and the observing robot mirrored the direction of this referent as indicated by the arrow. In cases of figure \ref{f:pointingproblems} (a) to (c), however, the mirrored direction does not coincide with the real direction of the referent. In some cases when the robots are misaligned prior to pointing this effect might be even worse. This problem can partly be solved by letting the observing robot consider a {\em focus of attention} around this direction (figure \ref{f:pointingproblems} (d)) and calculate a confidence factor (or likelihood) of a segment to be the topic as a function of the segment's angular distance to the angle the pointing robot was pointing at. This so-called {\em topic score} $\varepsilon_s$ is calculated as follows:
+
+\begin{eqnarray}
+\varepsilon_{s} = \frac{1}{1+({\frac{d_s}{\alpha}})^2}
+\label{topicscore}
+\end{eqnarray}
+
+\n
+where $s$ is the segment, $d$ is the angular distance between proposed angle and the detected angle and {\em tolerance factor} $\alpha$ is the angle around which the focus of attention is centered. Topic score $\varepsilon_s$ can be interpreted as the likelihood of $s$ to be the topic. If $s$ is observed within the focus of attention, $d \leq \alpha$ and $0.5 \leq \varepsilon_s \leq 1$ otherwise $0 \leq \varepsilon_s < 0.5$. Although this method does not need to be optimal, it is assumed that the approximation will do.
+
+\p
+Figure \ref{f:pointingproblems} (e) shows the problem that occurs when the topic is behind the pointing robot. The observing robot can determine the direction in which the pointing robot is pointing, but it cannot detect the light source. This problem may be overcome by introducing a {\em deadangle} from which the robot does not select a topic or only with a small likelihood (figure \ref{f:pointingproblems} (f)).
+
+However, as experiments will show, this method performs very poor, therefore other methods simulating the mechanism of pointing have been implemented. These methods are, apart from one method, less plausible because they make use of inspecting the internal state of another robot. They all simulate feedback and drawing mutual attention and will be discussed in more detail in section \ref{s:cm:ng}.
+
+
+\section{The Architecture}\label{s:lg:architecture}
+	
+\begin{figure}
+\psfig{figure=lang_games//fsa.eps,width=11.4cm}
+\caption{A schematic overview of the developed architecture in which sensors Se and actuators A are coupled through a complex of connections. The agent consists of a set of scripts, which are implemented as FSA. The FSA are parallel processes P where transition are regulated by pre- and postconditions that may take sensory stimulation as their arguments. A state may also be fed with information coming from some internal process, such connections are not shown. Every state S has a past-condition that allows the system to enter the default state S0 (or exits the FSA). Each state of the automata has excitatory and inhibitory connections with dynamic sensorimotor processes. The excitatory connections are drawn as dotted lines, the inhibitory have been left out for clarity of the picture. The processes are divided between reactive (R) processes and cognitive (C) processes. The reactive processes have more direct processing and take usually only sensory data as input. The cognitive processes are more complex, and take besides sensory stimuli also stimuli coming from other internal processes. The configuration of excitated processes and the dynamics of the robot with its environment cause the robot to perform some emergent behavior.}
+\label{f:architscheme}
+\end{figure}
+
+The development of the system resulted in what could be called a {\em cognitive architecture} that is primarily based on the behavior-based control architecture proposed by Luc \citeN{steels:1994b}. This cognitive architecture could be applied as a general purpose architecture for complex and dynamic tasks like navigation. The architecture executes a script (or plan) through excitation and inhibition of processes that altogether result in some emergent behavior. The scripts are implemented as finite state automata in which transitions are controlled by state-specific pre- and post-conditions. Figure \ref{f:architscheme} shows the basic principle.
+
+Because the architecture uses FSA, readers may wrongly suggest it is the subsumption architecture proposed by Rodney \citeN{brooks:1990}. In the subsumption architecture, however, each process is viewed as a FSA on its own with only one state that models a behavior (figure \ref{f:fsa} (a)). The architecture proposed here uses possibly more FSA each with a sequence of states that can be entered (figure \ref{f:fsa} (b)). These FSA are used to control planning. A process in the cognitive architecture can be activated by several states, and a particular state can activate several processes. In addition the processes couple the sensors with the motors, like the behavior-based architecture proposed by Luc \citeN{steels:1994b}.
+
+\begin{figure}[t]
+\centering
+\subfigure[Brooks]{\psfig{figure=lang_games//fsabrooks.eps,width=3.5cm}}
+\subfigure[Vogt]{\psfig{figure=lang_games//fsavogt.eps,width=7.7cm}}
+\caption{The finite state automata as used in the subsumption architecture (a) and in the cognitive architecture (b). In the subsumption architecture the FSA usually only has one state that models a particular behavior. This behavior can inhibit (or subsume) another behavior. The cognitive architecture has some FSA each modeling a script-like behavior. Each state excites or inhibits a number of dynamical processes. The FSA function independently as a parallel process.}
+\label{f:fsa}
+\end{figure}
+
+The architecture proposed is similar to the architecture proposed by \cite{barnes:1996,barnesetal:1997}, called the behavior synthesis architecture (BSA), which synthesizes a set of {\em behavior patterns} with a certain utility (or strength) for accomplishing a task. A {\em behavior script} controls a sequence of {\em behavior packets}. Each behavior packet consists of a set of behavior patterns, a pre-condition and a post-condition. Comparing the behavior patterns with the dynamical processes of PDL, the behavior scripts with the FSA and the packets with a single state, then the BSA is very close to the architecture that has been incorporated here. Main differences with the work of \cite{barnes:1996} is the use of utility functions as its synthesis mechanism. Although the architecture here is developed by a human programmer, \cite{barnesetal:1997} show that a planning scheme can be calculated using the BSA.
+
+\begin{figure}
+\centerline{\psfig{figure=lang_games//architecture.eps,width=11.4cm}}
+\caption{The software architecture of the robotic system. The flow of information follows each line in the direction of the arrow. If a cross-connection is found, the information follows the line in the same direction. Only when a T-connection is encountered, the direction of the arrow is taken. Some lines are bi-directional, in such cases information flows in both directions. Basically, the information flows from the sensors on the left-hand side of the figure to the actuators on the right-hand side. In between, the information first flows in the finite state automata that controls the planning of the robots. There is a FSA for the speaker role and one for the hearer. Each state of the FSA activates a set of processes that are shown to the right of the FSA. Those processes that are active respond to information that flows from connected sensors, actuators or other processes. All processes,  the cognitive ones, are implemented in PDL on the real robots. The cognitive processes are implemented as software agents that process off-line. The processes that work on-line have been explained in the previous section and the cognitive processes are explained in the next chapter. Table \ref{t:abbr} gives the translation of the abbreviations.}
+\label{f:architecture}
+\end{figure}
+
+\begin{table}
+\centering
+\begin{tabular}{|ll|}
+\hline\hline
+\multicolumn{2}{|c|}{{\bf Sensors}}\\
+\hline
+LFB & Left Front Bumper\\
+RFB & Right Front Bumper\\
+LBB & Left Back Bumper\\
+RBB & Right Back Bumper\\
+LIR & Left Infrared Sensor\\
+FIR & Front Infrared Sensor\\
+RIR & Right Infrared Sensor\\
+WL & White Light Sensor\\
+RX & Radio Receiver\\
+\hline\hline
+\multicolumn{2}{|c|}{{\bf Finite State Automata}}\\
+\hline
+0 & Default State\\
+Sx & Speaker's State x\\
+Hx & Hearer's State x\\
+\hline\hline
+\multicolumn{2}{|c|}{{\bf Processes}}\\
+\hline
+TBOA & Touch-Based Obstacle Avoidance\\
+\hline\hline
+\multicolumn{2}{|c|}{{\bf Actuators}}\\
+\hline
+TX & Radio Transmitter\\
+LM & Left Motor\\
+RM & Right Motor\\
+IR & Infrared Emitter\\
+\hline\hline
+\end{tabular}
+\caption{A list of abbreviations as used in figure \ref{f:architecture}.}
+\label{t:abbr}
+\end{table}
+
+\p
+Figure \ref{f:architecture} shows a complete overview of the implemented architecture\footnote{Note that this specific architecture is not a general purpose architecture anymore.}. The architecture is built of a large set of parallel processes, which are continuously being processed. These processes, however do model different different types of behavior and should not be viewed at one level of complexity and cognition. Rather, the processes are organized hierarchically. 
+
+There are the basic reactive processes like taxis and obstacle avoidance. These processes usually react to sensory stimuli, but effectively they only {\bf react} when there is a {\em motivational factor} that activates the process, see also \cite{steels:1996d}. These motivational factors (MF) may be compared with the utility proposed by \cite{barnes:1996} and they determine how the process effectively should be activated. If the $\mbox{MF}=0$, the process is not active; if $\mbox{MF}=1$, the process is active and if $\mbox{MF}=-1$, there is a reciprocal action to the defined action\footnote{Consider the process of IR-taxis. If $\mbox{MF}=1$ the robot moves in the direction of the IR source, whereas if $\mbox{MF}=-1$ it moves away from the source. In the case of the reciprocal behavior of the IR module on the SMBII the taxis can also be used to model active IR, see section \ref{s:setup:}[zoek-uit]}. The reactive processes all influence actuators, although some of them might also influence other reactive or cognitive processes.
+
+The cognitive processes can be distinguished from the reactive processes in that they model more complex behavior and need not directly influence actuators, but they can also influence the internal state of an agent\footnote{Although the term {\em cognitive processes} actually may apply to reactive processes as well, the term is used here to indicate the distinction between reactive behaviors and behaviors that require more sophisticated cognitive processing. The cognitive processes refer to those processes that are fundamentally involved in categorization and/or naming.}. Coincidentally all cognitive processes are implemented off-board, besides the perception which is implemented on-board. The cognitive processes usually do not take direct sensory stimuli as the principal arguments. Furthermore, they tend to work at different time scales. This has not only been observed in neuroscience\footnote{There is a lot of evidence for fast and slow pathways in the central nervous system, where the fast pathways are reactive and the slow are considered to model higher cognition, see e.g. \cite{ledoux:1996,bloomlazerson}.}, but also during the implementation of the follow me games (see chapter \ref{ch:followme}). In the follow me games the hearer is following the speaker using phototaxis. When a change in direction is encountered the robot categorizes a part of its movement. If both phototaxis and categorization and naming are processed simultaneously on the SMBII, the robot fails to follow the speaker because the categorization process takes more time than $0.025 s$, which is the time of one PDL cycle. Although PDL normally cycles the read-process-execute cycle 40 times per second, it does {\bf not} read its sensors until it finished all processes. 
+
+The categorization and naming are single processes that carry out a complex process of search, selection and adaptation, but these processes could in principle be model-led by a set of parallel processes as well. This has not been done for the sake of both simplicity (under already complex processing) and architectural requirements (computers used are still serial machines).
+
+\p
+Both the reactive and cognitive processes are activated or inhibited by the motivational factors which are set inside the states of the FSA. So, depending on the role an agent has, it will enter either the speaker-FSA or the hearer-FSA. Each FSA models a script-like scheme that takes care of the plan. Note that depending on the task numerous scripts/FSA could be developed of course. Each state takes either direct sensory stimuli or indirect stimuli as read messages or a timer as their arguments. These stimuli are used to determine when the final condition of the state is reached. The final conditions of a state are immediately the initial conditions of the next state. If a robot is too long in the same state, measured by the timer, a transition is made to the default state and consequently the language game fails. All other final conditions cause the robot to enter the subsequent state unless it is the final state of the automaton, then it also enters the default state. If no final condition is met, the robot remains in (or re-enters) the same state.
+
+This section sketched the robotic software architecture more in line with cognitive architectures as they exist in the literature. Of course, much more could be said about the architectural implementation, but this is out of the scope of the dissertation, which is more concerned with grounding symbols.
+
+\section{On-board Versus Off-board}\label{s:lg:offboard}
+
+As mentioned, the cognitive part of the language games are implemented as off-board processes.  Recall that the robot physically records sensory data using on-board processing. The sensory data is processed off-board. Besides the increase of internal memory (the robots used to have 256 kB of RAM, which has been upgraded to 1 MB), there are many advantages for off-board processing:
+
+\begin{enumerate}
+\item Increase of internal memory.
+\item No loss of data during change of batteries.
+\item Saving huge amounts of time.
+\item Rerun experiments to compare parameter settings and methods more reliably.
+\item Debugging.
+\end{enumerate}
+
+\p
+After approximately one hour of experimenting, the robot dies. Its batteries are empty. The robots do not have a hard disk. So, when the batteries are empty and the robot shuts down, the ontology it built up disappears unless it is saved first. Of course, the robots may be powered by a cable, but who or what will manage the cables attached to the two robots? The advantage would be that a serial cable can be attached to monitor the internal dynamics of the robots during a game, but this could also be done using radio communication.
+
+The recording of one language game when the robots need to look for each other takes approximately $1.5 \mbox{min}$. Recording a minimum of 5,000 language games takes therefore 125 hours, which, assuming that there are 5 effective experimental hours a day\footnote{Perhaps some robotics researchers laugh at this positive estimation, but in good days this is manageable.}, takes 25 days or 5 weeks. {\bf If nothing goes wrong, naturally!} This period can be reduced to 5 days if the researcher brings the robots together him- or herself after which the robots play a series of, say 10 games in a row. 
+
+Now suppose that one wants to tune a parameter by varying this parameter 5 or 10 times. Or that one wants to change a method, or what if the researcher finds a bug in its program. For all these reasons off-board processing is the outcome. Another important advantage is that one can use the same recordings over and over again across different experiments, so comparing different experiments is more reliable.
+
+\p
+Debugging is a good reason to process data as much as possible off-board as well, it saves huge amounts of time. Many more advantages can be found, but the biggest have been stated. However, if one divides a system in on-board vs. off-board processing, then one should be careful to define the division line. The experiment should not loose its embodied and situated character, otherwise one is better off using simulations.
+
+\section{Summary}
+
+This chapter described the implementation of the language games as physical processes on the robots. The implementation of the on-board processes cause the robots to get together at a close distance and facing each other (either face-to-face or back-to-back). Then the robots rotate once or twice around their axis to do the perception. Raw sensory data acquired during the perception is sent to the PC where off-line processing takes over. 
+
+\todo{TODO: Experiment met max-intensity en FR???}
+
+The off-line processing starts with segmentation to reduce the amount of sensory data. As shall be shown in subsequent chapters the way segmentation is implemented highly influences the symbol grounding. It models the first invariants of the grounding process. 
+
+Another important part of the grounding process, especially in the lexicon formation, is the feedback (see also section \ref{s:xxx}), which a.o. has been modeled by pointing. It shall be shown that the way pointing 
+has been implemented does not work in the current set up, although it may help to improve the effectiveness of the experiments. This however does not mean that pointing is essentially wrong, it only means that it is a non-trivial engineering problem and it may well be a fundamental problem. Why do dogs stare at your finger when you point at something while children learn to follow the line in which you are pointing? Pointing may be a fundamental principle for bootstrapping or learning language. Several other mechanisms of drawing mutual attention than the one presented in this chapter have been investigated. These will be discussed in chapter \ref{ch:cm}.
+
+This chapter discussed the architecture as a general purpose architecture. Although it is outside the scope of this work, the architecture may well serve as (part of) a general theory on cognition. Links with theories on the human brain are partly obvious, but should be compared more thoroughly.
+
+The off-line processing is the cognitive part of the implementation. This part will be discussed more detailed in the next section. It may not be coincidentally that the cognitive processes can be processed off-line, since there is a clear division between reactive and cognitive processing in natural cognition as well \cite{ledoux:1996}. Not considering this division line may be a reason why so many behavior-based approaches towards cognition fail when they tend to hold on to reactive behavior.
+
+
+
+
+
+

@@ -1,0 +1,2 @@
+
+plot "irtaxis.txt" using 1 with lines, "irtaxis.txt" using 3 with lines, "irtaxis.txt" using 3 with lines, "irtaxis.txt" using 4 with lines

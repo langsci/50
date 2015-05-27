@@ -1,0 +1,10 @@
+set term postsc eps 22
+set nok
+set xtics ("B" 1,"P=0.1" 2,"P=0.9" 3,"n=0.1" 4,"n=0.9" 5,"R" 6,"T" 7,"TT" 8)
+set boxwidth 0.5
+set xlabel "Experiment"
+set ylabel "C"
+set yrange [0:1]
+set xrange [0:9]
+set data style boxes
+plot "results.txt" using 1:11, "results.txt" using 1:12

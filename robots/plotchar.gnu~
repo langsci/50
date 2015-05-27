@@ -1,0 +1,5 @@
+set term postscript eps 14
+set nokey
+set xlabel "distance (in cm)"
+set ylabel "Intensity"
+plot [0:120][0:255] "char_sens_r1s3.txt" using 1:2 title "sensor 0" with lines, "char_sens_r1s3.txt" using 1:3 title "sensor 1" with lines,  "char_sens_r1s3.txt" using 1:4 title "sensor 2" with lines, "char_sens_r1s3.txt" using 1:5 title "sensor 3" with lines

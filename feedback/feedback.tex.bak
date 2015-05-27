@@ -1,0 +1,330 @@
+\chapter{Topic Knowledge and Feedback}\label{ch:feedback}
+
+In chapter \ref{ch:theory} the possible roles of prior topic knowledge and feedback have been discussed. While presenting the cognitive model (chapter \ref{ch:cm}) different schemes have been introduced that control the way an may or may not be provided with prior topic knowledge. Furthermore, schemes have been introduced to model the way feedback is provided. This chapter presents the experiments where the different feedback schemes have been applied. In addition, an experiment will be presented where no explicit prior topic knowledge or feedback is provided.
+
+\p
+In the original experimental setup up the robots implemented physical pointing as a way to provide prior topic knowledge \cite{steelsvogt:1997}. Later the physical pointing has been simulated to provide both prior topic knowledge and feedback in the language games \cite{vogt:1998b}. In \cite{vogt:1998c} different schemes for providing prior topic knowledge and feedback have already been investigated. Here it was observed that the scheme that has later been called the {\em guessing game} worked just as well as when indicative topic knowledge was provided by the speaker beforehand. However, it was found later that this experiment was biased for naming the robots themselves, which had been implemented an artifact in the feedback. In the current experimental setup the robots do not try to name themselves, and thus the implemented artifact could be omitted. Section \ref{s:feed:xp} shows the results of an experiment with the guessing game where simulated pointing provides the feedback.
+
+Since the scheme of pointing implemented revealed a poor performance, the way pointing was implemented has been changed practically to improve the importance. One possible scheme has already been used in the previous experiments, namely {\em absolute internal inspection} as a way of providing feedback (chapter \ref{ch:cm}). Section \ref{s:feed:comb} presents the results of a set of experiments where different schemes of combinations of prior topic knowledge and feedback have been investigated. 
+
+Section \ref{s:feed:bayes} introduces another scheme that does not use explicit topic knowledge or feedback to control a language game. It uses bayesian statistics to provide an agent with information it could need to make proper desisions in the selection of word-meaning associations.
+
+\p
+This chapter will stress the importance of non-linguistic information an agent might need to, at least, bootstrap a language. Section \ref{s:feed:summary} will finally summarize the results of the experiments presented in this chapter.
+
+
+\section{Exploring non-linguistic information}\label{s:feed:comb}
+
+Six different relating schemes of combining prior topic knowledge and feedback (PTK\&F) are discussed in this section. The schemes are a combination of methods presented in chapter \ref{ch:cm}. Table \ref{t:feed:combination} shows the average results of 10 runs of 5,000 language games. The methods that have been combined are explained in table \ref{t:feed:comb}.
+
+\begin{table}
+\centering 
+\begin{tabular}{||c|l|l||}
+\hline\hline
+Abbr. & Prior topic knowledge & Feedback\\\hline
+xi & None & Correspondance\\\hline
+ci & Cross-correlation & Correspondance\\\hline
+cc & Cross-correlation & Cross-correlation\\\hline
+ic & Correspondance & Cross-correlation\\\hline
+xc & None & Cross-correlation\\\hline
+ii & Correspondance & Correspondance\\\hline
+\end{tabular}
+\caption{The combinations of PTK\&F explored. The different methods have been explained in chapter \ref{ch:cm}. Note that {\bf xi} is the basic experiment.}
+\label{t:feed:comb}
+\end{table}
+
+
+Table \ref{t:feed:combination} shows that all combinations that do explore prior topic knowledge have higher communicative success with $p=0.0000$ (i.e. those experiments that do not have an `x' in front). So, in these experiments the guessing game variants fail. In this table the objective success (see chapter \ref{ch:basic}) is included. In the experiments where feedback is provided by a correspondance of sensory channels the objective success is always 1 since the feedback is provided under the same criteria as the objective success is determined. When feedback is provided by the cross-correlation of the speaker's topic and the hearer's topic, there is no certainty about the correctness of the feedback. Lower than 1 values of the objective success confirm this. The actual success of the experiments can be calculated by multiplying the OS with the CS. For the experiment {\bf xc} the actual success becomes $0.368 \times 0.947 = 0.348$ and for {\bf cc} this becomes $0.597 \times 0.944 = 0.564$. Note that in the case of {\bf ic} the OS is 1 as well, because the prior topic information is provided by correspondance and is fixed.
+
+The guesssing game where feedback is provided by the cross-correlation is very much similar than the basic experiment. No significant differences have been observed. So, using a cross-correlation to provide feedback is qualitatively similar than using the criterium of correspondance.
+
+
+\begin{table}
+\centering
+\begin{tabular}{||r|c|c|c||}
+\hline\hline
+	&	xi	&	       ci                      	&	       ii	\\\hline
+CS      	&	0.351 $\pm$  0.010 	&	          0.595$\pm$      0.002	&	       0.671$\pm$   0.004	\\\hline
+OS      	&	1.000 $\pm$ 0.000 	&	          1.000$\pm$      0.000	&	       1.000$\pm$  0.000	\\\hline
+DS0     	&	0.916 $\pm$ 0.004 	&	          0.915$\pm$      0.004	&	       0.935$\pm$   0.002	\\\hline
+DS1     	&	0.920 $\pm$ 0.004 	&	          0.919$\pm$      0.003	&	       0.936$\pm$   0.002	\\\hline
+D0      	&	0.956 $\pm$ 0.002 	&	          0.955$\pm$      0.002	&	       0.959$\pm$   0.000	\\\hline
+D1      	&	0.955 $\pm$ 0.002 	&	          0.957$\pm$      0.000	&	       0.960$\pm$   0.000	\\\hline
+P0      	&	0.852 $\pm$ 0.004 	&	          0.842$\pm$      0.005	&	       0.856$\pm$   0.001	\\\hline
+P1      	&	0.851 $\pm$ 0.002 	&	          0.846$\pm$      0.001	&	       0.851$\pm$   0.002	\\\hline
+S0      	&	0.822 $\pm$ 0.017 	&	          0.677$\pm$      0.035	&	       0.647$\pm$   0.046	\\\hline
+S1      	&	0.817 $\pm$ 0.011 	&	          0.669$\pm$      0.031	&	       0.647$\pm$   0.045	\\\hline
+C0      	&	0.816 $\pm$ 0.008 	&	          0.815$\pm$      0.026	&	       0.823$\pm$   0.037	\\\hline
+C1      	&	0.811 $\pm$ 0.007 	&	          0.820$\pm$      0.023	&	       0.821$\pm$   0.026	\\\hline
+\hline\hline\hline							
+	&	       xc              	&	       cc              	&	       ic              	\\\hline
+CS      	&	       0.368$\pm$   0.008	&	       0.597$\pm$   0.007	&	       0.634$\pm$ 0.000	\\\hline
+OS      	&	       0.947$\pm$   0.003	&	       0.944$\pm$   0.003	&	       0.989$\pm$   0.001	\\\hline
+DS0     	&	       0.920$\pm$   0.004	&	       0.912$\pm$   0.002	&	       0.930$\pm$   0.004	\\\hline
+DS1     	&	       0.921$\pm$   0.003	&	       0.917$\pm$   0.002	&	       0.935$\pm$   0.002	\\\hline
+D0      	&	       0.955$\pm$   0.002	&	       0.955$\pm$   0.002	&	       0.956$\pm$   0.002	\\\hline
+D1      	&	       0.955$\pm$   0.001	&	       0.959$\pm$  0.000	&	       0.956$\pm$   0.002	\\\hline
+P0      	&	       0.856$\pm$   0.002	&	       0.854$\pm$   0.001	&	       0.852$\pm$   0.002	\\\hline
+P1      	&	       0.850$\pm$   0.002	&	       0.852$\pm$   0.002	&	       0.848$\pm$   0.003	\\\hline
+S0      	&	       0.819$\pm$   0.009	&	       0.831$\pm$   0.024	&	       0.549$\pm$   0.061	\\\hline
+S1      	&	       0.818$\pm$   0.008	&	       0.836$\pm$   0.023	&	       0.554$\pm$   0.061	\\\hline
+C0      	&	       0.803$\pm$   0.017	&	       0.855$\pm$   0.005	&	       0.718$\pm$   0.043	\\\hline
+C1      	&	       0.807$\pm$    0.01	&	       0.856$\pm$   0.006	&	       0.728$\pm$   0.038	\\\hline
+\hline
+\end{tabular}
+\caption{The results of the experiments with different schemes of using prior topic knowledge and feedback.}
+\end{table}
+
+Most successful according to the communicative success are the two experiments where prior topic knowledge is provided by correspondance. In these cases the hearer selects only one topic using the non-linguistic information. The communicative success is about 8 \%\footnote{When compared to the `actual success'.} higher than the CS of those experiments where prior topic knowledge is provided by the cross-correlations. When the cross-correlations are calculated, these values are used as an expectation value of a segment to be the topic. All non-zero expectation values will be considered to be the topic. It is obvious from the table that the experiment with the combination {\bf ii} yields the highest communicative success. It is for instance higher than the experiment {\bf ic} with a significant difference of $p=0.0000$.
+
+Looking at figure \ref{f:feed:cs} (a) one can see that the communicative success of experiment {\bf cc} rises quickly towards a value around 60 \%, from where it strarts to grow slowly to an end-value of approximately 70 \%. All other plots of the CS look similar, except of course its heighth. Figure \ref{f:feed:cs} (b) shows the objective success of experiment {\bf cc}. Right from the start until the end the OS fluctuates around 94 \%. Note that the x-axis of this figure shows the {\em successful language games}. Recall that the objective success is measured only over language games that the robots consider to be successful, i.e. when the games end in communicative success.
+
+\begin{figure}
+\centering
+\subfigure[CS]{\psfig{figure=feedback//cscc.eps,width=5.6cm}}
+\subfigure[OS]{\psfig{figure=feedback//oscc.eps,width=5.6cm}}
+\caption{The communicative success (a) and objective success (b) of the experiment where both prior topic knowledge and feedback is provided by the cross-correlation.}
+\label{f:feed:cs}
+\end{figure}
+
+\p
+When the measures distinctiveness and parsimony are compared to each other no significant differences can be found. This is not very surprising, since the method of conceptualization has not changed. It is interesting to note, however, that the discriminative success is higher than the basic experiment in the experiments where prior topic knowledge is provided by correspondance ($p=0.0004$ for both cases).
+
+\p
+The measures relating more directly to the communication system (specificity and consistency) show more differences. The experiments where the prior topic knowledge or feedback is provided by correspondance all show significant lower specificity (0.15 to 0.30 lower; $p=0.0000$). The consistency of these experiments varies. The consistency of experiment {\bf ic} is about 0.10 lower with $p=0.0354$, so it is difficult to say if the difference is significant. When compared to experiment {\bf cc} the significance of the difference in the consistency is $p=0.0004$. The specificity of {\bf ic} is lower than {\bf cc} with $p=0.0002$.
+
+Experiment {\bf ci} does not show a significant difference and experiment {\bf ii} is slightly higher with a significance of $p=0.0186$. The latter experiment, however involved one run in which the consistency was about 0.40 lower than all other runs. When this run is excluded, the average consistency yield the following figures: C0 $=0.861 \pm 0.036$ and C1 $=0.868 \pm 0.038$, which differs from the basic experiment with $p=0.0010$.
+
+The experiment {\bf xc} show insignificant differences the specificity and consistency compared to the basic experiment ({\bf xi}). Experiment {\bf cc} show better figures for these measures. Specificity is approximately 0.01 point better, but its significance is small ($p=0.4358$). Its consistency however is about 0.04 higher with a significance of $p=0.0020$. When this experiment is compared with experiment {\bf ii}, the specificity is about 0.20 higher with a significance of $p=0.0000$. Consistency does not show a significant difference with the correspondance experiment. 
+
+\p
+Prior topic knowledge outperforms the guessing game for a great deal. It seems that when the hearer has absolute topic knowledge, the communication is better since the communicative success is higher. However, the communication system appears to be more informative when the topic information is more indicative, especially in its specificity. Moreover this is only true when feedback is provided by a cross-correlation rather than by a correspondance. This may be because the involvement of two complementary methods does not perform as well as when two equal methods are combined.
+
+That the specificity of the experiment where both topic knowledge and feedback is provided by correspondance is low and its communicative success should not be surprising. The hearer gains absolute topic knowledge from this method, and can therefore easily disambiguate the homonymy of the lexicon. When the hearer finds a word-meaning pair in its lexicon that matches the word-form uttered by the speaker, the language game is already successful. This is obviously because its prior topic knowledge is based on the same criterium as the feedback and the objective success. 
+
+Because the specificity carries more information about the quality of the communication system the robots construct, the experiment where both the prior topic knowledge and the feedback is provided by a cross-correlation will be considered to be qualitatively the better experiment.
+
+\section{Pointing as means of feedback}\label{s:feed:xp}
+
+In chapters \ref{ch:lg} and \ref{ch:cm} the idea of pointing has been explained. In this section the results of two experiments where this method is used to provide feedback are presented. The robots play guessing games with the feedback mechanism of pointing. The first experiment uses the data as recorded for the basic experiment and the second uses data where the robots rotate only once starting face-to-face.
+
+\p
+Table \ref{t:feed:xp} shows the results of the experiment that uses the simulated version of pointing (chapter \ref{ch:cm}) to provide feedback. As usual the experiment is done with 10 runs of 5,000 language games.
+
+\begin{table}
+\centering
+\begin{tabular}{||l|c|c|c||}
+\hline\hline
+Score & Avg & Stdev & Std\\\hline
+CS & 0.296 & 0.010 & 0.456\\\hline
+OS & 0.323 & 0.020 & 0.467\\\hline
+DS0 & 0.920 & 0.005 & 0.267\\\hline
+DS1 & 0.922 & 0.012 & 0.263\\\hline
+D0 & 0.952 & 0.003 & 0.207\\\hline
+D1 & 0.951 & 0.004 & 0.293\\\hline
+P0 & 0.851 & 0.005 & 0.193\\\hline
+P1 & 0.846 & 0.004 & 0.271\\\hline
+S0 & 0.825 & 0.029 & 0.211\\\hline
+S1 & 0.825 & 0.027 & 0.295\\\hline
+C0 & 0.793 & 0.013 & 0.213\\\hline
+C1 & 0.795 & 0.012 & 0.298\\\hline
+\hline
+\end{tabular}
+\caption{The average results of the experiment where feedback is provided by a simulated form of pointing.}
+\label{t:feed:xp}
+\end{table}
+
+It is immediately clear that the communicative success is very low. And when considering also the objective success, which is around 32 \%, pointing does not work well as a basis of feedback. Main problems ly in the misalignment of the robots in many games and the false assumption that the robots detect light sources in more or less the same direction. Especially in a relatively small environment this assumption fails. Recall that in the initial implementation the environment is 4 times bigger \cite{steelsvogt:1997}.
+
+The CS is already significantly different than in the basic experiment ($p=0.0000$) and the actual success is 9.6 \%, which is extremely low. It is interesting to note that all other measures do not differ much from the same measures in the basic experiment. Only consistency is slightly lower ($\pm$ 0.02) with a significance of $p=0.0232$. All other differences are less significant.
+
+\p
+Table \ref{t:feed:xporig} shows the results of the experiment where the robots rotate only once to do the perception. 
+
+\begin{table}
+\centering
+\begin{tabular}{||l|c|c|c||}
+\hline\hline
+Score & Avg & Stdev & Std\\\hline
+CS & 0.088 & 0.005 & 0.283 \\\hline
+OS & 0.110 & 0.005 & 0.312\\\hline
+DS0 & 0.894 & 0.006 & 0.295\\\hline
+DS1 & 0.899 & 0.009 & 0.293\\\hline
+D0 & 0.958 & 0.002 & 0.200\\\hline
+D1 & 0.957 & 0.002 & 0.282\\\hline
+P0 & 0.861 & 0.008 & 0.187\\\hline
+P1 & 0.851 & 0.000 & 0.258\\\hline
+S0 & 0.817 & 0.023 & 0.200\\\hline
+S1 & 0.814 & 0.021 & 0.282\\\hline
+C0 & 0.797 & 0.015 & 0.202\\\hline
+C1 & 0.788 & 0.010 & 0.284\\\hline
+\hline
+\end{tabular}
+\caption{The average results of the experiment where feedback is provided by a simulated form of pointing, but where the robots only rotate $360^o$.}
+\label{t:feed:xporig}
+\end{table}
+
+The results are even poorer than when the robots rotate twice. These results will not be discussed extensively, but it is a clear example what the influence of different interaction schemes can be to the success of grounding language.
+
+\section{Feedback through `eye contact'}\label{s:feed:signal}	
+
+This section presents the results of an experiment where feedback is provided by `eye contact'. Naturally the robots do not have eye contact, but a language game is considered to be successful when the hearer found a word-meaning association of which the word-form matches the speaker's utterance and the meaning matches one of the conceptualized meanings.
+
+The results of this experiment are found in table \ref{t:feed:xs}. Interesting to see is that the communicative success is extremely high compared to previous experiments. But this success is as reported by the robots themselves. When taking into account the objective success, the results are weakened. Like in section \ref{s:feed:comb} it is possible to calculate the actual success by computing the product of the CS and the OS, which yields 0.241. Obviously this number is much lower than in the basic experiment where the actual success is the same as the CS, which is 0.351 ($p=0.0000$). Moreover the actual success of this experiment is lower than the a priori success.
+
+Strangely enough, the measures using the entropies (D, P, S and C) are more or less similar to the basic experiment. Only the parsimony is approximately 0.01 point higher ($p=0.0000$). So, appaerently the communication system the robots develop is pretty good, only the robots are not capable of using it in the right way.
+
+\begin{table}
+\centering
+\begin{tabular}{||l|c|c|c||}
+\hline\hline
+Score & Avg & Stdev & Std\\\hline
+CS & 0.818 & 0.006 & 0.386 \\\hline
+OS & 0.295 & 0.009 & 0.454\\\hline
+DS0 & 0.912 & 0.004 & 0.279\\\hline
+DS1 & 0.915 & 0.005 & 0.275\\\hline
+D0 & 0.959 & 0.000 & 0.192\\\hline
+D1 & 0.958 & 0.000 & 0.271\\\hline
+P0 & 0.866 & 0.002 & 0.174\\\hline
+P1 & 0.860 & 0.003 & 0.245\\\hline
+S0 & 0.808 & 0.031 & 0.188\\\hline
+S1 & 0.810 & 0.031 & 0.266\\\hline
+C0 & 0.814 & 0.005 & 0.193\\\hline
+C1 & 0.812 & 0.005 & 0.272\\\hline
+\hline
+\end{tabular}
+\caption{The average results of the experiment where feedback is provided by a simulated form of eye contact.}
+\label{t:feed:xs}
+\end{table}
+
+\section{Implicit feedback}\label{s:feed:bayes}
+
+As discussed in chapter \ref{ch:theory}, according to the literature, e.g. \cite{bowerman:1980}, feedback in language learning is not supposed to be explicit and negative, whereas in the current implementation the feedback is explicit and also negative. \citeN{oliphant:1997} reports on experiments where no explicit feedback is given. Feedback is provided by the agents themselves. The evaluative feedback is also used in Edwin de Jong's model on situation concept formation \cite{dejong:2000}. In the experiments reported in this section, the robots extract selective information from the interactions by looking at co-occurances of word and meaning. In one of the experiments no topic information is provided prior to the linguistic interaction and in another it is given. The latter is a variant of Mike Oliphant's model.
+
+\p
+In the first experiment, the speaker considers all possible concepts resulting from the discrimination game of the topic and tries to find matching word-forms. When several matching word-forms have been found in the lexicon, the speaker selects the word-meaning association which has the most frequent co-occurance. The speaker computes the conditional probability of the occurance of a word-form $w$ given the occurance of a concept $c$:
+
+\begin{eqnarray}
+P(w|c)=\left \{ \begin{array}{rl}
+\frac{P(w \wedge c)}{P(c)} & \mbox{if} P(c)>0\\
+0 & \mbox{otherwise}\nonumber
+\end{array}\right.
+\label{e:feed:bayes1}
+\end{eqnarray}
+
+\n
+where $P(w \wedge c)$ is the probability that $w$ and $c$ co-occur and $P(c)$ is the probability that $c$ occurs. Then the speaker selects that WM association for which $P(w|c)$ is maximum.
+
+The hearer, when received a word-form, calculates the probability of a concept $c$ given the occurance of $w$:
+
+\begin{eqnarray}
+P(c|w)=\left \{ \begin{array}{rl}
+\frac{P(c \wedge w)}{P(w)} & \mbox{if} P(w)>0\\
+0 & \mbox{otherwise}\nonumber
+\end{array}\right.
+\label{e:feed:bayes2}
+\end{eqnarray}
+
+The robots consider themselves to be successful in the language game when the hearer found a matching WM association. Occurance frequencies are updated every time when the robots acted. I.e. if the speaker uttered a word-form, the occurance frequencies of the used word-form, concept and WM pair are updated. The hearer updated these frequencies when it found a matching WM association with the speaker's utterance.
+
+\p
+The second experiment is similar to the first one, except that the hearer additionally receives information on what the topic is like in section \ref{s:feed:}. So, joint attention is established prior to the linguistic communication. The topic information is provided by the correspondance principle. Since the robots do not always have a coherent context, when the joint attention cannot be established, the hearer considers all segments as a potential topic.
+
+Furthermore, the calculation of co-occurance probabilities is slightly adjusted. In equations \ref{e:feed:bayes1} and \ref{e:feed:bayes2} no absolute frequencies are taken into account. When after a long time a new word-meaning association enters the language, it may have a higher co-occurance probability (e.g. $P(c|w)=1) than a previously effective association, which may have $P(c'|w)<1$. In this case, the robots may prefer to use meaning $c$ rather than the already established $c'$. Therefore, the probabilities are weighted by the occurance frequencies of the base frequency normailized by the number of language games played.
+
+\begin{eqnarray}
+P(w|c)=\left \{ \begin{array}{rl}
+\frac{P(w \wedge c)}{P(c)}\cdot \frac{P(c)}{LG} = \frac{P(w \wedge c)}{LG} & \mbox{if} P(c)>0\\
+0 & \mbox{otherwise}\nonumber
+\end{array}\right.
+\end{eqnarray}
+
+\begin{eqnarray}
+P(c|w)=\left \{ \begin{array}{rl}
+\frac{P(c \wedge w)}{LG} & \mbox{if} P(w)>0\\
+0 & \mbox{otherwise}\nonumber
+\end{array}\right.
+\end{eqnarray}
+
+\n
+where $LG$ is the number of language games.
+
+\begin{table}
+\centering
+\begin{tabular}{||l|c|c|c|c||}
+\hline\hline
+ & \multicolumn{2}{c}{exp. 1}& \multicolumn{2}{c}{exp. 2}\\\hline
+Score & Avg & Std & Avg & Std\\\hline
+CS & 0.810 & 0.001 & 0.830 & 0.001\\\hline
+AS & 0.304 & 0.005 & 0.651 & 0.002\\\hline
+DS0 & 0.916 & 0.001 & 0.937 & 0.003\\\hline
+DS1 & 0.921 & 0.004 & 0.936 & 0.003\\\hline
+D0 & 0.959 & 0.000 & 0.960 & 0.001\\\hline
+D1 & 0.960 & 0.000 & 0.961 & 0.000\\\hline
+P0 & 0.838 & 0.002 & 0.830 & 0.001\\\hline
+P1 & 0.836 & 0.001 & 0.827 & 0.000\\\hline
+S0 & 0.814 & 0.015 & 0.650 & 0.038\\\hline
+S1 & 0.817 & 0.014 & 0.655 & 0.037\\\hline
+C0 & 0.755 & 0.004 & 0.749 & 0.020\\\hline
+C1 & 0.754 & 0.005 & 0.747 & 0.021\\\hline
+\hline
+\end{tabular}
+\caption{The results of an experiment where there is no explicit feedback provided in the system. In exp. 1 the robots do not establish joint attention and in exp. 2 they do.}
+\label{t:feed:bayes}
+\end{table}
+
+\p
+Table \ref{t:feed:bayes} shows the results of the two experiments under the above conditions. The robots used the basic data set and 10 runs of 5,000 games played. As in the previous section the robots consider themselves to be very successful in communication. The communcation success is however not directly used as feedback. The actual success, however of the first experiment is pretty poor; it is 0.246, which is lower than in the basic experiment with $p=0.0000$. Also consistency is 0.06 lower ($p=0.0000$) and parsimony is about 0.015 lower with $p=0.0232$.
+
+The second experiment on the otherhand has a much higher actual success. It grows up to 65 \%, which is higher than in both experiment 1 and the basic experiment with a significance of $p=0.0000$. The consistency is lower than the basic experiment ($p=0.0000$) and more or less equal than in experiment 1. Also specificity is much lower than in the the basic experiment ($p=0.0000$) and it is lower than in experiment 1 ($p=0.0000$). 
+
+When the experiment 2 is compared with the experiment where both prior topic knowledge and feedback is provided by correspondance (experiment {\bf ii} in table \ref{t:feed:ptkf}), the two experiments have similar results. The actual success of experiment 2 is only 2 \% lower than in experiment {\bf ii} ($p=0.0052$). Consistency differs substantially, the current experiment is 0.07 lower ($p=0.0000$). Also parsimony is slightly lower with 0.03 ($p=0.0000$). All other differences are insignificant. So, the robots learn to communicate slightly better with more consistency when feedback is provided explicitely.
+
+\begin{figure}
+\centering
+\psfig{figure=feedback//cs-oli.eps,width=11.6cm}
+\caption{The communicative success of the two experiments presented in this section (exp. 1 and exp. 2), compared with the experiment where both PTK\&F are provided by correspondance ({\bf ii}) and the basic experiment (B).}
+\label{f:feed:oli}
+\end{figure}
+
+Figure \ref{f:feed:oli} shows the actual success of experiments 1 and 2 of this section together with the basic experiment and experiment {\bf ii}. The success of experiment 1 initially climbs just as the basic experiment, but it then stabilizes after, say 500 language games where the basic experiment keeps on learning until the end. The success-curve of experiment 2 is very much similar to experiment {\bf ii}. These experiments learn fast in the first 500 games. After that the system seems to stabilize. The success-rate here is close to the potential success, and it is likely that the system hardly can learn better under these circumstances.
+
+As all four experiments learn relatively fast in the first 500 games, this appears to be a crucial turning point for stabilitzation. When joint attention is established prior to the linguistic communication, the system learns best. However, when the success does not converge towards the potential success, the feedback can help learning the system better.
+
+
+
+\section{Summary}\label{s:feed:summary}
+
+In this chapter experiments were presented in which the role of prior topic knowledge and feedback has been investigated. As the results showed, the impact of different schemes is huge. The different methods of providing PTK\&F have been introduced in chapter \ref{ch:cm}. Figure \ref{t:feed:results} summarizes the results of the experiments compared to the basic experiment.
+
+\begin{figure}
+\centering
+\subfigure[CS]{\psfig{figure=feedback//cs.eps,width=5.6cm}}
+\subfigure[AS]{\psfig{figure=feedback//as.eps,width=5.6cm}}\\
+\subfigure[DS]{\psfig{figure=feedback//ds.eps,width=5.6cm}}
+\subfigure[D]{\psfig{figure=feedback//dist.eps,width=5.6cm}}\\
+\subfigure[P]{\psfig{figure=feedback//pars.eps,width=5.6cm}}
+\subfigure[S]{\psfig{figure=feedback//spec.eps,width=5.6cm}}
+\end{figure}
+\begin{figure}[t]
+\centering
+\subfigure[C]{\psfig{figure=feedback//cons.eps,width=5.6cm}}
+\caption{A summary of the results presented in this chapter. Note that the actual success (AS) is applied for the first time. On the x-axis of each plot the experiment type is shown: {\bf x} stands for {\em no} PTK, {\bf i} stands for PTK of F using the correspondance criterium, {\bf c} stands for cross-correlations as information, {\bf s} stands for eye contact. In experiments {\bf xx} and {\bf ix} no explicit PTK\&F is used, but such information is drawn from the conditional probabilities of the co-occurances of word and meaning and PTK in the case of {\bf ix}.}
+\label{f:feed:results}
+\end{figure}
+
+The most important differences that can be found in the experiments are measured with the CS, AS, S and to a lesser extend C. In most experiments the CS and AS are correlated. In experiments {\bf ci}, {\bf ii} and {\bf ic} there is a perfect correlation, in all other cases the AS is lower than the CS. In the experiments {\bf xs} and {\bf xx} the AS is very much lower than the CS.  
+
+In most cases where prior topic knowledge is provided ({\bf ci}, {\bf ii}, {\bf ic} and {\bf ix}) the specificity show bad results. The word-forms in these experiments appear to show more referential polysemy. Perhaps this is due to the fact that when prior topic knowledge is already successful, linguistic communication is redundant and puts no pressure on disambiguation. On the other hand, this does not hold for experiment {\bf cc}. So, it could also be the case that it is a combination of redundancy (fixed PTK in the correspondace case) and of different means for providing non-linguistic information ({\bf ci}).
+
+\p
+Using prior topic knowledge obviously helps the robots to develop a communication system successfully. The communicative success almost doulbes. In the case where correspondance is used both for PTK and F, the AS is highest, namely 67 \%. Where cross-correlation is used for PTK or F, the AS is approximately 57 \%. All these experiments, except {\bf cc} show a lower specificity. In addition, experiment {\bf cc} shows a slight increase in consistency. So, although experiment {\bf ii} outperforms the other experiments in CS, {\bf cc} yields the best combination of CS, OS and quality of the communication system.
+
+Pointing as was introduced initially shows a very poor performance. The two experiments reported, however, do show an interesting result. When the robots rotate only once the results get even worser than when the robots rotate twice. This is not surprising, since the assumption that the robots continuously rotate at the same speed does not hold when the robots rotate only once, because they have to accelerate first. Since the observation time of a segment is used to acquire its position, pointing fails completely.
+
+Less reliable feedback ({\bf xs}), or no explicit feedback  ({\bf xx}) show much improvement in the communication success when no prior joint attention is established. The robots are successful in the language games when both robots found matching word-meaning associations to communicate whether or not they were communicating about the same referent. This is appaerently easy to achieve. The results are, however superficial: the actual success is very low, thus pulling down the actual success.
+
+When the robots have access to prior topic knowledge, no feedback is necessary, cf. experiment {\bf ix}. The results are similar to experiment {\bf ii}. The results confirm the findings of \cite{oliphant:1997,oliphant:1998}. When learning a communication system no feedback on the success is necessary, provided the robots have prior topic knowledge (or, what Oliphant calls {\em observational} learning).
+
+\p
+Up to now various interesting variants of the basic experiment have been introduced. Besides different categorization experiments, different interaction schemes have been compared. The next chapter investigates different learning mechanisms and parameters for the lexicon formation.

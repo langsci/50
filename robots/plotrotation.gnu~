@@ -1,0 +1,7 @@
+
+
+set term postscript eps 14
+set nokey
+set xlabel "time"
+set ylabel "Intensity IR"
+plot "rotation.txt" using 5 with lines

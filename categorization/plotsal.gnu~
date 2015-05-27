@@ -1,0 +1,10 @@
+set term postsc eps 22
+set nok
+set xtics ("0.00" 1,"0.05" 2,"0.10" 3,"0.15" 4,"0.20" 5)
+set boxwidth 0.5
+set xlabel "Saliency threshold"
+set ylabel "Score"
+set yrange [0:1]
+set xrange [0:6]
+set data style boxes
+plot "saliency.txt" using 1

@@ -1,0 +1,6 @@
+set noytics
+set noxtics
+set yrange [0:1]
+set term pos
+set noborder
+plot "evolution.txt" using 2:1 title "" with imp 

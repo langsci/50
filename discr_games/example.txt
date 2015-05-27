@@ -1,0 +1,64 @@
+\section{Example}
+
+In this subsection a simplified example of a discrimination game is given. The example is to show the main mechanisms of the discrimination process. The example give an intuitive idea of the discrimination.
+
+Suppose we have the following objects (see figure 1): 2 squares and 3 circles. One of the squares is large, the other is small in size, both squares have the same filling pattern (vertical stripes). Two of the circles are large, and the other is small. The small circle and one of the large circles have a filling pattern of vertical stripes and the other large circle has horizontal stripes. 
+
+a: square, small, vertical stripes
+b: square, large, vertical stripes
+c: circle, small, vertical stripes
+d: circle, large, vertical stripes
+e: circle, large, horizontal stripes
+
+Suppose now that we have an sensory system, say a camera, that can observe the image seen in figure 1, and suppose that this system can detect segments of the image, describing the segments using the following features:
+
+- filling ratio of the area of the object in the area of the surrounding bounding box, FR
+- normalized size of bounding box, S
+- angle of stripes in filling pattern, A
+
+Then we can say that the system has three sensory channels: FR, S and A. When the camera sees the scenery of figure 1, then the segments a, b, c, d and e may be observed as follows:
+
+a: FR = 1, S = 0.25, A = 1
+b: FR = 1, S = 0.75, A = 1
+c: FR = 0.66, S = 0.25, A = 1
+d: FR = 0.66, S = 0.75, A = 1
+e: FR = 0.66, S = 0.75, A = 0
+
+Now consider the case in which an agent looks at this scenery several times in a row, trying to discriminate al the segments from the other. Initially the agent has not yet constructed features to describe the segments. Suppose the agent uses the hierarchical prototype method in the construction of the feature space.
+
+
+The first time the agent encounters this scenery, no object can be related to a feature. Consequently, the agent is not able to discriminate any of the objects. Since no sensory channel is used, the agent explores a new sensory channel, for example, FR. A new prototypical feature is now generated with attribute FR, the top hierarchical layer 0 and value 0.5, which is the middle of the sensory channel (all sensory channels are sensitive in the range [0,1]). This feature is denoted as: FR-0-0.5.
+
+The next succesive game, all objects can be related to one feature, the only feature available: FR-0-0.5. Still no discriminations can be made, so again the independent of the topic choice, the discrimination game ends in failure. Since there are still sensory channels left to be explored, a new feature will be constructed at hierarchical layer 0 and value 0.5. Suppose the agent chooses to explore the size senosry channel, the agent adds feature S-0-0.5 to its system.
+
+In the third game, all objects can be related to the following description: {FR-0-0.5, S-0-0.5}, so again the discrimination game fails. Since there is still a sensory channel left to explore, the new feature will be: A-0-0.5.
+
+The fourth game will still fail. Since all segments, exept segment e, can only be related to {FR-0-0.5, S-0-0.5, A-0-0.5}. Segment e will be related to {FR-0-0.5, S-0-0.5}. So, if one tries to discriminate a segment from all other segments, this will not be possible. Although segments a, b, c and d all differ from segment e, they are not mutual distinctive. And since segment e is not related to any feature operating over sensory channel A, and the model does not incorporate the concept of 'not having a feature', and the features that are used to relate e, the agent fails to discriminate this object from the others. Now, since all sensory channels are already explored by the agent's feature system, an existing feature has to be refined. An arbitrary sensory channel will be chosen to refine, if the sensory channel does not have a zero value for the topic. Suppose that segment a was the topic and that the sensory channel FR will be chosen by the agent to refine. Since hierarchical layer 0, already has $3^0=1$ features, and layer 1 still has none, the agent constructs feature FR-1-1.
+
+The made refinement is still not sufficient to discriminate one segment from another, because in addition to the descriptions made in the previous game, all segments are partly related to this new feature FR-1-1. The segments with sensory values of 0.66 on sensory channel FR will be partly related to FR-1-1, since this is the closest feature on this sensory channel and hierarchy layer 1. Suppose now that at the end of this game the feature FR-1-0.66 is constructed.
+
+Still the agent cannot discriminate a single segment from another, but the agent is, in principle, able to distinguish the squares from the circles. The squares are now partly related to feature {FR-1-1}, whereas the circles are related to {FR-1-0.66}, so these features are discriminative between the two groups. However, since it is not the task of the discrimination game to discriminate groups, although this could be made possible, the agent creates a new feature. Suppose this feature is S-1-0.25.
+
+Again, the system is not able to discriminate individual segments. Every segment is related at hierarchical layer 0 for every sensory channel with the same feature. The squares are also related to feature FR-1-1, while the circles are related to FR-1-0.66. Furthermore, all segments are now also related to feature S-1-0.25. Discrimination game 7 thus fails and the agent may construct a new feature S-1-0.75.
+
+
+Discrimination game 8 may succeed. If one of the segments a, b, c or d is the topic, the game ends in success. The segments are now related as follows:
+
+a: {FR-0-0.5, FR-1-1, S-0-0.5, S-1-0.25, A-0-0.5}
+b: {FR-0-0.5, FR-1-1, S-0-0.5, S-1-0.75, A-0-0.5}
+c: {FR-0-0.5, FR-1-0.66, S-0-0.5, S-1-0.25, A-0-0.5}
+d: {FR-0-0.5, FR-1-0.66, S-0-0.5, S-1-0.75, A-0-0.5}
+e: {FR-0-0.5, FR-1-0.66, S-0-0.5, S-1-0.75}
+
+The feature sets the agent can extract from these relations to describe the segments are all possible combination of at least one element, and in which the sensory channels are distinctive. Segment e, for instance, is described by the following feature sets:
+
+e: {FR-0-0.5}, {FR-1-0.66}, {S-0-0.5}, {S-1-0.75}, {FR-0-0.5, S-0-0.5}, {FR-0-0.5, S-1-0.75},{FR-1-0.66, S-0-0.5}, {FR-1-0.66, S-1-0.75}.
+
+Suppose that segment a is the topic of this discrimination game. The feature set {FR-1-1, S-1-0.25} is distinctive, it cannot be found in the description of any other segment. The same holds for feature set {FR-1-1, S-1-0.25, A-0-0.5}. In the experiments feature set {FR-1-1, S-1-0.25} is preferred, since it has less elements and is therefore a more general description of segment a. The preferred distinctive feature sets for segments b and c are respectively {FR-1-1, S-1-0.75} and {FR-1-0.66, S-1-0.25}. Segment d needs a combination of 3 features to describe the segment distinctively: {FR-0-0.66, S-0-0.5, A-0-0.5}. Although the first two features do not distinguish d from e, the last one does. The first two features are sufficient to distinguish d from segments a, b and c.
+
+Note that in this example we cannot constructs features to discriminate e from all other segments in the context, since all possible combinations of features describing e will result in a subset of all possible combinations of features describing d. This is a hyat of the theory that does not offer features that do 'not have this property', or that do not relate to sensory values of 0. If these kind of features were allowed, an agent could learn to discriminate segment e as well as the others.
+
+The above example described the process of discrimination games using a artificial example that could easily be implemented. Some assumptions made the example more easy, like the assumption that the context of the agent was kept constant. What the example made clear was the fast construction of features that enabled the agent to discriminate 4 out of 5 segments. It also showed a "tekortkoming" of the model that one of the segments would never be classified using this method.
+
+
+

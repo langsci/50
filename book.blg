@@ -1,0 +1,58 @@
+This is BibTeX, Version 0.99d (TeX Live 2013)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: book.aux
+The style file: unified.bst
+A level-1 auxiliary file: preface.aux
+A level-1 auxiliary file: acknowledgements.aux
+A level-1 auxiliary file: introduction//introduction.aux
+A level-1 auxiliary file: robots//Robots1.aux
+A level-1 auxiliary file: lang_games/lg.aux
+A level-1 auxiliary file: basic/basic.aux
+A level-1 auxiliary file: parameters/parameters.aux
+A level-1 auxiliary file: optimal/opt.aux
+A level-1 auxiliary file: Discussion/discussion.aux
+Database file #1: paul.bib
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Warning--empty school in kaplan:2000
+You've used 160 entries,
+            3166 wiz_defined-function locations,
+            1412 strings with 25240 characters,
+and the built_in function-call counts, 87070 in all, are:
+= -- 6861
+> -- 2983
+< -- 173
++ -- 1134
+- -- 871
+* -- 5213
+:= -- 13697
+add.period$ -- 652
+call.type$ -- 160
+change.case$ -- 1234
+chr.to.int$ -- 172
+cite$ -- 161
+duplicate$ -- 7359
+empty$ -- 7294
+format.name$ -- 1258
+if$ -- 17640
+int.to.chr$ -- 16
+int.to.str$ -- 1
+missing$ -- 1544
+newline$ -- 804
+num.names$ -- 734
+pop$ -- 3412
+preamble$ -- 1
+purify$ -- 895
+quote$ -- 0
+skip$ -- 2540
+stack$ -- 0
+substring$ -- 3103
+swap$ -- 3159
+text.length$ -- 6
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 1329
+warning$ -- 1
+while$ -- 607
+width$ -- 0
+write$ -- 2056
+(There was 1 warning)
