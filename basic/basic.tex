@@ -170,7 +170,7 @@ There are many advantages for off-board processing:
 
 After approximately one hour of experimenting, the robot's batteries die. The robots have no persistent data storage on-board. So, when the batteries are empty and the robot shuts down, the memory built up disappears unless it is saved off-board first. Of course, the robots may be powered by a cable, but in practice this proves to be rather cumbersome. The advantage would be that a serial cable can be attached to monitor the internal dynamics of the robots during a game, but this could also be done using radio communication.
 
-The recording of one language game when the robots need to look for each other takes approximately $1.5 \mbox{min}$. Recording a minimum of 5,000 language games takes therefore 125 hours, which, assuming that there are 5 effective experimental hours a day\footnote{Perhaps some robotics researchers laugh at this positive estimation, but in good days this is manageable.}, takes 25 days or 5 weeks. {\bf If nothing goes wrong, naturally!} This period can be reduced to 5 days if the researcher brings the robots together him- or herself after which the robots play a series of, say 10 games in a row. 
+The recording of one language game when the robots need to look for each other takes approximately $1.5 \mbox{min}$. Recording a minimum of 5,000 language games takes therefore 125 hours, which, assuming that there are 5 effective experimental hours a day\footnote{Perhaps some robotics researchers laugh at this positive estimation, but in good days this is manageable.}, takes 25 days or 5 weeks. {\em If nothing goes wrong, naturally!} This period can be reduced to 5 days if the researcher brings the robots together him- or herself after which the robots play a series of, say 10 games in a row. 
 
 Now suppose that one wants to tune a parameter by varying this parameter 5 or 10 times. Or that one wants to change a method, or what if the researcher finds a bug in its program. For all these reasons off-board processing is the outcome. Another important advantage is that one can use the same recordings over and over again across different experiments, so comparing different experiments is more reliable.
 
@@ -241,12 +241,12 @@ The potential understandability is lower than 1, because the two robots do not a
 
 \begin{table}
 \centering
-\begin{tabular}{||r|c|c||}
-\hline\hline
- & r0 & r1\\\hline
-$\langle|Cxt|\rangle$ & $3.33 \pm 1.07$ & $3.54 \pm 1.21$\\\hline
-$U_r$ & $0.81 \pm 0.27$ & $0.78 \pm 0.27$\\\hline
-\hline
+\begin{tabular}{rcc}
+\lsptoprule
+ & r0 & r1\\\midrule
+$\langle|Cxt|\rangle$ & $3.33 \pm 1.07$ & $3.54 \pm 1.21$\\
+$U_r$ & $0.81 \pm 0.27$ & $0.78 \pm 0.27$\\
+\lspbottomrule
 \end{tabular}
 \caption{The average context size $\langle|Cxt|\rangle$ and average potential understandability $U_r$ of the recorded data set.}
 \label{t:st:data}
@@ -274,14 +274,14 @@ The experiment is a guessing game with feedback obtained by means of {\em corres
 
 \begin{table}
 \centering
-\begin{tabular}{||l|c||}
-\hline\hline
-Par & Value\\\hline
-$\delta$ & 0.10\\\hline
-$\eta$ & 0.99\\\hline
-$P_s$ & 0.02\\\hline
-$P_h$ & 1.00\\\hline
-\hline
+\begin{tabular}{lc}
+\lsptoprule
+Par & Value\\\midrule
+$\delta$ & 0.10\\%\hline
+$\eta$ & 0.99\\%\hline
+$P_s$ & 0.02\\%\hline
+$P_h$ & 1.00\\%\hline
+\lspbottomrule
 \end{tabular}
 \caption{Parameters of the system. The parameters include the step-size $\delta$ by which the categories shift towards an observation, the learning rate $\eta$ controlling the adaptation of scores, the creation probability $P_s$ by which the speaker may invent new word-forms, the adoption probability $P_h$ by which the hearer may adopt a new word-form when it does not find a matching word-form with an associated meaning it also categorised, and the success threshold $\Theta_F$ by which the success of a language game may be accepted.\index{form!creation probability}\index{learning rate}}
 \label{t:st:param}
@@ -328,21 +328,21 @@ So, when the robots are successful in communicating and categorisation, they do 
 
 \begin{table}
 \centering
-\begin{tabular}{||l|c||}
-\hline\hline
-Score & Avg\\\hline
-CS & 0.351 $\pm$ 0.010\\\hline
-DS0 & 0.916 $\pm$ 0.004\\\hline
-DS1 & 0.920 $\pm$ 0.004\\\hline
-D0 & 0.956 $\pm$ 0.002\\\hline
-D1 & 0.955 $\pm$ 0.002\\\hline
-P0 & 0.852 $\pm$ 0.004\\\hline
-P1 & 0.851 $\pm$ 0.002\\\hline
-S0 & 0.822 $\pm$ 0.017\\\hline
-S1 & 0.817 $\pm$ 0.011\\\hline
-C0 & 0.816 $\pm$ 0.008\\\hline
-C1 & 0.811 $\pm$ 0.007\\\hline
-\hline
+\begin{tabular}{lc}
+\lsptoprule
+Score & Avg\\\midrule
+CS & 0.351 $\pm$ 0.010\\%\hline
+DS0 & 0.916 $\pm$ 0.004\\%\hline
+DS1 & 0.920 $\pm$ 0.004\\%\hline
+D0 & 0.956 $\pm$ 0.002\\%\hline
+D1 & 0.955 $\pm$ 0.002\\%\hline
+P0 & 0.852 $\pm$ 0.004\\%\hline
+P1 & 0.851 $\pm$ 0.002\\%\hline
+S0 & 0.822 $\pm$ 0.017\\%\hline
+S1 & 0.817 $\pm$ 0.011\\%\hline
+C0 & 0.816 $\pm$ 0.008\\%\hline
+C1 & 0.811 $\pm$ 0.007\\%\hline
+\lspbottomrule
 \end{tabular}
 \caption{The table listing the average scores for the different measures. The suffix 0 or 1 indicates from which robot the score is (R0 or R1). The second column gives the global average of the experiment, together  with its standard deviation over the population of 10 runs.}
 \label{t:st:averages}
@@ -379,24 +379,24 @@ At the other feature spaces from figure \ref{f:cat:evol1}, an increasing amount 
 
 \begin{table}
 \centering
-\begin{tabular}{||r|r||}
-\hline\hline
-M5 & $(0.02, 0.01, 1.00, 0.02)_1$\\\hline
-M6 & $(0.04, 0.00, 0.00, 0.00)_2$\\\hline
-M18 & $(0.56, 0.99, 0.02, 0.02)_1$\\\hline
-M20 & $(0.02, 0.01, 1.00, 0.44)_1$\\\hline
-M27 & $(0.02, 0.31, 1.00, 0.44)_1$\\\hline
-M30 & $(0.02, 0.99, 0.02, 0.02)_1$\\\hline
-M37 & $(0.00, 0.00, 0.00, 0.00)_3$\\\hline
-M53 & $(1.00, 0.01, 0.02, 0.02)_1$\\\hline
-M55 & $(1.00, 0.31, 0.02, 0.02)_1$\\\hline
-M58 & $(0.02, 0.01, 0.30, 0.99)_1$\\\hline
-M61 & $(0.02, 0.01, 0.02, 0.99)_1$\\\hline
-M67 & $(1.00, 0.99, 0.02, 0.02)_1$\\\hline
-M90 & $(0.00, 0.00, 0.01, 0.00)_5$\\\hline
-M393 & $(0.00, 0.00, 0.00, 0.01)_4$\\\hline
-M394 & $(0.00, 0.00, 0.00, 0.01)_5$\\\hline
-\hline
+\begin{tabular}{rr}
+\lsptoprule
+M5 & $(0.02, 0.01, 1.00, 0.02)_1$\\%\hline
+M6 & $(0.04, 0.00, 0.00, 0.00)_2$\\%\hline
+M18 & $(0.56, 0.99, 0.02, 0.02)_1$\\%\hline
+M20 & $(0.02, 0.01, 1.00, 0.44)_1$\\%\hline
+M27 & $(0.02, 0.31, 1.00, 0.44)_1$\\%\hline
+M30 & $(0.02, 0.99, 0.02, 0.02)_1$\\%\hline
+M37 & $(0.00, 0.00, 0.00, 0.00)_3$\\%\hline
+M53 & $(1.00, 0.01, 0.02, 0.02)_1$\\%\hline
+M55 & $(1.00, 0.31, 0.02, 0.02)_1$\\%\hline
+M58 & $(0.02, 0.01, 0.30, 0.99)_1$\\%\hline
+M61 & $(0.02, 0.01, 0.02, 0.99)_1$\\%\hline
+M67 & $(1.00, 0.99, 0.02, 0.02)_1$\\%\hline
+M90 & $(0.00, 0.00, 0.01, 0.00)_5$\\%\hline
+M393 & $(0.00, 0.00, 0.00, 0.01)_4$\\%\hline
+M394 & $(0.00, 0.00, 0.00, 0.01)_5$\\%\hline
+\lspbottomrule
 \end{tabular}
 \caption{The legend of some of the meanings represented by their prototypes. The subscript indicates the feature space ${\mathcal F}_\lambda$ at which the prototypes are stored. The given meanings are taken from the ontology after 5,000 language games.}
 \label{t:st:legend}
