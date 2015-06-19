@@ -43,19 +43,19 @@ In the beginning of the experiments, the robots have no categories or word-forms
 
 \begin{table}
 \centering
-\begin{tabular}{||c|c||}
-\hline\hline
-{\bf SPEAKER} & {\bf HEARER}\\
-\hline
-\multicolumn{2}{||c||}{{\em Get together and align}}\\\hline
-\multicolumn{2}{||c||}{Sensing, segmentation and feature extraction}\\\hline
-Topic choice & --\\\hline
-{\em Pointing} & {\em Topic selection}\\\hline
-\multicolumn{2}{||c||}{Categorisation}\\\hline
-Production & --\\\hline
--- & Understanding\\\hline
-\multicolumn{2}{||c||}{Feedback}\\\hline
-\multicolumn{2}{||c||}{Adaptation}\\\hline\hline
+\begin{tabular}{cc}
+\lsptoprule
+{\sc speaker} & {\sc hearer}\\
+\midrule
+\multicolumn{2}{c}{{\em Get together and align}}\\\midrule
+\multicolumn{2}{c}{Sensing, segmentation and feature extraction}\\\midrule
+Topic choice & --\\\midrule
+{\em Pointing} & {\em Topic selection}\\\midrule
+\multicolumn{2}{c}{Categorisation}\\\midrule
+Production & --\\\midrule
+-- & Understanding\\\midrule
+\multicolumn{2}{c}{Feedback}\\\midrule
+\multicolumn{2}{c}{Adaptation}\\\lspbottomrule
 \end{tabular}
 \caption{The language game scenario. The `get together and align' phase is done by the experimenter for practical reasons. {\em Pointing} and {\em Topic selection} may be omitted for methodological reasons. See the text for more details.}
 \label{t:scenario1}
@@ -102,10 +102,10 @@ How the physical behaviours of the robots are implemented in PDL is presented in
 
 \begin{table}
 \centering
-\begin{tabular}{|ll|}
-\hline\hline
-\multicolumn{2}{|c|}{{\bf Sensors}}\\
-\hline
+\begin{tabular}{ll}
+\lsptoprule
+\multicolumn{2}{c}{{\sc Sensors}}\\
+\midrule
 LFB & Left Front Bumper\\
 RFB & Right Front Bumper\\
 LBB & Left Back Bumper\\
@@ -115,24 +115,24 @@ FIR & Front Infrared Sensor\\
 RIR & Right Infrared Sensor\\
 WL & White Light Sensor\\
 RX & Radio Receiver\\
-\hline\hline
-\multicolumn{2}{|c|}{{\bf Finite State Automata}}\\
-\hline
+\midrule
+\multicolumn{2}{c}{{\sc Finite State Automata}}\\
+\midrule
 0 & Default State\\
 Sx & Speaker's State x\\
 Hx & Hearer's State x\\
-\hline\hline
-\multicolumn{2}{|c|}{{\bf Processes}}\\
-\hline
+\midrule
+\multicolumn{2}{c}{{\sc Processes}}\\
+\midrule
 TBOA & Touch-Based Obstacle Avoidance\\
-\hline\hline
-\multicolumn{2}{|c|}{{\bf Actuators}}\\
-\hline
+\midrule
+\multicolumn{2}{c}{{\sc Actuators}}\\
+\midrule
 TX & Radio Transmitter\\
 LM & Left Motor\\
 RM & Right Motor\\
 IR & Infrared Emitter\\
-\hline\hline
+\lspbottomrule
 \end{tabular}
 \caption{A list of abbreviations as used in figure \ref{f:architecture}.}
 \label{t:abbr}
@@ -204,15 +204,15 @@ Figure \ref{f:perception1} shows that at time step $7$ sensory channel $s0$ sens
 
 \begin{table}
 \centering
-\begin{tabular}{||c|r|r|r|r|r||}
-\hline\hline
+\begin{tabular}{crrrrr}
+\lsptoprule
 P & t & $s0$ & $s1$ & $s2$ & $s3$\\
-\hline
+\midrule
 1 & 7 & 201 & 9 & 7 & 3\\
 2 & 18 & 56 & 59 & 11 & 3\\
 3 & 28 & 5 & 41 & 48 & 6\\
 4 & 42 & 3 & 3 & 10 & 248\\
-\hline\hline
+\lspbottomrule
 \end{tabular}
 \caption{Peaks P observed in figure \ref{f:perception1}. The table lists the highest intensity reached at time $t$ with sensory channels $s0$, $s1$, $s2$ and $s3$.}
 \label{t:perception1}
@@ -233,16 +233,16 @@ After the speaker finished its sensing, the hearer starts its sensing. That the 
 
 \begin{table}
 \centering
-\begin{tabular}{||c|r|r|r|r|r||}
-\hline\hline
+\begin{tabular}{crrrrr}
+\lsptoprule
 P & t & $s0$ & $s1$ & $s2$ & $s3$\\
-\hline
+\midrule
 1 & 1 & 4 & 25 & 30 & 7\\
 2 & 8 & 7 & 3 & 7 & 150\\
 3 & 40 & 247 & 5 & 4 & 6\\
 4 & 47 & 38 & 24 & 4 & 3\\
 5 & 54 & 12 & 4 & 21 & 8\\
-\hline\hline
+\lspbottomrule
 \end{tabular}
 \caption{Peaks of figure \ref{f:perception2}.}
 \label{t:perception2}
@@ -330,17 +330,17 @@ Applying the feature extraction of equation \ref{e:sc-norm} to the sensing of fi
 
 \begin{table}
 \centering
-\begin{tabular}{||c|r|r|r|r|r||}
+\begin{tabular}{crd{2}d{2}d{2}d{2}}
 \hline\hline
-${\bf f}$ & t & $f_0$ & $f_1$ & $f_2$ & $f_3$\\
-\hline
+${\bf f}$ & \multicolumn{1}{c}{t} & \multicolumn{1}{c}{$f_0$} & \multicolumn{1}{c}{$f_1$} & \multicolumn{1}{c}{$f_2$} & \multicolumn{1}{c}{$f_3$}\\
+\midrule
 1 & 7 & 1.00 & 0.02 & 0.00 & 0.00\\
 2 & 18 & 0.94 & 1.00 & 0.07 & 0.00\\
 3 & 28 & 0.00 & 0.90 & 1.00 & 0.03\\
 4 & 40 & 0.00 & 0.00 & 0.01 & 1.00\\
 5 & 50 & 0.00 & 0.00 & 0.00 & 1.00\\
 6 & 59 & 1.00 & 0.00 & 0.00 & 0.00\\
-\hline\hline
+\lspbottomrule
 \end{tabular}
 \caption{Feature vectors ${\bf f}$ after applying the feature extraction measuring the relative intensity of a sensory channel in a given segment.}
 \label{t:sc_relative}
@@ -681,15 +681,15 @@ To investigate whether robots can develop a shared lexicon under these different
 
 \begin{table}[t]
 \centering
-\begin{tabular}{||l|c|c||}
-\hline\hline
+\begin{tabular}{lcc}
+\lsptoprule
 Game & Joint attention & Feedback\\
-\hline
+\midrule
 ostensive & Yes & Yes\\
 guessing & No & Yes\\
 observational & Yes & No\\
 XSL & No & No\\
-\hline\hline
+\lspbottomrule
 \end{tabular}
 \caption{A schematic overview of the extra-linguistic information that is available in the different language games.}
 \label{t:cm:games}
