@@ -4,11 +4,11 @@ In this chapter the design and architecture of the robots is discussed. The expe
 
 The robots are controlled by a specialised sensorimotor board, the SMBII\footnote{Read as SMB-2.} \citep{vereertbrugghen:1996}. The sensorimotor board connects the sensory equipment with the actuators in such a way that the actuators and sensor readings are updated 40 times per second. The actuators respond to sensory stimuli, where the response is calculated by a set of `parallel' processes. These processes are programmed in the {\em Process Description Language} (PDL), which has been developed at the VUB AI Lab as a software architecture to implement behaviour-oriented control \citep{steels:1994b}. 
 
-The outline of the experiments is discussed in chapters \ref{ch:lg}; this chapter is concentrated on the physical set-up of the robots and their environment in the different experiments. The robots' environment is presented in section \ref{s:robots:envir}. Section \ref{s:robots:robots} discusses the physical architecture of the robots. Section \ref{s:robots:PDL} discusses the Process Description Language. 
+The outline of the experiments is discussed in chapters \ref{ch:lg}; this chapter is concentrated on the physical set-up of the robots and their environment in the different experiments. The robots' environment is presented in \sectref{s:robots:envir}. Section \ref{s:robots:robots} discusses the physical architecture of the robots. Section \ref{s:robots:PDL} discusses the Process Description Language. 
 
 \section{The Environment}\label{s:robots:envir}
 
-The environment that has been used for the experiments in the past varied across some of the experiments. The environment in early experiments \citep{steelsvogt:1997,vogt:1998b,vogt:1998a} had different light sources than the current environment. Furthermore, the size of the environment shrinked from $5\times5 m^2$ to $2.5\times2.5 m^2$. In the current environment there are four different white light sources, each placed at a different height (figure \ref{f:robots:envir}).
+The environment that has been used for the experiments in the past varied across some of the experiments. The environment in early experiments \citep{steelsvogt:1997,vogt:1998b,vogt:1998a} had different light sources than the current environment. Furthermore, the size of the environment shrinked from $5\times5 m^2$ to $2.5\times2.5 m^2$. In the current environment there are four different white light sources, each placed at a different height (\figref{f:robots:envir}).
 
 \begin{figure}[t]
 \centerline{\includegraphics[width=\textwidth]{robots//environment.eps}}
@@ -29,7 +29,7 @@ The boxes are placed such that the height of the slit varied per light source. T
 \label{f:robots}
 \end{figure}
 
-In the experiments two LEGO robots as in figure \ref{f:robots} are used. Each robot has a set of sensors to observe the world. These sensors are low-level. They can only detect the intensity of light in a particular frequency domain. Other low-level sensors are used to control the robots in their movement. The sensors are connected to a dedicated sensorimotor board, the so-called SMBII. On the SMBII all sensors are read at a rate of 40 Hz. The sensor readings are processed according to the software, written in PDL (see next section). After the sensors have been processed the SMBII outputs the actuator commands and sends its appropriate signals to the actuators. The robots are powered by a re-chargeable Nickel-Cadmium battery pack as used in portable computers.
+In the experiments two LEGO robots as in \figref{f:robots} are used. Each robot has a set of sensors to observe the world. These sensors are low-level. They can only detect the intensity of light in a particular frequency domain. Other low-level sensors are used to control the robots in their movement. The sensors are connected to a dedicated sensorimotor board, the so-called SMBII. On the SMBII all sensors are read at a rate of 40 Hz. The sensor readings are processed according to the software, written in PDL (see next section). After the sensors have been processed the SMBII outputs the actuator commands and sends its appropriate signals to the actuators. The robots are powered by a re-chargeable Nickel-Cadmium battery pack as used in portable computers.
 
 In this section the set-up of the sensors and actuators of the robots are discussed first. Secondly the architecture of the SMBII is discussed briefly.
 
@@ -41,7 +41,7 @@ In this section the set-up of the sensors and actuators of the robots are discus
 \label{f:robots:robots_general}
 \end{figure}
 
-The robots in all experiments have a set-up like shown schematically in figure \ref{f:robots:robots_general}. The sensory equipment consists of four binary bumpers, three infrared (IR) sensors and a radio link {\em receiver}. The radio link is a module that also has a radio link {\em transmitter}, which is classified as an actuator. The infrared sensors are part of the infrared module, which also consists of an actuator: the infrared transmitter. Two independent motors complete the actuator set-up. All sensors and actuators are connected to the SMBII, which is powered by a battery-pack. The battery-pack also powers the motor-controller. The motor-controller, controlled by the SMBII controls the motors. The motors are connected to the wheels via a set of gears. Finally there are four white light sensors that are responsible for the perception.
+The robots in all experiments have a set-up like shown schematically in \figref{f:robots:robots_general}. The sensory equipment consists of four binary bumpers, three infrared (IR) sensors and a radio link {\em receiver}. The radio link is a module that also has a radio link {\em transmitter}, which is classified as an actuator. The infrared sensors are part of the infrared module, which also consists of an actuator: the infrared transmitter. Two independent motors complete the actuator set-up. All sensors and actuators are connected to the SMBII, which is powered by a battery-pack. The battery-pack also powers the motor-controller. The motor-controller, controlled by the SMBII controls the motors. The motors are connected to the wheels via a set of gears. Finally there are four white light sensors that are responsible for the perception.
 
 Below a more detailed description of the most important sensors and actuators are given. 
 
@@ -59,11 +59,11 @@ Below a more detailed description of the most important sensors and actuators ar
 
 
 \begin{description}
-\item[The Bumpers] The robots have four bumpers that are used for touch based obstacle avoidance; two on the front and two on the back of the robot, both left and right. Each bumper is a binary switch: when it is pressed it returns $1$, else it returns $0$. The bumpers have a spanning construction of LEGO (see figure \ref{f:robots:front} and \ref{f:robots:radiolink}). If a robot bumps with this construction into an obstacle. The program can then react on the sensed collision.
-\item[The Infrared Module] Whereas the bumpers are simple binary sensors, the infrared module (figure \ref{f:robots:front}) is more complex. The infrared module consists of infrared emitters and sensors. The emitters are light emitting diodes emitting infrared. The infrared sensors themselves are sensors that can be found in e.g. television sets. They detect light at infrared wavelengths and send a signal to the SMBII that is proportional to the intensity of the infrared. The sensors are mounted such that they can discriminate infrared coming from the left, centre and right sides in front of the robot. The sensors are not calibrated in the sense that one can calculate the exact angle from where the infrared is coming or from what distance. Also the  positions of the sensors are not exactly symmetric, due to some physical limitations of the sensors and the LEGO construction. \citet{vogt:1997} discusses some practical problems concerning the modulation and characteristics of the infrared module in detail.
+\item[The Bumpers] The robots have four bumpers that are used for touch based obstacle avoidance; two on the front and two on the back of the robot, both left and right. Each bumper is a binary switch: when it is pressed it returns $1$, else it returns $0$. The bumpers have a spanning construction of LEGO (see \figref{f:robots:front} and \ref{f:robots:radiolink}). If a robot bumps with this construction into an obstacle. The program can then react on the sensed collision.
+\item[The Infrared Module] Whereas the bumpers are simple binary sensors, the infrared module (\figref{f:robots:front}) is more complex. The infrared module consists of infrared emitters and sensors. The emitters are light emitting diodes emitting infrared. The infrared sensors themselves are sensors that can be found in e.g. television sets. They detect light at infrared wavelengths and send a signal to the SMBII that is proportional to the intensity of the infrared. The sensors are mounted such that they can discriminate infrared coming from the left, centre and right sides in front of the robot. The sensors are not calibrated in the sense that one can calculate the exact angle from where the infrared is coming or from what distance. Also the  positions of the sensors are not exactly symmetric, due to some physical limitations of the sensors and the LEGO construction. \citet{vogt:1997} discusses some practical problems concerning the modulation and characteristics of the infrared module in detail.
 
 
-\item[The Radio Link] The radio link module is a transmitter/receiver device designed to connect with the SMBII (see figure \ref{f:robots:radiolink}). The module is a Radiometrix BM-433F module with RX (receive) and TX (transmission) connections. The module can send up to 40 Kbit/s, but is used at 9.6 Kbit/s. 
+\item[The Radio Link] The radio link module is a transmitter/receiver device designed to connect with the SMBII (see \figref{f:robots:radiolink}). The module is a Radiometrix BM-433F module with RX (receive) and TX (transmission) connections. The module can send up to 40 Kbit/s, but is used at 9.6 Kbit/s. 
 
 Every clock cycle of the SMBII a packet of messages can be sent. A packet can consist of a maximum of 31 messages each up to 127 bytes long. A message has a transmission ID and an destination address, which define the sender and receiver(s) of the message.  It also has a bit defining the reliability of the transmission; this bit has to be set to {\bf unreliable}, i.e. to $0$, because the reliability protocol has not been implemented in the radio link kernel. This has the consequence that if a message is sent, it is not sure if the message arrives at its destination. But {\em when} it arrives, the message arrives error-less. About $5\%$ of the messages sent do not arrive at their destination.
 
@@ -71,15 +71,15 @@ This unreliability has some technical impacts on the experiments. Since data log
 
 \item[The Motor Controller and the Motors] The motor controller is a device that transforms and controls motor commands coming from the SMBII into signals that are sent to the standard LEGO DC motors. Each robot has two independent motors. So, in order to steer the robot, one has to send a (possibly different) signal to each motor.
 
-\item[Gearing] The motors are not directly connected to the wheels. They are connected to the wheels with a set of gears (see figure \ref{f:robots:bottom}). The wheels are placed such that they form an axis approximately through the centre of the robot so that it can rotate around this point. A third small caster-wheel is used to stabilise the robot. 
+\item[Gearing] The motors are not directly connected to the wheels. They are connected to the wheels with a set of gears (see \figref{f:robots:bottom}). The wheels are placed such that they form an axis approximately through the centre of the robot so that it can rotate around this point. A third small caster-wheel is used to stabilise the robot. 
 
 \index{sensors light|(}
-\item[The light sensors] The white light sensors are the most crucial sensors in the experiments. This is because they are used for the perception of the analogue signals that the robots are supposed to ground. Each robot has four white light sensors stacked on top of each other. The sensors have a vertical distance of 3.9 cm between each other. Each sensor is at the same height as a light source (figure \ref{f:robots:front}). 
+\item[The light sensors] The white light sensors are the most crucial sensors in the experiments. This is because they are used for the perception of the analogue signals that the robots are supposed to ground. Each robot has four white light sensors stacked on top of each other. The sensors have a vertical distance of 3.9 cm between each other. Each sensor is at the same height as a light source (\figref{f:robots:front}). 
 
 The light sensors were calibrated such that the characteristics of all sensors are roughly the same. Figure \ref{f:robots:calibration} shows the characteristics of the calibrated light sensors as empirically measured for the experimental set-up. On the x-axis of each plot the distance of the robot to the light source is given in centimetres; the y-axis shows the intensity of the light in PDL values. PDL scales the light sensors between 0 and 255, where 0 means no detection of light and 255 means maximum intensity. The calibration of each sensor is done while it was exposed to a corresponding light source. A sensor is said to {\em correspond} with a light source when it has the same height. The complete figure shows the characteristics of the two robots {\bf r0} and {\bf r1}, each with four sensors ({\bf s0} $\ldots$ {\bf s3}).
 \index{correspondence}
 
-It is notable that for light source $L0$ the characteristics of sensor $s3$ is high at the beginning (figure \ref{f:robots:calibration} (a) and (e)). This is because for the lowest light source $L0$, sensor $s3$ is higher than the top of the box, which is open. At a larger distance the light coming from the top of this box cannot be seen. 
+It is notable that for light source $L0$ the characteristics of sensor $s3$ is high at the beginning (\figref{f:robots:calibration} (a) and (e)). This is because for the lowest light source $L0$, sensor $s3$ is higher than the top of the box, which is open. At a larger distance the light coming from the top of this box cannot be seen. 
 
 It is clear that all characteristics are similar. The sensor that corresponds to a light source detects high intensities at short distances and low values at larger distances. From $0.6 m$ other sensors start detecting the light source as well. This is because the light coming from the slit does not propagate in a perpendicular beam, but is diverging slightly. It is important to note that corresponding light sensors are calibrated to read the highest intensities between $0$ and $1.2 m$. The shape of the plots are like they would have been expected from the physics rule that the intensity $I \sim \frac{1}{r^2}$, where $r$ is the distance to the light source.
 
@@ -124,9 +124,9 @@ The computing hardware of the robots is a sensorimotor board, called the SMBII, 
 \caption{The two components of the SMBII board: (a) the Vesta Technologies SBC332 micro controller board, and (b) the add-on SMB-2 sensorimotor board.}
 \end{figure}
 
-The Vesta board (see figure \ref{f:vesta}) contains a Motorola MC68332 micro-controller, 128 kB ROM and 1 MB RAM\footnote{In the original version of the SMBII there was only 256 kB RAM \citep{vereertbrugghen:1996}.}. The board's micro-controller runs at 16.78 MHz at 5Volt and everything is powered by a pack of rechargeable Nickel-Cadmium batteries.
+The Vesta board (see \figref{f:vesta}) contains a Motorola MC68332 micro-controller, 128 kB ROM and 1 MB RAM\footnote{In the original version of the SMBII there was only 256 kB RAM \citep{vereertbrugghen:1996}.}. The board's micro-controller runs at 16.78 MHz at 5Volt and everything is powered by a pack of rechargeable Nickel-Cadmium batteries.
 
-The add-on SMB-2 board (figure \ref{f:smbii}) contains several I/O chips, bus controllers and connectors. The SMBII low-level program is run on the kernel and it can interface a user program written in any language as long a the kernel calls are written in C  \citep{vereertbrugghen:1996}. The program that is run on the SMBII for these experiments is written in the Process Description Language PDL. 
+The add-on SMB-2 board (\figref{f:smbii}) contains several I/O chips, bus controllers and connectors. The SMBII low-level program is run on the kernel and it can interface a user program written in any language as long a the kernel calls are written in C  \citep{vereertbrugghen:1996}. The program that is run on the SMBII for these experiments is written in the Process Description Language PDL. 
 \index{SMBII}
 
 \section{The Process Description Language}\label{s:robots:PDL}\label{s:robots:pdl}
@@ -144,7 +144,7 @@ In PDL one can decompose a behaviour system in a set of dynamical processes. For
 \label{f:pdlcycle}
 \end{figure}
 
-PDL cycles the process of {\em reading sensors}, {\em evaluate processes} and {\em control actuators} (figure \ref{f:pdlcycle}). During a PDL cycle a robot reads the sensors to detect the current state of a robot in the world. These sensor readings are evaluated by processes that are defined in the software as explained below. The processes output commands to activate the actuators. These actuators in turn change the state of the world. Such a cycle is processed at $40 Hz$, so $40$ PDL cycles take 1 second. Throughout the book the basic time unit is a PDL cycle ($\frac{1}{40} s$).
+PDL cycles the process of {\em reading sensors}, {\em evaluate processes} and {\em control actuators} (\figref{f:pdlcycle}). During a PDL cycle a robot reads the sensors to detect the current state of a robot in the world. These sensor readings are evaluated by processes that are defined in the software as explained below. The processes output commands to activate the actuators. These actuators in turn change the state of the world. Such a cycle is processed at $40 Hz$, so $40$ PDL cycles take 1 second. Throughout the book the basic time unit is a PDL cycle ($\frac{1}{40} s$).
 
 The initial implementation of PDL was written in LISP, the currently used version is implemented in ANSI-C. It can compile both the specialised PDL syntax and ANSI-C commands within its architecture. The PDL architecture has as its basic symbolic units so-called \texttt{quantities}. A quantity is a \texttt{struct} type that has a {\bf name}, a {\bf value}, an {\bf upper bound}, a {\bf lower bound} and an {\bf initial value}. Each quantity can be connected to a serial port, interfacing the program with the physical sensors and actuators. Each type of sensor and actuator is defined within the operating system of the SMBII. The radio module has its own interface, but can be called with a PDL command. The most important parts of a PDL program are the {\em processes}. Each time a PDL program is compiled a network of processes is build up. The following example of phototaxis shows how this is done.
 
@@ -170,7 +170,7 @@ add_quantity(RightMotor,''RightMotor'',100.0f,-100.0f,0.0f);
 \end{figure}
 
 \bigskip\noindent
-The function \texttt{add\_q} adds the quantity \texttt{LeftFrontIR} is added to the network with name \texttt{''LeftFrontIR''}, an upper bound of \texttt{255.0f} (where \texttt{f} stands for {\em float}), a lower bound of \texttt{0.0f} and an initial value of \texttt{0.0f}. Likewise the quantities \texttt{RightFrontIR, LeftMotor} and \texttt{RightMotor} were added, see figure \ref{f:robots:pdl_networka}. The upper- and lower bound of the motors are resp. 100.0 and -100.0. If mathematically an upper- or lower bound would be exceeded, PDL sets the quantity-value to its upper- or lower bound. The next step is to connect the quantities to the serial ports of the SMBII, which are connected to the sensors and actuators.
+The function \texttt{add\_q} adds the quantity \texttt{LeftFrontIR} is added to the network with name \texttt{''LeftFrontIR''}, an upper bound of \texttt{255.0f} (where \texttt{f} stands for {\em float}), a lower bound of \texttt{0.0f} and an initial value of \texttt{0.0f}. Likewise the quantities \texttt{RightFrontIR, LeftMotor} and \texttt{RightMotor} were added, see \figref{f:robots:pdl_networka}. The upper- and lower bound of the motors are resp. 100.0 and -100.0. If mathematically an upper- or lower bound would be exceeded, PDL sets the quantity-value to its upper- or lower bound. The next step is to connect the quantities to the serial ports of the SMBII, which are connected to the sensors and actuators.
 
 
 {\footnotesize\begin{verbatim}
@@ -188,7 +188,7 @@ add_connection(AID2_Motor,RightMotor);
 
 
 
-Now the network looks like in figure \ref{f:robots:pdl_networkb}.
+Now the network looks like in \figref{f:robots:pdl_networkb}.
 
 The above is part of the initialisation. Another step of the initialisation is to add processes to the network:
 
@@ -205,7 +205,7 @@ add_process(TowardsDefault,''TowardsDefault'');
 \end{figure}
 
 
-This leads to the network as shown in figure \ref{f:robots:pdl_networkc}. 
+This leads to the network as shown in \figref{f:robots:pdl_networkc}. 
 
 To couple the sensors with the actuators, the processes have to be defined. The process {\em taxis} causes the robot to orient towards an infrared light source.
 
@@ -251,9 +251,9 @@ void TowardsDefault()
 
 
 
-This process causes the robot to change its speed towards a default speed with certain step size. The step size is introduced to let the robot accelerate smoothly. Note that this way the motor values do not reach the default speed; the values approach it asymptotically. When the processes are defined, the network looks like in figure \ref{f:robots:pdl}.
+This process causes the robot to change its speed towards a default speed with certain step size. The step size is introduced to let the robot accelerate smoothly. Note that this way the motor values do not reach the default speed; the values approach it asymptotically. When the processes are defined, the network looks like in \figref{f:robots:pdl}.
 
-Taking the two processes together results in the emergent behaviour that the robot will move wiggling towards the infrared source, see figure \ref{f:irtaxis}. Such phototaxis behaviour, although with a slightly different implementation, was introduced for a robot application by Valentino \citet{braitenberg:1984} and has already been discussed extensively in the literature, see e.g. \citep{steels:1994}.
+Taking the two processes together results in the emergent behaviour that the robot will move wiggling towards the infrared source, see \figref{f:irtaxis}. Such phototaxis behaviour, although with a slightly different implementation, was introduced for a robot application by Valentino \citet{braitenberg:1984} and has already been discussed extensively in the literature, see e.g. \citep{steels:1994}.
 
 \begin{figure}
 \centerline{\includegraphics[width=12cm]{robots//pdl_network.eps}}
@@ -302,7 +302,7 @@ A multi-agent system is a parallel process in which two robots cooperage autonom
 \label{f:fsa}
 \end{figure}
 
-Because the architecture uses finite state automata, readers may wrongly suggest it is the subsumption architecture proposed by Rodney \citet{brooks:1990}. In the subsumption architecture each process is viewed as a finite state automaton on its own with only one state that models a behaviour (figure \ref{f:fsa} (a)). The architecture proposed here uses possibly more finite state automata each with a sequence of states that can be entered (figure \ref{f:fsa} (b)). These finite state automata are used to control planning. A process in the cognitive architecture can be activated by several states, and a particular state can activate several processes. In addition the processes couple the sensors with the motors, like the behaviour-based architecture proposed by Luc \citet{steels:1994b}.
+Because the architecture uses finite state automata, readers may wrongly suggest it is the subsumption architecture proposed by Rodney \citet{brooks:1990}. In the subsumption architecture each process is viewed as a finite state automaton on its own with only one state that models a behaviour (\figref{f:fsa} (a)). The architecture proposed here uses possibly more finite state automata each with a sequence of states that can be entered (\figref{f:fsa} (b)). These finite state automata are used to control planning. A process in the cognitive architecture can be activated by several states, and a particular state can activate several processes. In addition the processes couple the sensors with the motors, like the behaviour-based architecture proposed by Luc \citet{steels:1994b}.
 \index{subsumption architecture|}
 \index{Brooks, Rodney|)}
 
@@ -325,7 +325,7 @@ In this chapter the basic set-up of the robots, their software and environment w
 
 The principles of PDL have been extended to a behaviour-based cognitive architecture. In this new architecture robots can execute planned behaviour as cognitive processes.
 
-The robots as introduced here are the physical bodies with which the agents try to develop their ontologies and lexicons. How they do that is explained in chapter \ref{ch:lg}. As shall become clear some processing is done off-board. This is mainly done to experiment more efficiently and to be able to test different approaches on recorded data.  In some specific experiments the architecture of the robots has been changed with respect to the description given in this chapter. Relevant changes will be reported when these experiments are discussed.
+The robots as introduced here are the physical bodies with which the agents try to develop their ontologies and lexicons. How they do that is explained in \chapref{ch:lg}. As shall become clear some processing is done off-board. This is mainly done to experiment more efficiently and to be able to test different approaches on recorded data.  In some specific experiments the architecture of the robots has been changed with respect to the description given in this chapter. Relevant changes will be reported when these experiments are discussed.
 
  More detailed information on the PDL program can be found in appendix \ref{a:pdl}.
 

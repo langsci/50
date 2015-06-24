@@ -181,10 +181,10 @@ Debugging is a good reason to process data as much as possible off-board as well
 \section{Sensory Data}\label{s:st:data}
 
 \index{situation}
-As mentioned in chapter \ref{ch:lg} the sensory data of the
+As mentioned in \chapref{ch:lg} the sensory data of the
 sensing during a language game is recorded to further
 process the game off-board. For convenience the sensing is segmented in advance, using the method
-described in chapter \ref{ch:lg}. The same is done for the feature extraction. The data set thus consists of
+described in \chapref{ch:lg}. The same is done for the feature extraction. The data set thus consists of
 the contexts described by the feature vectors of the two robots participating in the experiment. The two contexts that relate to one language game will be called a {\em situation}.
 
 
@@ -270,7 +270,7 @@ So, if the robots perform better than 30 \% in their communicative success, they
 This first experiment will be referred to as the {\em basic experiment}. It is called so because this experiment will serve as the basic experiment from which parameters and methods are changed to investigate their influence. That it is not the best experiment will be shown in subsequent chapters.
 
 
-The experiment is a guessing game with feedback obtained by means of {\em correspondence} (see section \ref{s:cm:feedback}). \index{correspondence}
+The experiment is a guessing game with feedback obtained by means of {\em correspondence} (see \sectref{s:cm:feedback}). \index{correspondence}
 
 \begin{table}
 \centering
@@ -305,9 +305,9 @@ Table \ref{t:st:param} shows the parameter settings of the most important variab
 \end{figure}
 
 
-The results of the experiment are shown in figure \ref{f:st:plot}. Note that the actual success is not shown. This is because the actual success is calculated under the same criteria as the feedback of the language games, namely the correspondence criterion. Therefore the actual success is equal to the communicative success. In the experiments where the feedback is provided using the correspondence criterion, the plot of the actual success will not be provided.
+The results of the experiment are shown in \figref{f:st:plot}. Note that the actual success is not shown. This is because the actual success is calculated under the same criteria as the feedback of the language games, namely the correspondence criterion. Therefore the actual success is equal to the communicative success. In the experiments where the feedback is provided using the correspondence criterion, the plot of the actual success will not be provided.
 
-In figure \ref{f:st:plot} (a) the evolution of the communicative success is shown. The communicative success first increases rapidly towards a value of 0.2 after 500 language games, then the communicative success slowly grows to a value of 0.45 after approximately 5,000 language games. The low success is partly due to the relatively poor performance the robots' physical behaviour. This poor behaviour causes the robots to acquire a incoherent context, so a completely successful system cannot emerge. However, the potential understandability predicts a maximum success 80 \%. So this cannot explain why the success stays around 40 \% in the last 3,000 games. Note however that the success is still increasing, but as will be shown in section \ref{s:st:10000}, the success stabilises around 55 \% after approximately 8,000 games. Although the communicative success is low, some important observations can be made when a closer look is taken at the evolution of the communication system. This is done from section \ref{s:basic:comp}.
+In \figref{f:st:plot} (a) the evolution of the communicative success is shown. The communicative success first increases rapidly towards a value of 0.2 after 500 language games, then the communicative success slowly grows to a value of 0.45 after approximately 5,000 language games. The low success is partly due to the relatively poor performance the robots' physical behaviour. This poor behaviour causes the robots to acquire a incoherent context, so a completely successful system cannot emerge. However, the potential understandability predicts a maximum success 80 \%. So this cannot explain why the success stays around 40 \% in the last 3,000 games. Note however that the success is still increasing, but as will be shown in \sectref{s:st:10000}, the success stabilises around 55 \% after approximately 8,000 games. Although the communicative success is low, some important observations can be made when a closer look is taken at the evolution of the communication system. This is done from \sectref{s:basic:comp}.
 
 \index{discrimination game}
 Figure \ref{f:st:plot} (b) plots the discriminative success of the two robots r0 and r1. As can be seen, the discriminative success grows to a value around 95 \%. This success rate is reached quite rapidly. Already after approximately 500 language games a success larger than 90 \% is achieved. That the discriminative success does not converge to 100 \% is due to the fact that: (1) The hearer does not play a discrimination game in all language games and the discriminative success is a function of the language games. And (2) a success-rate of 100 \% can never be reached. This latter finding is due to the fact that on the average about 0.5 \% of the segments in one context are the same. 
@@ -322,9 +322,9 @@ Figure \ref{f:st:ds} shows the discriminative success of an experiment where all
 
 Figures \ref{f:st:plot} (c) and (e) show that the specificity and consistency is rather good. So, when a communication act establishes, whether or not it is successful\footnote{A communication act is established when the speaker produced an utterance and when the hearer found a matching WM association. This is independent of successful communication.}, the robots' utterances specify the referents pretty well and they are also pretty consistent in naming the referent. So, in principle they mastered a good communication system.
 
-The meanings that are used almost uniquely identify a particular referent. This can be seen in figure \ref{f:st:plot} (d), which shows the distinctiveness of the two robots. When the robots are able to discriminate a segment corresponding to some referent, they do so rather parsimonious (i.e. they tend to use the same meanings), but not very good. The parsimony (figure \ref{f:st:plot} (f)) is around 0.85. 
+The meanings that are used almost uniquely identify a particular referent. This can be seen in \figref{f:st:plot} (d), which shows the distinctiveness of the two robots. When the robots are able to discriminate a segment corresponding to some referent, they do so rather parsimonious (i.e. they tend to use the same meanings), but not very good. The parsimony (\figref{f:st:plot} (f)) is around 0.85. 
 
-So, when the robots are successful in communicating and categorisation, they do so with high accuracy and invariance. Table \ref{t:st:averages} shows the average (Avg) scores of the different measures over 10 runs of the complete experiments. All scores given with their standard deviation of the averages over the {\em population} of 10 runs. In forthcoming experiments tables and bar charts with the average scores will be the main comparison source. Plots like in figure \ref{f:st:plot} will only be used when it is useful to make a certain point.
+So, when the robots are successful in communicating and categorisation, they do so with high accuracy and invariance. Table \ref{t:st:averages} shows the average (Avg) scores of the different measures over 10 runs of the complete experiments. All scores given with their standard deviation of the averages over the {\em population} of 10 runs. In forthcoming experiments tables and bar charts with the average scores will be the main comparison source. Plots like in \figref{f:st:plot} will only be used when it is useful to make a certain point.
 
 \begin{table}
 \centering
@@ -354,7 +354,7 @@ C1 & 0.811 & $\pm$ & 0.007\\%\hline
 \label{f:st:cs0}
 \end{figure}
 
-In figure \ref{f:st:cs0} the communicative success of one run is shown. It is obvious that this run shows a different evolution than the averaged evolution as has been shown in figure \ref{f:st:plot}. The next section will discuss the evolution of the run for which the communicative success has just been shown.
+In \figref{f:st:cs0} the communicative success of one run is shown. It is obvious that this run shows a different evolution than the averaged evolution as has been shown in \figref{f:st:plot}. The next section will discuss the evolution of the run for which the communicative success has just been shown.
 
 \subsection{The Ontological Development}\label{s:cat:evol}
 \index{prototype!dynamics|(}
@@ -373,9 +373,9 @@ It is interesting to see how the ontology of prototypical categories develop and
 \label{f:cat:evol1}
 \end{figure}
 
-Figure \ref{f:cat:evol1} shows the evolution of prototypes in dimension WL0 of feature spaces ${\mathcal F}_1$ to ${\mathcal F}_4$. Similar development is observed for the other dimensions. Recall that each feature space ${\mathcal F}_\lambda$ allows a maximum of $3^\lambda$ exploitations in each dimension. The first exploitations in the different feature spaces are constructed quite rapidly. It is interesting to note that only the prototypes of feature space ${\mathcal F}_1$  are continuously changing (figure \ref{f:cat:evol1} (a)). This means that they are used successfully to name a segment and shift towards the feature they categorised. The lower and upper exploitations remain close to 0 and 1 resp., the middle values shift toward values somewhere in the middle between 0 and 1. The categories have the tendency to move towards what could be called the central tendency of the features for which the prototypical categories have been used successfully in the language games. 
+Figure \ref{f:cat:evol1} shows the evolution of prototypes in dimension WL0 of feature spaces ${\mathcal F}_1$ to ${\mathcal F}_4$. Similar development is observed for the other dimensions. Recall that each feature space ${\mathcal F}_\lambda$ allows a maximum of $3^\lambda$ exploitations in each dimension. The first exploitations in the different feature spaces are constructed quite rapidly. It is interesting to note that only the prototypes of feature space ${\mathcal F}_1$  are continuously changing (\figref{f:cat:evol1} (a)). This means that they are used successfully to name a segment and shift towards the feature they categorised. The lower and upper exploitations remain close to 0 and 1 resp., the middle values shift toward values somewhere in the middle between 0 and 1. The categories have the tendency to move towards what could be called the central tendency of the features for which the prototypical categories have been used successfully in the language games. 
 
-At the other feature spaces from figure \ref{f:cat:evol1}, an increasing amount of prototypes are constructed, but once they are introduced they hardly change. Apparently, these prototypical categories are not often used successfully in the language games. So, the robots appear to be sufficiently effective with the categories constructed in feature space ${\mathcal F}_1$. This does not mean that in a more complex environment, the further refinements would not be effective.
+At the other feature spaces from \figref{f:cat:evol1}, an increasing amount of prototypes are constructed, but once they are introduced they hardly change. Apparently, these prototypical categories are not often used successfully in the language games. So, the robots appear to be sufficiently effective with the categories constructed in feature space ${\mathcal F}_1$. This does not mean that in a more complex environment, the further refinements would not be effective.
 
 \begin{table}
 \centering
@@ -407,7 +407,7 @@ Table \ref{t:st:legend} gives a sample of some meanings that are present in the 
 
 There are some exceptions, like for M6, M37, M90, M393 and M394, which have all values of (almost) 0. These meanings are used in the beginning of the experiment in which a certain feature space is explored. The relating categories were distinctive, despite the low values in each dimension, because the other segments in the context were categorised with other categories at sensory channels that had higher values in another dimension.
 
-An interesting meaning is M67, which has low distinctiveness. This meaning is used both in relation to light sources L0 and L1. Table \ref{t:st:legend} explains why. The prototype has high values for both dimension WL0 and WL1. If a light source is sensed from a large distance, the sensory channel adjacent to the corresponding sensory channel, both sensory channels may detect intensities close to each other, conform the characteristics shown in chapter \ref{ch:robots}. After feature extraction, the feature vector has high values in these dimensions. Hence meaning M67 might be activated. 
+An interesting meaning is M67, which has low distinctiveness. This meaning is used both in relation to light sources L0 and L1. Table \ref{t:st:legend} explains why. The prototype has high values for both dimension WL0 and WL1. If a light source is sensed from a large distance, the sensory channel adjacent to the corresponding sensory channel, both sensory channels may detect intensities close to each other, conform the characteristics shown in \chapref{ch:robots}. After feature extraction, the feature vector has high values in these dimensions. Hence meaning M67 might be activated. 
 
 
 Meanings M53, M55 (both L0), M18, M30 (L1), M5, M20, M27 (L2), M58 and M61 (L3) all have values of 0.99 or 1.00 in the corresponding dimensions.  So, the discrimination process clearly selects the invariant property of correspondence. The meanings that have values of 0.99 in one dimension of their prototypes are used successfully to categorise a feature vector that has a value lower than 1 in this dimension. In such cases the prototypes evolve to a value lower than 1 since it shifts towards the feature vector. If this prototype would be used only to categorise feature vectors with value 1 in some dimension, this dimension will end up with value of 1.
@@ -435,7 +435,7 @@ Figure \ref{f:st:compRC} shows the competition diagram with the referents at the
 \end{figure}
 
 
-All frequently used meanings are active at feature space ${\mathcal F}_1$, see also table \ref{t:st:legend}. It appears that mostly, the discrimination is successful using meanings from this feature space\footnote{Note that categories from feature space ${\mathcal F}_0$ cannot be distinctive unless there is only one segment in the context.}. Although this is not shown here, meanings from a feature space with $\lambda>1$ tend not to be used much. Obviously they may just as well be distinctive, but they are not used in the communication, otherwise they would move in the feature space. That this is not the case is observed in figure \ref{f:cat:evol1}. So, at higher feature spaces there are more prototypes, but they are selected less frequently. This makes their competition for the referent harder and less successful.
+All frequently used meanings are active at feature space ${\mathcal F}_1$, see also \tabref{t:st:legend}. It appears that mostly, the discrimination is successful using meanings from this feature space\footnote{Note that categories from feature space ${\mathcal F}_0$ cannot be distinctive unless there is only one segment in the context.}. Although this is not shown here, meanings from a feature space with $\lambda>1$ tend not to be used much. Obviously they may just as well be distinctive, but they are not used in the communication, otherwise they would move in the feature space. That this is not the case is observed in \figref{f:cat:evol1}. So, at higher feature spaces there are more prototypes, but they are selected less frequently. This makes their competition for the referent harder and less successful.
 
 The occurrence frequency of meanings M53, M30, M5 and M61 constitute the parsimony of the system. It can be inferred that referents L0, L1 and L3 have a relative high parsimony, whereas L2 has relative low parsimony. The higher the parsimony the better a referent is categorised by a single category.
 
@@ -457,10 +457,10 @@ The dynamics on the association scores allow the different other lexical element
 
 
 
-Meaning M61 (figure \ref{f:st:compCF} (d)) shows a different competition than M53, M30 and M5. Initially word-form {\bf kyga} wins the competition. This word-form is also the winning competitor for M5, so there is representational polysemy in the system. After game 1750 or so, word-form {\bf lyzu} starts to win the competition for M61 and {\bf kyga} is then solely used for M5. Thus the lexicon is somewhat disambiguated. Disambiguation is established by excitation of scores of successful association and the lateral inhibition of competing associations.
+Meaning M61 (\figref{f:st:compCF} (d)) shows a different competition than M53, M30 and M5. Initially word-form {\bf kyga} wins the competition. This word-form is also the winning competitor for M5, so there is representational polysemy in the system. After game 1750 or so, word-form {\bf lyzu} starts to win the competition for M61 and {\bf kyga} is then solely used for M5. Thus the lexicon is somewhat disambiguated. Disambiguation is established by excitation of scores of successful association and the lateral inhibition of competing associations.
 
 
-Figure \ref{f:st:compCF} (e) shows the opposite competition of form {\bf huma} with its associated meanings, i.e. it shows the form-meaning competition for {\bf huma}. Again there is a clear winner, namely M53 as would be expected. Furthermore some small competition is observed from other meanings. Notably is meaning M30, which is `the best of the rest'. M30 is winning competitor referring to L1 (see figures \ref{f:st:compRC} (b) and \ref{f:st:compCF} (b)). In figure \ref{f:st:compCF} (b) {\bf huma} also wins the competition of the meanings that are not used for L1, compare figure \ref{f:st:compRC}.  The form {\bf huma} is also used for naming M5, M30 and M61, although in a lesser extend. So, there is a one-to-many relation between {\bf huma} and some meanings, and there is polysemy is present for {\bf huma}. Polysemy means that there are one-to-many relations between the form and referent. Polysemy is one of the causes why the communicative success is lower than the potential communicative success.\index{polysemy}\index{synonymy}
+Figure \ref{f:st:compCF} (e) shows the opposite competition of form {\bf huma} with its associated meanings, i.e. it shows the form-meaning competition for {\bf huma}. Again there is a clear winner, namely M53 as would be expected. Furthermore some small competition is observed from other meanings. Notably is meaning M30, which is `the best of the rest'. M30 is winning competitor referring to L1 (see figures \ref{f:st:compRC} (b) and \ref{f:st:compCF} (b)). In \figref{f:st:compCF} (b) {\bf huma} also wins the competition of the meanings that are not used for L1, compare \figref{f:st:compRC}.  The form {\bf huma} is also used for naming M5, M30 and M61, although in a lesser extend. So, there is a one-to-many relation between {\bf huma} and some meanings, and there is polysemy is present for {\bf huma}. Polysemy means that there are one-to-many relations between the form and referent. Polysemy is one of the causes why the communicative success is lower than the potential communicative success.\index{polysemy}\index{synonymy}
 
 \begin{figure}[t]
 \centering
@@ -472,11 +472,11 @@ Figure \ref{f:st:compCF} (e) shows the opposite competition of form {\bf huma} w
 \label{f:st:comp}
 \end{figure}
 
-In figure \ref{f:st:comp} some different competition diagrams are shown. Figure (a) shows the referent-form competition for L0. The {\em synonymy} (one-to-many relation between referent and form) is high, as can be inferred from the low relative frequency of winning word-form {\bf huma} and the competing elements at the bottom of the plot. Note that not all competitors are shown in this plot. There are quite some more, but these have lower frequencies than the ones that are shown. The synonymy is a result of the relatively low parsimony (i.e. one-to-many relations between referent and meaning) combined with the one-to-many relations between meaning and form. Naturally, synonymy is an antagonising force against the communicative success.\index{synonymy}
+In \figref{f:st:comp} some different competition diagrams are shown. Figure (a) shows the referent-form competition for L0. The {\em synonymy} (one-to-many relation between referent and form) is high, as can be inferred from the low relative frequency of winning word-form {\bf huma} and the competing elements at the bottom of the plot. Note that not all competitors are shown in this plot. There are quite some more, but these have lower frequencies than the ones that are shown. The synonymy is a result of the relatively low parsimony (i.e. one-to-many relations between referent and meaning) combined with the one-to-many relations between meaning and form. Naturally, synonymy is an antagonising force against the communicative success.\index{synonymy}
 
-Polysemy of the word-form {\bf huma} is also shown in figure \ref{f:st:comp} (b). At first there is competition between all referents. After 1,000 language games, the tendency to use {\bf huma} for naming L0 wins the competition. Thus influencing the specificity positively. However, the polysemy antagonises the communicative success. Polysemy is caused by a combination of one-to-many relations between form and meaning and one-to-one relations between meaning and referent, cf. figure \ref{f:st:comp} (c).
+Polysemy of the word-form {\bf huma} is also shown in \figref{f:st:comp} (b). At first there is competition between all referents. After 1,000 language games, the tendency to use {\bf huma} for naming L0 wins the competition. Thus influencing the specificity positively. However, the polysemy antagonises the communicative success. Polysemy is caused by a combination of one-to-many relations between form and meaning and one-to-one relations between meaning and referent, cf. \figref{f:st:comp} (c).
 
-Distinctiveness is high, as can be seen in the meaning-referent diagram for M53 (figure \ref{f:st:comp} (c)). The relative frequency in using M53 for referring to L0 goes to 1 where it remains. Some meanings have lower distinctiveness like M61 (figure \ref{f:st:comp} (d)), which after its introduction around language game 1,200 keeps on competing between L0 and L1. That this competition has little influence in the global distinctiveness of robot r0 is seen in figure \ref{f:st:plot} (d). This is so because the occurrence frequency of M67 is relatively low.
+Distinctiveness is high, as can be seen in the meaning-referent diagram for M53 (\figref{f:st:comp} (c)). The relative frequency in using M53 for referring to L0 goes to 1 where it remains. Some meanings have lower distinctiveness like M61 (\figref{f:st:comp} (d)), which after its introduction around language game 1,200 keeps on competing between L0 and L1. That this competition has little influence in the global distinctiveness of robot r0 is seen in \figref{f:st:plot} (d). This is so because the occurrence frequency of M67 is relatively low.
 \index{competition diagram|)}
 
 \subsection{The lexicon}
@@ -493,7 +493,7 @@ One way of inspecting the resulting lexicon is by looking at the competition dia
 \end{figure}
 
 \index{semiotic landscape}
-Still another way the lexicon can be presented is by a semiotic landscape as in figure \ref{f:st:semiotic}. In a semiotic landscape the semiotic relations between referent, meaning and form are displayed for the two robots. The connections are weighted by their co-occurrence frequencies, like given in the tables (see appendix \ref{a:lexicon}). Entries with very low frequencies are left out for clarity. When no connections are drawn, these associations have frequencies lower than 0.01.
+Still another way the lexicon can be presented is by a semiotic landscape as in \figref{f:st:semiotic}. In a semiotic landscape the semiotic relations between referent, meaning and form are displayed for the two robots. The connections are weighted by their co-occurrence frequencies, like given in the tables (see appendix \ref{a:lexicon}). Entries with very low frequencies are left out for clarity. When no connections are drawn, these associations have frequencies lower than 0.01.
 
 The figure clearly shows that winning associations (bold connections) always make closed couplings, thus constituting the successfully grounded and shared symbols. The associations also show coherent connections of referent and form between both robots. This way the sign can be said to be conventionalised. Hence it becomes a symbol. Another interesting observation that can be made is that word-forms like {\bf huma}, {\bf kyga} and {\bf xomu} (only for r0) show one-to-many relations between form and meaning, but they show hardly any polysemy. Ideally a figure should emerge where for each referent there is a closed graph where no polysemy or synonymy is shown. In such a graph the referents are orthogonal to each other.
 
@@ -509,7 +509,7 @@ Most word-forms that show one-to-many relations between form and meaning also sh
 \label{f:st:growth}
 \end{figure}
 
-How does the lexicon and ontology grow through time? Is the growth incremental as has been observed in studies on language acquisition and as is likely to have happened in language evolution \citep{aitchison:1996}? Incremental growth is typically illustrated with an S-shaped logistics curve as shown in figure \ref{f:st:growth}.
+How does the lexicon and ontology grow through time? Is the growth incremental as has been observed in studies on language acquisition and as is likely to have happened in language evolution \citep{aitchison:1996}? Incremental growth is typically illustrated with an S-shaped logistics curve as shown in \figref{f:st:growth}.
 
 \begin{figure}
 \centering
@@ -554,7 +554,7 @@ This chapter introduced the first experimental results in detail. The experiment
 
 The basic experiment used a data set that has been recorded in advanced  and that is used to process in different runs under different random seeds. The results have been presented with several measures, notably the communicative success, discriminative success, distinctiveness, specificity, parsimony and consistency. Although the communicative success is rather low, it is higher than the a priori communicative success. Furthermore, inspecting the other measures, it appeared that the robots did learn a reasonable communication system. Competition diagrams showed how the robots evolve to select preferred elements of their ontology and lexicon to name the referents. The semiotic landscape showed that one-to-many relations between referent and meaning need not be a problem as long as the polysemy is low.  However, the system still carries quite some polysemy and synonymy. 
 
-The next chapters will show if and how a better communication system may emerge. First the impact from different methods and parameter settings chapter \ref{ch:cat}. Chapter \ref{ch:opt} reports some optimised systems.
+The next chapters will show if and how a better communication system may emerge. First the impact from different methods and parameter settings \chapref{{ch:cat}. Chapter \ref{ch:opt} reports some optimised systems.
 
 
 
