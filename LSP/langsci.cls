@@ -136,9 +136,11 @@
 \ifxetex\else\ClassError{LSP/langsci}{Please use XeLaTeX!}{}\fi
 	
 \usepackage{amssymb} % has to be loaded before other stuff
+\usepackage{amsmath} % has to be loaded before other stuff
+
 %\usepackage{dtklogos}\newcommand{\xelatex}{\XeLaTeX\xspace}	% the XeLaTeX symbol, deprecated
-\usepackage{metalogo}\newcommand{\xelatex}{\XeLaTeX\xspace}	% the XeLaTeX symbol		
-\usepackage{fontspec}
+
+\usepackage{mathspec}
 \newcommand{\fontpath}{./LSP/lsp-fonts/}
 
 \setsansfont[
@@ -168,10 +170,34 @@
 	ItalicFont = LinLibertine_RI_B.otf ,			
 	BoldItalicFont = LinLibertine_RZI_B.otf 		% semi-bold
 	]{LinLibertine_R_B.otf}			
+	
+\setmathsfont(Digits,Latin,Greek)[
+	Ligatures={TeX,Common},
+	Path=\fontpath,
+	PunctuationSpace=0,							
+	Numbers={Monospaced,Lining}, 					% math mode numbers
+	BoldFont = LinLibertine_RZ_B.otf ,				% semi-bold
+	ItalicFont = LinLibertine_RI_B.otf ,			
+	BoldItalicFont = LinLibertine_RZI_B.otf 		% semi-bold
+	]{LinLibertine_R_B.otf}	
+	
+\setmathrm[
+	Ligatures={TeX,Common},
+	Path=\fontpath,
+	PunctuationSpace=0,							
+	Numbers={Proportional},	% normal numbers			% for tables use \addfontfeatures{Numbers={Monospaced,Lining}}
+	BoldFont = LinLibertine_RZ_B.otf ,				% semi-bold
+	ItalicFont = LinLibertine_RI_B.otf ,			
+	BoldItalicFont = LinLibertine_RZI_B.otf 		% semi-bold
+	]{LinLibertine_R_B.otf}	
 
 \iflsNewtxmath							% some users have problems when installing newtxmath
 	\usepackage[libertine]{newtxmath}
 \fi 	
+
+
+\usepackage{metalogo}\newcommand{\xelatex}{\XeLaTeX\xspace}	% the XeLaTeX symbol	 Moved from Line 140 to ensure compatibility with Mathspec (FK, 24 June 2015)	
+
 
 \let\oldtabular\tabular	% number in tabulars
 \let\endoldtabular\endtabular
