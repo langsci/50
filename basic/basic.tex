@@ -15,8 +15,7 @@ and methods improve the language game.
 
 Before the experiments are discussed some methodology and measures have
 to be defined. This is done in the next section. The physical
-recording of the sensory data is discussed in section
-\ref{s:st:data}. Section \ref{s:st:experiment} presents the
+recording of the sensory data is discussed in \sectref{s:st:data}. Section \ref{s:st:experiment} presents the
 basic experiment. Both the effectiveness and evolution will be
 discussed. A summary is given in the final section.
 
@@ -36,14 +35,13 @@ specificity} and {\em consistency}. All measures are values between 0 and 1; 0 m
 The measures distinctiveness, parsimony, specificity and consistency were introduced by Edwin \citet{dejong:2000}. These measures are based on the {\em entropy} measure taken from information theory \citep{shannon:1948}. Entropy measures the uncertainty about a set of elements. The higher the entropy, the higher the uncertainty introducing chaos. Low entropy means order and less uncertainty. Information theory defines entropy as follows:\index{entropy}\index{De Jong, Edwin}
 
 \begin{quote}
-Let $X$ be a random variable with a set of possible outcomes $A_X=\{a_1,\ldots,a_n\}$, having probabilities $P_X=\{p_1,\ldots,p_n\}$, with $P(x=a_i)=p_i$, $0 \leq p_i \leq 1$ and $\sum_{i=1}^n P_i = 1$. Then according to \citep{shannon:1948}, the entropy $H$ of $X$ is defined by:
-
+Let $X$ be a random variable with a set of possible outcomes $A_X=\{a_1,\ldots,a_n\}$, having probabilities $P_X=\{p_1,\ldots,p_n\}$, with $P(x=a_i)=p_i$, $0 \leq p_i \leq 1$ and $\sum_{i=1}^n P_i = 1$. Then according to \citet{shannon:1948}, the entropy $H$ of $X$ is defined by:
 \begin{eqnarray}
 H \equiv -\sum_{i=1}^n P_i \cdot \log P_i
 \end{eqnarray}
 
 
-with the convention for $P_i=0$ that $-0 \cdot \log 0 = 0$. The information theoretic entropy used here should not be confused with entropy in physical systems, as in the second law of thermodynamics, although there is a relation in that both forms of entropy measure disorder. \cite[p. 76]{dejong:2000}
+with the convention for $P_i=0$ that $-0 \cdot \log 0 = 0$. The information theoretic entropy used here should not be confused with entropy in physical systems, as in the second law of thermodynamics, although there is a relation in that both forms of entropy measure disorder \citep[76]{dejong:2000}.
 \end{quote}
 
 
@@ -61,7 +59,6 @@ a robot played 120 discrimination games, the discriminative success measures the
 success of those 120 discrimination games. On the other hand, of there are only 80 discrimination games played, the discriminative success monitors the success of these 80 games as a function of the 100 language games. So, the discriminative success
 monitors the evolution of categorisation, although its information is not always equally reliable. Note that the discriminative success is calculated for each individual robot.
 \item {\bf Distinctiveness}\index{distinctiveness} ``Intuitively, distinctiveness expresses to what degree a meaning identifies the referent'' \citep{dejong:2000}. For this we can measure how the entropy of a meaning in relation to a certain referent $H(\rho|\mu_i)$ decreases the uncertainty about the referent $H(\rho)$. For this we can calculate the difference between $H(\rho)$ and $H(\rho|\mu_i)$. Here $\rho$ are the referents $\rho_1,\ldots,\rho_n$ and $\mu_i$ relates to one of the meanings $\mu_1,\ldots,\mu_m$ for robot $R$. The distinctiveness $D_R$ can now be defined as follows:
-
 \begin{eqnarray}
 H(\rho|\mu_i)=\sum_{j=1}^n -P(\rho_j|\mu_i) \cdot \log P(\rho_j|\mu_i)
 \end{eqnarray}
@@ -73,10 +70,9 @@ D_R=\frac{\sum_{i=1}^m P_o(\mu_i) \cdot \mbox{dist}(\mu_i)}{m}
 \end{eqnarray}
 
 
-where $H(\rho)=\log n$ and $P_o(\mu_i)$ is the occurrence probability of meaning $\mu_i$. The use of $P_o(\mu_i)$ as a weighting factor is to scale the importance of such a meaning to its occurrence. In \citep{dejong:2000} this has only been done for specificity and consistency, because there the occurrence of meanings and referents was a normal distribution.
+where $H(\rho)=\log n$ and $P_o(\mu_i)$ is the occurrence probability of meaning $\mu_i$. The use of $P_o(\mu_i)$ as a weighting factor is to scale the importance of such a meaning to its occurrence. In \citealt{dejong:2000} this has only been done for specificity and consistency, because there the occurrence of meanings and referents was a normal distribution.
 
 \item {\bf Parsimony}\index{parsimony} The parsimony $P_R$ is calculated similar to the distinctiveness:
-
 \begin{eqnarray}
 H(\mu|\rho_i)=\sum_{j=1}^m -P(\mu_j|\rho_i) \cdot \log P(\mu_j|\rho_i)
 \end{eqnarray}
@@ -104,8 +100,7 @@ measures the success of a language game as if it were observed
 by an objective observer. The objective observer may say that the language game is successful when it is so according to the correspondence criterion. I.e. when the topic of both robots correspond to the same light source. This method is not completely sound, because at larger distances to a light source the correspondence criterion is not sound. But in most cases it suffices. The actual success measures the
 average success over the past 100 language games. When feedback is provided by the correspondence criterion, the actual success is the same as the communicative success.
 
-\item {\bf Specificity}\index{specificity} ``The specificity of a word[-form] is ... defined as the relative decrease of uncertainty in determining the referent given a word that was received'' \citep{dejong:2000}. It thus is a measure to indicate how well a word-form can identify a referent. It is calculated analogous to the distinctiveness and parsimony. For a set of word-forms $\sigma_1,\ldots,\sigma_q$, the specificity is defined as follows:
-
+\item {\bf Specificity}\index{specificity} ``The specificity of a word[-form] is [...] defined as the relative decrease of uncertainty in determining the referent given a word that was received'' \citep{dejong:2000}. It thus is a measure to indicate how well a word-form can identify a referent. It is calculated analogous to the distinctiveness and parsimony. For a set of word-forms $\sigma_1,\ldots,\sigma_q$, the specificity is defined as follows:
 \begin{eqnarray}
 H(\rho|\sigma_i)=\sum_{j=1}^n -P(\rho_j|\sigma_i) \cdot \log P(\rho_j|\sigma_i)
 \end{eqnarray}
@@ -120,7 +115,6 @@ S_R=\frac{\sum_{i=1}^q P_o(\sigma_i) \cdot \mbox{spec}(\sigma_i)}{q}
 where $H(\rho)=\log n$ is defined as before and $P_o$ is the occurrence probability of encountering word-form $\sigma_i$.
 
 \item {\bf Consistency}\index{consistency} Consistency measures how consistent a referent is named by a certain word-form. It is calculated as follows:
-
 \begin{eqnarray}
 H(\sigma|\rho_i)=\sum_{j=1}^q -P(\sigma_j|\rho_i) \cdot \log P(\sigma_j|\rho_i)
 \end{eqnarray}
@@ -137,7 +131,7 @@ where $H(\sigma)=\log q$ and $P_o(\rho_i)$ is defined as before.
 \end{description}
 
 
-Distinctiveness, parsimony, specificity and consistency are all calculated every 200 language games. Obviously calculations can only take place when the pairs {\em referent - meaning} or {\em referent - word-form} are used. This happens either when the discrimination game is successful (influencing distinctiveness and parsimony) or when a robot produced or understood a communication act (influencing specificity and consistency)\footnote{Note that this does not necessarily mean that the language game was successful.}.
+Distinctiveness, parsimony, specificity and consistency are all calculated every 200 language games. Obviously calculations can only take place when the pairs {\em referent -- meaning} or {\em referent -- word-form} are used. This happens either when the discrimination game is successful (influencing distinctiveness and parsimony) or when a robot produced or understood a communication act (influencing specificity and consistency)\footnote{Note that this does not necessarily mean that the language game was successful.}.
 
 \subsection{Statistical Testing}
 
@@ -145,7 +139,7 @@ Every experiment (unless otherwise mentioned) consists of 10 runs in which eithe
 	
 \index{Mann-Whitney U Test}\index{Wilcoxon rank sum test|see{Mann-Whitney U Test}} All statistical significance testing is done using the two-tailed {\em Mann-Whitney U Test}, also known as the {\em Wilcoxon rank sum test}. Applying the Mann-Whitney U Test requires that the population does not show a normal distribution. Investigations of the distributions revealed that the populations were not normally distributed. 
 
-The null-hypothesis of the test may be rejected when $p<\alpha$ for some low $\alpha$. In all testing, the null-hypothesis states that two populations of measurements are the same, with the alternative hypothesis that they are not the same. For stating that one result is significantly better than another, the distributions of the two populations of measurements need to be similar. This has not been observed, so the only inference one can make of a low $p$-value is that the two populations are not the same. However, if one measurement is higher than another, the assumption will be made that this is the case if a $p$-value is low. The value $\alpha$ will not be filled in, the reader may decide him/herself whether or not the difference is significant. For readers unfamiliar with statistical testing, the literature usually takes $\alpha=0.05$, which becomes for a two-tailed test: $\alpha=0.025$. The used method and tables are taken from \citep{aczel:1989}.
+The null-hypothesis of the test may be rejected when $p<\alpha$ for some low $\alpha$. In all testing, the null-hypothesis states that two populations of measurements are the same, with the alternative hypothesis that they are not the same. For stating that one result is significantly better than another, the distributions of the two populations of measurements need to be similar. This has not been observed, so the only inference one can make of a low $p$-value is that the two populations are not the same. However, if one measurement is higher than another, the assumption will be made that this is the case if a $p$-value is low. The value $\alpha$ will not be filled in, the reader may decide him/herself whether or not the difference is significant. For readers unfamiliar with statistical testing, the literature usually takes $\alpha=0.05$, which becomes for a two-tailed test: $\alpha=0.025$. The used method and tables are taken from \citealt{aczel:1989}.
 
 
 Other methods will be used to evaluate an experiment's success.
@@ -160,17 +154,17 @@ In the original experiments all the processing, including the meaning and langua
 There are many advantages for off-board processing:
 
 \begin{enumerate}
-\item Larger internal memory.
-\item No loss of data during change of batteries.
-\item Faster processing.
-\item Repeatable experiments to compare parameter settings and methods more reliably.
-\item Debugging.
+\item Larger internal memory
+\item No loss of data during change of batteries
+\item Faster processing
+\item Repeatable experiments to compare parameter settings and methods more reliably
+\item Debugging
 \end{enumerate}
 
 
 After approximately one hour of experimenting, the robot's batteries die. The robots have no persistent data storage on-board. So, when the batteries are empty and the robot shuts down, the memory built up disappears unless it is saved off-board first. Of course, the robots may be powered by a cable, but in practice this proves to be rather cumbersome. The advantage would be that a serial cable can be attached to monitor the internal dynamics of the robots during a game, but this could also be done using radio communication.
 
-The recording of one language game when the robots need to look for each other takes approximately $1.5 \mbox{min}$. Recording a minimum of 5,000 language games takes therefore 125 hours, which, assuming that there are 5 effective experimental hours a day\footnote{Perhaps some robotics researchers laugh at this positive estimation, but in good days this is manageable.}, takes 25 days or 5 weeks. {\em If nothing goes wrong, naturally!} This period can be reduced to 5 days if the researcher brings the robots together him- or herself after which the robots play a series of, say 10 games in a row. 
+The recording of one language game when the robots need to look for each other takes approximately 1.5 min. Recording a minimum of 5,000 language games takes therefore 125 hours, which, assuming that there are 5 effective experimental hours a day,\footnote{Perhaps some robotics researchers laugh at this positive estimation, but in good days this is manageable.} takes 25 days or 5 weeks. {\em If nothing goes wrong, naturally!} This period can be reduced to 5 days if the researcher brings the robots together him- or herself after which the robots play a series of, say 10 games in a row. 
 
 Now suppose that one wants to tune a parameter by varying this parameter 5 or 10 times. Or that one wants to change a method, or what if the researcher finds a bug in its program. For all these reasons off-board processing is the outcome. Another important advantage is that one can use the same recordings over and over again across different experiments, so comparing different experiments is more reliable.
 
@@ -197,7 +191,7 @@ Every language game, one situation is selected. One of the
 robots is then assigned randomly to play the role of the
 speaker. The speaker then selects randomly one of the segments
 to be the topic. Since, on the average, each context consists
-of approximately 3-4 segments (1017 in the first data set to be
+of approximately 3--4 segments (1017 in the first data set to be
 precise), a situation can be used in, say, 7 different ways. Assuming
 perfect randomness of the system, each possible setting
 (situation, role assignment and topic choice) has been explored only once
@@ -209,20 +203,17 @@ The situations are stored in a list and each situation is then selected in
 random order.
 
 
-The 1,000 situations have been recorded as described in chapter
-\ref{ch:lg}. The recording of each data set took approximately 8 hours of work,
+The 1,000 situations have been recorded as described in \chapref{ch:lg}. The recording of each data set took approximately 8 hours of work,
 spread over two days.
 
 
 
-Before the results of the cognitive processing is presented, it is useful to look at some statistics of the basic data set.\index{data set!basic} Some additional statistics of the basic data set are presented in appendix \ref{a:dataset}. This appendix shows the distribution of the feature values measured by the robots. This distribution shows one reason why it seems impossible that a real-world environment can be simulated.
+Before the results of the cognitive processing is presented, it is useful to look at some statistics of the basic data set.\index{data set!basic} Some additional statistics of the basic data set are presented in Appendix \ref{a:dataset}. This appendix shows the distribution of the feature values measured by the robots. This distribution shows one reason why it seems impossible that a real-world environment can be simulated.
 
 Table \ref{t:st:data} shows the average context size $\langle |Cxt| \rangle$ of each robot together with its standard deviation. In addition, this table shows the {\em potential understandability} $U_r$ of each robot.\index{understandability!potential|see{understandability}}\index{understandability|(} The potential understandability of a robot is a measure that indicates how well a robot can be understood by another robot according to their context sharing. Suppose that robot $r$ has segmented context $Cxt_{r,l}=\{S_{1,r,l},\ldots,S_{n,r,l}\}$ for situation $l$, then the understandability $U_r$ for $n$ situations is calculated as follows:
-
 \begin{eqnarray}
 U_{r,l}=\frac{\sum_{i=1}^n u_{i,l}}{n}
 \end{eqnarray}
-
 where
 \begin{eqnarray}
 u_{i,l} = \left \{ \begin{array}{rl}
@@ -312,7 +303,7 @@ In \figref{f:st:plot} (a) the evolution of the communicative success is shown. T
 \index{discrimination game}
 Figure \ref{f:st:plot} (b) plots the discriminative success of the two robots r0 and r1. As can be seen, the discriminative success grows to a value around 95 \%. This success rate is reached quite rapidly. Already after approximately 500 language games a success larger than 90 \% is achieved. That the discriminative success does not converge to 100 \% is due to the fact that: (1) The hearer does not play a discrimination game in all language games and the discriminative success is a function of the language games. And (2) a success-rate of 100 \% can never be reached. This latter finding is due to the fact that on the average about 0.5 \% of the segments in one context are the same. 
 
-Figure \ref{f:st:ds} shows the discriminative success of an experiment where all possible configurations are used in the discrimination games. The robots interacted as if they were playing language games, only they did not communicate. The speaker only categorised its selected topic, the hearer categorised all its detected segments. Note that more discrimination games are played than when the robots also communicate since in that case the hearer only plays a discrimination game when it receives an uttered word-form. Furthermore, since each agent plays a discrimination game every `language game', the discriminative success is independent of the language games. The average distinctive success over 10 runs of 5,000 language games is $0.984 \pm 0.001$ for robot r0 and $0.987 \pm 0.000$ for r1. Due to limitations of the implementation is difficult to extract all possible configurations, so these experiments are not used for language formation.
+Figure \ref{f:st:ds} shows the discriminative success of an experiment where all possible configurations are used in the discrimination games. The robots interacted as if they were playing language games, only they did not communicate. The speaker only categorised its selected topic, the hearer categorised all its detected segments. Note that more discrimination games are played than when the robots also communicate since in that case the hearer only plays a discrimination game when it receives an uttered word-form. Furthermore, since each agent plays a discrimination game every ``language game'', the discriminative success is independent of the language games. The average distinctive success over 10 runs of 5,000 language games is $0.984 \pm 0.001$ for robot r0 and $0.987 \pm 0.000$ for r1. Due to limitations of the implementation is difficult to extract all possible configurations, so these experiments are not used for language formation.
 
 \begin{figure}[t]
 \centerline{\includegraphics[width=12cm]{basic/dsall.eps}}
@@ -373,7 +364,7 @@ It is interesting to see how the ontology of prototypical categories develop and
 \label{f:cat:evol1}
 \end{figure}
 
-Figure \ref{f:cat:evol1} shows the evolution of prototypes in dimension WL0 of feature spaces ${\mathcal F}_1$ to ${\mathcal F}_4$. Similar development is observed for the other dimensions. Recall that each feature space ${\mathcal F}_\lambda$ allows a maximum of $3^\lambda$ exploitations in each dimension. The first exploitations in the different feature spaces are constructed quite rapidly. It is interesting to note that only the prototypes of feature space ${\mathcal F}_1$  are continuously changing (\figref{f:cat:evol1} (a)). This means that they are used successfully to name a segment and shift towards the feature they categorised. The lower and upper exploitations remain close to 0 and 1 resp., the middle values shift toward values somewhere in the middle between 0 and 1. The categories have the tendency to move towards what could be called the central tendency of the features for which the prototypical categories have been used successfully in the language games. 
+Figure \ref{f:cat:evol1} shows the evolution of prototypes in dimension WL0 of feature spaces ${\mathcal F}_1$ to ${\mathcal F}_4$. Similar development is observed for the other dimensions. Recall that each feature space ${\mathcal F}_\lambda$ allows a maximum of $3^\lambda$ exploitations in each dimension. The first exploitations in the different feature spaces are constructed quite rapidly. It is interesting to note that only the prototypes of feature space ${\mathcal F}_1$  are continuously changing (\figref{f:cat:evol1} a). This means that they are used successfully to name a segment and shift towards the feature they categorised. The lower and upper exploitations remain close to 0 and 1 resp., the middle values shift toward values somewhere in the middle between 0 and 1. The categories have the tendency to move towards what could be called the central tendency of the features for which the prototypical categories have been used successfully in the language games. 
 
 At the other feature spaces from \figref{f:cat:evol1}, an increasing amount of prototypes are constructed, but once they are introduced they hardly change. Apparently, these prototypical categories are not often used successfully in the language games. So, the robots appear to be sufficiently effective with the categories constructed in feature space ${\mathcal F}_1$. This does not mean that in a more complex environment, the further refinements would not be effective.
 
@@ -403,7 +394,7 @@ M394 & $(0.00, 0.00, 0.00, 0.01)_5$\\%\hline
 \end{table}
 
 
-Table \ref{t:st:legend} gives a sample of some meanings that are present in the competition diagrams. An additional legend can be found in appendix \ref{a:lexicon}. Each meaning is a set of categories of which the values are given in a vector notation. So, the category is a 4 dimensional prototype of the (4 dimensional) segment. The first dimension corresponds with sensory channel WL0 (the lowest light sensor), etc. The subscript index indicates feature space at which the categories are stored. Most prototypes have a value of 1 (or 0.99) at the dimension that corresponds to the referent for which they are mostly used. 
+Table \ref{t:st:legend} gives a sample of some meanings that are present in the competition diagrams. An additional legend can be found in Appendix \ref{a:lexicon}. Each meaning is a set of categories of which the values are given in a vector notation. So, the category is a 4 dimensional prototype of the (4 dimensional) segment. The first dimension corresponds with sensory channel WL0 (the lowest light sensor), etc. The subscript index indicates feature space at which the categories are stored. Most prototypes have a value of 1 (or 0.99) at the dimension that corresponds to the referent for which they are mostly used. 
 
 There are some exceptions, like for M6, M37, M90, M393 and M394, which have all values of (almost) 0. These meanings are used in the beginning of the experiment in which a certain feature space is explored. The relating categories were distinctive, despite the low values in each dimension, because the other segments in the context were categorised with other categories at sensory channels that had higher values in another dimension.
 
@@ -451,16 +442,16 @@ The occurrence frequency of meanings M53, M30, M5 and M61 constitute the parsimo
 \end{figure}
 
 
-Figures \ref{f:st:compCF} (a) -- (d) show the meaning-form competition diagrams (MF diagrams) of the winning meanings in the referent-meaning competitions. Figure (a) shows the competition of meaning M53. The word-form {\bf huma} clearly wins the competition right from the beginning. Little competition is given by {\bf xomu}, {\bf poma}, {\bf lyzu} and {\bf kyga}. Similar competitions can be seen with meanings M30 and M5 (Figures \ref{f:st:compCF} (b) and (c)). So, every meaning shows one-to-many relations between meaning and form. This is highest in for M30 and M61. Such one-to-many relations are fed by mismatches that arise in the communication. The mismatches cause word-form adoption, so that a meaning can be associated with several word-forms. The mismatches are mainly due to the rather high level of one-to-many relations between referent and meaning as shown in the referent-meaning diagram. 
+Figures \ref{f:st:compCF} (a) -- (d) show the meaning-form competition diagrams (MF diagrams) of the winning meanings in the referent-meaning competitions. Figure (a) shows the competition of meaning M53. The word-form `huma' clearly wins the competition right from the beginning. Little competition is given by {\bf xomu}, {\bf poma}, {\bf lyzu} and {\bf kyga}. Similar competitions can be seen with meanings M30 and M5 (Figures \ref{f:st:compCF} (b) and (c)). So, every meaning shows one-to-many relations between meaning and form. This is highest in for M30 and M61. Such one-to-many relations are fed by mismatches that arise in the communication. The mismatches cause word-form adoption, so that a meaning can be associated with several word-forms. The mismatches are mainly due to the rather high level of one-to-many relations between referent and meaning as shown in the referent-meaning diagram. 
 
 The dynamics on the association scores allow the different other lexical elements a chance to compete. Lateral inhibition of competing associations is a main ingredient of the self-organising effect that one element wins the competition. Note again that occurrence in the competition diagram does not equal a language game's success.
 
 
 
-Meaning M61 (\figref{f:st:compCF} (d)) shows a different competition than M53, M30 and M5. Initially word-form {\bf kyga} wins the competition. This word-form is also the winning competitor for M5, so there is representational polysemy in the system. After game 1750 or so, word-form {\bf lyzu} starts to win the competition for M61 and {\bf kyga} is then solely used for M5. Thus the lexicon is somewhat disambiguated. Disambiguation is established by excitation of scores of successful association and the lateral inhibition of competing associations.
+Meaning M61 (\figref{f:st:compCF} d) shows a different competition than M53, M30 and M5. Initially word-form {\bf kyga} wins the competition. This word-form is also the winning competitor for M5, so there is representational polysemy in the system. After game 1750 or so, word-form {\bf lyzu} starts to win the competition for M61 and {\bf kyga} is then solely used for M5. Thus the lexicon is somewhat disambiguated. Disambiguation is established by excitation of scores of successful association and the lateral inhibition of competing associations.
 
 
-Figure \ref{f:st:compCF} (e) shows the opposite competition of form {\bf huma} with its associated meanings, i.e. it shows the form-meaning competition for {\bf huma}. Again there is a clear winner, namely M53 as would be expected. Furthermore some small competition is observed from other meanings. Notably is meaning M30, which is `the best of the rest'. M30 is winning competitor referring to L1 (see Figures \ref{f:st:compRC} (b) and \ref{f:st:compCF} (b)). In \figref{f:st:compCF} (b) {\bf huma} also wins the competition of the meanings that are not used for L1, compare \figref{f:st:compRC}.  The form {\bf huma} is also used for naming M5, M30 and M61, although in a lesser extend. So, there is a one-to-many relation between {\bf huma} and some meanings, and there is polysemy is present for {\bf huma}. Polysemy means that there are one-to-many relations between the form and referent. Polysemy is one of the causes why the communicative success is lower than the potential communicative success.\index{polysemy}\index{synonymy}
+Figure \ref{f:st:compCF} (e) shows the opposite competition of form `huma' with its associated meanings, i.e. it shows the form-meaning competition for `huma'. Again there is a clear winner, namely M53 as would be expected. Furthermore some small competition is observed from other meanings. Notably is meaning M30, which is `the best of the rest'. M30 is winning competitor referring to L1 (see Figures \ref{f:st:compRC} (b) and \ref{f:st:compCF} (b)). In \figref{f:st:compCF} (b) `huma' also wins the competition of the meanings that are not used for L1, compare \figref{f:st:compRC}.  The form `huma' is also used for naming M5, M30 and M61, although in a lesser extend. So, there is a one-to-many relation between `huma' and some meanings, and there is polysemy is present for `huma'. Polysemy means that there are one-to-many relations between the form and referent. Polysemy is one of the causes why the communicative success is lower than the potential communicative success.\index{polysemy}\index{synonymy}
 
 \begin{figure}[t]
 \centering
@@ -472,9 +463,9 @@ Figure \ref{f:st:compCF} (e) shows the opposite competition of form {\bf huma} w
 \label{f:st:comp}
 \end{figure}
 
-In \figref{f:st:comp} some different competition diagrams are shown. Figure (a) shows the referent-form competition for L0. The {\em synonymy} (one-to-many relation between referent and form) is high, as can be inferred from the low relative frequency of winning word-form {\bf huma} and the competing elements at the bottom of the plot. Note that not all competitors are shown in this plot. There are quite some more, but these have lower frequencies than the ones that are shown. The synonymy is a result of the relatively low parsimony (i.e. one-to-many relations between referent and meaning) combined with the one-to-many relations between meaning and form. Naturally, synonymy is an antagonising force against the communicative success.\index{synonymy}
+In \figref{f:st:comp} some different competition diagrams are shown. Figure (a) shows the referent-form competition for L0. The {\em synonymy} (one-to-many relation between referent and form) is high, as can be inferred from the low relative frequency of winning word-form `huma' and the competing elements at the bottom of the plot. Note that not all competitors are shown in this plot. There are quite some more, but these have lower frequencies than the ones that are shown. The synonymy is a result of the relatively low parsimony (i.e. one-to-many relations between referent and meaning) combined with the one-to-many relations between meaning and form. Naturally, synonymy is an antagonising force against the communicative success.\index{synonymy}
 
-Polysemy of the word-form {\bf huma} is also shown in \figref{f:st:comp} (b). At first there is competition between all referents. After 1,000 language games, the tendency to use {\bf huma} for naming L0 wins the competition. Thus influencing the specificity positively. However, the polysemy antagonises the communicative success. Polysemy is caused by a combination of one-to-many relations between form and meaning and one-to-one relations between meaning and referent, cf. \figref{f:st:comp} (c).
+Polysemy of the word-form `huma' is also shown in \figref{f:st:comp} (b). At first there is competition between all referents. After 1,000 language games, the tendency to use `huma' for naming L0 wins the competition. Thus influencing the specificity positively. However, the polysemy antagonises the communicative success. Polysemy is caused by a combination of one-to-many relations between form and meaning and one-to-one relations between meaning and referent, cf. \figref{f:st:comp} (c).
 
 Distinctiveness is high, as can be seen in the meaning-referent diagram for M53 (\figref{f:st:comp} (c)). The relative frequency in using M53 for referring to L0 goes to 1 where it remains. Some meanings have lower distinctiveness like M61 (\figref{f:st:comp} (d)), which after its introduction around language game 1,200 keeps on competing between L0 and L1. That this competition has little influence in the global distinctiveness of robot r0 is seen in \figref{f:st:plot} (d). This is so because the occurrence frequency of M67 is relatively low.
 \index{competition diagram|)}
@@ -482,7 +473,7 @@ Distinctiveness is high, as can be seen in the meaning-referent diagram for M53 
 \subsection{The lexicon}
 \index{lexicon|(}
 
-One way of inspecting the resulting lexicon is by looking at the competition diagrams. Another way of presenting the lexicon is by a table. In such tables word-meaning associations of the two robots are given. Although such tables give good information about an individual's lexicon, it provides difficult-to-read and incomplete information about its structure in the language using society. Similar tables can display the ontology of the robots in relation to their use for referents. The tables of the lexicon and ontology are given in appendix \ref{a:lexicon}.
+One way of inspecting the resulting lexicon is by looking at the competition diagrams. Another way of presenting the lexicon is by a table. In such tables word-meaning associations of the two robots are given. Although such tables give good information about an individual's lexicon, it provides difficult-to-read and incomplete information about its structure in the language using society. Similar tables can display the ontology of the robots in relation to their use for referents. The tables of the lexicon and ontology are given in Appendix \ref{a:lexicon}.
 
 \subsubsection{Semiotic Landscape}
 
@@ -493,9 +484,9 @@ One way of inspecting the resulting lexicon is by looking at the competition dia
 \end{figure}
 
 \index{semiotic landscape}
-Still another way the lexicon can be presented is by a semiotic landscape as in \figref{f:st:semiotic}. In a semiotic landscape the semiotic relations between referent, meaning and form are displayed for the two robots. The connections are weighted by their co-occurrence frequencies, like given in the tables (see appendix \ref{a:lexicon}). Entries with very low frequencies are left out for clarity. When no connections are drawn, these associations have frequencies lower than 0.01.
+Still another way the lexicon can be presented is by a semiotic landscape as in \figref{f:st:semiotic}. In a semiotic landscape the semiotic relations between referent, meaning and form are displayed for the two robots. The connections are weighted by their co-occurrence frequencies, like given in the tables (see Appendix \ref{a:lexicon}). Entries with very low frequencies are left out for clarity. When no connections are drawn, these associations have frequencies lower than 0.01.
 
-The figure clearly shows that winning associations (bold connections) always make closed couplings, thus constituting the successfully grounded and shared symbols. The associations also show coherent connections of referent and form between both robots. This way the sign can be said to be conventionalised. Hence it becomes a symbol. Another interesting observation that can be made is that word-forms like {\bf huma}, {\bf kyga} and {\bf xomu} (only for r0) show one-to-many relations between form and meaning, but they show hardly any polysemy. Ideally a figure should emerge where for each referent there is a closed graph where no polysemy or synonymy is shown. In such a graph the referents are orthogonal to each other.
+The figure clearly shows that winning associations (bold connections) always make closed couplings, thus constituting the successfully grounded and shared symbols. The associations also show coherent connections of referent and form between both robots. This way the sign can be said to be conventionalised. Hence it becomes a symbol. Another interesting observation that can be made is that word-forms like `huma', {\bf kyga} and {\bf xomu} (only for r0) show one-to-many relations between form and meaning, but they show hardly any polysemy. Ideally a figure should emerge where for each referent there is a closed graph where no polysemy or synonymy is shown. In such a graph the referents are orthogonal to each other.
 
 Most word-forms that show one-to-many relations between form and meaning also show some polysemy and {\em incoherence}. A word-form is incoherent when one robot uses it to name another referent than the other robot. Incoherence can be seen for the word-forms {\bf wosa} and {\bf vyqa}. Such incoherence can be caused by language games that are evaluated to be successful inappropriately or that the meanings have no other associations\footnote{Recall that co-occurrence does not imply a successful language game.}.\index{polysemy}
 

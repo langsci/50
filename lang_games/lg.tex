@@ -6,7 +6,7 @@ In order to solve the symbol grounding problem the robots engage in a series of 
 
 
 \index{Wittgenstein, Ludwig|(}
-The notion of a language game was first introduced by Ludwig \citet{wittgenstein:1958}. Wittgenstein called every language use a language game. The meaning of the language game depends, according to Wittgenstein, on the {\em how} the game is used. Wittgenstein gave some examples of different types of language games \cite[p. 11, par. 22]{wittgenstein:1958}:
+The notion of a language game was first introduced by Ludwig \citet{wittgenstein:1958}. Wittgenstein called every language use a language game. The meaning of the language game depends, according to Wittgenstein, on the {\em how} the game is used. Wittgenstein gave some examples of different types of language games \cite[11, §22]{wittgenstein:1958}:
 
 \begin{quote}
 \begin{itemize}
@@ -47,22 +47,22 @@ In the beginning of the experiments, the robots have no categories or word-forms
 \lsptoprule
 {\sc speaker} & {\sc hearer}\\
 \midrule
-\multicolumn{2}{c}{{\em Get together and align}}\\\midrule
-\multicolumn{2}{c}{Sensing, segmentation and feature extraction}\\\midrule
-Topic choice & --\\\midrule
-{\em Pointing} & {\em Topic selection}\\\midrule
-\multicolumn{2}{c}{Categorisation}\\\midrule
-Production & --\\\midrule
--- & Understanding\\\midrule
-\multicolumn{2}{c}{Feedback}\\\midrule
+\multicolumn{2}{c}{{\em Get together and align}}\\\hline
+\multicolumn{2}{c}{Sensing, segmentation and feature extraction}\\\hline
+Topic choice & --\\\hline
+{\em Pointing} & {\em Topic selection}\\\hline
+\multicolumn{2}{c}{Categorisation}\\\hline
+Production & --\\\hline
+-- & Understanding\\\hline
+\multicolumn{2}{c}{Feedback}\\\hline
 \multicolumn{2}{c}{Adaptation}\\\lspbottomrule
 \end{tabular}
-\caption{The language game scenario. The `get together and align' phase is done by the experimenter for practical reasons. {\em Pointing} and {\em Topic selection} may be omitted for methodological reasons. See the text for more details.}
+\caption{The language game scenario. The {\it get together and align} phase is done by the experimenter for practical reasons. {\em Pointing} and {\em Topic selection} may be omitted for methodological reasons. See the text for more details.}
 \label{t:scenario1}
 \end{table}
 
 
-So, how is a language game organised? Table \ref{t:scenario1} shows the structure of the language game scenario. In a language game two robots - a {\em speaker} and a {\em hearer} - get together at close distance. In earlier experiments \citep{steelsvogt:1997} the robots came together autonomously. When sensing each other's vicinity, the speaker approached the hearer by using infrared phototaxis. When both robots were close to each other, they aligned such that they faced each other prior to the sensing. This behaviour, however, took approximately 1.5 minutes for each language game. So, to speed up the current experiments the robots have been brought together manually. The PDL source code for finding each other is included in appendix \ref{a:pdl}. For more details on this part of the language games, consult \citep{vogt:1997}.  
+So, how is a language game organised? Table \ref{t:scenario1} shows the structure of the language game scenario. In a language game two robots -- a {\em speaker} and a {\em hearer} -- get together at close distance. In earlier experiments \citep{steelsvogt:1997} the robots came together autonomously. When sensing each other's vicinity, the speaker approached the hearer by using infrared phototaxis. When both robots were close to each other, they aligned such that they faced each other prior to the sensing. This behaviour, however, took approximately 1.5 minutes for each language game. So, to speed up the current experiments the robots have been brought together manually. The {\sc pdl} source code for finding each other is included in Appendix \ref{a:pdl}. For more details on this part of the language games, consult \citep{vogt:1997}.  
 
 When the robots are standing together at close distance, they acquire a spatial view of their surroundings by means of a specialised sensing task. This sensing task results in a spatial view of the robot's surroundings, which is then segmented resulting in a {\em set of segments} (or {\em context} for short). Each segment is supposed to refer to a light source as detected by the robot and is represented by a set of connected data points. These data points are sensory data that from which the noise is reduced. From these segments feature vectors are extracted that designate some properties of these segments. 
 
@@ -70,7 +70,7 @@ The speaker chooses one segment from the context to be the topic of the language
 
 After the speaker has chosen a topic and categorised this segment, it produces an {\em utterance}. An utterance is the communication of a form. The hearer tries to understand this utterance  by looking for matching associations of this form with a meaning in its lexicon. If one of these meanings is coherent with one of the distinctive categories of the topic, then the language game {\bf may} be a success. The language game is successful when the speaker and the hearer communicated about the same referent. The evaluation of the success is called the {\em feedback}.
 
-If the language game was not a success, the lexicon has to be adapted either by creating a new form (if the speaker could not produce an utterance), by adopting the form (if the hearer could not understand the utterance) or by decreasing association scores. Association scores are increased when the language game is successful. The process that models naming and {\em lexicon adaptation} is called a {\bf naming game}.
+If the language game was not a success, the lexicon has to be adapted either by creating a new form (if the speaker could not produce an utterance), by adopting the form (if the hearer could not understand the utterance) or by decreasing association scores. Association scores are increased when the language game is successful. The process that models naming and {\em lexicon adaptation} is called a {\sc naming game}.
 
 Figure \ref{f:scheme} illustrates the language game scenario schematically.
 
@@ -80,7 +80,7 @@ Figure \ref{f:scheme} illustrates the language game scenario schematically.
 \subfigure[]{\includegraphics[width=5.5cm]{lang_games/schema1.eps}}\\
 \subfigure[]{\includegraphics[width=5.5cm]{lang_games/schema2.eps}}
 \subfigure[]{\includegraphics[width=5.5cm]{lang_games/schema3.eps}}
-\caption{A temporal overview of the language game scenario. (a) The robots get together aligned and align. (b) The robots rotate in order to sense their surroundings. (c) The speaker produces an utterance and the hearer tries to understand the speaker. (d) When the hearer `thinks' it understood the speaker, feedback is established and the robots' memories are adapted.}
+\caption{A temporal overview of the language game scenario. (a) The robots get together aligned and align. (b) The robots rotate in order to sense their surroundings. (c) The speaker produces an utterance and the hearer tries to understand the speaker. (d) When the hearer ``thinks'' it understood the speaker, feedback is established and the robots' memories are adapted.}
 \label{f:scheme}
 \end{figure}
 
@@ -90,13 +90,13 @@ Figure \ref{f:scheme} illustrates the language game scenario schematically.
 \section{PDL Implementation}
 
 \index{PDL|(}\index{behaviour-based!cognitive architecture|(}
-So, to play a language game, a robot has to perform a sequence of actions. These actions need to be planned. The planning is pre-programmed as a script using finite state automata. There is a finite state automaton (FSA) for each role the robots can play: the speaker or hearer. Each finite state automaton is active all the time and when no language game is played, both robots are in state 0. A process called \texttt{DefaultBehavior} decides when an agent goes into state 1 of the {\em speaker-FSA} or {\em hearer-FSA}. In each state a set of dynamic processes is activated or inhibited. See the previous chapter for a general presentation of the behaviour-based cognitive architecture.
+So, to play a language game, a robot has to perform a sequence of actions. These actions need to be planned. The planning is pre-programmed as a script using finite state automata. There is a finite state automaton ({\sc fsa}) for each role the robots can play: the speaker or hearer. Each finite state automaton is active all the time and when no language game is played, both robots are in state 0. A process called \texttt{DefaultBehavior} decides when an agent goes into state 1 of the {\em speaker-{\sc fsa}} or {\em hearer-{\sc fsa}}. In each state a set of dynamic processes is activated or inhibited. See the previous chapter for a general presentation of the behaviour-based cognitive architecture.
 
-How the physical behaviours of the robots are implemented in PDL is presented in appendix \ref{a:pdl}. The next section sketches the architecture as a general architecture for developing cognitive robots. After the introduction of the architecture sensing, segmentation and pointing is discussed in detail.
+How the physical behaviours of the robots are implemented in {\sc pdl} is presented in Appendix \ref{a:pdl}. The next section sketches the architecture as a general architecture for developing cognitive robots. After the introduction of the architecture sensing, segmentation and pointing is discussed in detail.
 
 \begin{figure}
 \centerline{\includegraphics[width=12cm]{lang_games/architecture.eps}}
-\caption{The behaviour-based cognitive architecture of the robotic system for processing language games. Note that the PDL-like network structure as introduced in \ref{s:robots:pdl}. The flow of information follows each line in the direction of the arrow. If a cross-connection is found, the information follows the line straight. Only when a T-connection is encountered, the direction of the arrow is taken. Some lines are bi-directional, in such cases information flows in both directions. Basically, the information flows from the sensors on the left-hand side of the figure to the actuators on the right-hand side. In between, the information first flows in the finite state automata that controls the planning of the robots. Table \ref{t:abbr} gives the translation of the abbreviations. Note that the term perception is used to designate the sensing.}
+\caption{The behaviour-based cognitive architecture of the robotic system for processing language games. Note that the {\sc pdl}-like network structure as introduced in \ref{s:robots:pdl}. The flow of information follows each line in the direction of the arrow. If a cross-connection is found, the information follows the line straight. Only when a T-connection is encountered, the direction of the arrow is taken. Some lines are bi-directional, in such cases information flows in both directions. Basically, the information flows from the sensors on the left-hand side of the figure to the actuators on the right-hand side. In between, the information first flows in the finite state automata that controls the planning of the robots. Table \ref{t:abbr} gives the translation of the abbreviations. Note that the term perception is used to designate the sensing.}
 \label{f:architecture}
 \end{figure}
 
@@ -141,17 +141,17 @@ IR & Infrared Emitter\\
 
 Figure \ref{f:architecture} shows how the language games are implemented in the behaviour-based cognitive architecture. The architecture is built of a large set of parallel processes, which are continuously being processed. These processes, however do model different types of behaviour and should not be viewed at one level of complexity. Rather, the processes are organised hierarchically. 
 
-There is a finite state automaton for the speaker role and one for the hearer. Each state of the finite state automaton activates a set of processes that are shown to the right of the finite state automaton. Those processes that are active respond to information that flows from connected sensors, actuators or other processes. All processes have been implemented in PDL on the real robots in previous versions \citep{steelsvogt:1997}. In the current experiments, the cognitive processes are implemented as software agents that are processed on a PC.
+There is a finite state automaton for the speaker role and one for the hearer. Each state of the finite state automaton activates a set of processes that are shown to the right of the finite state automaton. Those processes that are active respond to information that flows from connected sensors, actuators or other processes. All processes have been implemented in {\sc pdl} on the real robots in previous versions \citep{steelsvogt:1997}. In the current experiments, the cognitive processes are implemented as software agents that are processed on a PC.
 
 There are reactive processes like taxis, rotate and obstacle-avoidance. All these processes guide the physical behaviour of the robots.
 
 
-The cognitive processes can be distinguished from the reactive processes in that they model more complex behaviour and need not directly influence actuators, but they can also influence the internal state of an agent\footnote{Although the term {\em cognitive processes} are sometimes used to refer to reactive processes as well, the term is used here to indicate the distinction between reactive behaviours and behaviours that require more sophisticated cognitive processing. The cognitive processes refer to those processes that are fundamentally involved in categorisation and/or naming.}. Coincidentally all cognitive processes are implemented off-board, besides the sensing which is implemented on-board. The cognitive processes tend to work at different time scales then reactive ones. I.e. the time necessary to e.g. categorise something takes computationally longer than reactive responses do. This has not only been observed in neuroscience\footnote{There is a lot of evidence for fast and slow pathways in the central nervous system, where the fast pathways are reactive and the slow are considered to model higher cognition, see e.g. \citep{ledoux:1996}.}, but also during the implementation of so-called follow me games \citep{vogt:1999a,vogt:2000}. \index{follow me game} In the follow me games the hearer is following the speaker using phototaxis. When a change in direction is encountered the robot categorises a part of its movement. If both phototaxis and categorisation and naming are processed simultaneously on the SMBII, the robot fails to follow the speaker because the categorisation process takes more time than $0.025 s$, which is the time of one PDL cycle. Although PDL normally cycles the read-process-execute cycle 40 times per second, it only does so when it finished all its processes. 
+The cognitive processes can be distinguished from the reactive processes in that they model more complex behaviour and need not directly influence actuators, but they can also influence the internal state of an agent.\footnote{Although the term {\em cognitive processes} is sometimes used to refer to reactive processes as well, the term is used here to indicate the distinction between reactive behaviours and behaviours that require more sophisticated cognitive processing. The cognitive processes refer to those processes that are fundamentally involved in categorisation and/or naming.} Coincidentally all cognitive processes are implemented off-board, besides the sensing which is implemented on-board. The cognitive processes tend to work at different time scales then reactive ones. I.e. the time necessary to e.g. categorise something takes computationally longer than reactive responses do. This has not only been observed in neuroscience,\footnote{There is a lot of evidence for fast and slow pathways in the central nervous system, where the fast pathways are reactive and the slow are considered to model higher cognition (see e.g. \citealt{ledoux:1996}).} but also during the implementation of so-called {\it follow me games} \citep{vogt:1999a,vogt:2000}. \index{follow me game} In the follow me games the hearer is following the speaker using phototaxis. When a change in direction is encountered the robot categorises a part of its movement. If both phototaxis and categorisation and naming are processed simultaneously on the {\sc smbii}, the robot fails to follow the speaker because the categorisation process takes more time than 0.025~s, which is the time of one {\sc pdl} cycle. Although {\sc pdl} normally cycles the read-process-execute cycle 40 times per second, it only does so when it finished all its processes. 
 
 The categorisation and naming are single processes that carry out a complex process of search, selection and adaptation, but these processes could in principle be modelled by a set of parallel processes as well. This has not been done for the sake of both simplicity and architectural requirements (the computers used are still serial machines).
 
 
-Both the reactive and cognitive processes are activated or inhibited by the motivational factors which are set inside the states of the finite state automaton. So, depending on the role an agent has, it will enter either the speaker-FSA or the hearer-FSA. Each finite state automaton models a script-like scheme that takes care of the plan. Note that depending on the task numerous finite state automata could be developed of course. Each state takes either direct sensory stimuli or indirect stimuli as read messages or a timer as their arguments. These stimuli are used to determine when the final condition of the state is reached. The final conditions of a state are immediately the initial conditions of the next state. If a robot is too long in one state, measured by the timer, a transition is made to the default state and consequently the language game fails. All other final conditions cause the robot to enter the subsequent state unless it is the final state of the automaton, then it also enters the default state. If no final condition is met, the robot remains in (or re-enters) the same state.
+Both the reactive and cognitive processes are activated or inhibited by the motivational factors which are set inside the states of the finite state automaton. So, depending on the role an agent has, it will enter either the speaker-{\sc fsa} or the hearer-{\sc fsa}. Each finite state automaton models a script-like scheme that takes care of the plan. Note that depending on the task numerous finite state automata could be developed of course. Each state takes either direct sensory stimuli or indirect stimuli as read messages or a timer as their arguments. These stimuli are used to determine when the final condition of the state is reached. The final conditions of a state are immediately the initial conditions of the next state. If a robot is too long in one state, measured by the timer, a transition is made to the default state and consequently the language game fails. All other final conditions cause the robot to enter the subsequent state unless it is the final state of the automaton, then it also enters the default state. If no final condition is met, the robot remains in (or re-enters) the same state.
 
 This section sketched how language games are implemented in the behaviour-based cognitive architecture. Of course, much more could be said about the architectural implementation, but this is beyond the scope of the dissertation, which is more concerned with grounding symbols.
 \index{PDL|)}\index{behaviour-based!cognitive architecture|)}
@@ -161,18 +161,18 @@ This section sketched how language games are implemented in the behaviour-based 
 How are the different subparts of the language game scenario modelled? Up to now the physical set-up and implementation of the robots and their interactions have been explained. The only part of the implementation that still needs to be presented are the cognitive models that implement the sensing, segmentation, feature extraction, categorisation and lexicon formation. These models are the core of the present solution to the physical symbol grounding problem. The remainder of this chapter presents these processes.
 
 
-Sensing, segmentation and feature extraction are important ingredients of the solution of the symbol grounding problem: they form the first step towards invariance. Invariance returns in the cognitive processes during the selection of elements. The three recognised problems in the symbol grounding problem {\em iconisation}, {\em discrimination} and {\em identification} \citep{harnad:1990} are cognitively modelled. Recall from chapter 1 that iconisation is the construction of iconic representations that relate to the detection of some real world object. In these experiments, iconisation is more or less modelled by the sensing and segmentation. \citet{harnad:1990} calls discrimination the process where it is determined how iconic representations differ. He uses discrimination at the sensing level. Here discrimination is used at the categorisation level. It is modelled by the discrimination games. Identification is the process where categories are identified that relate to the iconic representations invariantly. This is modelled in this book by the naming game model. As will be explained soon, this classification is not so clear-cut.
+Sensing, segmentation and feature extraction are important ingredients of the solution of the symbol grounding problem: they form the first step towards invariance. Invariance returns in the cognitive processes during the selection of elements. The three recognised problems in the symbol grounding problem {\em iconisation}, {\em discrimination} and {\em identification} \citep{harnad:1990} are cognitively modelled. Recall from \chapref{ch:intro} that iconisation is the construction of iconic representations that relate to the detection of some real world object. In these experiments, iconisation is more or less modelled by the sensing and segmentation. \citet{harnad:1990} calls discrimination the process where it is determined how iconic representations differ. He uses discrimination at the sensing level. Here discrimination is used at the categorisation level. It is modelled by the discrimination games. Identification is the process where categories are identified that relate to the iconic representations invariantly. This is modelled in this book by the naming game model. As will be explained soon, this classification is not so clear-cut.
 
-As argued in chapter 1, a symbol can be illustrated with a semiotic triangle. The semiotic triangle, a symbol or sign has three relations: (1) meaning - referent, (2) form - meaning, and (3) form - referent. So, how do robots that have no knowledge construct a meaningful ontology and lexicon for these three relations? Two models have been proposed to solve this problem. For relation (1) there are discrimination games \citep{steels:1996b}. Relation (2) is modelled by the naming game \citep{steels:1996a}. Coupling the two models in a grounded experiment provides relation (3). This is so, because as argued in \chapref{ch:intro}, language and meaning co-evolve \citep{steels:1997a}. Closing the semiotic triangle with {\em success} is then what \citet{harnad:1990} called {\em identification} and the symbol grounding problem is solved for that particular symbol. This is so, because only if it is closed successfully, there is enough reason to assume that the symbol stands for the referent.
+As argued in \chapref{ch:intro}, a symbol can be illustrated with a semiotic triangle. The semiotic triangle, a symbol or sign has three relations: (1) meaning -- referent, (2) form -- meaning, and (3) form -- referent. So, how do robots that have no knowledge construct a meaningful ontology and lexicon for these three relations? Two models have been proposed to solve this problem. For relation (1) there are discrimination games \citep{steels:1996b}. Relation (2) is modelled by the naming game \citep{steels:1996a}. Coupling the two models in a grounded experiment provides relation (3). This is so, because as argued in \chapref{ch:intro}, language and meaning co-evolve \citep{steels:1997a}. Closing the semiotic triangle with {\em success} is then what \citet{harnad:1990} called {\em identification} and the symbol grounding problem is solved for that particular symbol. This is so, because only if it is closed successfully, there is enough reason to assume that the symbol stands for the referent.
 \index{symbol grounding problem!identification}
 
-In the semiotic triangle there is a direct relation between the meaning and the referent. However, in cognitive systems there is no such direct relation; the world has to be sensed first. So, to achieve a semiotic coupling, \citet{steels:2000} proposes a semiotic square rather than a triangle, see \figref{f:cm:semiotic}. Note that the square couples the semiotic relations in one robot with another. As argued, language dynamics is thought to give rise to the development of both the lexicon as the ontology. How the ontology and lexicon are developed is explained in sections \ref{s:cm:dg} and \ref{s:cm:ng}. The next section explains how the robots do their sensing, segmentation and feature extraction.
+In the semiotic triangle there is a direct relation between the meaning and the referent. However, in cognitive systems there is no such direct relation; the world has to be sensed first. So, to achieve a semiotic coupling, \citet{steels:2000} proposes a semiotic square rather than a triangle, see \figref{f:cm:semiotic}. Note that the square couples the semiotic relations in one robot with another. As argued, language dynamics is thought to give rise to the development of both the lexicon as the ontology. How the ontology and lexicon are developed is explained in Sections \ref{s:cm:dg} and \ref{s:cm:ng}. The next section explains how the robots do their sensing, segmentation and feature extraction.
 
 \index{semiotic landscape}
 
 \begin{figure}[t]
 \centerline{\includegraphics[width=12cm]{discr_games/semiotic1.eps}}
-\caption{The semiotic landscape of a language game can be viewed as a structural coupling. In this landscape, there are two squares, representing the speaker (left) and the hearer (right). The speaker senses a topic, resulting in a perception. In the terminology of this book, this is called sensing. The perception is conceptualised (or categorised) yielding a meaning. This meaning is then verbalised by the speaker and when the hearer receives the utterance (or form), it tries to interpret this. The interpretation results in a meaning which can be applied to a perception. According to this perception, the hearer acts to identify the referent, which should be the same as the topic and thus completing the coupling. When at some point something goes wrong, the agent can adapt their memory. The errors are signalled by means of back propagation. The figure is taken from (Steels 1999).\index{semiotic landscape}}
+\caption{The semiotic landscape of a language game can be viewed as a structural coupling. In this landscape, there are two squares, representing the speaker (left) and the hearer (right). The speaker senses a topic, resulting in a perception. In the terminology of this book, this is called sensing. The perception is conceptualised (or categorised) yielding a meaning. This meaning is then verbalised by the speaker and when the hearer receives the utterance (or form), it tries to interpret this. The interpretation results in a meaning which can be applied to a perception. According to this perception, the hearer acts to identify the referent, which should be the same as the topic and thus completing the coupling. When at some point something goes wrong, the agent can adapt their memory. The errors are signalled by means of back propagation. The figure is taken from Steels 1999\todo[inline]{there is no Steels 1999 in Bib}.\index{semiotic landscape}}
 \label{f:cm:semiotic}
 \end{figure}
 
@@ -198,7 +198,7 @@ During the sensing the robots  construct a spatial view of their surroundings. B
 
 \index{correspondence|(}
 
-Figure \ref{f:perception1} shows a spatial view of a robot's sensing. The sensing took $60$ PDL cycles ($=1.5 s$). Each peak {\em corresponds} to one of the four light sources in the environment. Remember that corresponding means that the sensor with the highest intensity at a peak detects the light source that is placed at the same height as the sensor itself. Recall that the environment consists of 4 light sources that are placed at different heights (\sectref{s:robots:robots}). 
+Figure \ref{f:perception1} shows a spatial view of a robot's sensing. The sensing took $60$ {\sc pdl} cycles ($=1.5 s$). Each peak {\em corresponds} to one of the four light sources in the environment. Remember that corresponding means that the sensor with the highest intensity at a peak detects the light source that is placed at the same height as the sensor itself. Recall that the environment consists of 4 light sources that are placed at different heights (\sectref{s:robots:robots}). 
 
 Figure \ref{f:perception1} shows that at time step $7$ sensory channel $s0$ sensed a large peak, whereas the other sensory channels show low peak values. At time step $18$ there is a main peak  for sensory channel $s1$ with lower peaks for the other sensory channels. Sensory channel $s2$ shows a maximum at time $28$ and sensory channel $s3$ sensed a maximum during time steps $40$ to $43$. Table \ref{t:perception1} gives these peaks with their sensory channel values.
 
@@ -286,11 +286,11 @@ It is very common in perceptual systems that the amount of input needs to be red
 
 \begin{figure}[t]
 \centerline{\includegraphics[width=12cm]{lang_games/region1.eps}}
-\caption{The for noise filtered sensed view of robot r0 as seen in \figref{f:perception1}.}
+\caption{The for noise filtered sensed view of robot $r0$ as seen in \figref{f:perception1}.}
 \label{f:region1}
 \end{figure}
 
-What does a robot detect of a light source? In figures \ref{f:perception1} and \ref{f:perception2} it is clear that the robots detect peaks of intensity of the sensory stimuli in contrast to some background noise. Applying the Hamilton function to \figref{f:perception1} results in \figref{f:region1}. Each region where the response is greater than zero will from now on be called a segment. It is assumed that each segment corresponds to a light source. Although in the original figure there only 4 regions of interest were identified, the above method identifies 6 segments. The two additional segments come from small perturbations in the landscape that exceeds the noise values a little bit. This does not necessarily mean that these perturbations cannot be due to noise, but it can also be due to reflection.
+What does a robot detect of a light source? In Figures \ref{f:perception1} and \ref{f:perception2} it is clear that the robots detect peaks of intensity of the sensory stimuli in contrast to some background noise. Applying the Hamilton function to \figref{f:perception1} results in \figref{f:region1}. Each region where the response is greater than zero will from now on be called a segment. It is assumed that each segment corresponds to a light source. Although in the original figure there only 4 regions of interest were identified, the above method identifies 6 segments. The two additional segments come from small perturbations in the landscape that exceeds the noise values a little bit. This does not necessarily mean that these perturbations cannot be due to noise, but it can also be due to reflection.
 
 To filter out these segments, an additional rule is applied that a segment should contain more than one data point. Nevertheless, this will not guarantee that all irrelevant regions are filtered out. Neither are all relevant regions segmented. If two peaks (partly) coincide, this segmentation fails to extract the relevant segments. Nevertheless, as will be shown in subsequent chapters, the segmentation makes it possible to ground the sensing of the light sources.
 
@@ -306,7 +306,7 @@ The segmentation of the spatial view of \figref{f:perception2} does not recognis
 
 The segments that result from the segmentation have different lengths and may still have a lot of data. Therefore, it is desirable to describe each segment with one vector of low and {\em equal} dimension. Low dimension benefits computational efficiency. Equal dimension is used for consistency in the data, which makes the computations easier.
 
-In line with pattern recognition and computer vision such a vector representation will be called a {\em feature vector} (see e.g. \citep{fu:1976}). The elements of this feature vector will be called {\em features}. The extraction of the features is called feature extraction. The aim of the feature extraction is to extract features that bear {\em invariant} information about the light sources.
+In line with pattern recognition and computer vision such a vector representation will be called a {\em feature vector} (see e.g. \citealt{fu:1976}). The elements of this feature vector will be called {\em features}. The extraction of the features is called feature extraction. The aim of the feature extraction is to extract features that bear {\em invariant} information about the light sources.
 
 
 The feature extraction is applied to each segment $S_k$. It extracts for each sensory channel $i$ the value $\tau_{k,i,j}$ that has the highest value in $S_k$. Or, in other words, it gives the highest intensity of a sensory channel in the segment. But the absolute intensities have information about the distance of the light source, which is not an invariant property. Therefore, this highest value is normalised to the absolute highest value of all sensory channels in the segment. 
@@ -326,7 +326,7 @@ The result of applying a feature extraction to the data of sensory channel $i$ w
 Segment $S_k$ can now be related to a feature vector ${\bf f}_k=(f_0,\ldots,f_{n-1})$, where $n$ is the total number of sensory channels. The space that spans all possible feature vectors ${\bf f}$ is called the $n$ dimensional feature space ${\mathcal F}={\mathcal S}^{'n}$, or feature space for short. Although this need not be so, in the current experiment the dimension of the feature space is equal to the number of sensory channels.
 
 
-Applying the feature extraction of equation \ref{e:sc-norm} to the sensing of \figref{f:region1} would result in the context given in \tabref{t:sc_relative}. Consider for example segment 1 of \figref{f:region1}. In this segment the top of sensory channel ${\bf s}_0$ has a value of 200, the top of ${\bf s}_1$ has value 4 and the two other sensory channels have values 0. Normalising the tops of this segment to the highest value yields $f_0=1.00$, $f_1=0.02$, $f_2=0.00$ and $f_3=0.00$, cf. \tabref{t:sc_relative}.
+Applying the feature extraction of Equation \ref{e:sc-norm} to the sensing of \figref{f:region1} would result in the context given in \tabref{t:sc_relative}. Consider for example segment 1 of \figref{f:region1}. In this segment the top of sensory channel ${\bf s}_0$ has a value of 200, the top of ${\bf s}_1$ has value 4 and the two other sensory channels have values 0. Normalising the tops of this segment to the highest value yields $f_0=1.00$, $f_1=0.02$, $f_2=0.00$ and $f_3=0.00$, cf. \tabref{t:sc_relative}.
 
 \begin{table}
 \centering
@@ -357,7 +357,7 @@ Cxt=\{S_0,\ldots,S_m\} \rightarrow \{{\bf f}_0,\ldots,{\bf f}_m\}
 
 where $m$ is the context size.
 
-The feature extraction that calculates the relative intensities is the only transformation used in the experiments reported here. In \citep{steelsvogt:1997,vogt:1998b} the feature extraction function calculates the absolute peak values. Other functions have been introduced for categorising spatial categories as in \citep{steels:1996d}. Still other functions have been designed for use in the Talking Heads experiments \citep{belpaeme:1998,steelskaplan:1999}. In the Talking Heads experiment as well as in this application the functions were designed by hand. \citet{dejong:1999} and \citet{belpaeme:1999} have shown that such functions can resp. be learned or evolved\footnote{Note that Belpaeme calls the feature extraction function {\em feature detectors}.}.
+The feature extraction that calculates the relative intensities is the only transformation used in the experiments reported here. In \citealt{steelsvogt:1997} and \citealt{vogt:1998b} the feature extraction function calculates the absolute peak values. Other functions have been introduced for categorising spatial categories as in \citealt{steels:1996d}. Still other functions have been designed for use in the Talking Heads experiments \citep{belpaeme:1998,steelskaplan:1999}. In the Talking Heads experiment as well as in this application the functions were designed by hand. \citet{dejong:1999} and \citet{belpaeme:1999} have shown that such functions can resp. be learned or evolved.\footnote{Note that Belpaeme calls the feature extraction function ``feature detectors''.}
 \index{feature!extraction|)}
 
 
@@ -371,20 +371,19 @@ In a language game each robot is interested in categorising one or more segments
 As explained in the previous section, a segment is related to a feature vector. This feature vector is a point in the feature space. The first step of the discrimination game is to categorise this feature vector with one or more categories that the robot has stored in its memory and that resemble this point in the feature space. A category is defined as some region in the feature space. A feature vector is categorised with that category for which the feature vector falls within that region.
 
 \index{discrimination}
-When the segments are categorised, the robots need to select the categories of the topic that are not used to categorise any other segment in the context. The process that does this is called {\em discrimination}, cf. \citep{steels:1996b}. The discrimination can have different outcomes. If one or more categories are found, the discrimination is successful and hence the discrimination game is a success. In this case, the resulting categories can be used in the naming phase of the language game. If no distinctive category is found, this means that the repertoire of categories in the robot's memory is not sufficient to do the task.  At the start of each experiment, the repertoire of categories (or {\em ontology}) is empty. So, no categorisation can be found and hence no discrimination game can be successful. To overcome this problem in the future, the robot can expand its repertoire of categories.
+When the segments are categorised, the robots need to select the categories of the topic that are not used to categorise any other segment in the context. The process that does this is called {\em discrimination} (cf. \citealt{steels:1996b}). The discrimination can have different outcomes. If one or more categories are found, the discrimination is successful and hence the discrimination game is a success. In this case, the resulting categories can be used in the naming phase of the language game. If no distinctive category is found, this means that the repertoire of categories in the robot's memory is not sufficient to do the task.  At the start of each experiment, the repertoire of categories (or {\em ontology}) is empty. So, no categorisation can be found and hence no discrimination game can be successful. To overcome this problem in the future, the robot can expand its repertoire of categories.
 \index{ontology}\index{distinctive category}
 
-The complete task of categorisation, discrimination and adaptation is modelled by a so-called {\em discrimination game} \citep{steels:1996b}. The basis of the model has not changed since its first introduction in 1996, but the implementation and precise details have been adjusted ever since. The first robot implementation of the model can be found in \citep{steelsvogt:1997} and \citep{vogt:1998a}. The model exploits a selectionist mechanism of generation and selection of categories. This results in the self-organisation of categories and has the properties of a dynamical system.
+The complete task of categorisation, discrimination and adaptation is modelled by a so-called {\em discrimination game} \citep{steels:1996b}. The basis of the model has not changed since its first introduction in 1996, but the implementation and precise details have been adjusted ever since. The first robot implementation of the model can be found in \citealt{steelsvogt:1997} and \citealt{vogt:1998a}. The model exploits a selectionist mechanism of generation and selection of categories. This results in the self-organisation of categories and has the properties of a dynamical system.
 
 Different types of methods for representation in the discrimination game have been developed: the {\em binary tree method} \citep{steels:1996b}, the {\em prototype method} \citep{dejongvogt:1998,vogt:1998b} and the {\em adaptive subspace method} \citep{dejongvogt:1998,dejong:2000}. The prototype method and a variant of the adaptive subspace method, which will be called the {\em binary subspace method} are investigated in this book and shall be explained in this section. Before doing so, a more general description of the discrimination game model is presented.
 
 
-Following \citep{steels:1996b}, the discrimination game can be defined formally as follows: Assume that the robots can relate their feature vectors to categories and suppose that the robots have categorised a set of categories $C_k=\{c_0,\ldots,c_{n-1}\}$ for the feature vectors relating to segment $S_k$. Let $S_t$ be the topic. The topic is the segment for which the robots try to find distinctive categories. A category is distinctive if it is related to the topic, but not to any other segment in the context $Cxt$. The distinctive categories are temporarily stored in a distinctive category set $DC$. If $DC \neq \emptyset$, the discrimination game is a success. The $DC$ is passed to the naming game model that the robots use to communicate. If $DC=\emptyset$, the discrimination game fails and one or more new categories should be created. So, there are three parts in the discrimination game:
+Following \citet{steels:1996b}, the discrimination game can be defined formally as follows: Assume that the robots can relate their feature vectors to categories and suppose that the robots have categorised a set of categories $C_k=\{c_0,\ldots,c_{n-1}\}$ for the feature vectors relating to segment $S_k$. Let $S_t$ be the topic. The topic is the segment for which the robots try to find distinctive categories. A category is distinctive if it is related to the topic, but not to any other segment in the context $Cxt$. The distinctive categories are temporarily stored in a distinctive category set $DC$. If $DC \neq \emptyset$, the discrimination game is a success. The $DC$ is passed to the naming game model that the robots use to communicate. If $DC=\emptyset$, the discrimination game fails and one or more new categories should be created. So, there are three parts in the discrimination game:
 
 \begin{enumerate}
 
 \item The distinctive category set $DC$ is constructed according to the following relation:
-
 \begin{eqnarray}
 DC = \{c_i \in C_t \mid \forall S_k \in Cxt \backslash \{S_t\}: \neg c_i \in C_k\}
 \end{eqnarray}
@@ -406,7 +405,7 @@ So, how are feature vectors categorised and how are categories created? The two 
 \index{categorisation|(}
 \index{category|(}
 
-The prototype method is the main method investigated in this book. In this method the categories are defined in terms of prototypes. In the pattern recognition literature, see e.g. \citep{banks:1990}, a {\em prototype} is defined as ``a single representative sample'' in the feature space. I.e. as a point in the feature space. However, a category is defined as a {\em region} in the feature space. For a prototype, this region can be defined by those points in the feature space that are nearest to this prototype. So, a prototypical category can be defined as a region in the feature space that is represented by a prototype.
+The prototype method is the main method investigated in this book. In this method the categories are defined in terms of prototypes. In the pattern recognition literature, (see e.g. \citealt{banks:1990}), a {\em prototype} is defined as ``a single representative sample'' in the feature space. I.e. as a point in the feature space. However, a category is defined as a {\em region} in the feature space. For a prototype, this region can be defined by those points in the feature space that are nearest to this prototype. So, a prototypical category can be defined as a region in the feature space that is represented by a prototype.
 
 
 The prototypical categories are represented by prototypes and some scores: $c=\langle {\bf c},\nu,\rho,\kappa \rangle$, where ${\bf c}=(x_0,\ldots,x_{n-1})$ is a prototype in the $n$ dimensional feature space, and $\nu$, $\rho$ and $\kappa$ are some scores. As mentioned, categorisation is the process of finding categories for which the feature vector lies within the region that is defined by the category. The categorisation of this is done with the {\em 1-nearest neighbour algorithm}. The 1-nearest neighbour algorithm returns the prototype that is nearest to observed feature vector. \index{k-nearest neighbour algorithm}\index{category!prototypical}
@@ -427,7 +426,7 @@ So, suppose that in the discrimination game, the robot tried to categorise featu
 
 \item Create new prototypes ${\bf c}_j = (x_0,\ldots,x_{n-1})$ where $x_i=f_i$ and the other $x_r$ are made of already existing prototypes in ${\mathcal F}_\lambda$.
 
-\item Add the new prototypical category $c_j=\langle {\bf c}_j,\nu_j,\rho_j,\kappa_j \rangle$ to the feature space ${\mathcal F}_\lambda$. $\nu_j$ is a category score that indicates the effect of discrimination. $\rho_j$ is the effectiveness score that indicates the use of the category in the language game. $\kappa_j$ indicates how general the category is. The initial values of $\nu_j$ and $\rho_j$ are set to 0.01. $\kappa_j$ is a constant, which is calculated as in eq. \ref{e:lg:kappa}. \index{category!prototypical}
+\item Add the new prototypical category $c_j=\langle {\bf c}_j,\nu_j,\rho_j,\kappa_j \rangle$ to the feature space ${\mathcal F}_\lambda$. $\nu_j$ is a category score that indicates the effect of discrimination. $\rho_j$ is the effectiveness score that indicates the use of the category in the language game. $\kappa_j$ indicates how general the category is. The initial values of $\nu_j$ and $\rho_j$ are set to 0.01. $\kappa_j$ is a constant, which is calculated as in Equation \ref{e:lg:kappa}. \index{category!prototypical}
 
 \end{enumerate}
 
@@ -441,91 +440,68 @@ The scores are introduced to enable a better selection in the naming game. The s
 
 \begin{itemize}
 \item The categorisation score $\nu$ is used to indicate how often the category is used to distinctively categorise a feature vector. It is calculated according to the following equation:
-
 \begin{eqnarray}
 \nu = \nu + \eta \cdot X
 \label{e:lg:nu}
 \end{eqnarray}
-
 where
-
 \begin{eqnarray}
 X = \left \{ \begin{array}{rl}
 1 & \mbox{if categorised distinctive}\\\nonumber
 0 & \mbox{if categorised, but not distinctive}\nonumber
 \end{array} \right.
 \end{eqnarray}
-
-
 where $\eta$ is a learning rate. The default value of the learning rate is set to $\eta=0.99$.
-
-\index{score!effectiveness}
-\item The effectiveness score $\rho$ is used to indicate the effective use in the language. I.e.
-
+\index{score!effectiveness} \item The effectiveness score $\rho$ is used to indicate the effective use in the language. I.e.
 \begin{eqnarray}
 \rho = \rho + \eta \cdot Y
 \label{e:lg:rho}
 \end{eqnarray}
-
 where
-
 \begin{eqnarray}
 Y = \left \{ \begin{array}{rl}
 1 & \mbox{if used in language game}\\\nonumber
 0 & \mbox{if distinctive, but not used in language game}\nonumber
 \end{array} \right.
 \end{eqnarray}
-
-
 where $\eta$ is the learning rate.
-
-\item Another score that is calculated is the depth score $\kappa$. It indicates how general the category is. As mentioned, if possible it is preferable to use categories that are as general as possible. A category is as general as possible if it is in a feature space ${\mathcal S}_\lambda'$ with $\lambda$ as small as possible. Because of the resolution of the sensors, the resolution cannot increase in a feature space with $\lambda=5$, so that is the most specific feature space.
-
-\index{score!depth}
-
+\item Another score that is calculated is the depth score $\kappa$. It indicates how general the category is. As mentioned, if possible it is preferable to use categories that are as general as possible. A category is as general as possible if it is in a feature space ${\mathcal S}_\lambda'$ with $\lambda$ as small as possible. Because of the resolution of the sensors, the resolution cannot increase in a feature space with $\lambda=5$, so that is the most specific feature space.\index{score!depth}
 \begin{eqnarray}
 \displaystyle
 \kappa_M=1 - \frac{\lambda}{5}
 \label{e:lg:kappa}
 \end{eqnarray}
-
 \noindent
 This score implements a preference for the most general category, conform \citep{steels:1996b}. 
 
 \index{score!meaning}\index{meaning}
 \item In the naming game, the three scores are taken together to form a meaning score $\mu$. Note that it is allowed to talk about meaning, since this score is only evaluated in relation to a form.
-
 \begin{eqnarray}
 \displaystyle
 \mu=\frac{1}{3}\cdot (\nu+\rho+\kappa)
 \end{eqnarray}
-
-
 \noindent
 The value of $\mu$ is averaged so that it can be scaled separately when using it in the naming phase as will be explained in the next section.
 \end{itemize}
 
 
-Because once the scores $\nu$ and $\rho$ become greater than zero, they will never become zero again. They can by way of updating (eq. \ref{e:lg:nu} and \ref{e:lg:rho}) only approach zero asymptotically. In order to give new categories a chance to be selected, their initial values are not set to 0, but to 0.01.
+Because once the scores $\nu$ and $\rho$ become greater than zero, they will never become zero again. They can by way of updating (Equations \ref{e:lg:nu} and \ref{e:lg:rho}) only approach zero asymptotically. In order to give new categories a chance to be selected, their initial values are not set to 0, but to 0.01.
 
 There is another adaptation that is done with a prototypical category when it has been successfully discriminated. If the category is used as the meaning in a language game successfully. I.e. it has been the subject of a successful communication, the prototype of the category is shifted towards the feature vector that it categorises according to the following equation:
-
-\begin{eqnarray}
+\begin{eqnarray} \label{eq:3.9}
 {\bf c}_3' = {\bf c}_3 + \epsilon \cdot ({\bf f}_t - {\bf c}_3)
 \end{eqnarray}
-
-
 where ${\bf c}_3'$ is the new vector representation of  ${\bf c}_3$ after shifting this category with a step size of $\epsilon$ towards ${\bf f}_t$. In the experiments $\epsilon=0.1$. This way the prototypical category becomes a more representative sample of the feature vector it categorised.
 
 Because the resolution of a sensor is limited six feature spaces ${\mathcal F}_0$ to ${\mathcal F}_5$ are the only ones available. Another reason to keep the number of feature spaces limited is to keep the computational efficiency within limits. Besides, as will become clear in the experiments, ${\mathcal F}_1$ will usually be sufficient to discriminate.
 \index{feature!space}
 
 
-The prototype method is a variant of an instance-based learning technique, see e.g. \citep{ahaetal:1991,mitchell:1997}. As mentioned, it uses the $k$-nearest neighbour algorithm, where $k=1$. Instance-based learning assumes a set of training examples (prototypes) that consists of both positive and negative examples of some categorisation. However, in the prototype method training examples are added to the feature space when a categorisation failed. The validation of a positive or negative example is based on the discriminative power of the categorised prototype. The adaptation of scores that help to select the distinctive categories in the naming phase is very much like the update of $Q$ values in reinforcement learning, see e.g. \citep{suttonbarto:1998}. \index{instance-based learning}\index{reinforcement learning}
+The prototype method is a variant of an instance-based learning technique (see e.g. \citealt{ahaetal:1991,mitchell:1997}). As mentioned, it uses the $k$-nearest neighbour algorithm, where $k=1$. Instance-based learning assumes a set of training examples (prototypes) that consists of both positive and negative examples of some categorisation. However, in the prototype method training examples are added to the feature space when a categorisation failed. The validation of a positive or negative example is based on the discriminative power of the categorised prototype. The adaptation of scores that help to select the distinctive categories in the naming phase is very much like the update of $Q$ values in reinforcement learning (see e.g. \citealt{suttonbarto:1998}). \index{instance-based learning}\index{reinforcement learning}
 
 \subsubsection{An example}
 
-The prototype method can be illustrated with an example. Suppose there is an ontology of prototypes on ${\mathcal F}_0$ and ${\mathcal F}_1$ as displayed in \figref{f:lg:proto} (a) and (b). In figure (a) there is one prototype ${\bf c}_0=(0.20,0.90)$. In figure (b) there are two prototypes ${\bf c}_1=(0.25,0.75)$ and ${\bf c}_2=(0.65,0.75)$. Left of the division line in the space is category of ${\bf c}_1$ and right is category ${\bf c}_2$. Suppose the robot has related topic $t$ with a feature vector ${\bf f}_t=(0.30,0.10)$ and it has another segment $s$ in its context related with feature vector ${\bf f}_s=(0.15,0.80)$\footnote{Note that these vectors are made up to illustrate the example.}. Then both ${\bf f}_t$ and ${\bf f}_s$ are categorised with $\{{\bf c}_0,{\bf c}_1\}$. Hence the categorisation of topic $t$ is not distinctive. So, the ontology has to be expanded. 
+The prototype method can be illustrated with an example. Suppose there is an ontology of prototypes on ${\mathcal F}_0$ and ${\mathcal F}_1$ as displayed in \figref{f:lg:proto} (a) and (b). In Figure (a) there is one prototype ${\bf c}_0=(0.20,0.90)$. In Figure (b) there are two prototypes ${\bf c}_1=(0.25,0.75)$ and ${\bf c}_2=(0.65,0.75)$. Left of the division line in the space is category of ${\bf c}_1$ and right is category ${\bf c}_2$. Suppose the robot has related topic $t$ with a feature vector ${\bf f}_t=(0.30,0.10)$ and it has another segment $s$ in its context related with feature vector ${\bf f}_s=(0.15,0.80)$.\footnote{Note that these vectors are made up to illustrate the example.} Then both ${\bf f}_t$ and ${\bf f}_s$ are categorised with $\{{\bf c}_0,{\bf c}_1\}$. Hence the categorisation of topic $t$ is not distinctive. So, the ontology has to be expanded. 
 
 \begin{figure}
 \centering
@@ -540,12 +516,10 @@ The prototype method can be illustrated with an example. Suppose there is an ont
 The robot selects one dimension of the feature space to exploit. Suppose this is dimension WL1. In this dimension, the topic has a feature with value 0.10. The robot has to select a feature space on which there is still place in the selected dimension. In ${\mathcal F}_0$ each dimension can be exploited $3^0=1$ time. This has already happened, so the robot checks if it can exploit the next space, ${\mathcal F}_1$. In this space each dimension can be exploited $3^1=3$ times. Dimension WL1 has only been exploited once, so this dimension can still be exploited. New prototypes are constructed with the points $(x,0.10)$, where $x$ is filled in with the corresponding co-ordinates of the already existing prototypes. If some dimensions are not exploited yet, the new prototypes will not become active until all dimensions of the feature space are exploited. This yields two new prototypes ${\bf c}_3=(0.25,0.10)$ and ${\bf c}_4=(0.65,0.10)$, see \figref{f:lg:proto} (c). Since each dimension of ${\mathcal F}_1$ can be exploited up to 3 times, the robot can exploit each dimension of this space only once more. This has been done for one dimension in \figref{f:lg:proto} (d).
 
 \index{distinctive category}
-When the robot needs to find distinctive categories in this new ontology based on the same feature vectors as before, ${\bf f}_t$ will be categorised with $\{{\bf c}_0,{\bf c}_3\}$ and ${\bf f}_s$ with $\{{\bf c}_0,{\bf c}_1\}$. Yielding distinctive category set $DS=\{{\bf c}_3\}$. Now ${\bf c}_3$ may be used in the language game as the meaning of the symbol that is communicated. If this is done successfully, the category is shifted in the direction of the observation by using the following equation (see also above):\index{meaning}
-
+When the robot needs to find distinctive categories in this new ontology based on the same feature vectors as before, ${\bf f}_t$ will be categorised with $\{{\bf c}_0,{\bf c}_3\}$ and ${\bf f}_s$ with $\{{\bf c}_0,{\bf c}_1\}$. Yielding distinctive category set $DS=\{{\bf c}_3\}$. Now ${\bf c}_3$ may be used in the language game as the meaning of the symbol that is communicated. If this is done successfully, the category is shifted in the direction of the observation by using the following equation (see Equation \ref{eq:3.9}):\index{meaning}
 \[
 {\bf c}_3' = {\bf c}_3 + \epsilon \cdot ({\bf f}_t - {\bf c}_3)
 \]
-
 
 So, in this case, ${\bf c}_3'=(0.255,0.3)$.
 
@@ -580,7 +554,7 @@ The binary subspace method combines the binary tree method with the adaptive sub
 Categorisation in the subspace is done by relating feature vectors to those subspaces in which the feature vectors fall.
 
 
-A subspace is defined as an $n$ dimensional rectangle that is surrounded by their boundaries in each dimension of the feature space ${\mathcal F}_\lambda$. Note that this shape of a subspace differs from the one introduced by \citep{oja:83}. Suppose there is a lower boundary $x_i$ and an upper boundary $y_i$ in dimension $i$ of ${\mathcal F}_\lambda$. These boundaries do not necessarily coincide with the boundaries of ${\mathcal F}_\lambda$. A category $c_j$ can be defined by these boundaries in each dimension of ${\mathcal F}_\lambda$: $c_j=\langle x_0,y_0,\ldots,x_{n-1},y_{n-1},\nu_j,\rho_j,\kappa_j \rangle$ for $n$ dimensions. Like for the prototype method $\nu_j,\rho_j$ and $\kappa_j$ are scores.
+A subspace is defined as an $n$ dimensional rectangle that is surrounded by their boundaries in each dimension of the feature space ${\mathcal F}_\lambda$. Note that this shape of a subspace differs from the one introduced by \citet{oja:83}. Suppose there is a lower boundary $x_i$ and an upper boundary $y_i$ in dimension $i$ of ${\mathcal F}_\lambda$. These boundaries do not necessarily coincide with the boundaries of ${\mathcal F}_\lambda$. A category $c_j$ can be defined by these boundaries in each dimension of ${\mathcal F}_\lambda$: $c_j=\langle x_0,y_0,\ldots,x_{n-1},y_{n-1},\nu_j,\rho_j,\kappa_j \rangle$ for $n$ dimensions. Like for the prototype method $\nu_j,\rho_j$ and $\kappa_j$ are scores.
 
 A feature vector ${\bf f}=(f_0,\ldots,f_{n-1})$ can be categorised with category $c_j$ if $x_i < f_i \leq y_i$ for all dimensions of the feature space.
 
@@ -605,7 +579,7 @@ At the start of the experiment the category of ${\mathcal F}_0$ is given. This c
 The binary subspace method differs from the binary tree method of \citet{steels:1996b} in that a category covers all the $n$ dimensions of the feature space. Steels defines categories in 1 to $n$ dimensions, by taking conjunctions of the nodes in the binary trees. Conjunctions can have nodes at different hierarchical layers. Processing all these possible categories is computationally very costly. Suppose there are six hierarchical layers in the tree (as in the prototype method, the binary subspace method has six feature spaces) and 4 dimensions, which is completely filled. Then there are $6\times4=24$ one dimensional categories. There are $6^2\times3!=216$ two dimensional categories. There are $6^3\times2!=432$ three dimensional categories and $6^4=1296$ four dimensional categories. This makes a total of 1968 possible categories to be explored.  The binary subspace method only considers $n$ dimensional conjunctions of nodes each layered at the same layer in the tree. This yields a maximum of only 6 categories to be explored.
 
 \index{adaptive subspace method}\index{De Jong, Edwin}
-The adaptive subspace method developed by Edwin de Jong also differs from the binary subspace method \citep{dejongvogt:1998,dejong:2000}. Like in the binary subspace method De Jong splits a category from feature space ${\mathcal F}_\lambda$ in ${\mathcal F}_{\lambda}$ very similar to the binary subspace. However, De Jong's agents directly create a new category, which is the former category splitted in one dimension. Every time this is done, only two new categories are made. In the binary subspace method, more categories may be made. Another difference is that De Jong lets his agents do not create new categories every time the discrimination game fails, but it is done after a fixed number of failures. The choice which subspace is splitted and in which dimension is calculated from some statistics of previous failures to find distinctions. For a detailed explanation of the adaptive subspace method see \citep{dejongvogt:1998,dejong:2000}.
+The adaptive subspace method developed by Edwin De Jong also differs from the binary subspace method \citep{dejongvogt:1998,dejong:2000}. Like in the binary subspace method De Jong splits a category from feature space ${\mathcal F}_\lambda$ in ${\mathcal F}_{\lambda}$ very similar to the binary subspace. However, De Jong's agents directly create a new category, which is the former category splitted in one dimension. Every time this is done, only two new categories are made. In the binary subspace method, more categories may be made. Another difference is that De Jong lets his agents do not create new categories every time the discrimination game fails, but it is done after a fixed number of failures. The choice which subspace is splitted and in which dimension is calculated from some statistics of previous failures to find distinctions. For a detailed explanation of the adaptive subspace method see \citealt{dejongvogt:1998} and \citealt{dejong:2000}.
 
 \begin{figure}
 \centering
@@ -614,7 +588,7 @@ The adaptive subspace method developed by Edwin de Jong also differs from the bi
 \subfigure[${\mathcal F}_1$]{\includegraphics[width=5.5cm]{lang_games/binary1a.eps}}
 \subfigure[${\mathcal F}_2$]{\includegraphics[width=5.5cm]{lang_games/binary2.eps}}\\
 \subfigure[${\mathcal F}_2$]{\includegraphics[width=5.5cm]{lang_games/binary2a.eps}}
-\caption{The binary subspace method splits the feature space at the lower layer (i.e. $\lambda$ is smaller) in each dimension at a time. The split divides the former subspace in two equal halves in one dimension. As the plot in figure (b) did for $c_0$ in figure (a). A category is not formed until each dimension is exploited. If another split is made as in figure (c), new categories are formed. Figures (d) and (e) are two subsequent splits of category $c_3$ from figure (c). The last split results in four new categories on ${\mathcal F}_2$. If a split would be made on $c_1$ in dimension WL1 of figure (c). Again four new categories are constructed.}
+\caption{The binary subspace method splits the feature space at the lower layer (i.e. $\lambda$ is smaller) in each dimension at a time. The split divides the former subspace in two equal halves in one dimension. As the plot in Figure (b) did for $c_0$ in Figure (a). A category is not formed until each dimension is exploited. If another split is made as in Figure (c), new categories are formed. Figures (d) and (e) are two subsequent splits of category $c_3$ from Figure (c). The last split results in four new categories on ${\mathcal F}_2$. If a split would be made on $c_1$ in dimension WL1 of Figure (c). Again four new categories are constructed.}
 \label{f:lg:subspace}
 \end{figure}
 
@@ -626,7 +600,7 @@ One major difference of the binary tree, binary subspace and adaptive subspace w
 A more fundamental difference with the prototype method is that the binary subspace method, like the binary tree method and the adaptive subspace method is biologically less plausible. Humans do not make binary distinctions of the world. The feature space of observations is usually not divided in binary distinctions.
 
 
-The binary subspace method, like the adaptive subspace method \citep{dejong:2000} is a type of {\em adaptive resolution} generalisation. In these methods a multidimensional space is divided in subregions based on some criteria in order to solve some tasks. Examples of such learning techniques can be found in \citep{chapmankaebling:1991,moore:1995}.
+The binary subspace method, like the adaptive subspace method \citep{dejong:2000} is a type of {\em adaptive resolution} generalisation. In these methods a multidimensional space is divided in subregions based on some criteria in order to solve some tasks. Examples of such learning techniques can be found in \citealt{chapmankaebling:1991} and \citealt{moore:1995}.
 \index{binary!subspace method|)}
 \index{binary!subspace|)}
 \index{category|)}
@@ -644,31 +618,31 @@ The feature vector that relates to the topic is categorised with a category that
 
 Now that the each robot has categorised the (potential) topic(s) distinctively, they can communicate these distinctive categorisations. Communication is established by the speaker and hearer. The speaker names the category. The hearer tries to interpret this name. I.e. it tries to identify the uttered word-form so that it corresponds to the categorisation of the topic. The topic is supposed to relate to the referent that the speaker's utterance stands for. 
 
-In some experiments the hearer already knows which topic this is prior to the verbal communication. This means that there is some sort of {\em joint attention} on the topic. This knowledge is exchanged from the speaker by means of {\em extra-linguistic communication}. In other experiments the hearer does not know yet what the topic is. The hearer then only has the uttered word-form and the distinctive categories at its disposal. The availability of such information is a source of discussions in the psycholinguistic literature, see e.g. \citep{barrett:1995} and the discussion in chapter 1. Therefore it is interesting to investigate whether and under what circumstances the robots can deal with these different types of knowledge.
+In some experiments the hearer already knows which topic this is prior to the verbal communication. This means that there is some sort of {\em joint attention} on the topic. This knowledge is exchanged from the speaker by means of {\em extra-linguistic communication}. In other experiments the hearer does not know yet what the topic is. The hearer then only has the uttered word-form and the distinctive categories at its disposal. The availability of such information is a source of discussions in the psycholinguistic literature (see e.g. \citealt{barrett:1995}) and the discussion in \chapref{ch:intro}. Therefore it is interesting to investigate whether and under what circumstances the robots can deal with these different types of knowledge.
 
-When the hearer interpreted the utterance, the language game is successful when both robots communicated about the same referent. In case where the hearer already had this knowledge at its disposal, this is the case. Otherwise, the robots may evaluate whether they did so. This evaluation is called {\em feedback}. The evaluation of feedback is, like joint attention, done by means of extra-linguistic communication. Again, the availability of feedback to a language learner is of much debate in the psycholinguistic literature, see e.g. \citep{bowerman:1988}. So, is this really necessary? 
+When the hearer interpreted the utterance, the language game is successful when both robots communicated about the same referent. In case where the hearer already had this knowledge at its disposal, this is the case. Otherwise, the robots may evaluate whether they did so. This evaluation is called {\em feedback}. The evaluation of feedback is, like joint attention, done by means of extra-linguistic communication. Again, the availability of feedback to a language learner is of much debate in the psycholinguistic literature (see e.g. \citealt{bowerman:1988}). So, is this really necessary? 
 
 Both types of extra-linguistic information is subject of investigation of this book. For this reason different types of language games have been developed: the {\em ostensive game}, {\em guessing game}, {\em observational game} and {\em XSL game}.
 
 
 When the experiments start, however, the robots have no language to their disposal yet. They have to construct this. In the experiments the question of how grammar is evolved is left aside, only a lexicon is developed. How are forms associated with meanings? And how can both robots acquire a shared lexicon? To model this, the robots can adapt their lexicons. This lexicon development is based on the three mechanisms that Luc \citet{steels:1996a} proposed for lexicon formation: individual adaptation, cultural evolution and self-organisation.
 
-The previous section presented the discrimination game model by which the first two steps (iconisation and discrimination) of the grounding problem is tackled. The model tries to find categories that relate to the topic, but not to any other segment that has been observed in that context. Such a category can be related to a form. If this is done, the category functions as the meaning of a semiotic sign in the Peircean sense. When this form is either arbitrary or conventionalised (e.g. through language) the sign becomes a symbol according to Peirce (see e.g. \citep{chandler:1994}). Since it is assumed that meaning co-evolves with language (chapter 1), the symbol is grounded in language and hence the form will be conventionalised. The naming game model implements how the form is conventionalised.\index{category}\index{meaning}\index{Peirce, C.S.}\index{semiotics}\index{symbol}
+The previous section presented the discrimination game model by which the first two steps (iconisation and discrimination) of the grounding problem is tackled. The model tries to find categories that relate to the topic, but not to any other segment that has been observed in that context. Such a category can be related to a form. If this is done, the category functions as the meaning of a semiotic sign in the Peircean sense. When this form is either arbitrary or conventionalised (e.g. through language) the sign becomes a symbol according to Peirce (see e.g. \citealt{chandler:1994}). Since it is assumed that meaning co-evolves with language (\chapref{ch:intro}), the symbol is grounded in language and hence the form will be conventionalised. The naming game model implements how the form is conventionalised.\index{category}\index{meaning}\index{Peirce, C.S.}\index{semiotics}\index{symbol}
 
 \index{Steels, Luc}\index{naming game|(}
 The lexicon formation is based on the naming game model introduced by Luc \citet{steels:1996a}. The naming game implements the communication between two agents that try to name the meaning of the referents they sensed in their environment. One of the agents plays the role of the speaker and chooses a topic from the segments that constitute the context. It searches its lexicon for a form-meaning association of which the meaning matches the category of the topic. The associated form is `uttered' and in turn, the hearer tries to understand the utterance. The hearer does so by searching its own lexicon for a form-meaning association of which the form matches the utterance. If there exist such an element, the hearer compares the associated meaning(s) with the category of the topic. If there is a match and both the speaker and the hearer named the same topic, the naming game is successful. Otherwise there is a failure. According to the outcome of the game the lexicon will be adapted. 
 
 \subsubsection{Different Language Games}
 
-One of the issues that will be investigated in this book is what type of extra-linguistic information is necessary to guide a meaningful lexicon formation. As mentioned above and in chapter 1, it is not clear what extra-linguistic information infants have at their disposal when learning language. Do they establish joint attention prior to the verbal communication? Or do they receive feedback on the effect of a linguistic interaction? Or is neither at their disposal? 
+One of the issues that will be investigated in this book is what type of extra-linguistic information is necessary to guide a meaningful lexicon formation. As mentioned above and in \chapref{ch:intro}, it is not clear what extra-linguistic information infants have at their disposal when learning language. Do they establish joint attention prior to the verbal communication? Or do they receive feedback on the effect of a linguistic interaction? Or is neither at their disposal? 
 
 To investigate whether robots can develop a shared lexicon under these different circumstances four types of language games have been implemented. In these language games different configurations of the availability of joint attention and feedback have been implemented as shown in \tabref{t:cm:games}. The different games can be summarised as follows:
 
 \begin{description}
-\item[Ostensive game] This game is conform the original naming game model \citep{steels:1996a}. The speaker informs the hearer prior to the linguistic communication what the topic is, e.g. by means of pointing at the referent. Hence {\em joint attention} is established. It then produces a (linguistic) utterance, which the hearer tries to understand. Feedback is evaluated to check if both robots finally identified the same topic. This game has also been implemented in \citep{steelsvogt:1997}.
+\item[Ostensive game] This game is conform the original naming game model \citep{steels:1996a}. The speaker informs the hearer prior to the linguistic communication what the topic is, e.g. by means of pointing at the referent. Hence {\em joint attention} is established. It then produces a (linguistic) utterance, which the hearer tries to understand. Feedback is evaluated to check if both robots finally identified the same topic. This game has also been implemented in \citet{steelsvogt:1997}.
 \index{ostensive game}\index{joint attention}
 
-\item[Guessing game] In the guessing game \citep{steelskaplan:1999}, the speaker does not provide the hearer with topic information. It produces an utterance and the hearer has to {\em guess} which referent the speaker is naming. As in the ostensive game feedback is evaluated to check if both robots finally identified the same topic. The guessing game has first been implemented in \citep{vogt:1998c} and will be the model of most experiments in this book.
+\item[Guessing game] In the guessing game \citep{steelskaplan:1999}, the speaker does not provide the hearer with topic information. It produces an utterance and the hearer has to {\em guess} which referent the speaker is naming. As in the ostensive game feedback is evaluated to check if both robots finally identified the same topic. The guessing game has first been implemented in \citealt{vogt:1998c} and will be the model of most experiments in this book.
 \index{guessing game}\index{feedback}
 
 \item[Observational game] This game is influenced by the work of Mike \citet{oliphant:1997}. First joint attention is established, so the hearer knows in advance which segment is the topic. Access to this kind of information is what Oliphant calls {\em observation}. The speaker produces an utterance, which the hearer tries to interpret. No feedback on the game's effect is evaluated, so the lexicon is adapted independent of the effectiveness of the game.
@@ -710,7 +684,7 @@ L=\{{\bf \mbox{FM}}_0, \ldots, {\bf \mbox{FM}}_N\}
 \end{eqnarray}
 
 \noindent
-where $N$ is the size of $L$ and form-meaning ${\bf \mbox{FM}}_i=\langle W_i,M_i,\sigma_i\rangle$. At the beginning of an experiment, $L=\emptyset$. It is constructed during the experiment. The form $F$ is an arbitrary string of characters from the alphabet. The shape of a form is given as a 'CVCV' string where C is a consonant and V a vowel.\index{form}\index{form-meaning association}
+where $N$ is the size of $L$ and form-meaning ${\bf \mbox{FM}}_i=\langle W_i,M_i,\sigma_i\rangle$. At the beginning of an experiment, $L=\emptyset$. It is constructed during the experiment. The form $F$ is an arbitrary string of characters from the alphabet. The shape of a form is given as a `CVCV' string where C is a consonant and V a vowel.\index{form}\index{form-meaning association}
 
 Note that there may be more entries with the same form or with the same meaning. So, there may be a many-to-many relation between form and meaning. The adaptation of the lexicon is done by form-invention, form-adoption (both in which new {\bf FM} associations are constructed) and the adaptation of scores. During the experiments where thousands of games are being played the form-meaning associations that have been effective in the past (i.e. their scores are high) tend to be used more often than ineffective form-meaning associations. This way a more or less coherent communication system emerges.
 
@@ -722,7 +696,7 @@ As mentioned, the robots establish joint attention in two types of language game
 
 Joint attention is modelled by comparing the feature vectors of the speaker's topic with the feature vectors of the segments in the hearer's context. To allow a single algorithm for the hearer's understanding, the cases where there is no joint attention is modelled as if there would be joint attention. 
 
-More formally, the availability of joint attention is modelled by calculating a {\em topic score} $\varepsilon_S$ for each segment $S \in Cxt$. The idea of the topic score is to estimate the likelihood that segment S is the topic. There are different ways to calculate $\varepsilon_S$ (e.g. \citep{vogt:1998c}). Here two methods are implemented: a {\em correspondence} method and one simulating {\em no joint attention}. The methods are defined as follows:
+More formally, the availability of joint attention is modelled by calculating a {\em topic score} $\varepsilon_S$ for each segment $S \in Cxt$. The idea of the topic score is to estimate the likelihood that segment S is the topic. There are different ways to calculate $\varepsilon_S$ (e.g. \citealt{vogt:1998c}). Here two methods are implemented: a {\em correspondence} method and one simulating {\em no joint attention}. The methods are defined as follows:
 
 \begin{description}
 \item {\bf Correspondence}:\index{correspondence}
@@ -760,7 +734,7 @@ Whether or not joint attention is established, the speaker will try to name the 
 
 So, when the speaker categorised the topic, which yielded a nonempty set of distinctive categories, the speaker will try to name one of these categories. Which category is selected may depend on several criteria and the selection method used. One method has been implemented that could be called a {\em lazy search method}. In this method the speaker orders the categories in linear order of decreasing representation score $\mu$. Then it tries to match these categories with a lexical entry one by one until a matching association has been found.
 
-Suppose that $DC'=DC$ is the ordered set of distinctive categories, $L=\{\langle F_i,M_i,\sigma_i \rangle \}$ is the lexicon, $U=\mbox{nil}$ is the utterance (nil means that the utterance has no value yet) and $\sigma_{\mbox{max}}=0$ is the maximum score. The algorithm, based on \citep{steels:1996a} for finding a matching entry can be described as follows:
+Suppose that $DC'=DC$ is the ordered set of distinctive categories, $L=\{\langle F_i,M_i,\sigma_i \rangle \}$ is the lexicon, $U=\mbox{nil}$ is the utterance (nil means that the utterance has no value yet) and $\sigma_{\mbox{max}}=0$ is the maximum score. The algorithm, based on \citet{steels:1996a} for finding a matching entry can be described as follows:
 
 \begin{enumerate}
 
@@ -828,7 +802,7 @@ So, the hearer looks for the topic that can be related with a form-meaning assoc
 \subsubsection{Feedback}\label{s:cm:feedback}
 \index{feedback|(}
 
-It might seem obvious that an agent has to know whether the language game it is participating is effective in order to learn a language: it needs {\em feedback}. What type of feedback is present is an important issue in the psycholinguistics, see e.g. \citep{bowerman:1988}. Is the feedback of a language game about its effectiveness or not? Is it only positive or is it negative as well? In the experiments reported here, the feedback gives information on the language game's effectiveness. Both positive as negative. Since the robots should be able to determine this feedback themselves (possibly with each other's help), some mechanism has to be developed to achieve this.
+It might seem obvious that an agent has to know whether the language game it is participating is effective in order to learn a language: it needs {\em feedback}. What type of feedback is present is an important issue in the psycholinguistics, (see e.g. \citealt{bowerman:1988}). Is the feedback of a language game about its effectiveness or not? Is it only positive or is it negative as well? In the experiments reported here, the feedback gives information on the language game's effectiveness. Both positive as negative. Since the robots should be able to determine this feedback themselves (possibly with each other's help), some mechanism has to be developed to achieve this.
 
 
 Feedback has been implemented by means of correspondence. These both methods work similar to the methods explained used for joint attention. Both methods are used to provide feedback in the ostensive and guessing games, provided that both robots activated a form-meaning association.  The observational and XSL games do not use such feedback. However, for consistency in the implementation, no feedback is implemented similarly. Instead of a topic score $\varepsilon$, a success score $\epsilon$ is computed. This success score indicates the likelihood that both agents have identified the same topic.\index{score!sucsess}
@@ -836,7 +810,6 @@ Feedback has been implemented by means of correspondence. These both methods wor
 \begin{description}
 \item[Correspondence]\index{correspondence}
 The language game is successful when the confidential factor $\epsilon=1$.
- 
 \begin{eqnarray}\epsilon = \left \{ \begin{array}{rl}
 1 & \mbox{if the two topics corresponds}\\
 0 & \mbox{otherwise}
@@ -845,7 +818,6 @@ The language game is successful when the confidential factor $\epsilon=1$.
 \end{eqnarray}
 
 \item[No feedback]
-
 \begin{eqnarray}
 \epsilon = \left \{ \begin{array}{rl}
 1 & \mbox{if both robots have selected a lexical entry}\\
@@ -881,17 +853,15 @@ As made clear before, there are several possible outcomes of a language game. Fi
 \item {\bf No lexical entry speaker:} The speaker has no form associated with the categories it tried to name. In this case, the speaker may invent a new form as an arbitrary string of characters. It does so with a creation probability $P_s$ that is kept low to slow down the form creation rate. In most experiments $P_s=0.02$. This way the lexicon will become less ambiguous. The invented form is associated with the category that has the highest meaning score $\mu$. The new lexical entry is related with an association score $\sigma$ that is set to 0.01. (Not to 0.0, because then it may never be selected, as explained in \sectref{s:cm:dg}.)\index{form!creation probability}
 
 \item {\bf No lexical entry hearer:} The hearer has no association in its lexicon where the form is associated with a meaning that is consistent in the current context. The hearer now may adopt the form from the hearer to associate it with a segment of which it has a non-zero topic score ($\varepsilon_t>0$). In this case the most likely segment is chosen, i.e. \index{score!topic}\index{form!adoption}
-
 \begin{eqnarray}
 \varepsilon_t = \max_S (\varepsilon)
 \label{e:adopt}
 \end{eqnarray}
 
 \noindent
-If there are more than one segments for which eq. \ref{e:adopt} holds, then one segment is selected at random. This is e.g. the case in the guessing game, where all segments have equal topic score. The meaning of the selected segment is then associated with the word-form and the lexical entry is related to an association score $\sigma=0.01$.\index{score!association}
+If there are more than one segments for which Equation \ref{e:adopt} holds, then one segment is selected at random. This is e.g. the case in the guessing game, where all segments have equal topic score. The meaning of the selected segment is then associated with the word-form and the lexical entry is related to an association score $\sigma=0.01$.\index{score!association}
 
 \item {\bf Mismatch in reference:}\index{mismatch in reference} The hearer misinterpreted the speaker's utterance. I.e. the topic's of both robots do not coincide. In the case that both robots selected a form-meaning association, but when the topics did not coincide, at least according to their own evaluation, the robots decrease the {\em association score} $\sigma$ of the used association:\index{score!association}
-
 \begin{eqnarray}
 \sigma := \eta \cdot \sigma
 \label{e:cm:adapt1}
@@ -901,26 +871,21 @@ If there are more than one segments for which eq. \ref{e:adopt} holds, then one 
 where $\eta$ is the {\em learning rate}.\index{learning rate} In some experiments the hearer also adopts the form with another segment.\index{form!adoption}
 
 \item {\bf Communicative success:}\index{communicative success} Both robots communicated the same referent and hence the language game was a success. The used association is strengthened while association scores of other form-meaning associations are laterally inhibited. Let $\mbox{FM}' = (F',M',\sigma') \in L$ and $\mbox{FM} = (F,M,\sigma) \in L$ be form-meaning associations. Here $\mbox{FM}'$ are the form-meanings to be adapted and $\mbox{FM}$ is the association used in the communication. The scores are updated as a walking average:\index{score!association}
-
 \begin{eqnarray}
 \sigma := \eta \cdot \sigma + (1 - \eta) \cdot X
 \label{e:cm:adapt2}
 \end{eqnarray}
-
-
 where
-
 \begin{eqnarray}
 X = \left \{ \begin{array}{rl} 1 & \mbox{if}\; \mbox{FM}' = \mbox{FM} \nonumber\\
 0 & \mbox{if}\; (\mbox{FM}' \neq \mbox{FM}) \wedge ((F' = F) \vee (M' = M))\nonumber \end{array} \right.
 \end{eqnarray}
-
 In all other cases, i.e. when $((F' \neq F)\wedge (M' \neq M))$, nothing happens.
 \end{description}
 
 The adaptation scheme thus implements generation, cultural evolution and selection. Generation is part of the adaptation through invention. Cultural evolution is implemented by form adoption. Whereas the selection is influenced by the excitation and inhibition of the association scores. The seemingly effective associations are excited and the ineffective ones are inhibited.
 
-The learning of the lexicon for each individual is based on {\em reinforcement learning}, see e.g. \citep{suttonbarto:1998}. In reinforcement learning, a task is learned according to the reward that is evaluated from the effect of some action. In the naming game, the action is the communication, the reward is based on the effect of the communication and it is evaluated with the feedback. 
+The learning of the lexicon for each individual is based on {\em reinforcement learning} (see e.g. \citealt{suttonbarto:1998}). In reinforcement learning, a task is learned according to the reward that is evaluated from the effect of some action. In the naming game, the action is the communication, the reward is based on the effect of the communication and it is evaluated with the feedback. 
 \index{adaptation|)}
 \index{naming game|)}
 
