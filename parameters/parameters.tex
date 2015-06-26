@@ -7,7 +7,7 @@ What is the impact on categorisation and lexicon formation when a different cate
 To answer these questions, a set of experiments have been carried out. Each experiment is done with 10 runs of 5,000 language games, as in the basic experiment. Unless otherwise mentioned, the basic data set is used in these experiments. Each section of this chapter relates to one of the questions and it presents some of the experiments. The sections introduce the problem addressed. They describe the difference(s) of the experiments, usually in relation to the basic experiment. Then the experimental results are given, which is followed by a short discussion of these results.
 
 
-The next section investigates three variants of categorisation in the discrimination games. In \sectref{s:par:int}, the physical conditions are varied. The four different types of language games introduced in \chapref{ch:lg}, the guessing-, ostensive-, observational- and XSL game, will be investigated in \sectref{s:par:feed}. Section \ref{s:par:observ} investigates the observational game in more detail. In \sectref{s:par:ps} the creation probability is varied. The learning rate is varied in \sectref{s:par:lr}. Additional word-form adoption is investigated in \sectref{s:par:adopt}. The chapter finishes with a summary.
+The next section investigates three variants of categorisation in the discrimination games. In \sectref{s:par:int}, the physical conditions are varied. The four different types of language games introduced in \chapref{ch:lg}, the guessing, ostensive, observational and XSL game, will be investigated in \sectref{s:par:feed}. Section \ref{s:par:observ} investigates the observational game in more detail. In \sectref{s:par:ps} the creation probability is varied. The learning rate is varied in \sectref{s:par:lr}. Additional word-form adoption is investigated in \sectref{s:par:adopt}. The chapter finishes with a summary.
 
 \section{Impact From Categorisation}\label{s:par:cat}
 \index{categorisation|(}
@@ -15,7 +15,7 @@ The next section investigates three variants of categorisation in the discrimina
 
 In the basic experiment the categories are prototypical as introduced in \sectref{s:cm:prototype}. When a category is used as a meaning that a robot successfully uses in a language game, the value of the category shifts towards the feature value of the relevant sensory channel. What happens if the categories do not shift towards these feature values?
 
-Categorisation is implemented such a that feature vector is always categorised with the prototypes that are closest in each feature space. It has been argued that categorisation is not so clear-cut, but that there may be fuzzy boundaries between adjacent categories (see e.g. \citep{aitchison:1987,lakoff:1987}). Especially around the boundaries of a category's sensitivity, the certainty of whether a feature vector belongs to one category or another becomes smaller. For instance, something that looks like a {\em cup} might be categorised by another person as a {\em vase} or {\em bowl} as has been shown by \citep{labov:1973}. {\em Family resemblance} \citep{wittgenstein:1958} is another example of such fuzziness.  These are examples at a higher level of categorisation, but the same may hold at the lower level of categorisation.\index{family resemblance}\index{Wittgenstein, Ludwig}
+Categorisation is implemented such a that feature vector is always categorised with the prototypes that are closest in each feature space. It has been argued that categorisation is not so clear-cut, but that there may be fuzzy boundaries between adjacent categories (see e.g. \citealt{aitchison:1987} and \citealt{lakoff:1987}). Especially around the boundaries of a category's sensitivity, the certainty of whether a feature vector belongs to one category or another becomes smaller. For instance, something that looks like a {\em cup} might be categorised by another person as a {\em vase} or {\em bowl} as has been shown by \citet{labov:1973}. {\em Family resemblance} \citep{wittgenstein:1958} is another example of such fuzziness.  These are examples at a higher level of categorisation, but the same may hold at the lower level of categorisation.\index{family resemblance}\index{Wittgenstein, Ludwig}
 
 These two questions are investigated in this section, together with the binary subspace method (see \sectref{s:cm:binary}). The results are compared with the basic experiment.
 
@@ -87,12 +87,12 @@ The distinctiveness is equal to the basic experiment. The specificity seems to b
 
 So, although the discriminative success is lower than in the basic experiment, the fuzzy set approach does not appear to influence the quality of the communication system that emerges. \index{category!fuzzy}
 
-\item[BIN] When examining the BIN experiment, a first thing that strikes is the lower discriminative success ($p=0.0004$). This lower discriminative success is because it increases slower (\figref{f:cat:bin} (b)). It finally increases to the same level as in the basic experiment (see \figref{f:st:plot} at page \pageref{f:st:plot}).
+\item[BIN] When examining the BIN experiment, a first thing that strikes is the lower discriminative success ($p=0.0004$). This lower discriminative success is because it increases slower (\figref{f:cat:bin} b). It finally increases to the same level as in the basic experiment (see \figref{f:st:plot} at page \pageref{f:st:plot}).
 
 \index{binary!subspace method}
-The communicative success stays well behind the communicative success of the basic experiment ($p=0.0016$). It is not directly clear why the communicative success is about 8.5 \% lower. The communicative success appears to stop learning after 1,000 language games, although it seems to increase slowly again after 4,000 games (\figref{f:cat:bin} (a)). The consistency is about 0.025 lower than in the basic experiment ($p=0.0354$), but parsimony is $\pm 0.005$ higher ($p=0.0524$). Because the $p$-values are relatively high, it is difficult to assign meaning to these differences.
+The communicative success stays well behind the communicative success of the basic experiment ($p=0.0016$). It is not directly clear why the communicative success is about 8.5 \% lower. The communicative success appears to stop learning after 1,000 language games, although it seems to increase slowly again after 4,000 games (\figref{f:cat:bin} a). The consistency is about 0.025 lower than in the basic experiment ($p=0.0354$), but parsimony is $\pm 0.005$ higher ($p=0.0524$). Because the $p$-values are relatively high, it is difficult to assign meaning to these differences.
 
-Most significant difference is the distinctiveness, which is $\pm 0.03$ lower with a significance of $p=0.0002$. In contrast to previous plots that have been shown the distinctiveness does not grow towards a value of 1, but it stabilises around 0.97 (\figref{f:cat:bin} (c)). So, it seems that the meanings less reliably refer to the corresponding referents, thus indicating more one-to-many relations between a meaning and the referents. Specificity is higher than in the basic experiment indicating that polysemy is less. This observation, however, has a low significance: $p=0.1904$. Hence lower distinctiveness might explain a lower communicative success, since a word-meaning no longer refers to one referent, which it does when $D=1$.
+Most significant difference is the distinctiveness, which is $\pm 0.03$ lower with a significance of $p=0.0002$. In contrast to previous plots that have been shown the distinctiveness does not grow towards a value of 1, but it stabilises around 0.97 (\figref{f:cat:bin} c). So, it seems that the meanings less reliably refer to the corresponding referents, thus indicating more one-to-many relations between a meaning and the referents. Specificity is higher than in the basic experiment indicating that polysemy is less. This observation, however, has a low significance: $p=0.1904$. Hence lower distinctiveness might explain a lower communicative success, since a word-meaning no longer refers to one referent, which it does when $D=1$.
 \end{description}
 
 \begin{figure}[t]
@@ -123,7 +123,7 @@ The system's distinctiveness is significantly different, but for the other measu
 
 In the basic experiment, the robots decided to stop after two rotations based on finding a maximum intensity of infrared on the left back infrared sensor. Another method described is letting the robots align each other using infrared taxis (\sectref{s:robots:PDL}). Besides longer experimental time (due to more error-prone physical behaviour) the taxis has no influence on the grounding process, since the taxis is applied {\em after} the sensing. Two experiments are done where taxis is used to align the robots. In the first experiment it was observed that the gearing of the robots were worn off. In the second experiment the gearing were replaced by new ones. These experiments show how co-ordination abilities and physical fitness may influence the quality of interactions.
 
-In \citep{steelsvogt:1997} the robots did not rotate twice aligning back-to-back while doing the sensing, but only once aligning face-to-face. This experiment has been repeated to see what the differences are.
+In \citealt{steelsvogt:1997} the robots did not rotate twice aligning back-to-back while doing the sensing, but only once aligning face-to-face. This experiment has been repeated to see what the differences are.
 
 The adaptation of an agent to its environment and the agent's ability to detect the environment with enough precision is likely to be very important. In one experiment the environment and robots are changed such that the resolution of the robots' sensing decreases.
 
@@ -296,7 +296,7 @@ Physical interactions are also a part of how joint attention and feedback can be
 
 \section{Different Language Games}\label{s:par:feed}
 
-This section investigates the impact from joint attention and feedback on the lexicon formation. The non-linguistic information used by human language learners is very much debated in the literature, see e.g. \citep{bowerman:1988,barrett:1995}. The experiments presented here will show that the availability of joint attention and feedback has much influence on the grounding process. The games investigated are the guessing-, ostensive-, observational- and XSL game.
+This section investigates the impact from joint attention and feedback on the lexicon formation. The non-linguistic information used by human language learners is very much debated in the literature, (see e.g. \citealt{bowerman:1988,barrett:1995}). The experiments presented here will show that the availability of joint attention and feedback has much influence on the grounding process. The games investigated are the guessing, ostensive, observational and XSL game.
 
 \index{guessing game|(}
 \index{ostensive game|(}
@@ -373,7 +373,7 @@ C1&   0.812 & $\pm$ & 0.005& 0.811 & $\pm$ & 0.007&        0.821 & $\pm$ & 0.026
 \label{t:par:feedback}
 \end{table}
 
-The ostensive game and the observational game appear to be much better than the guessing game. This increase in the performance is measured by the actual success\footnote{The communicative success of the observational game is much higher because this is measured when both robots `think' they are successful. This happens when both robots identified a form-meaning association consistent with their categorisation. It is independent of whether both robots referred to the same referent.}, which is almost 30 \% (!) better ($p=0.0000$). However, the specificity is much lower: 0.18 for experiment {\bf ii} and 0.14 in {\bf ix} ($p=0.0000$). This low specificity indicates that the lexicon is not stable and it must bear much polysemy.
+The ostensive game and the observational game appear to be much better than the guessing game. This increase in the performance is measured by the actual success,\footnote{The communicative success of the observational game is much higher because this is measured when both robots `think' they are successful. This happens when both robots identified a form-meaning association consistent with their categorisation. It is independent of whether both robots referred to the same referent.} which is almost 30 \% (!) better ($p=0.0000$). However, the specificity is much lower: 0.18 for experiment {\bf ii} and 0.14 in {\bf ix} ($p=0.0000$). This low specificity indicates that the lexicon is not stable and it must bear much polysemy.
 
 The difference in consistency of the observational game is insignificant ($p>1$). The consistency of {\bf ii} is hardly different than the basic experiment. Note that the standard deviations of experiment {\bf ix} is about 0.1 for both the specificity as the consistency. The results of the experiments vary a lot from run to run. The worst run has a consistency of 0.401, whereas the best one has 0.856. The basic experiment had all its values in between and a standard deviation of 0.007. Similar findings are also valid for {\bf ii} that has standard deviation of about 0.05 for the specificity and 0.03 for consistency.
 
@@ -392,7 +392,7 @@ It seems that in the guessing game, a more informative lexicon emerges. It is mo
 \end{figure}
 
 
-To understand why the experiments that use joint attention have higher actual success and lower specificity (and to some extend consistency), it is instructive to look at an example: Suppose a robot has a (part of a) lexicon as in \figref{f:par:example}. If the robot is a speaker and R1 is the topic, it would select F2 as the utterance independent of the type of game\footnote{Remember that the guessing game is compared with both the ostensive and observational game, since what is important is the joint attention.}. If R2 is the topic, it would also select F2. Remember that the robots select the associations that have highest scores.
+To understand why the experiments that use joint attention have higher actual success and lower specificity (and to some extend consistency), it is instructive to look at an example: Suppose a robot has a (part of a) lexicon as in \figref{f:par:example}. If the robot is a speaker and R1 is the topic, it would select F2 as the utterance independent of the type of game.\footnote{Remember that the guessing game is compared with both the ostensive and observational game, since what is important is the joint attention.} If R2 is the topic, it would also select F2. Remember that the robots select the associations that have highest scores.
 
 Suppose that this robot is a hearer, and it hears F2. If the robot plays a guessing game, it would select M1 and consequently R1 will be its topic. If however, the speaker intended to name R2, the game is a failure; there is a mismatch in referent. The score $\sigma_{M1F2}$ between M1 and F2 is decreased.
 
@@ -412,7 +412,7 @@ This way the observational game allows more polysemy, yielding lower specificity
 
 In the previous section, an experiment with the observational game has been presented. It has been observed and explained that the specificity is low. So, the lexicon is unstable and allows much referential polysemy and some synonymy. But since the actual success is high, it is interesting to see whether it is possible to achieve good results for specificity and consistency as well. 
 
-While looking for working implementations it also has been found that lateral inhibition is a crucial source of lexicon development. This is conform findings of \citep{oliphant:1997,steels:2000,dejong:2000,kaplan:2000}. To investigate this a variant of the observational game of the previous section is presented in which lateral inhibition is absent.
+While looking for working implementations it also has been found that lateral inhibition is a crucial source of lexicon development. This is conform witht the findings of \citet{oliphant:1997}, \citet{steels:2000}, \citet{dejong:2000} and \citet{kaplan:2000}. To investigate this a variant of the observational game of the previous section is presented in which lateral inhibition is absent.
 
 \subsection{The Experiments}
 
@@ -420,7 +420,7 @@ The experiments are compared with the observational game.
 
 \begin{description}
 \item[ix$_p$] Creation probability. In all experiments up to now, the word-form creation probability has been $P_s=0.02$. In this experiment $P_s=0.4$. This way the speaker is less modest in inventing new word-forms when it cannot produce an utterance. \index{form!creation probability}
-\item[ix$_{li}$] Lateral inhibition. In this experiment lateral inhibition of the association scores is not used. So, when an observational game is considered successful by the robots. This happens when either robot performed a communication act, and hence it need not be actually successful. In that case, only the 'winning' association score is increased. All other scores are unaltered. For the rest this experiment is equal to experiment {\bf ix}. \index{lateral inhibition}
+\item[ix$_{li}$] Lateral inhibition. In this experiment lateral inhibition of the association scores is not used. So, when an observational game is considered successful by the robots. This happens when either robot performed a communication act, and hence it need not be actually successful. In that case, only the ``winning'' association score is increased. All other scores are unaltered. For the rest this experiment is equal to experiment {\bf ix}. \index{lateral inhibition}
 \end{description}
 
 \subsection{The Results}
@@ -489,14 +489,14 @@ When the creation probability is higher, specificity is also higher. This can be
 
 It is interesting to note that the high average actual success is likely to be mainly caused by the joint attention mechanism and the easiness of establishing communicative success when joint attention is used. Note that, like in the ostensive game, joint attention makes the linguistic communication redundant. The ostensive game does not differ very much from the observational game. The feedback that it provides is more or less the same information that is provided by the joint attention mechanism.
 
-Recall that the potential understandability is approximately 79 \%. When multiplying this value with the average communicative success of approximately 83 \%, this yields 66 \% which corresponds nicely to the average actual success. So, it appears that the difference between communicative success and actual success is caused by the inability of the robots to construct a coherent context as explained in \chapref{ch:lg}. This indicates that there are still other mechanisms that are responsible for the imperfect communication.
+Recall that the potential understandability is approximately 79 \%. When multiplying this value with the average communicative success of approximately 83~\%, this yields 66 \% which corresponds nicely to the average actual success. So, it appears that the difference between communicative success and actual success is caused by the inability of the robots to construct a coherent context as explained in \chapref{ch:lg}. This indicates that there are still other mechanisms that are responsible for the imperfect communication.
 
 
-The observational game is inspired by the experiments done by Mike Oliphant \citep{oliphant:1997,oliphant:1998,oliphant:2000}, although they are not exactly the same. A big first difference is inherent on the use of robots. \index{Oliphant, Mike}
+The observational game is inspired by the experiments done by Mike \citet{oliphant:1997,oliphant:1998,oliphant:2000}, although they are not exactly the same. A big first difference is inherent on the use of robots. \index{Oliphant, Mike}
 
 Oliphant's agents have access to both the signal and the meaning of it during a language game, which he calls observation. The learning mechanism tries to converge an ideal communication system based on the word-meaning associations. This is also done in our experiments. However, the robots have, in principle, no access to the meaning of a signal other than to its referent. Another difference is in the learning algorithm (or the update of the scores). Where Oliphant uses a.o. Hebbian- and Bayesian learning, a different update rule is used here.
 
-It is clear that the robots can ground a reasonable communication system with a reasonable success without the availability of feedback. This, however only works when joint attention is established and the word-form creation rate is sufficiently high. This confirms the work of Mike \citet{oliphant:1997} and Edwin \citet{dejong:2000}. De Jong also showed in simulations that the naming game needs no feedback on the effect of a game. Like \citet{oliphant:1997}, Luc \citet{steels:2000} and Fr\'ed\'eric \citet{kaplan:2000} De Jong argues that lateral inhibition is an essential ingredient for the success. The experiment without lateral inhibition again confirmed this finding. Without lateral inhibition all competing associations can be strengthened in successful games. So, the competition between form-meaning associations is less effective. It is left as an exercise for the reader to invent an example.
+It is clear that the robots can ground a reasonable communication system with a reasonable success without the availability of feedback. This, however only works when joint attention is established and the word-form creation rate is sufficiently high. This confirms the work of Mike \citet{oliphant:1997} and Edwin \citet{dejong:2000}. De Jong also showed in simulations that the naming game needs no feedback on the effect of a game. Like \citet{oliphant:1997}, Luc \citet{steels:2000} and Fr\'ed\'eric \citet{kaplan:2000}, De Jong argues that lateral inhibition is an essential ingredient for the success. The experiment without lateral inhibition again confirmed this finding. Without lateral inhibition all competing associations can be strengthened in successful games. So, the competition between form-meaning associations is less effective. It is left as an exercise for the reader to invent an example.
 
 \index{observational game|)}
 
@@ -531,7 +531,7 @@ The results are shown in \figref{f:lex:p}. It is trivial that the communicative 
 
 Figure \ref{f:lex:p} shows that there is hardly any difference in the experiments when $P_s$ is varied between 0.1 and 1. The discriminative success and specificity are slightly increasing, as it appears monotonically. The communicative success also seems to be increasing, but it also shows some local minima and maxima. It seems that when $P_s=0.9$, the communicative success is highest, but when $P_s=0.4$, the communicative success is second best. There does not seem to be a relation. distinctiveness, consistency and parsimony seem to be indifferent for the variation of $P_s$.
 
-When $0.1 \leq P_s \leq 1.0$, then the system outperforms the basic experiment. Although distinctiveness, parsimony and consistency are more or less the same as in the basic experiment; the communicative success is about 5 - 9 \% higher, discriminative success is 4 \% higher and specificity is approximately 0.09 higher. All these differences are significant ($p=0.0000$).
+When $0.1 \leq P_s \leq 1.0$, then the system outperforms the basic experiment. Although distinctiveness, parsimony and consistency are more or less the same as in the basic experiment; the communicative success is about 5 -- 9 \% higher, discriminative success is 4 \% higher and specificity is approximately 0.09 higher. All these differences are significant ($p=0.0000$).
 
 \begin{figure}[t]
 \centerline{\includegraphics[width=12cm]{lexicon/words.eps}}
@@ -545,7 +545,7 @@ It is interesting now to see how the number of words grow in the communication s
 
 The small differences between the results when $P_s=00.1$ and $P_s=1.0$ has also been observed in simulations on the naming game \citep{kaplan:2000}.
 
-\index{synonymy}From \figref{f:lex:words} it can be inferred that the rate of synonymy thus increases very much, although this is not obvious from the consistency\footnote{Recall that consistency is weighted over the frequency of occurrences of referent-word-form pairs.}. However, the robots do significantly better in learning to commentate than when $P_s=0.02$ as in the basic experiment. This may be a side effect of the fact the agents optimise their lexicons for word-meaning associations rather than word-referent associations. When there are more word-forms, there is less need for many-to-many relations at the form-meaning level. But due to the fact that there is a high level of one-to-many relations between referent and meaning, synonymy is also relatively high.
+\index{synonymy}From \figref{f:lex:words} it can be inferred that the rate of synonymy thus increases very much, although this is not obvious from the consistency.\footnote{Recall that consistency is weighted over the frequency of occurrences of referent-word-form pairs.} However, the robots do significantly better in learning to commentate than when $P_s=0.02$ as in the basic experiment. This may be a side effect of the fact the agents optimise their lexicons for word-meaning associations rather than word-referent associations. When there are more word-forms, there is less need for many-to-many relations at the form-meaning level. But due to the fact that there is a high level of one-to-many relations between referent and meaning, synonymy is also relatively high.
 
 As also observed in the previous section, the specificity is higher when $P_s$ is higher. This is not surprising, since there are more word-forms to name the different meanings, thus decreasing the level of one-to-many relations between form and meaning. And since the different meanings are distinctive to a high degree, these word-forms refer to a unique referent more and more. A higher creation probability also yields a higher communicative success. The cost however of a higher creation probability is that there are more word-forms to name the same number of referents.
 \index{form!creation probability|)}
@@ -554,7 +554,6 @@ As also observed in the previous section, the specificity is higher when $P_s$ i
 \index{learning rate|(}
 
 The adaptation scores are adapted using a walking average. These scores are adapted for the category scores $\nu$, the effectiveness scores $\rho$ and the association scores $\sigma$ (\chapref{ch:lg}). The formula by which the scores $s$ are adapted is repeated here for clarity:
-
 \begin{eqnarray}
 s = \eta \cdot s' + (1-\eta)\cdot X
 \end{eqnarray}
@@ -679,11 +678,11 @@ C1      &          0.825 & $\pm$ &       0.023&          0.834 & $\pm$ &       0
 \label{t:lex:ass}
 \end{table}
 
-The results in \tabref{t:lex:ass} and \figref{f:par:ass} show that the communicative success is 5 to 6 \% higher than in the basic experiment. These differences are significant with $p$-values of $p=0.0040$, $p=0.0188$ and $p=0.0400$ for R, T and TT resp.\footnote{Note that only 9 runs of 5,000 language games have been run in experiment TT.}. In all cases the discriminative success is about 3 \% higher with a significance of $p=0.0000$ for all experiments.
+The results in \tabref{t:lex:ass} and \figref{f:par:ass} show that the communicative success is 5 to 6 \% higher than in the basic experiment. These differences are significant with $p$-values of $p=0.0040$, $p=0.0188$ and $p=0.0400$ for R, T and TT resp.\footnote{Note that only 9 runs of 5,000 language games have been run in experiment TT.} In all cases the discriminative success is about 3 \% higher with a significance of $p=0.0000$ for all experiments.
 
 Consistency is about 0.01 higher, but these results are insignificant. Distinctiveness is nearly the same as in the basic experiment. The parsimony is approximately 0.02 lower; differences with significance of $p=0.0000$, $p=0.0504$ and $p=0.0400$ for R, T and TT resp.. The specificity is 0.10 to 0.17 points lower ($p=0.0004$, $p=0.0078$ and $p=0.0000$ resp.). So, although the communicative success increases in comparison to the basic experiment, the cost appears to be a higher level of referential polysemy. This is not really a surprise, since the robots now construct more form-meaning associations with already existing word-forms. Thus representational polysemy increases, and apparently also the referential polysemy.
 
-The above comparisons are made in contrast to the basic experiment When comparing the results with each other, the differences have a significance with $p$-values that are higher than $p=0.4894$. Hence no significant differences are observed.
+The above comparisons are made in contrast to the basic experiment. When comparing the results with each other, the differences have a significance with $p$-values that are higher than $p=0.4894$. Hence no significant differences are observed.
 \index{form!adoption}
 
 \subsection{Discussion}
@@ -714,5 +713,5 @@ Like the creation probability, the learning rate $\eta$ has been investigated on
 Besides varying the mentioned parameters, three different word-form adoption schemes have been investigated. When the hearer is allowed to adopt the speaker's utterance when the hearer misinterpreted the utterance (i.e. when the hearer's topic referred to a different light source than the speaker's topic), the results were observed to work best. The topic with which the utterance may be adopted can be selected at random or by the criterion of correspondence. 
 
 
-Naturally, more parameters and methods could be investigated. Some of these variations have been investigated, but did not reveal interesting results and have been left out this book for clarity. For additional analyses of parameters and methods that are involved in the language games, see \cite{dejong:2000,kaplan:2000}.
+Naturally, more parameters and methods could be investigated. Some of these variations have been investigated, but did not reveal interesting results and have been left out this book for clarity. For additional analyses of parameters and methods that are involved in the language games, see \cite{dejong:2000} and \cite{kaplan:2000}.
 
