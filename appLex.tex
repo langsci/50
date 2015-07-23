@@ -1,21 +1,18 @@
 \chapter{Lexicon and Ontology}\label{a:lexicon}
 
 In this appendix the lexicon and ontology of the basic experiment (chapter \ref{ch:basic}) is given. Of some additional meanings the legend is given (tables \ref{t:st:legend0a} and \ref{t:st:legend1a}). The lexicons (tables \ref{t:st:lexicon0} and \ref{t:st:lexicon1}) and ontologies (tables \ref{t:st:ontology0} and \ref{t:st:ontology1}) give  weighted conditional probabilities based on co-occurrences of word and meaning or meaning and referent. These probabilities $P(c_i|b_j)$ are calculated as follows:
-
 \begin{eqnarray}
 P(c_i|b_j) = \frac{P(c_i)}{\sum_{j=1}^n P(c_i \wedge b_j)} \cdot \frac{P(c_i)}{P(b_j)}
 \end{eqnarray}
-
-
 where $c_i$ are word-forms and $b_j$ are the concepts when calculating the lexical entries $P(F|C)$. When calculating the probabilities for the ontologies $c_i$ are the referents and $b_j$ are the concepts, yielding $P(R|C)$. The tables only show a part of the lexicon and ontology. Entries that have probabilities $\leq 0.01$ are left out.
 
-The legends of some occurring meanings for robots r0 and r1 are given in tables \ref{t:st:legend0a} and \ref{t:st:legend1a}.
+The legends of some occurring meanings for robots $r0$ and $r1$ are given in tables \ref{t:st:legend0a} and \ref{t:st:legend1a}.
 
 \begin{table}[t]
 \centering
-{\footnotesize\begin{tabular}{lcccccccccc}
+{\footnotesize\begin{tabular}{ld{2}d{2}d{2}d{2}d{2}d{2}d{2}d{2}d{2}d{2}}
 \lsptoprule
-C-F & huma & xomu & wosa & kyga & vyqa & guhu & lyzu & poma & pugu & wely\\\midrule
+C-F & \multicolumn{1}{c}{\it huma} & \multicolumn{1}{c}{\it xomu} & \multicolumn{1}{c}{\it wosa} & \multicolumn{1}{c}{\it kyga} & \multicolumn{1}{c}{\it vyqa} & \multicolumn{1}{c}{\it guhu} & \multicolumn{1}{c}{\it lyzu} & \multicolumn{1}{c}{\it poma} & \multicolumn{1}{c}{\it pugu} & \multicolumn{1}{c}{\it wely}\\\midrule
 M53 & 0.58 & - & - & - & - & - & - & - & - & -\\\hline
 M67 & 0.08 & - & - & - & - & - & - & - & - & -\\\hline
 M30 & 0.02 & 0.37 & - & - & - & - & - & - & - & -\\\hline
@@ -45,15 +42,15 @@ M238 & - & - & - & - & - & - & - & - & 0.26 & -\\\hline
 M121 & - & - & - & - & - & - & - & - & - & 1.00\\
 \lspbottomrule
 \end{tabular}}
-\caption{The lexicon of robot r0. The cells of the table give the weighted conditional probabilities that a word-form is used to name a meaning. These probabilities are based on the occurrence frequencies in one of the experiments after 5,000 language games. Associations with probabilities lower than 0.01 are left out for clarity.}
+\caption{The lexicon of robot $r0$. The cells of the table give the weighted conditional probabilities that a word-form is used to name a meaning. These probabilities are based on the occurrence frequencies in one of the experiments after 5,000 language games. Associations with probabilities lower than 0.01 are left out for clarity.}
 \label{t:st:lexicon0}
 \end{table}
 
 \begin{table}[h]
 \centering
-{\footnotesize\begin{tabular}{lcccccccccc}
+{\footnotesize\begin{tabular}{ld{2}d{2}d{2}d{2}d{2}d{2}d{2}d{2}d{2}d{2}}
 \lsptoprule
-C-B & huma & wosa & xomu & kyga & vyqa & guhe & lyzu & poma & puga & wely\\\midrule
+C-B & \multicolumn{1}{c}{\it huma} & \multicolumn{1}{c}{\it xomu} & \multicolumn{1}{c}{\it wosa} & \multicolumn{1}{c}{\it kyga} & \multicolumn{1}{c}{\it vyqa} & \multicolumn{1}{c}{\it guhu} & \multicolumn{1}{c}{\it lyzu} & \multicolumn{1}{c}{\it poma} & \multicolumn{1}{c}{\it pugu} & \multicolumn{1}{c}{\it wely}\\\midrule
 M4 & 0.44 & - & 0.02 & - & 0.01 & - & - & - & 0.01 & -\\\hline
 M51 & 0.12 & - & - & - & - & - & - & - & - & -\\\hline
 M55 & 0.08 & - & - & - & - & - & - & - & - & -\\\hline
@@ -87,15 +84,15 @@ M287 & - & - & - & - & - & - & - & 0.01 & - & -\\\hline
 M62 & - & - & - & - & - & - & - & - & 0.19 & -\\
 \lspbottomrule
 \end{tabular}}
-\caption{The lexicon of robot r1.}
+\caption{The lexicon of robot $r1$.}
 \label{t:st:lexicon1}
 \end{table}
 
 \begin{table}[h]
 \centering
-{\footnotesize\begin{tabular}{lcccc}
+{\footnotesize\begin{tabular}{ld{2}d{2}d{2}d{2}}
 \lsptoprule
-C-B & 0 & 1 & 2 & 3\\\midrule
+C-B & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3}\\\midrule
 M53 & 0.68 & - & - & -\\\hline
 M55 & 0.10 & - & - & -\\\hline
 M67 & 0.03 & - & - & -\\\hline
@@ -125,15 +122,15 @@ M90 & - & - & - & 0.01\\\hline
 M393 & - & - & - & 0.01\\
 \lspbottomrule
 \end{tabular}}
-\caption{Ontology of robot r0 in relation to the referents for which they have been used. The weighted frequencies give the relative frequency that a given meaning co-occurs with the particular referent.\index{ontology}}
+\caption{Ontology of robot $r0$ in relation to the referents for which they have been used. The weighted frequencies give the relative frequency that a given meaning co-occurs with the particular referent.\index{ontology}}
 \label{t:st:ontology0}
 \end{table}
 
 \begin{table}[h]
 \centering
-{\footnotesize\begin{tabular}{lcccc}
+{\footnotesize\begin{tabular}{ld{2}d{2}d{2}d{2}}
 \lsptoprule
-C-B & 0 & 1 & 2 & 3\\\midrule
+C-B & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3}\\\midrule
 M4 & 0.70 & - & - & -\\\hline
 M55 & 0.07 & - & - & -\\\hline
 M65 & 0.05 & - & - & -\\\hline
@@ -156,7 +153,7 @@ M40 & - & - & - & 0.03\\\hline
 M242 & - & - & 0.05 & -\\
 \lspbottomrule
 \end{tabular}}
-\caption{The ontology of robot r1.\index{ontology}}
+\caption{The ontology of robot $r1$.\index{ontology}}
 \label{t:st:ontology1}
 \end{table}
 
