@@ -1,4 +1,4 @@
-\chapter{The Optimal Games}\label{ch:opt}
+\chapter{The optimal games}\label{ch:opt}
 
 In the previous chapters various aspects of the different language games have been investigated. Chapter \ref{ch:basic} introduced the basic experiment. Variations that have been investigated in \chapref{ch:lex} indicated some possible improvements on the basic model. This chapter combines some proposed improvements in the most interesting language games: the guessing game and the observational game.
 
@@ -10,10 +10,10 @@ The observational language game is explored as a second experiment in \sectref{s
   Instead of doing 10 runs of 5,000 language games, each experiment is done with 10 runs of 10,000 language games. This will make it harder to compare these experiments with previous experiments. On the other hand the resulting systems can be investigated more reliably, because many systems were still learning after 5,000 games. 
 
 
-\section{The Guessing Game}\label{s:opt:gg}
+\section{The guessing game}\label{s:opt:gg}
 \index{guessing game|(}
 
-\subsection{The Experiments}
+\subsection{The experiments}
 
 The two experiments presented in this section implement the guessing game. The basic experiment has been optimised by changing the following strategies and parameters:
 
@@ -53,7 +53,7 @@ The differences are summarised in \tabref{t:opt:gg1}. Instead of 10 runs of 5,00
 \end{description}
 
 
-\subsection{The Results}
+\subsection{The results}
 
 The experiments are done with 10 runs of 10,000 guessing games. Figures \ref{f:opt:ggplotsp.1} and \ref{f:opt:ggplots} show the evolution of the qualitative measures and the averaged results of both experiments are shown in \tabref{t:opt:ggavg}. The two experiments are qualitatively very much the same. Except the specificity differs from each other significantly $p=0.0000$. The specificity in experiment P.1 is 0.075 higher as in the basic experiment ($p=0.0000$). In P.4 the specificity is even 0.12 higher. As discussed in the previous chapter, the higher specificity has to do with the higher $P_s$. When comparing the evolutions of the specificity in Figures \ref{f:opt:ggplotsp.1} (c) and \ref{f:opt:ggplots} (c), it is clear that the specificity in experiment P.1 is still increasing towards the end. So the difference becomes less near the end.
 
@@ -155,7 +155,7 @@ Both the discriminative success and distinctiveness are very close to 1, and the
 \label{f:opt:ggcomp1}
 \end{figure}
 
-\subsubsection{One-to-many Relations Between Form and Meaning}
+\subsubsection{One-to-many relations between form and meaning}
 
 Figure \ref{f:opt:ggcomp1} shows various competition diagrams of robot r0, relating to referent L1 in one of the runs of experiment P.1. Figures (a) and (b) show the referent-form competition. In Figure (a) the co-occurrence frequencies of referent and form independent of their success are displayed. Figure (b) shows the successful co-occurrence of referent and form. Very infrequent occurrences are left out for clarity. Where Figure (a) shows that form {\it tyfo} clearly wins the competition, Figure (b) shows that  in successful games, this form is nearly used uniquely\footnote{Note that this diagram is the same for robot $r1$, since it shows successful co-occurrences only. By definition of the success, they must be the same for both robots.}. Hence light source L1 has very little synonymy. \index{synonymy}
 
@@ -194,7 +194,7 @@ Table \ref{t:opt:legend} shows the legend of some of the meanings that are discu
 \label{f:opt:mr}
 \end{figure}
 
-\subsubsection{Polysemy and Lexical Dynamics}\index{polysemy|(}
+\subsubsection{Polysemy and lexical dynamics}\index{polysemy|(}
 
 \begin{figure}
 \centering
@@ -239,11 +239,11 @@ To finish the discussion, look at figures (g) and (h). These figures show the fo
 
 \index{polysemy|)}
 
-\section{The Observational Game}\label{s:opt:oli}
+\section{The observational game}\label{s:opt:oli}
 \index{observational game|(}
 \index{joint attention|(}
 
-\subsection{The Experiment}
+\subsection{The experiment}
 
 The final experiment that will be reported is the experiment in which there is joint attention, but no feedback available to the agents. Hence the robots play observational games. The experiment takes the same improved parameters as the guessing game, see \tabref{t:opt:oli}. However, it only investigates form creation probability $P_s=0.4$. Note that the robots have no extra word-form adoption, since for this mechanism the robots have to know whether they mismatched in referent. For this they would need feedback, which the observational game lacks. Besides the robots know already what the topic is, so they will not be able to find a mismatch in referent.
 
@@ -262,7 +262,7 @@ Adoption scheme & N.A.\\%\hline
 \label{t:opt:oli}
 \end{table}
 
-\subsection{The Results}
+\subsection{The results}
 
 \begin{figure}
 \centering

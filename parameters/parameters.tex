@@ -1,4 +1,4 @@
-\chapter{Varying Methods and Parameters}\label{ch:lex}\label{ch:cat}\label{ch:interaction}\label{ch:feedback}\label{ch:par}
+\chapter{Varying methods and parameters} \label{ch:lex}\label{ch:cat}\label{ch:interaction}\label{ch:feedback}\label{ch:par}
 
 The previous chapter extensively presented the basic experiment. The results were not very satisfying, although closer investigation revealed not so bad results. In this chapter, variants of the basic experiment are investigated and compared with this experiment.
 
@@ -9,7 +9,7 @@ To answer these questions, a set of experiments have been carried out. Each expe
 
 The next section investigates three variants of categorisation in the discrimination games. In \sectref{s:par:int}, the physical conditions are varied. The four different types of language games introduced in \chapref{ch:lg}, the guessing, ostensive, observational and XSL game, will be investigated in \sectref{s:par:feed}. Section \ref{s:par:observ} investigates the observational game in more detail. In \sectref{s:par:ps} the creation probability is varied. The learning rate is varied in \sectref{s:par:lr}. Additional word-form adoption is investigated in \sectref{s:par:adopt}. The chapter finishes with a summary.
 
-\section{Impact From Categorisation}\label{s:par:cat}
+\section{Impact from categorisation}\label{s:par:cat}
 \index{categorisation|(}
 \index{category|(}
 
@@ -19,7 +19,7 @@ Categorisation is implemented such a that feature vector is always categorised w
 
 These two questions are investigated in this section, together with the binary subspace method (see \sectref{s:cm:binary}). The results are compared with the basic experiment.
 
-\subsection{The Experiments}
+\subsection{The experiments}
 
 There are the following experiments (all are variants of the basic experiment, and thus implement the guessing game):
 
@@ -39,7 +39,7 @@ So, instead of one possible categorisation in each feature space, a feature vect
 \item[BIN] Binary subspace method. See \sectref{s:cm:binary}.
 \end{description}
 
-\subsection{The Results}
+\subsection{The results}
 
 The results compared with the basic experiment are given in \figref{f:par:cat} and \tabref{t:par:cat}. These results give the global averaged results of the communicative success, discriminative success, distinctiveness, parsimony, specificity and consistency.
 
@@ -118,7 +118,7 @@ The system's distinctiveness is significantly different, but for the other measu
 \index{category|)}
 \index{categorisation|)}
 
-\section{Impact From Physical Conditions and Interactions}\label{s:par:int}
+\section{Impact from physical conditions and interactions}\label{s:par:int}
 
 
 In the basic experiment, the robots decided to stop after two rotations based on finding a maximum intensity of infrared on the left back infrared sensor. Another method described is letting the robots align each other using infrared taxis (\sectref{s:robots:PDL}). Besides longer experimental time (due to more error-prone physical behaviour) the taxis has no influence on the grounding process, since the taxis is applied {\em after} the sensing. Two experiments are done where taxis is used to align the robots. In the first experiment it was observed that the gearing of the robots were worn off. In the second experiment the gearing were replaced by new ones. These experiments show how co-ordination abilities and physical fitness may influence the quality of interactions.
@@ -129,7 +129,7 @@ The adaptation of an agent to its environment and the agent's ability to detect 
 
 In all the experiments so far there were constantly 4 light sources present in the robots' environment. What happens when in each situation there are only 3 light sources present, while the robots' niche has 4 light sources? The last experiment of this section investigates this.
 
-\subsection{The Experiments}
+\subsection{The experiments}
 
 The experiments of this section all investigate the impact from physical interactions and -conditions on the robots' ability to ground a lexicon. Again all the experiments are variants of the basic experiment and hence implement the guessing game. The following experiments are defined:
 
@@ -156,7 +156,7 @@ The experiments of this section all investigate the impact from physical interac
 \label{f:int:calibration}
 \end{figure}
 
-\subsection{The Results}
+\subsection{The results}
 
 For all the experiments, different sensory data had to be recorded. Investigating the sensory data revealed the statistics given in \tabref{t:par:stats}.
 
@@ -294,7 +294,7 @@ When the environment is changed such that it is less distinctive the performance
 Physical interactions are also a part of how joint attention and feedback can be provided to the agents. However, these processes additionally require cognitive capabilities. Experiments investigating the influence of these interaction strategies are presented in the next section.
 
 
-\section{Different Language Games}\label{s:par:feed}
+\section{Different language games}\label{s:par:feed}
 
 This section investigates the impact from joint attention and feedback on the lexicon formation. The non-linguistic information used by human language learners is very much debated in the literature, (see e.g. \citealt{bowerman:1988,barrett:1995}). The experiments presented here will show that the availability of joint attention and feedback has much influence on the grounding process. The games investigated are the guessing, ostensive, observational and XSL game.
 
@@ -303,7 +303,7 @@ This section investigates the impact from joint attention and feedback on the le
 \index{observational game|(}
 \index{XSL game|(}
 
-\subsection{The Experiments}
+\subsection{The experiments}
 
 The four different language games have been introduced in \sectref{s:cm:ng}. The properties of the four different language games are summarised in \tabref{t:par:lg}.
 
@@ -326,7 +326,7 @@ Exp & Game & Joint attention & Feedback\\
 
 Note that the guessing game (experiment {\bf xi}) is the basic experiment. All experiments use the basic data set as sensory data. I.e. the same sensory data that has been used in the basic experiment and most other experiments.
 
-\subsection{The Results}
+\subsection{The results}
 
 \index{feedback|(}
 \index{joint attention|(}
@@ -408,13 +408,13 @@ This way the observational game allows more polysemy, yielding lower specificity
 \index{feedback|)}
 \index{joint attention|)}
 
-\section{The Observational Game}\label{s:par:observ}\label{s:feed:oli}
+\section{The observational game}\label{s:par:observ}\label{s:feed:oli}
 
 In the previous section, an experiment with the observational game has been presented. It has been observed and explained that the specificity is low. So, the lexicon is unstable and allows much referential polysemy and some synonymy. But since the actual success is high, it is interesting to see whether it is possible to achieve good results for specificity and consistency as well. 
 
 While looking for working implementations it also has been found that lateral inhibition is a crucial source of lexicon development. This is conform witht the findings of \citet{oliphant:1997}, \citet{steels:2000}, \citet{dejong:2000} and \citet{kaplan:2000}. To investigate this a variant of the observational game of the previous section is presented in which lateral inhibition is absent.
 
-\subsection{The Experiments}
+\subsection{The experiments}
 
 The experiments are compared with the observational game.
 
@@ -423,7 +423,7 @@ The experiments are compared with the observational game.
 \item[ix$_{li}$] Lateral inhibition. In this experiment lateral inhibition of the association scores is not used. So, when an observational game is considered successful by the robots. This happens when either robot performed a communication act, and hence it need not be actually successful. In that case, only the ``winning'' association score is increased. All other scores are unaltered. For the rest this experiment is equal to experiment {\bf ix}. \index{lateral inhibition}
 \end{description}
 
-\subsection{The Results}
+\subsection{The results}
 
 The results are presented in \tabref{t:par:observ} and \figref{f:par:observ}, where experiments {\bf ix$_p$} and {\bf ix$_{li}$} are compared with the observational game ({\bf ix}) presented in the previous section.
 
@@ -500,12 +500,12 @@ It is clear that the robots can ground a reasonable communication system with a 
 
 \index{observational game|)}
 
-\section{Word-form Creation}\label{s:par:ps}
+\section{Word-form creation}\label{s:par:ps}
 \index{form!creation probability|(}
 
 As has been observed in the previous section, the word-form creation probability $P_s$ may have an enormous impact on the lexicon formation. In the basic experiment $P_s=0.02$, which is a setting based upon earlier experiments \citep{vogt:1998b}. In this section, the influence if the word-form creation probability is investigated more structurally.
 
-\subsection{The Experiments}
+\subsection{The experiments}
 
 The creation probability is varied over 11 experiments.
 
@@ -513,7 +513,7 @@ The creation probability is varied over 11 experiments.
 \item[$P_s$] $P_s$ is varied from 0.0 to 1.0 with intermediate steps of 0.1. The experiments further implement the guessing game and is therefore a variant of the basic experiment.
 \end{description}
 
-\subsection{The Results}
+\subsection{The results}
 
 \begin{figure}
 \centering
@@ -563,7 +563,7 @@ where $\eta$ is the learning rate and $X$ is the success factor. The type of sco
 
 In the basic experiment, the learning rate has been set to $\eta=0.99$. This score has been chosen to be this value based upon early experiments, which was before the current implementation has been finished. What would happen if $\eta$ is varied.
 
-\subsection{The Experiments}
+\subsection{The experiments}
 
 The experiments implement the guessing game.
 
@@ -571,7 +571,7 @@ The experiments implement the guessing game.
 \item[$\eta$] Learning rate. The learning rate is varied from 0.0 to 1.0 with steps of 0.1.
 \end{description}
 
-\subsection{The Results}
+\subsection{The results}
 
 \begin{figure}
 \centering
@@ -622,12 +622,12 @@ The results of this section show that the difference between the weight with whi
 \index{learning rate|)}
 
 
-\section{Word-form Adoption}\label{s:par:adopt}
+\section{Word-form adoption}\label{s:par:adopt}
 \index{form!adoption}
 
 In the basic experiment the hearer only has to adopt a new word-form when it cannot find a matching form-meaning association. This happens when either the form is unknown to the hearer or when its meaning(s) do not match a distinctive category of a possible topic. In the Talking Heads, a word-form may also be adopted when there is a mismatch in referent \citep{steels:2000}. I.e. when the hearer did find a matching form-meaning, but the thus identified topic does not cohere with the speaker's topic. Intuitively, this strategy seems to be beneficial. If the hearer misinterprets the speaker, it should learn what the speaker meant.
 
-\subsection{The Experiments}
+\subsection{The experiments}
 
 Three experiments are done that investigate the impact from the extra word-form adoption. All experiments implement the guessing game. It differs from the basic experiment in that the uttered word-form is adopted by the hearer when the language game ends in a mismatch in referent. In that case the hearer identifies a topic. How this topic is selected is subject to variation. If this topic is not the same as the hearer identified before, the word-form is adopted according to the rules explained in \sectref{s:cm:ng}.
 
@@ -641,7 +641,7 @@ The three experiments vary in the way the topic is selected:
 \item[TT] Double correspondence. Like in experiment T, but now the hearer uses the correspondence criterion {\em every time} it adopts a word-form. This is conform the Talking Heads \citep{steels:2000}.
 \end{description}
 
-\subsection{The Results}
+\subsection{The results}
 
 
 \begin{figure}

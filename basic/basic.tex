@@ -1,4 +1,4 @@
-\chapter{Experimental Results}\label{ch:basic}
+\chapter{Experimental results}\label{ch:basic}
 
 
 Now that the model has been described, it is time to present
@@ -19,7 +19,7 @@ recording of the sensory data is discussed in \sectref{s:st:data}. Section \ref{
 basic experiment. Both the effectiveness and evolution will be
 discussed. A summary is given in the final section.
 
-\section{Measures and Methodology}\label{s:st:measures}
+\section{Measures and methodology}\label{s:st:measures}
 
 \subsection{Measures}
 
@@ -45,7 +45,7 @@ with the convention for $P_i=0$ that $-0 \cdot \log 0 = 0$. The information theo
 \end{quote}
 
 
-All measures that are used can now be described as follows:
+\noindent All measures that are used can now be described as follows:
 
 \begin{description}
 \item {\bf Discriminative Success}\index{discriminative success} To monitor the ability of
@@ -133,11 +133,11 @@ where $H(\sigma)=\log q$ and $P_o(\rho_i)$ is defined as before.
 
 Distinctiveness, parsimony, specificity and consistency are all calculated every 200 language games. Obviously calculations can only take place when the pairs {\em referent -- meaning} or {\em referent -- word-form} are used. This happens either when the discrimination game is successful (influencing distinctiveness and parsimony) or when a robot produced or understood a communication act (influencing specificity and consistency).\footnote{Note that this does not necessarily mean that the language game was successful.}
 
-\subsection{Statistical Testing}
+\subsection{Statistical testing}
 
 Every experiment (unless otherwise mentioned) consists of 10 runs in which either 5,000 or 10,000 language games are played. When appropriate, the results are presented in a plot that displays the average evolution of the experiment. However, to save space, most results are presented in a table where the global averages of an experiment are given. With a global average is meant that the average measure of each complete run (5,000 or 10,000 games) is averaged over the 10 runs. This average is given with its standard deviation of the population. When comparing to other experiment, the results are usually displayed in a bar chart. In addition, statistical significance testing is done by these comparisons.
 	
-\index{Mann-Whitney U Test}\index{Wilcoxon rank sum test|see{Mann-Whitney U Test}} All statistical significance testing is done using the two-tailed {\em Mann-Whitney U Test}, also known as the {\em Wilcoxon rank sum test}. Applying the Mann-Whitney U Test requires that the population does not show a normal distribution. Investigations of the distributions revealed that the populations were not normally distributed. 
+\index{Mann-Whitney U test}\index{Wilcoxon rank sum test|see{Mann-Whitney U test}} All statistical significance testing is done using the two-tailed {\em Mann-Whitney U test}, also known as the {\em Wilcoxon rank sum test}. Applying the Mann-Whitney U test requires that the population does not show a normal distribution. Investigations of the distributions revealed that the populations were not normally distributed. 
 
 The null-hypothesis of the test may be rejected when $p<\alpha$ for some low $\alpha$. In all testing, the null-hypothesis states that two populations of measurements are the same, with the alternative hypothesis that they are not the same. For stating that one result is significantly better than another, the distributions of the two populations of measurements need to be similar. This has not been observed, so the only inference one can make of a low $p$-value is that the two populations are not the same. However, if one measurement is higher than another, the assumption will be made that this is the case if a $p$-value is low. The value $\alpha$ will not be filled in, the reader may decide him/herself whether or not the difference is significant. For readers unfamiliar with statistical testing, the literature usually takes $\alpha=0.05$, which becomes for a two-tailed test: $\alpha=0.025$. The used method and tables are taken from \citet{aczel:1989}.
 
@@ -147,7 +147,7 @@ These methods include semiotic landscapes, competition diagrams and others, and
 will be introduced with their initial appearance.
 
 
-\subsection{On-board Versus Off-board}\label{s:lg:offboard}
+\subsection{On-board versus off-board}\label{s:lg:offboard}
 
 In the original experiments all the processing, including the meaning and language formation, was done on-board the robots \citep{steelsvogt:1997}. But, since the robots failed to enhance the lexicon due to the lack of on-board memory and because the robots' batteries only work for one hour while the experiments take much more time, a large part of the processing is done off-board on a personal computer. The sensory information that the robots detect during sensing is sent to the PC by the radio link. After the robots recorded the sensory information of a language game, segmentation, categorisation and naming are further processes on the PC.
 
@@ -172,7 +172,7 @@ Now suppose that one wants to tune a parameter by varying this parameter 5 or 10
 Debugging is a good reason to process data as much as possible off-board as well, it saves huge amounts of time. Many more advantages can be found, but the biggest have been stated. However, if one divides a system in on-board vs. off-board processing, then one should be careful to define the division line. The experiment should not loose its embodied and situated character, otherwise one is better off using simulations.
 
 
-\section{Sensory Data}\label{s:st:data}
+\section{Sensory data}\label{s:st:data}
 
 \index{situation}
 As mentioned in \chapref{ch:lg} the sensory data of the
@@ -255,7 +255,7 @@ P=\frac{\langle|Cxt_{r0}|\rangle+\langle|Cxt_{r1}|\rangle}{2}\cdot \frac{1}{\lan
 So, if the robots perform better than 30 \% in their communicative success, they are actually learning a meaningful language. The second observation that can be made is that it is impossible to reach a communicative success of 100 \% since the robots are in principle not capable of understanding each utterance given the current context setting. They are not likely to perform better than approximately 80 \%, as has been calculated from the potential understandability.\index{understandability} Third, it is likely that the robots will learn to name L0 better than others, since this light source is detected most often. Given these expectations and conclusions it is time to see how the robots do in the language formation.
 
 
-\section{The Basic Experiment}\label{s:st:experiment}
+\section{The basic experiment}\label{s:st:experiment}
 \index{basic experiment}
 
 This first experiment will be referred to as the {\em basic experiment}. It is called so because this experiment will serve as the basic experiment from which parameters and methods are changed to investigate their influence. That it is not the best experiment will be shown in subsequent chapters.
@@ -281,7 +281,7 @@ $P_h$ & 1.00\\%\hline
 
 Table \ref{t:st:param} shows the parameter settings of the most important variables that have been introduced in the previous chapter. Unless otherwise mentioned, the parameters are not changed in the different experiments.
 
-\subsection{The Global Evolution}
+\subsection{The global evolution}
 
 \begin{figure}
 \centering
@@ -347,7 +347,7 @@ C1 & 0.811 & $\pm$ & 0.007\\%\hline
 
 In \figref{f:st:cs0} the communicative success of one run is shown. It is obvious that this run shows a different evolution than the averaged evolution as has been shown in \figref{f:st:plot}. The next section will discuss the evolution of the run for which the communicative success has just been shown.
 
-\subsection{The Ontological Development}\label{s:cat:evol}
+\subsection{The ontological development}\label{s:cat:evol}
 \index{prototype!dynamics|(}
 \index{prototype|(}
 \index{ontology}
@@ -407,7 +407,7 @@ Meanings M53, M55 (both L0), M18, M30 (L1), M5, M20, M27 (L2), M58 and M61 (L3) 
 \index{prototype|)}
 \index{ontology|)}
 
-\subsection{Competition Diagrams}\label{s:basic:comp}
+\subsection{Competition diagrams}\label{s:basic:comp}
 \index{competition diagram|(}
 
 Up to now only superficial measures have been presented, which already gave useful information on the quality of the emerged communication system. Although the communicative success is low, the system is performing better than chance and a reasonable system seemed to have emerged. There is another way of looking at the system that emerged, namely by inspecting so called {\em competition diagrams}. A competition diagram takes one entity at its basis (e.g. a referent) and shows which elements of another entity (e.g. meanings or word-forms) compete to mean or name this basis.
@@ -475,7 +475,7 @@ Distinctiveness is high, as can be seen in the meaning-referent diagram for M53 
 
 One way of inspecting the resulting lexicon is by looking at the competition diagrams. Another way of presenting the lexicon is by a table. In such tables word-meaning associations of the two robots are given. Although such tables give good information about an individual's lexicon, it provides difficult-to-read and incomplete information about its structure in the language using society. Similar tables can display the ontology of the robots in relation to their use for referents. The tables of the lexicon and ontology are given in Appendix \ref{a:lexicon}.
 
-\subsubsection{Semiotic Landscape}
+\subsubsection{Semiotic landscape}
 
 \begin{figure}[t]
 \centerline{\includegraphics[width=12cm]{basic/semiotic.eps}}
@@ -490,7 +490,7 @@ The figure clearly shows that winning associations (bold connections) always mak
 
 Most word-forms that show one-to-many relations between form and meaning also show some polysemy and {\em incoherence}. A word-form is incoherent when one robot uses it to name another referent than the other robot. Incoherence can be seen for the word-forms {\it wosa} and {\it vyqa}. Such incoherence can be caused by language games that are evaluated to be successful inappropriately or that the meanings have no other associations.\footnote{Recall that co-occurrence does not imply a successful language game.}\index{polysemy}
 
-\subsubsection{Lexical and Ontological Growth}
+\subsubsection{Lexical and ontological growth}
 \index{lexicon!growth|(}
 \index{ontology!growth|(}
 
@@ -517,7 +517,7 @@ The number of meanings that are used keep on growing, although slower than in th
 \index{lexicon!growth|)}
 \index{lexicon|)}
 
-\subsection{More Language Games}\label{s:st:10000}
+\subsection{More language games}\label{s:st:10000}
 
 The experiment introduced was done with 10 runs of 5,000 language games. Most experiments that are discussed have 10 runs of 5,000 language games, but what happens when the experiment is run for a longer time. Figure \ref{f:st:10000} shows the results when the robots play 10,000 games each run (again for 10 runs). As is clear the system keeps on improving slightly. The communicative success for instance increases towards a value of 0.5. Also the specificity is increasing continuously. So, the communication system seems to keep on learning, but slowly.
 
