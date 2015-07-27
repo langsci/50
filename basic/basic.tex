@@ -232,11 +232,11 @@ The potential understandability is lower than 1, because the two robots do not a
 
 \begin{table}
 \centering
-\begin{tabular}{rcc}
+\begin{tabular}{rd{3}@{~}c@{~}d{2}c@{~}d{3}@{~}c@{~}d{2}}
 \lsptoprule
- & r0 & r1\\\midrule
-$\langle|Cxt|\rangle$ & $3.33 \pm 1.07$ & $3.54 \pm 1.21$\\
-$U_r$ & $0.81 \pm 0.27$ & $0.78 \pm 0.27$\\
+ & \multicolumn{3}{c}{r0} & & \multicolumn{3}{c}{r1}\\\midrule
+$\langle|Cxt|\rangle$ & 3.33 & $\pm$ & 1.07 & & 3.54 & $\pm$ & 1.21\\
+$U_r$ & 0.81 & $\pm$ & 0.27 & & 0.78 & $\pm$ & 0.27\\
 \lspbottomrule
 \end{tabular}
 \caption{The average context size $\langle|Cxt|\rangle$ and average potential understandability $U_r$ of the recorded data set.}
@@ -319,7 +319,7 @@ So, when the robots are successful in communicating and categorisation, they do 
 
 \begin{table}
 \centering
-\begin{tabular}{ld{3}@{~}c@{~}d{3}} % @{~} adds a forced space between columns.
+\begin{tabular}{ld{4}@{ }c@{ }d{3}} % @{~} adds a forced space between columns.
 \lsptoprule
 Score & \multicolumn{3}{c}{Avg}\\\midrule
 CS & 0.351 & $\pm$ & 0.010\\%\hline
@@ -364,7 +364,7 @@ It is interesting to see how the ontology of prototypical categories develop and
 \label{f:cat:evol1}
 \end{figure}
 
-Figure \ref{f:cat:evol1} shows the evolution of prototypes in dimension WL0 of feature spaces ${\mathcal F}_1$ to ${\mathcal F}_4$. Similar development is observed for the other dimensions. Recall that each feature space ${\mathcal F}_\lambda$ allows a maximum of $3^\lambda$ exploitations in each dimension. The first exploitations in the different feature spaces are constructed quite rapidly. It is interesting to note that only the prototypes of feature space ${\mathcal F}_1$  are continuously changing (\figref{f:cat:evol1} a). This means that they are used successfully to name a segment and shift towards the feature they categorised. The lower and upper exploitations remain close to 0 and 1 resp., the middle values shift toward values somewhere in the middle between 0 and 1. The categories have the tendency to move towards what could be called the central tendency of the features for which the prototypical categories have been used successfully in the language games. 
+Figure \ref{f:cat:evol1} shows the evolution of prototypes in dimension WL0 of feature spaces ${\mathcal F}_1$ to ${\mathcal F}_4$. Similar development is observed for the other dimensions. Recall that each feature space ${\mathcal F}_\lambda$ allows a maximum of $3^\lambda$ exploitations in each dimension. The first exploitations in the different feature spaces are constructed quite rapidly. It is interesting to note that only the prototypes of feature space ${\mathcal F}_1$  are continuously changing (\figref{f:cat:evol1} (a)). This means that they are used successfully to name a segment and shift towards the feature they categorised. The lower and upper exploitations remain close to 0 and 1 resp., the middle values shift toward values somewhere in the middle between 0 and 1. The categories have the tendency to move towards what could be called the central tendency of the features for which the prototypical categories have been used successfully in the language games. 
 
 At the other feature spaces from \figref{f:cat:evol1}, an increasing amount of prototypes are constructed, but once they are introduced they hardly change. Apparently, these prototypical categories are not often used successfully in the language games. So, the robots appear to be sufficiently effective with the categories constructed in feature space ${\mathcal F}_1$. This does not mean that in a more complex environment, the further refinements would not be effective.
 

@@ -2,13 +2,13 @@
 
 In this chapter the design and architecture of the robots is discussed. The experiments use two small {\sc lego} vehicles, which are controlled by a small sensorimotor board. The robots, including their electronics, were designed at the VUB AI Lab. They were constructed such that the configuration of the robots can be changed easily. Sensors may be added or changed and the physical robustness of the robots has improved through time. In some experiments they {\it are} changed substantially, but in most experiments the robots remain the same.
 
-The robots are controlled by a specialised sensorimotor board, the {\sc smbii}\footnote{Read as SMB-2.} \citep{vereertbrugghen:1996}. The sensorimotor board connects the sensory equipment with the actuators in such a way that the actuators and sensor readings are updated 40 times per second. The actuators respond to sensory stimuli, where the response is calculated by a set of ``parallel'' processes. These processes are programmed in the {\em Process Description Language} (PDL), which has been developed at the VUB AI Lab as a software architecture to implement behaviour-oriented control \citep{steels:1994b}. 
+The robots are controlled by a specialised sensorimotor board, the {\sc smbii}\footnote{Read as SMB-2.} \citep{vereertbrugghen:1996}. The sensorimotor board connects the sensory equipment with the actuators in such a way that the actuators and sensor readings are updated 40 times per second. The actuators respond to sensory stimuli, where the response is calculated by a set of ``parallel'' processes. These processes are programmed in the {\em Process Description Language} (\textsc{pdl}), which has been developed at the VUB AI Lab as a software architecture to implement behaviour-oriented control \citep{steels:1994b}. 
 
 The outline of the experiments is discussed in \chapref{ch:lg}; this chapter is concentrated on the physical set-up of the robots and their environment in the different experiments. The robots' environment is presented in \sectref{s:robots:envir}. Section \ref{s:robots:robots} discusses the physical architecture of the robots. Section \ref{s:robots:PDL} discusses the Process Description Language. 
 
 \section{The environment}\label{s:robots:envir}
 
-The environment that has been used for the experiments in the past varied across some of the experiments. The environment in early experiments \citep{steelsvogt:1997,vogt:1998b,vogt:1998a} had different light sources than the current environment. Furthermore, the size of the environment shrinked from $5\times5 m^2$ to $2.5\times2.5 m^2$. In the current environment there are four different white light sources, each placed at a different height (\figref{f:robots:envir}). \todo{Do you mean five by five metres?}
+The environment that has been used for the experiments in the past varied across some of the experiments. The environment in early experiments \citep{steelsvogt:1997,vogt:1998b,vogt:1998a} had different light sources than the current environment. Furthermore, the size of the environment shrinked from $5\cdot 5 m^2$ to $2.5\cdot 2.5 m^2$. In the current environment there are four different white light sources, each placed at a different height (\figref{f:robots:envir}). \todo{Do you mean five by five metres?}
 
 \begin{figure}[t]
 \centerline{\includegraphics[width=\textwidth]{robots//environment.eps}}
@@ -65,7 +65,7 @@ Below a more detailed description of the most important sensors and actuators ar
 
 \item[The Radio Link] The radio link module is a transmitter/receiver device designed to connect with the {\sc smbii} (see \figref{f:robots:radiolink}). The module is a Radiometrix BM-433F module with RX (receive) and TX (transmission) connections. The module can send up to 40 Kbit/s, but is used at 9.6 Kbit/s. 
 
-Every clock cycle of the {\sc smbii} a packet of messages can be sent. A packet can consist of a maximum of 31 messages each up to 127 bytes long. A message has a transmission ID and an destination address, which define the sender and receiver(s) of the message.  It also has a bit defining the reliability of the transmission; this bit has to be set to {\bf unreliable}, i.e. to $0$, because the reliability protocol has not been implemented in the radio link kernel. This has the consequence that if a message is sent, it is not sure if the message arrives at its destination. But {\em when} it arrives, the message arrives error-less. About $5\%$ of the messages sent do not arrive at their destination.
+Every clock cycle of the {\sc smbii} a packet of messages can be sent. A packet can consist of a maximum of 31 messages each up to 127 bytes long. A message has a transmission ID and an destination address, which define the sender and receiver(s) of the message.  It also has a bit defining the reliability of the transmission; this bit has to be set to {\it unreliable}, i.e. to $0$, because the reliability protocol has not been implemented in the radio link kernel. This has the consequence that if a message is sent, it is not sure if the message arrives at its destination. But {\em when} it arrives, the message arrives error-less. About $5\%$ of the messages sent do not arrive at their destination.
 
 This unreliability has some technical impacts on the experiments. Since data logging, recording and communication passes through the radio link, not all information is received. Filters had to written to find out whether all data was logged and if not, part of the data would be unreliable and should therefore be discarded. It is beyond the scope of this dissertation to go into the details of such filters here. For the purpose  of the book it is assumed that the radio transmission is reliable.
 
@@ -115,7 +115,7 @@ This subsection introduced the sensorimotor equipment that the robot carries in 
 \subsection{Sensor-motor board II}\label{setup:smbii}
 
 
-The computing hardware of the robots is a sensorimotor board, called the {\sc smbii}, which is developed at the VUB AI Lab by Dany \citet{vereertbrugghen:1996}. It consists of an {\em add-on SMB-2 board} and a Vesta Technologies SBC332 micro controller board.
+The computing hardware of the robots is a sensorimotor board, called the {\sc smbii}, which is developed at the VUB AI Lab by Dany \citet{vereertbrugghen:1996}. It consists of an {\em add-on {\sc smb}-2 board} and a Vesta Technologies SBC332 micro controller board.
 
 \begin{figure}
 \centering
@@ -124,9 +124,9 @@ The computing hardware of the robots is a sensorimotor board, called the {\sc sm
 \caption{The two components of the {\sc smbii} board: (a) the Vesta Technologies SBC332 micro controller board, and (b) the add-on {\sc smb}-2 sensorimotor board.}
 \end{figure}
 
-The Vesta board (see \figref{f:vesta}) contains a Motorola MC68332 micro-controller, 128 kB ROM and 1 MB RAM.\footnote{In the original version of the {\sc smbii} there were only 256 kB RAM \citep{vereertbrugghen:1996}.} The board's micro-controller runs at 16.78 MHz at 5 Volt and everything is powered by a pack of rechargeable Nickel-Cadmium batteries.
+The Vesta board (see \figref{f:vesta}) contains a Motorola MC68332 microcontroller, 128 kB ROM and 1 MB RAM.\footnote{In the original version of the {\sc smbii} there were only 256 kB RAM \citep{vereertbrugghen:1996}.} The board's micro-controller runs at 16.78 MHz at 5 Volt and everything is powered by a pack of rechargeable Nickel-Cadmium batteries.
 
-The add-on {\sc smb}-2 board (\figref{f:smbii}) contains several I/O chips, bus controllers and connectors. The {\sc smbii} low-level program is run on the kernel and it can interface a user program written in any language as long a the kernel calls are written in C  \citep{vereertbrugghen:1996}. The program that is run on the {\sc smbii} for these experiments is written in the Process Description Language {\sc pdl}. 
+The add-on {\sc smb}-2 board (\figref{f:smbii}) contains several I/O chips, bus controllers and connectors. The {\sc smbii} low-level program is run on the kernel and it can interface a user program written in any language as long a the kernel calls are written in \textsc{c}  \citep{vereertbrugghen:1996}. The program that is run on the {\sc smbii} for these experiments is written in the Process Description Language {\sc pdl}. 
 \index{SMBII}
 
 \section{The Process Description Language}\label{s:robots:PDL}\label{s:robots:pdl}
@@ -156,7 +156,7 @@ The example implements two behaviours: (1) {\em infrared orientation} and (2) {\
 After declaration, the quantities have to added to the system as follows:
 
 
-{\footnotesize\begin{verbatim}
+{\small\begin{verbatim}
 add_quantity(LeftFrontIR,''LeftFrontIR'',255.0f,0.0f,0.0f);
 add_quantity(RightFrontIR,''RightFrontIR'',255.0f,0.0f,0.0f);
 add_quantity(LeftMotor,''LeftMotor'',100.0f,-100.0f,0.0f);
@@ -172,7 +172,7 @@ add_quantity(RightMotor,''RightMotor'',100.0f,-100.0f,0.0f);
 The function \texttt{add\_q} adds the quantity \texttt{LeftFrontIR} to the network, an upper bound of \texttt{255.0f} (where \texttt{f} stands for {\em float}), a lower bound of \texttt{0.0f} and an initial value of \texttt{0.0f}. Likewise the quantities \texttt{RightFrontIR, LeftMotor} and \texttt{RightMotor} were added, see \figref{f:robots:pdl_networka}. The upper- and lower bound of the motors are resp. 100.0 and -100.0. If mathematically an upper- or lower bound would be exceeded, {\sc pdl} sets the quantity-value to its upper- or lower bound. The next step is to connect the quantities to the serial ports of the {\sc smbii}, which are connected to the sensors and actuators.
 
 
-{\footnotesize\begin{verbatim}
+{\small\begin{verbatim}
 add_connection(SID_AN1,LeftFrontIR);
 add_connection(SID_AN2,RightFrontIR);
 add_connection(AID1_Motor,LeftMotor);
@@ -192,7 +192,7 @@ Now the network looks like in \figref{f:robots:pdl_networkb}.
 The above is part of the initialisation. Another step of the initialisation is to add processes to the network:
 
 
-{\footnotesize\begin{verbatim}
+{\small\begin{verbatim}
 add_process(Taxis,''Taxis'');
 add_process(TowardsDefault,''TowardsDefault'');
 \end{verbatim}}
@@ -209,7 +209,7 @@ This leads to the network as shown in \figref{f:robots:pdl_networkc}.
 To couple the sensors with the actuators, the processes have to be defined. The process {\em taxis} causes the robot to orient towards an infrared light source.
 
 
-{\footnotesize\begin{verbatim}
+{\small\begin{verbatim}
 void Taxis()
 {
   D=value(RightFrontIR)-value(LeftFrontIR);
@@ -219,21 +219,21 @@ void Taxis()
 \end{verbatim}}
 
 
-Here, \texttt{value(Q)} is a function that returns the value of quantity \texttt{Q}, {\tt add\_va-lue(Q,V)} adds value \texttt{V} to the value of \texttt{Q}. The actual update of \texttt{Q} is done at the end of each {\sc pdl} cycle. When more values are added to \texttt{Q}, these values are summed before they are added. \texttt{C} is a constant and \texttt{F(D)} is a scaling factor of difference (D) in infrared. \texttt{F(x)} is implemented as an inverse sigmoid function.
+Here, \texttt{value(Q)} is a function that returns the value of quantity \texttt{Q}, {\tt add\_va-lue(Q,V)} adds value \texttt{V} to the value of \texttt{Q}. The actual update of \texttt{Q} is done at the end of each {\sc pdl} cycle. When more values are added to \texttt{Q}, these values are summed before they are added. \texttt{C} is a constant and \texttt{F(D)} is a scaling factor of difference (\texttt{D}) in infrared. $F(x)$ is implemented as an inverse sigmoid function.
 
 \begin{eqnarray*}
 F(x)=\frac{1}{1+e^{\alpha \cdot (x - \beta)}}
 \end{eqnarray*}
 
-\texttt{F(x)*x} dampens \texttt{x} strongly if \texttt{x} is large, it is less dampened if \texttt{x} is not large. If \texttt{F(x)} is not applied, the robot would exaggerate its wiggling too much.
+$F(x)\cdot x$ dampens $x$ strongly if $x$ is large, it is less dampened if $x$ is not large. If $F(x)$ is not applied, the robot would exaggerate its wiggling too much.
 
 
-\texttt{Taxis} increases the LeftMotor and decreases the RightMotor by a value proportionate to D. If the infrared source is to the right of the robot, the difference D is positive. Hence the value of the LeftMotor increases and the value of the RightMotor decreases. This in effect causes the robot to turn to the right. When the infrared source is to the left of the robot, the opposite happens. So, the robot will rotate in the direction in which the intensity of infrared is detected the highest. If the robot passes the infrared source, the direction in which the infrared is detected (i.e. the sign of Direction changes) and so the robot changes its direction of rotation. This will continue until D approaches zero or when the values become so small, that it there is no power left to move the robot.
+\texttt{Taxis} increases the \texttt{LeftMotor} and decreases the \texttt{RightMotor} by a value proportionate to \texttt{D}. If the infrared source is to the right of the robot, the difference \texttt{D} is positive. Hence the value of the \texttt{LeftMotor} increases and the value of the \texttt{RightMotor} decreases. This in effect causes the robot to turn to the right. When the infrared source is to the left of the robot, the opposite happens. So, the robot will rotate in the direction in which the intensity of infrared is detected the highest. If the robot passes the infrared source, the direction in which the infrared is detected (i.e. the sign of {\em Direction} changes) and so the robot changes its direction of rotation. This will continue until \texttt{D} approaches zero or when the values become so small, that it there is no power left to move the robot.
 
 Although the robot is rotating around its axis in varying directions, it does not move from its place. This is accomplished by introducing the following process:
 
 
-{\footnotesize\begin{verbatim}
+{\small\begin{verbatim}
 void TowardsDefault()
 {
   add_value(LeftMotor,(DefaultSpeed-value(LeftMotor))/Step);
@@ -244,7 +244,7 @@ void TowardsDefault()
 
 \begin{figure}
 \centerline{\includegraphics[width=12cm]{robots//irtaxis.eps}}
-\caption{This figure shows the evolution of the infrared sensors and Motor values in time during phototaxis, i.e. the emergent dynamics of combining the processes \texttt{Taxis} and \texttt{TowardsDefault}. On the x-axis the time is shown in the basic time unit of the robots, a {\sc pdl} cycle ($= \frac{1}{40} s$). The y-axis shows the intensity of the infrared sensors and motor signals. The data is taken from a robot that was driving using both processes \texttt{Taxis} and \texttt{TowardsDefault}. It drove straight forward until at time 140 the robot detected an infrared source after which it adjusted its motor signals to home in on the source.}
+\caption{This figure shows the evolution of the infrared sensors and {\em Motor} values in time during phototaxis, i.e. the emergent dynamics of combining the processes \texttt{Taxis} and \texttt{TowardsDefault}. On the x-axis the time is shown in the basic time unit of the robots, a {\sc pdl} cycle ($= \frac{1}{40} s$). The y-axis shows the intensity of the infrared sensors and motor signals. The data is taken from a robot that was driving using both processes \texttt{Taxis} and \texttt{TowardsDefault}. It drove straight forward until at time 140 the robot detected an infrared source after which it adjusted its motor signals to home in on the source.}
 \label{f:irtaxis}
 \end{figure}
 
@@ -275,13 +275,13 @@ Appendix \ref{a:pdl} presents the structure of the implemented {\sc pdl} program
 \label{f:architscheme}
 \end{figure}
 
-To accomplish a complex task like communication, a sequence of actions have to be planned. Reactive behaviours, like phototaxis alone do not suffice. To allow the robots to execute planned behaviour a new architecture has been developed. This resulted in what could be called a {\em behaviour-based cognitive architecture} that is primarily based on the behaviour-based control architecture proposed by Luc \citet{steels:1994b}. This cognitive architecture could be applied as a general purpose architecture for complex and dynamic tasks like navigation. The architecture executes a script (or plan) through excitation and inhibition of processes that altogether result in some emergent behaviour. The scripts are implemented as finite state automata in which transitions are controlled by state-specific pre- and post-conditions. In each state of the finite state automaton (FSA) a particular set of processes are activated or inhibited. Figure \ref{f:architscheme} shows the basic principle.
+To accomplish a complex task like communication, a sequence of actions have to be planned. Reactive behaviours, like phototaxis alone do not suffice. To allow the robots to execute planned behaviour a new architecture has been developed. This resulted in what could be called a {\em behaviour-based cognitive architecture} that is primarily based on the behaviour-based control architecture proposed by Luc \citet{steels:1994b}. This cognitive architecture could be applied as a general purpose architecture for complex and dynamic tasks like navigation. The architecture executes a script (or plan) through excitation and inhibition of processes that altogether result in some emergent behaviour. The scripts are implemented as finite state automata in which transitions are controlled by state-specific pre- and post-conditions. In each state of the finite state automaton (\textsc{fsa}) a particular set of processes are activated or inhibited. Figure \ref{f:architscheme} shows the basic principle.
 
 In the architecture the sensors $Se$ and actuators $A$ are coupled through a complex of connections. The agent consists of a set of scripts, which are implemented as finite state automata. The finite state automata are parallel processes where transitions are regulated by pre- and post-conditions. Usually the pre- and post-conditions are satisfied by some sensory stimuli. A state may also be fed with information coming from some internal process (not shown). Every state $S$ has a post-condition that allows the system to enter the default state $S0$ where nothing happens. Each state of the automaton has excitatory and inhibitory connections with dynamic sensorimotor processes $P$. The excitatory connections are drawn as dotted lines, the inhibitory have been left out for clarity of the picture. The processes are divided between reactive (R) and cognitive (C) processes. The reactive processes have more direct processing and can take usually only sensorimotor data as input. The cognitive processes are more complex, and may take also stimuli coming from other internal processes. Note that the finite state automaton could be considered as a cognitive process as well. The configuration of excitatory processes and the dynamics of the robot with its environment cause the robot to perform some emergent behaviour. Hence the system is consistent with the behaviour-based paradigm.
 
 Activation of processes is modelled by invoking motivational factors (cf. \citealt{steels:1996d,jaeger:1997}). For example if is a state that in which the motivation for doing infrared taxis is present, this state may be a motivational factor \texttt{MotIRT} that is set to 1. The process taxis can then look like this:
 
-{\footnotesize\begin{verbatim}
+{\small\begin{verbatim}
 void Taxis()
 {
   D=value(RightFrontIR)-value(LeftFrontIR);
@@ -324,11 +324,4 @@ The principles of {\sc pdl} have been extended to a behaviour-based cognitive ar
 
 The robots as introduced here are the physical bodies with which the agents try to develop their ontologies and lexicons. How they do that is explained in \chapref{ch:lg}. As shall become clear some processing is done off-board. This is mainly done to experiment more efficiently and to be able to test different approaches on recorded data.  In some specific experiments the architecture of the robots has been changed with respect to the description given in this chapter. Relevant changes will be reported when these experiments are discussed.
 
- More detailed information on the {\sc pdl} program can be found in Appendix \ref{a:pdl}.
-
-
-
-
-
-
-
+More detailed information on the {\sc pdl} program can be found in Appendix \ref{a:pdl}.
