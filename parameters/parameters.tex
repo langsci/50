@@ -7,7 +7,7 @@ What is the impact on categorisation and lexicon formation when a different cate
 To answer these questions, a set of experiments have been carried out. Each experiment is done with 10 runs of 5,000 language games, as in the basic experiment. Unless otherwise mentioned, the basic data set is used in these experiments. Each section of this chapter relates to one of the questions and it presents some of the experiments. The sections introduce the problem addressed. They describe the difference(s) of the experiments, usually in relation to the basic experiment. Then the experimental results are given, which is followed by a short discussion of these results.
 
 
-The next section investigates three variants of categorisation in the discrimination games. In \sectref{s:par:int}, the physical conditions are varied. The four different types of language games introduced in \chapref{ch:lg}, the guessing, ostensive, observational and XSL game, will be investigated in \sectref{s:par:feed}. Section \ref{s:par:observ} investigates the observational game in more detail. In \sectref{s:par:ps} the creation probability is varied. The learning rate is varied in \sectref{s:par:lr}. Additional word-form adoption is investigated in \sectref{s:par:adopt}. The chapter finishes with a summary.
+The next section investigates three variants of categorisation in the discrimination games. In \sectref{s:par:int}, the physical conditions are varied. The four different types of language games introduced in \chapref{ch:lg}, the guessing, ostensive, observational and XSL game, will be investigated in \sectref{s:par:feed}. \sectref{s:par:observ} investigates the observational game in more detail. In \sectref{s:par:ps} the creation probability is varied. The learning rate is varied in \sectref{s:par:lr}. Additional word-form adoption is investigated in \sectref{s:par:adopt}. The chapter finishes with a summary.
 
 \section{Impact from categorisation}\label{s:par:cat}
 \index{categorisation|(}
@@ -529,7 +529,7 @@ The creation probability is varied over 11 experiments.
 
 The results are shown in \figref{f:lex:p}. It is trivial that the communicative success, specificity, distinctiveness, consistency and parsimony are 0 when $P_s=0$. When no word-forms are created no communication can take place. All mentioned measures are only calculated when linguistic communication took place. The discriminative success is approximately 50 \% because only the speaker now performs a discrimination game and the discriminative success is calculated as an average discriminative success per {\em language game}. Since the robots can in principle discriminate almost perfectly (see \figref{f:st:ds}, page \pageref{f:st:ds}), the discriminative success is almost 50 \%. 
 
-Figure \ref{f:lex:p} shows that there is hardly any difference in the experiments when $P_s$ is varied between 0.1 and 1. The discriminative success and specificity are slightly increasing, as it appears monotonically. The communicative success also seems to be increasing, but it also shows some local minima and maxima. It seems that when $P_s=0.9$, the communicative success is highest, but when $P_s=0.4$, the communicative success is second best. There does not seem to be a relation. distinctiveness, consistency and parsimony seem to be indifferent for the variation of $P_s$.
+\figref{f:lex:p} shows that there is hardly any difference in the experiments when $P_s$ is varied between 0.1 and 1. The discriminative success and specificity are slightly increasing, as it appears monotonically. The communicative success also seems to be increasing, but it also shows some local minima and maxima. It seems that when $P_s=0.9$, the communicative success is highest, but when $P_s=0.4$, the communicative success is second best. There does not seem to be a relation. distinctiveness, consistency and parsimony seem to be indifferent for the variation of $P_s$.
 
 When $0.1 \leq P_s \leq 1.0$, then the system outperforms the basic experiment. Although distinctiveness, parsimony and consistency are more or less the same as in the basic experiment; the communicative success is about 5 -- 9 \% higher, discriminative success is 4 \% higher and specificity is approximately 0.09 higher. All these differences are significant ($p=0.0000$).
 
@@ -539,7 +539,7 @@ When $0.1 \leq P_s \leq 1.0$, then the system outperforms the basic experiment. 
 \label{f:lex:words}
 \end{figure}
 
-It is interesting now to see how the number of words grow in the communication system. Figure \ref{f:lex:words} shows the growth of the number of word-forms that are used successfully in the experiments. It is clear that the number of word-forms grows faster when the creation probability increases. Recall that the number of word-forms in the basic experiment grew to only 8 word-forms. When $P_s=0.1$ this already increases to 25 word-forms, and when $P_s=1.0$ there emerge more than 80 word-forms. As a comparison, the basic experiment finished with 12 word-forms. Remember that there are only 4 referents in the robots' environment!
+It is interesting now to see how the number of words grow in the communication system. \figref{f:lex:words} shows the growth of the number of word-forms that are used successfully in the experiments. It is clear that the number of word-forms grows faster when the creation probability increases. Recall that the number of word-forms in the basic experiment grew to only 8 word-forms. When $P_s=0.1$ this already increases to 25 word-forms, and when $P_s=1.0$ there emerge more than 80 word-forms. As a comparison, the basic experiment finished with 12 word-forms. Remember that there are only 4 referents in the robots' environment!
 
 \subsection{Discussion}
 
@@ -585,7 +585,7 @@ The experiments implement the guessing game.
 \label{f:lex:A}
 \end{figure}
 
-Figure \ref{f:lex:A} shows the results of these experiments. The experiments where $\eta=0$ and $\eta=1$ perform very poor, poorer than in the basic experiment ($p=0.0000$ in both cases). If $\eta=0$, the scores are completely dependent from the previous language game where the element is used. When $\eta=1$ the scores are not updated at all. Obviously, taking only the last game into account, the robots cannot learn the communication system properly. Neither can it be learned when the scores are not updated. The communicative success when $\eta=1$ is about 5 \% lower than when $\eta=0$ ($p=0.0000$). So, taking only the last game into account is better than doing nothing. Figure \ref{f:lex:csA0} shows that these communication systems no longer learn after game 500. That some games are successful is caused by the fact that form-meaning associations do get formed as normal and the rest is more or less coincidence.
+\figref{f:lex:A} shows the results of these experiments. The experiments where $\eta=0$ and $\eta=1$ perform very poor, poorer than in the basic experiment ($p=0.0000$ in both cases). If $\eta=0$, the scores are completely dependent from the previous language game where the element is used. When $\eta=1$ the scores are not updated at all. Obviously, taking only the last game into account, the robots cannot learn the communication system properly. Neither can it be learned when the scores are not updated. The communicative success when $\eta=1$ is about 5 \% lower than when $\eta=0$ ($p=0.0000$). So, taking only the last game into account is better than doing nothing. Figure \ref{f:lex:csA0} shows that these communication systems no longer learn after game 500. That some games are successful is caused by the fact that form-meaning associations do get formed as normal and the rest is more or less coincidence.
 
 \begin{figure}[t]
 \centering
@@ -595,7 +595,7 @@ Figure \ref{f:lex:A} shows the results of these experiments. The experiments whe
 \label{f:lex:csA0}
 \end{figure}
 
-When $\eta=0.1$, the communicative success is higher than in the basic experiment ($p=0.0000$), but it is lower than when $0.2\leq\eta\leq0.9$ ($p=0.0000$ when compared to $\eta=0.2$). Furthermore, in this experiment the discriminative success and specificity are lower than when $0.2\leq\eta\leq0.9$ (again $p=0.0000$ when compared to $\eta=0.2$). Figure \ref{f:lex:csA01} shows however, that the communication is learned when $\eta=0.1$ as well as when $\eta=0.2$. It only takes longer, so the global averages are lower. Strangely enough the discriminative success and specificity are also lower when $\eta=0.1$ than when $\eta=0.0$.It is not understood why this is the case.
+When $\eta=0.1$, the communicative success is higher than in the basic experiment ($p=0.0000$), but it is lower than when $0.2\leq\eta\leq0.9$ ($p=0.0000$ when compared to $\eta=0.2$). Furthermore, in this experiment the discriminative success and specificity are lower than when $0.2\leq\eta\leq0.9$ (again $p=0.0000$ when compared to $\eta=0.2$). \figref{f:lex:csA01} shows however, that the communication is learned when $\eta=0.1$ as well as when $\eta=0.2$. It only takes longer, so the global averages are lower. Strangely enough the discriminative success and specificity are also lower when $\eta=0.1$ than when $\eta=0.0$.It is not understood why this is the case.
 
 \begin{figure}
 \centering
@@ -609,7 +609,7 @@ When $\eta=0.1$, the communicative success is higher than in the basic experimen
 \label{f:lex:csA01}
 \end{figure}
 
- Figure \ref{f:lex:A} (a) shows that  when $0.2 \leq \eta \leq 0.9$ the communicative success seems to be increasing slightly. Differences, however are hardly significant. When comparing the case where $\eta=0.2$ with $\eta=0.9$, the difference has a significance of $p=0.0892$. Nevertheless, the increase really appears to be there. 
+\figref{f:lex:A} (a) shows that  when $0.2 \leq \eta \leq 0.9$ the communicative success seems to be increasing slightly. Differences, however are hardly significant. When comparing the case where $\eta=0.2$ with $\eta=0.9$, the difference has a significance of $p=0.0892$. Nevertheless, the increase really appears to be there. 
 
 \subsection{Discussion}
 
