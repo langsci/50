@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{LSP/langsci}[2014/11/27 Language Science Press]
+\ProvidesClass{LSP/langsci}[2015/07/09 Language Science Press]
 
 % Default values:
 \usepackage{xspace}
@@ -226,9 +226,10 @@
 \ifxetex\else\ClassError{LSP/langsci}{Please use XeLaTeX!}{}\fi
 	
 \usepackage{amssymb} % has to be loaded before other stuff
+\usepackage{amsmath} % has to be loaded before mathspec
 % \usepackage{dtklogos}\newcommand{\xelatex}{\XeLaTeX\xspace}	% the XeLaTeX symbol	
 \usepackage{mathspec}
-\usepackage{metalogo}\newcommand{\xelatex}{\XeLaTeX\xspace}	% needs to be loaded after mathspec (fontspec compatibility)
+\usepackage{metalogo}\newcommand{\xelatex}{\XeLaTeX\xspace}
 \newcommand{\fontpath}{./LSP/lsp-fonts/}
 
 \setsansfont[
@@ -241,14 +242,19 @@
 	]{Arimo_B.ttf}
 		
 \setmonofont[
-	Ligatures={TeX},Scale=0.9,Path=\fontpath,
+	Ligatures={TeX},Scale=MatchLowercase,Path=\fontpath,
 	BoldFont = FreeMonoBold_B.otf ,
 	SlantedFont = FreeMonoOblique_B.otf ,				
 	BoldSlantedFont = FreeMonoBoldOblique_B.otf 		
 	]{FreeMono_B.otf}
+% \setmonofont[
+% 	Ligatures={TeX},Scale=MatchLowercase,Path=\fontpath,
+% 	BoldFont = DejaVuSansMono-Bold.ttf ,
+% 	SlantedFont = DejaVuSansMono-Oblique.ttf ,				
+% 	BoldSlantedFont = DejaVuSansMono-BoldOblique.ttf 		
+% 	]{DejaVuSansMono.ttf}
 
-
-\setallmainfonts(Digits,Latin)[
+\setallmainfonts(Digits,Latin,Greek)[
 	Ligatures={TeX,Common},
 	Path=\fontpath,
 	PunctuationSpace=0,							
@@ -450,7 +456,7 @@ al desirabilite de un nov lingua franca: On refusa continuar payar custosi tradu
 	%\let\citew=\citealt
 \fi
 
-
+\let\cite=\citet 	% in order to prevent inconsistencies between \cite and \citet
 
 % penalties against widows and orphans in bibliography
 % http://tex.stackexchange.com/questions/51257/how-can-i-force-bibliography-items-not-to-be-split-across-pages
@@ -517,13 +523,20 @@ al desirabilite de un nov lingua franca: On refusa continuar payar custosi tradu
 		\fi
 	}
 
+\newcommand{\lsLanguageIndexTitle}{Language index}	% This can be changed according to the language.
+\newcommand{\lsSubjectIndexTitle}{Subject index}
+\newcommand{\lsNameIndexTitle}{Name index}
+
+\AtBeginDocument{
 \makeindex
-\newindex{lan}{ldx}{lnd}{Language index}
+\newindex{lan}{ldx}{lnd}{\lsLanguageIndexTitle}
 % \newindex{aut}{adx}{and}{Name index}
-\newindex{sbj}{sdx}{snd}{Subject index}
-\renewindex{default}{adx}{and}{Name index} %biblatex can only deal with the default index
+\newindex{sbj}{sdx}{snd}{\lsSubjectIndexTitle}
+\renewindex{default}{adx}{and}{\lsNameIndexTitle} %biblatex can only deal with the default index
 \newindex{wrd}{wdx}{wnd}{Expression index}
 \newindex{rwrd}{rdx}{rnd}{Reverse expression index}
+}
+
 
 \indexproofstyle{\setlength{\overfullrule}{0pt}\raggedright\footnotesize}
 
@@ -780,7 +793,7 @@ al desirabilite de un nov lingua franca: On refusa continuar payar custosi tradu
 \newcommand{\AuthorAffiliation}{
 	\renewcommand{\and}{\newline\newline} 
 	\renewcommand{\lastand}{\newline\newline} 
-	\renewcommand{\affiliation}[1]{\\[0.5ex]{\large ##1}}}
+	\renewcommand{\affiliation}[1]{\\[0.5ex]{\normalsize ##1}}}
 \newcommand{\lsCollectionPaperHeaderAuthor}{{%
 	\renewcommand{\newlineCover}{}%
 	\renewcommand{\newlineTOC}{}%
@@ -798,13 +811,14 @@ al desirabilite de un nov lingua franca: On refusa continuar payar custosi tradu
 \newcommand{\lsCollectionPaperTitle}{{%
 	\renewcommand{\newlineTOC}{}
 	\renewcommand{\newlineCover}{\\}
-	\iflsCollectionChapter 
+	\iflsCollectionChapter
+		\vspace*{-2\baselineskip} 
 		{\LARGE Chapter \thechapter}\newline\newline\fi
 	\@title}}
 \newcommand{\lsCollectionPaperAuthor}{{%
 	\renewcommand{\newlineTOC}{}
 	\renewcommand{\newlineCover}{\\[0.5ex]}
-	\AuthorAffiliation\LARGE\@author}}
+	\AuthorAffiliation\Large\@author}}
 \newcommand{\lsCollectionPaperCitation}{\scalebox{1.2}{
 	\includegraphics{\logopath/langsci_spinelogo_nocolor.pdf}}%
 	\hspace{0.8em}%
@@ -977,19 +991,19 @@ al desirabilite de un nov lingua franca: On refusa continuar payar custosi tradu
 	
 	% Guiding Lines
 	%\draw [red, thick, dashed] (lspcls_covertitle.west) -- (lspcls_seriesinfo.west);
-
-%	\node [below right=17mm and 17mm of current page.north west] (GL1) {};
-%	\node [above left=17mm and 17mm of current page.south east] (GL2) {};
-%	\draw [dashed, orange, thick] (GL1) -| (GL2) -| (GL1);
-%	
+	
+	%	\node [below right=17mm and 17mm of current page.north west] (GL1) {};
+	%	\node [above left=17mm and 17mm of current page.south east] (GL2) {};
+	%	\draw [dashed, orange, thick] (GL1) -| (GL2) -| (GL1);
+	%	
 	
 	\end{tikzpicture} 
 	\end{titlepage}
 	\end{document}     % the cover and nothing else.
-\fi	
-
-\ifx\lsOutput\lsOutputCoverCS	 			 % only if output=covercs 	
-\renewcommand{\maketitle}{}  				 % no need for this 			
+	\fi	
+	
+	\ifx\lsOutput\lsOutputCoverCS	 			 % only if output=covercs 	
+	\renewcommand{\maketitle}{}  				 % no need for this 			
 	\StrLen{\@subtitle}[\subtitleStrLen]     % check if a subtitle exists
 	\pagestyle{empty}
 	\pgfdeclarelayer{lspcls_bg} % Please make sure to never use lspcls_... PGF layers in any document
@@ -1036,7 +1050,7 @@ al desirabilite de un nov lingua franca: On refusa continuar payar custosi tradu
 	\end{tikzpicture} 
 	\end{titlepage}
 	\end{document}     % the cover and nothing else.
-\fi		
+	\fi		
 	
 
 \end{titlepage}
