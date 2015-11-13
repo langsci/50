@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{LSP/langsci}[2015/07/09 Language Science Press]
+\ProvidesClass{LSP/langsci}[2015/11/09 Language Science Press]
 
 % Default values:
 \usepackage{xspace}
@@ -22,7 +22,7 @@
 \newif\iflsShowIndex \lsShowIndexfalse
 
 \newif\iflsIndex \lsIndextrue
-\newif\iflsBiblatex \lsBiblatexfalse
+\newif\iflsBiblatex \lsBiblatextrue
 \newif\iflsCollection \lsCollectionfalse
 \newif\iflsCollectionChapter \lsCollectionChapterfalse
 \newif\iflsCollectionTOCLong \lsCollectionTOCLongfalse
@@ -70,23 +70,25 @@
 	 \lsDrafttrue
 	 \overfullrule=5pt	}	% to indicate overfull hboxes
 \DeclareVoidOption{openreview}{
-	\lsOpenReviewtrue
+	\lsOpenReviewtrue%
 	\AtBeginDocument{\renewcommand{\lsISBN}{000-0-000000-00-0}}}
 \DeclareVoidOption{noindex}{  			
-	\lsIndexfalse }
+	\lsIndexfalse}
 \DeclareVoidOption{showindex}{  			
-	\lsShowIndextrue }
+	\lsShowIndextrue}
 \DeclareVoidOption{biblatex}{  			
 	\lsBiblatextrue}
+\DeclareVoidOption{bibtex}{  			
+	\lsBiblatexfalse}
 \DeclareVoidOption{newtxmath}{  			
 	\lsNewtxmathtrue}
 \DeclareVoidOption{collection}{  			
 	\lsCollectiontrue}
 \DeclareVoidOption{collectionchapter}{  			
-	\lsCollectiontrue
+	\lsCollectiontrue%
 	\lsCollectionChaptertrue}
 \DeclareVoidOption{collectiontoclong}{  			
-	\lsCollectiontrue
+	\lsCollectiontrue%
 	\lsCollectionTOCLongtrue}
 \ProcessKeyvalOptions{langsci}
 
@@ -98,6 +100,7 @@
 	index=totoc,
 	%chapterprefix=true,
 	%draft=yes,
+	%appendixprefix
 	]{scrbook}
 
 
@@ -131,16 +134,23 @@
 %    Page size and text area:
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
- 
+\newlength{\csspine} 
+\newlength{\bodspine}
+        \newlength{\seitenbreite}
+        \newlength{\seitenhoehe}
+        \newlength{\spinewidth}
+        \newlength{\totalwidth}
+        \newlength{\totalheight}
+
+
+
+
+
  \ifx\lsOutput\lsOutputCoverCS % if output = cover; This is the CreateSpace Version 
 	\input{./lengths.tex}
  
- 	\newlength{\seitenbreite}
- 	\newlength{\seitenhoehe}
- 	\newlength{\spinewidth}
- 	\newlength{\totalwidth}
- 	\newlength{\totalheight}
- 	\newlength{\bleed}{3.175mm}
+ 	\newlength{\bleed}
+ 	\setlength{\bleed}{3.175mm}
  	\setlength{\seitenbreite}{169.9mm}
  	\setlength{\seitenhoehe}{244.1mm}
  	
@@ -168,13 +178,8 @@
 
   \input{./lengths.tex}
   
-  \newlength{\seitenbreite}
-  \newlength{\seitenhoehe}
-  \newlength{\spinewidth}
-  \newlength{\totalwidth}
   \newlength{\bodfold}
   \newlength{\totalspine}
-  %\newlength{\totalheight}
   \setlength{\bodfold}{8mm}
   \setlength{\seitenbreite}{192mm}
   \setlength{\seitenhoehe}{280mm} % For BOD: Hardcover, Gerader Rücken, Kaschiert, papier 80g/m², weiß
@@ -229,7 +234,6 @@
 \usepackage{amsmath} % has to be loaded before mathspec
 % \usepackage{dtklogos}\newcommand{\xelatex}{\XeLaTeX\xspace}	% the XeLaTeX symbol	
 \usepackage{mathspec}
-\usepackage{metalogo}\newcommand{\xelatex}{\XeLaTeX\xspace}
 \newcommand{\fontpath}{./LSP/lsp-fonts/}
 
 \setsansfont[
@@ -247,13 +251,14 @@
 % 	SlantedFont = FreeMonoOblique_B.otf ,				
 % 	BoldSlantedFont = FreeMonoBoldOblique_B.otf 		
 % 	]{FreeMono_B.otf}
-
 \setmonofont[
 	Ligatures={TeX},Scale=MatchLowercase,Path=\fontpath,
 	BoldFont = DejaVuSansMono-Bold.ttf ,
 	SlantedFont = DejaVuSansMono-Oblique.ttf ,				
 	BoldSlantedFont = DejaVuSansMono-BoldOblique.ttf 		
 	]{DejaVuSansMono.ttf}
+
+
 
 \setallmainfonts(Digits,Latin,Greek)[
 	Ligatures={TeX,Common},
@@ -269,6 +274,8 @@
 \iflsNewtxmath							% some users have problems when installing newtxmath
 	\usepackage[libertine]{newtxmath}
 \fi 	
+
+\usepackage{metalogo}\newcommand{\xelatex}{\XeLaTeX\xspace}	
 
 \let\oldtabular\tabular	% number in tabulars
 \let\endoldtabular\endtabular
@@ -466,7 +473,9 @@ al desirabilite de un nov lingua franca: On refusa continuar payar custosi tradu
     \clubpenalty10000
     \@clubpenalty \clubpenalty
     \widowpenalty10000}
-
+ 
+% change the default heading from "Bibliography" "List of references"
+\defbibheading{references}{\chapter{References}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -482,6 +491,29 @@ al desirabilite de un nov lingua franca: On refusa continuar payar custosi tradu
 \renewcommand{\fps@table}{htbp}
 
 \usepackage{booktabs} %for nicer lines
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%    Appendices:
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\appto\appendix{%
+	%% format of the appendix title page
+	\renewcommand*{\chapterformat}{%
+		\mbox{\chapapp~\thechapter\autodot:\enskip}%
+	}
+	%% format of the TOC entry
+	\renewcommand{\addchaptertocentry}[2]{
+		\ifstr{#1}{}{%
+		\addtocentrydefault{chapter}{}{#2}%
+		}{%
+		\addtocentrydefault{chapter}{}{\chapapp~#1: #2}%
+		}%
+	}
+}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -617,12 +649,10 @@ al desirabilite de un nov lingua franca: On refusa continuar payar custosi tradu
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-
-
 \usepackage[
 	bookmarks=true,bookmarksopen=true,bookmarksopenlevel=1,%
 	bookmarksdepth=5,
+	bookmarksnumbered=true,
 	hyperindex=true,%
 	breaklinks=true,
 	draft=false,
@@ -654,7 +684,9 @@ al desirabilite de un nov lingua franca: On refusa continuar payar custosi tradu
 \newcommand{\lsEditorSuffix}{}   
 
 \iflsCollection  	% for collections: set \lsEditorSuffix depending on \@author
-\AtBeginDocument{	
+\AtBeginDocument{
+	\renewcommand{\newlineCover}{}
+	\renewcommand{\newlineSpine}{}	
 	\IfSubStr{\@author}{\&}	 	% if \@author contains \&
 		{\renewcommand{\lsEditorSuffix}{(eds.)}}
 		{\IfSubStr{\@author}{,}	% if \@author contains ,
@@ -961,9 +993,11 @@ al desirabilite de un nov lingua franca: On refusa continuar payar custosi tradu
 	% Text and Graphics Layer
 	
 	% Spine
+	\renewcommand{\newlineCover}{}
 	\node [above = 7.5mm of lspcls_bgspline.south] (lspcls_splinelogo) {\color{\lsSeriesColor}\includegraphics{./LSP/lsp-logos/langsci_spinelogo_nocolor.pdf}};
 	\node [font=\fontsize{18pt}{14pt}\selectfont, above left = 15mm and 4mm of lspcls_splinelogo.north, rotate=270] (lspcls_splinetitle) {\color{\lsSeriesColor} \lsSpineAuthorFont{\lsSpineAuthor} \hspace{13mm} \lsSpineTitleFont{\@title}}; 
-	
+	\renewcommand{\newlineCover}{\\}
+
 	% Book Cover
 	
 	\newcommand{\lsCoverFontColour}{white}
@@ -1020,8 +1054,10 @@ al desirabilite de un nov lingua franca: On refusa continuar payar custosi tradu
 	% Text and Graphics Layer
 	
 	% Spine
+	\renewcommand{\newlineCover}{}
 	\node [above = 10.675mm of lspcls_bgspline.south] (lspcls_splinelogo) {\color{\lsSeriesColor}\includegraphics{./LSP/lsp-logos/langsci_spinelogo_nocolor.pdf}};
-	\node [font=\fontsize{18pt}{14pt}\selectfont, above left = 15mm and 4mm of lspcls_splinelogo.north, rotate=270] (lspcls_splinetitle) {\color{\lsSeriesColor} \lsSpineAuthorFont{\lsSpineAuthor} \hspace{13mm} \lsSpineTitleFont{\@title}}; 
+	\node [font=\fontsize{18pt}{14pt}\selectfont, above left = 15mm and 4mm of lspcls_splinelogo.north, rotate=270] (lspcls_splinetitle) {\color{\lsSeriesColor} \lsSpineAuthorFont{\lsSpineAuthor} \hspace{13mm} \lsSpineTitleFont{\@title}};
+	\renewcommand{\newlineCover}{\\} 
 	
 	% Book Cover
 	
@@ -1187,7 +1223,7 @@ Typesetting:
 Proofreading:
 \@proofreader \\
 \fi
-Fonts: Linux Libertine, Arimo \\
+Fonts: Linux Libertine, Arimo, DejaVu Sans Mono\\
 Typesetting software: \XeLaTeX
 
 \bigskip
@@ -1364,7 +1400,7 @@ guarantee the accuracy of such information thereafter.
 	\StrSubstitute{\editorTemp}{\&}{ and }[\editorTemp]
 
 	%% write bib entry to file
-	\immediate\write\tempfile{@incollection{#1,author={\authorTemp},title={\@title},booktitle={\lsCollectionTitle},editor={\editorTemp},publisher={Language Science Press},Address={Berlin},year=2014,pages={\lsCollectionPaperFirstPage --\lsCollectionPaperLastPage},options={skipbib=true}}}
+	\immediate\write\tempfile{@incollection{#1,author={\authorTemp},title={\@title},booktitle={\lsCollectionTitle},editor={\editorTemp},publisher={Language Science Press},Address={Berlin},year=\the\year,pages={\lsCollectionPaperFirstPage --\lsCollectionPaperLastPage},options={skipbib=true}}}
 
 	%\printbibliography[heading=subbibliography,notkeyword=this]  
 	\end{refsection}
