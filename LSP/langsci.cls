@@ -258,13 +258,10 @@
 	BoldSlantedFont = DejaVuSansMono-BoldOblique.ttf 		
 	]{DejaVuSansMono.ttf}
 
-
-
 \setallmainfonts(Digits,Latin,Greek)[
 	Ligatures={TeX,Common},
 	Path=\fontpath,
 	PunctuationSpace=0,							
-	%Numbers={OldStyle,Proportional},				% for tables use \addfontfeatures{Numbers={Monospaced,Lining}}
 	Numbers={Proportional},	% normal numbers			% for tables use \addfontfeatures{Numbers={Monospaced,Lining}}
 	BoldFont = LinLibertine_RZ_B.otf ,				% semi-bold
 	ItalicFont = LinLibertine_RI_B.otf ,			
