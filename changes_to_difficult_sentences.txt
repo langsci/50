@@ -1,0 +1,9 @@
+§ 5.4.2
+
+"The experiment where lateral inhibition is absent, also most measures are sim-
+ilar to ix from the previous section" --> "IN the experiment where ... is absent, most measures are ALSO similar to ix from ..."
+
+
+"The fact that when the robots mismatch in referent word-form
+adoption benefits the communicative success provides a strong reason why feed-
+back is needed in the guessing game." --> "The fact that [] the robots['] mismatch ..."
