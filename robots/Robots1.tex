@@ -11,7 +11,7 @@ The outline of the experiments is discussed in \chapref{ch:lg}; this chapter is 
 The environment that has been used for the experiments in the past varied across some of the experiments. The environment in early experiments \citep{steelsvogt:1997,vogt:1998b,vogt:1998a} had different light sources than the current environment. Furthermore, the size of the environment shrinked from $5\cdot 5 m^2$ to $2.5\cdot 2.5 m^2$. In the current environment there are four different white light sources, each placed at a different height (\figref{f:robots:envir}).
 
 \begin{figure}[t]
-\centerline{\includegraphics[width=\textwidth]{robots//environment.eps}}
+\centerline{\includegraphics[width=8cm]{robots//environment.eps}}
 \caption{The robots in the environment as is used in the experiments.}
 \label{f:robots:envir}
 \end{figure}
@@ -24,7 +24,7 @@ The boxes are placed such that the height of the slit varied per light source. T
 \section{The robots}\label{s:robots:robots}
 
 \begin{figure}[t]
-\centerline{\includegraphics[width=12cm]{robots//robot.eps}}
+\centerline{\includegraphics[width=8cm]{robots//robot.eps}}
 \caption{One of the {\sc lego} robots used in the experiments.}
 \label{f:robots}
 \end{figure}
@@ -36,7 +36,7 @@ In this section the set-up of the sensors and actuators of the robots are discus
 \subsection{The sensors and actuators}\label{s:robots:sensors}
 
 \begin{figure}[t]
-\centerline{\includegraphics[width=\textwidth]{robots//schema_robots_exp2.eps}}
+\centerline{\includegraphics[width=8cm]{robots//schema_robots_exp2.eps}}
 \caption{A schematic overview of the basic set-up of the robots that are used in the experiments.}
 \label{f:robots:robots_general}
 \end{figure}
@@ -50,7 +50,7 @@ Below a more detailed description of the most important sensors and actuators ar
 \item[The bumpers] The robots have four bumpers that are used for touch based obstacle avoidance; two on the front and two on the back of the robot, both left and right. Each bumper is a binary switch: when it is pressed it returns $1$, else it returns $0$. The bumpers have a spanning construction of {\sc lego} (see \figref{f:robots:front} and \ref{f:robots:radiolink}). If a robot bumps with this construction into an obstacle. The program can then react on the sensed collision.
 \item[The infrared module] Whereas the bumpers are simple binary sensors, the infrared module \figref{f:robots:front} is more complex. The infrared module consists of infrared emitters and sensors. The emitters are light emitting diodes emitting infrared. The infrared sensors themselves are sensors that can be found in e.g. television sets. They detect light at infrared wavelengths and send a signal to the {\sc smbii} that is proportional to the intensity of the infrared. The sensors are mounted such that they can discriminate infrared coming from the left, centre and right sides in front of the robot. The sensors are not calibrated in the sense that one can calculate the exact angle from where the infrared is coming or from what distance. Also the  positions of the sensors are not exactly symmetric, due to some physical limitations of the sensors and the {\sc lego} construction. \citet{vogt:1997} discusses some practical problems concerning the modulation and characteristics of the infrared module in detail.
 
-\item[The radio link] The radio link module is a transmitter/receiver device designed to connect with the {\sc smbii} (see \figref{f:robots:radiolink}). The module is a Radiometrix {\scshape bm}-{\oldstylenums 433}{\scshape f} module with {\scshape rx} (receive) and {\scshape tx} (transmission) connections. The module can send up to 40 Kbit/s, but is used at 9.6 Kbit/s. 
+\item[The radio link] The radio link module is a transmitter/receiver device designed to connect with the {\sc smbii} (see \figref{f:robots:radiolink}). The module is a Radiometrix {\scshape bm}-\oldstylenums{433}{\scshape f} module with {\scshape rx} (receive) and {\scshape tx} (transmission) connections. The module can send up to 40 Kbit/s, but is used at 9.6 Kbit/s. 
 
 Every clock cycle of the {\sc smbii} a packet of messages can be sent. A packet can consist of a maximum of 31 messages each up to 127 bytes long. A message has a transmission {\scshape id} and an destination address, which define the sender and receiver(s) of the message.  It also has a bit defining the reliability of the transmission; this bit has to be set to {\it unreliable}, i.e. to $0$, because the reliability protocol has not been implemented in the radio link kernel. This has the consequence that if a message is sent, it is not sure if the message arrives at its destination. But {\em when} it arrives, the message arrives error-less. About 5~\% of the messages sent do not arrive at their destination.
 
@@ -113,16 +113,16 @@ This subsection introduced the sensorimotor equipment that the robot carries in 
 \subsection{Sensor-motor board II}\label{setup:smbii}
 
 
-The computing hardware of the robots is a sensorimotor board, called the {\sc smbii}, which is developed at the {\scshape vub ai} Lab by Dany \citet{vereertbrugghen:1996}. It consists of an {\scshape add-on smb-{\oldstylenums 2} board} and a Vesta Technologies {\scshape sbc}{\oldstylenums 332} micro controller board.
+The computing hardware of the robots is a sensorimotor board, called the {\sc smbii}, which is developed at the {\scshape vub ai} Lab by Dany \citet{vereertbrugghen:1996}. It consists of an {\scshape add-on smb-{\oldstylenums 2} board} and a Vesta Technologies {\scshape sbc}\oldstylenums{332} micro controller board.
 
 \begin{figure}
 \centering
 \subfigure[Vesta board]{\includegraphics[width=.45\textwidth]{robots//vesta.eps}\label{f:vesta}}
 \subfigure[\textsc{smb}-{\oldstylenums 2} add-on]{\includegraphics[width=.45\textwidth]{robots//smb2.eps}\label{f:smbii}}
-\caption{The two components of the {\sc smbii} board: (a) the Vesta Technologies {\scshape sbc}{\oldstylenums 332} micro controller board, and (b) the add-on {\sc smb}-{\oldstylenums 2} sensorimotor board.}
+\caption{The two components of the {\sc smbii} board: (a) the Vesta Technologies {\scshape sbc}\oldstylenums{332} micro controller board, and (b) the add-on {\sc smb}-{\oldstylenums 2} sensorimotor board.}
 \end{figure}
 
-The Vesta board (see \figref{f:vesta}) contains a Motorola \textsc{mc}{\oldstylenums 68332} microcontroller, {128} {\footnotesize k}{\scshape b} {\scshape rom} and {1} {\scshape mb ram}.\footnote{In the original version of the {\sc smbii} there were only {256} {\scriptsize k}{\scshape b} {\scshape ram} \citep{vereertbrugghen:1996}.} The board's micro-controller runs at 16.78 {\scshape mh}{\footnotesize z} at 5 Volt and everything is powered by a pack of rechargeable nickel--cadmium batteries.
+The Vesta board (see \figref{f:vesta}) contains a Motorola \textsc{mc}\oldstylenums{68332} microcontroller, {128} {\footnotesize k}{\scshape b} {\scshape rom} and {1} {\scshape mb ram}.\footnote{In the original version of the {\sc smbii} there were only {256} {\scriptsize k}{\scshape b} {\scshape ram} \citep{vereertbrugghen:1996}.} The board's micro-controller runs at 16.78 {\scshape mh}{\footnotesize z} at 5 Volt and everything is powered by a pack of rechargeable nickel--cadmium batteries.
 
 The add-on {\sc smb}-{\oldstylenums 2} board (\figref{f:smbii}) contains several {\scshape i/o} chips, bus controllers and connectors. The {\sc smbii} low-level program is run on the kernel and it can interface a user program written in any language as long a the kernel calls are written in \textsc{c}  \citep{vereertbrugghen:1996}. The program that is run on the {\sc smbii} for these experiments is written in the Process Description Language {\sc pdl}. 
 \index{SMBII}

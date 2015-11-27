@@ -157,23 +157,6 @@ The experiments of this section all investigate the impact from physical interac
 
 For all the experiments, different sensory data had to be recorded. Investigating the sensory data revealed the statistics given in \tabref{t:par:stats}.
 
-\begin{table}
-\centering
-\begin{tabular}{lr@{~}d{3}d{3}d{2}d{2}d{2}}
-\lsptoprule
-Exp & \#Sit & \multicolumn{1}{r}{$\langle | Cxt | \rangle_{r0}$} & \multicolumn{1}{r}{$\langle | Cxt | \rangle_{r1}$} & \multicolumn{1}{r}{APS (\%)} & \multicolumn{1}{r}{$U_{r0}$ (\%)} & \multicolumn{1}{r}{$U_{r1}$ (\%)}\\\midrule
-B & 1017 & 3.33 & 3.54 & 29.1 & 81.1 & 78.0\\%\hline
-WOG & 606 & 3.64 & 3.83 & 26.8 & 89.7 & 82.4\\%\hline
-NG & 934 & 3.28 & 3.49 & 29.6 & 80.9 & 77.9\\%\hline
-A & 1360 & 3.55 & 3.35 & 29.0 & 72.2 & 76.4\\%\hline
-RD & 953 & 3.53 & 3.48 & 28.5 & 63.9 & 67.9\\%\hline
-DE & 980 & 2.86 & 2.90 & 34.7 & 75.7 & 73.8\\%\hline
-\lspbottomrule
-\end{tabular}
-\caption{The statistics of the sensory data of the experiments investigating the physical interactions and conditions. The columns display the experiments (Exp), the number of situations recorded (\#Sit), the context size of robots $r0$ and $r1$ ($\langle | Cxt | \rangle_{r}$), the a priori success {\scshape (aps)} and the potential understandability of the two robots ($U_{r}$). The basic experiment (\textsc{b}) is added for comparison.}
-\label{t:par:stats}
-\end{table}
-
 Looking at \tabref{t:par:stats}, one can already see some interesting results. The {\scshape wog} experiment reveals highest potential understandability. It also has a context size closer to 4 than in the other experiments. Apparently, the robots detect the four referents better when they rotate slower. 
 
 The {\scshape ng} experiment reveals data similar to the basic experiment. This is not surprising, since the only methodological difference with the basic experiment is taxis, which should not influence the grounding. Moreover, the basic experiment is recorded immediately after this experiment, so the physical condition of the gearing were similar.\index{data set!gearing} Experiment {\scshape a} has lower understandability. Apparently the warping during acceleration has some influence. {\scshape rd} has most influence on the data. Although the context size is similar (and thus the a priori success), the potential understandability is much lower. It seems there is more confusion. Making the environment dynamic {\scshape (de)} has a logical consequence that the context size is almost 3, making the a priori success $\pm 35$\%. The understandability is lower than in the basic experiment. So, how does the ontology and lexicon evolve in these experiments? The results are shown in \figref{f:par:int} and \tabref{t:par:int}.
@@ -223,6 +206,23 @@ C1       &0.809 & $\pm$ & 0.00&0.778 & $\pm$ & 0.00&0.812 & $\pm$ & 0.008\\%\hli
 \end{tabular}
 \caption{The global averaged results of the experiments concerning physical conditions and interactions.}
 \label{t:par:int}
+\end{table}
+
+\begin{table}
+	\centering
+	\begin{tabular}{lr@{~}d{3}d{3}d{2}d{2}d{2}}
+		\lsptoprule
+		Exp & \#Sit & \multicolumn{1}{r}{$\langle | Cxt | \rangle_{r0}$} & \multicolumn{1}{r}{$\langle | Cxt | \rangle_{r1}$} & \multicolumn{1}{r}{APS (\%)} & \multicolumn{1}{r}{$U_{r0}$ (\%)} & \multicolumn{1}{r}{$U_{r1}$ (\%)}\\\midrule
+		B & 1017 & 3.33 & 3.54 & 29.1 & 81.1 & 78.0\\%\hline
+		WOG & 606 & 3.64 & 3.83 & 26.8 & 89.7 & 82.4\\%\hline
+		NG & 934 & 3.28 & 3.49 & 29.6 & 80.9 & 77.9\\%\hline
+		A & 1360 & 3.55 & 3.35 & 29.0 & 72.2 & 76.4\\%\hline
+		RD & 953 & 3.53 & 3.48 & 28.5 & 63.9 & 67.9\\%\hline
+		DE & 980 & 2.86 & 2.90 & 34.7 & 75.7 & 73.8\\%\hline
+		\lspbottomrule
+	\end{tabular}
+	\caption{The statistics of the sensory data of the experiments investigating the physical interactions and conditions. The columns display the experiments (Exp), the number of situations recorded (\#Sit), the context size of robots $r0$ and $r1$ ($\langle | Cxt | \rangle_{r}$), the a priori success {\scshape (aps)} and the potential understandability of the two robots ($U_{r}$). The basic experiment (\textsc{b}) is added for comparison.}
+	\label{t:par:stats}
 \end{table}
 
 \begin{table}
