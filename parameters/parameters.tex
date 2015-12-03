@@ -88,6 +88,7 @@ So, although the discriminative success is lower than in the basic experiment, t
 
 \item[BIN] When examining the {\scshape bin} experiment, a first thing that strikes is the lower discriminative success ($p=0.0004$). This lower discriminative success is because it increases slower (\figref{f:cat:bin} b). It finally increases to the same level as in the basic experiment (see \figref{f:st:plot} at page \pageref{f:st:plot}).\index{binary!subspace method}
 
+\enlargethispage{1\baselineskip}
 The communicative success stays well behind the communicative success of the basic experiment ($p=0.0016$). It is not directly clear why the communicative success is about 8.5 \% lower. The communicative success appears to stop learning after 1,000 language games, although it seems to increase slowly again after 4,000 games (\figref{f:cat:bin} a). The consistency is about 0.025 lower than in the basic experiment ($p=0.0354$), but parsimony is $\pm 0.005$ higher ($p=0.0524$). Because the $p$-values are relatively high, it is difficult to assign meaning to these differences.
 
 Most significant difference is the distinctiveness, which is $\pm 0.03$ lower with a significance of $p=0.0002$. In contrast to previous plots that have been shown the distinctiveness does not grow towards a value of 1, but it stabilises around 0.97 (\figref{f:cat:bin} c). So, it seems that the meanings less reliably refer to the corresponding referents, thus indicating more one-to-many relations between a meaning and the referents. Specificity is higher than in the basic experiment, indicating that polysemy is less. This observation, however, has a low significance: $p=0.1904$. Hence lower distinctiveness might explain a lower communicative success, since a word-meaning no longer refers to one referent, which it does when $D=1$.
@@ -97,7 +98,7 @@ Most significant difference is the distinctiveness, which is $\pm 0.03$ lower wi
 \centering
 \subfigure[CS]{\includegraphics[width=.45\textwidth]{categorization/csbin.eps}}
 \subfigure[DS]{\includegraphics[width=.45\textwidth]{categorization/dsbin.eps}}\\
-\subfigure[D]{\includegraphics[width=.45\textwidth]{categorization/dbin.eps}}\\
+\subfigure[D]{\includegraphics[width=.45\textwidth]{categorization/dbin.eps}}
 \caption{The evolution of the some measures for the binary subspace method.}
 \label{f:cat:bin}
 \end{figure}
@@ -395,7 +396,7 @@ The experiments are compared with the observational game.
 
 \begin{description}
 \item[Creation probability $ix_p$] In all experiments up to now, the word-form creation probability has been $P_s=0.02$. In this experiment $P_s=0.4$. This way the speaker is less modest in inventing new word-forms when it cannot produce an utterance. \index{form!creation probability}
-\item[Lateral inhibition $ix_{li}$] In this experiment lateral inhibition of the association scores is not used. So, when an observational game is considered successful by the robots.\todo{This sentence is somehow unclear and I can't grasp its meaning} This happens when either robot performed a communication act, and hence it need not be actually successful. In that case, only the ``winning'' association score is increased. All other scores are unaltered. For the rest this experiment is equal to experiment {\bf ix}. \index{lateral inhibition}
+\item[Lateral inhibition $ix_{li}$] In this experiment lateral inhibition of the association scores is not used. So, when an observational game is considered successful by the robots, only the ``winning'' association score is increased. All other scores are unaltered. For the rest this experiment is equal to experiment {\bf ix}. \index{lateral inhibition}
 \end{description}
 
 \subsection{The results}
@@ -452,6 +453,7 @@ For experiment {$ix_p$} the communicative success and actual success are more or
 \label{f:par:FR-comp}
 \end{figure}
 
+\enlargethispage{1\baselineskip}
 More important for experiment $ix_p$ is the increase of specificity by 0.24 ($p=0.0000$). Apparently the system reduces polysemy when $P_s$ is higher. This is nicely shown by the form-referent competition diagrams of the two experiments (\figref{f:par:FR-comp}). These diagrams show the competition for a word-form that is used very frequently in both experiments. The two diagrams clearly show the difference between experiment $ix$ and $ix_p$. The word-form of experiment $ix$ is used for all four referents almost equally often. The word-form displayed for $ix_p$ clearly evolves to name {\scshape l}\oldstylenums{0} pretty stable and specific.
 
 In the experiment where lateral inhibition is absent, most measures are also similar to $ix$ from the previous section. However, both specificity and coherence is lower than in experiment $ix$. Hence when there is no lateral inhibition, more polysemy and synonymy emerges in the system.
@@ -545,7 +547,7 @@ The experiments implement the guessing game. The learning rate $\eta$ is varied 
 
 When $\eta=0.1$, the communicative success is higher than in the basic experiment ($p=0.0000$), but it is lower than when $0.2\leq\eta\leq0.9$ ($p=0.0000$ when compared to $\eta=0.2$). Furthermore, in this experiment the discriminative success and specificity are lower than when $0.2\leq\eta\leq0.9$ (again $p=0.0000$ when compared to $\eta=0.2$). However, \figref{f:lex:csA01} shows that the communication is learned when $\eta=0.1$ as well as when $\eta=0.2$. It only takes longer, so the global averages are lower. Strangely enough the discriminative success and specificity are also lower when $\eta=0.1$ than when $\eta=0.0$.It is not understood why this is the case.
 
-\figref{f:lex:A} (a) shows that  when $0.2 \leq \eta \leq 0.9$ the communicative success seems to be increasing slightly. Differences, however are hardly significant. When comparing the case where $\eta=0.2$ with $\eta=0.9$, the difference has a significance of $p=0.0892$. Nevertheless, the increase really appears to be there.\enlargethispage{2\baselineskip}
+\figref{f:lex:A} (a) shows that  when $0.2 \leq \eta \leq 0.9$ the communicative success seems to be increasing slightly. Differences, however are hardly significant.\linebreak When comparing the case where $\eta=0.2$ with $\eta=0.9$, the difference has a significance of $p=0.0892$. Nevertheless, the increase really appears to be there.\enlargethispage{2\baselineskip}
 
 \begin{figure}[H]
 	\centering
@@ -586,7 +588,7 @@ The results showed that a successful lexicon cannot be learned when the scores a
 It is surprising that the system develops more or less equally well when $\eta=0.2$ than when $\eta=0.9$. In the first case the last few interactions have much more influence on the selection than the complete history of interactions. When $\eta=0.9$ the vice versa is true. It is not clear why this is the case.
 
 
-The results of this section show that the difference between the weight with which past success influences the experiment is high.\todo{This sentence is difficult to understand} When the learning rate $\eta$ varies between 0.1 and 0.9, the success of the language games is higher than when $\eta=0.99$. In that case the system is too much based on the past and as a result the system learns too slowly.\index{learning rate|)}
+The results of this section show that the difference between the weight with which past success influences the experiment is high. When the learning rate $\eta$ varies between 0.1 and 0.9, the success of the language games is higher than when $\eta=0.99$. In that case the system is too much based on the past and as a result the system learns too slowly.\index{learning rate|)}
 
 \section{Word-form adoption}\label{s:par:adopt}
 \index{form!adoption}
@@ -662,7 +664,7 @@ Starting from the basic experiment introduced in \chapref{ch:basic}, this chapte
 
 In \sectref{s:par:cat} the influence of different categorisation schemes have been introduced and it appeared that the scheme applied in the basic experiment worked more or less the best. This categorisation scheme will be used in this chapter. 
 
-Varying physical interaction schemes on the robots contributed mainly in strategies that had negative influence on the performance (\sectref{s:par:int}). Although the significance was small, the case where taxis has been applied when the robots had new gearing appeared to be best.
+Varying physical interaction schemes on the robots contributed mainly in stra\-tegies that had negative influence on the performance (\sectref{s:par:int}). Although the significance was small, the case where taxis has been applied when the robots had new gearing appeared to be best.
 
 In \sectref{s:par:feed} the influence of joint attention and feedback has been explored. It appeared that when joint attention was applied the success rate increased enormously. However, the cost was a lower specificity.
 

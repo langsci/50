@@ -10,29 +10,28 @@ The outline of the experiments is discussed in \chapref{ch:lg}; this chapter is 
 
 The environment that has been used for the experiments in the past varied across some of the experiments. The environment in early experiments \citep{steelsvogt:1997,vogt:1998b,vogt:1998a} had different light sources than the current environment. Furthermore, the size of the environment shrinked from $5\cdot 5 m^2$ to $2.5\cdot 2.5 m^2$. In the current environment there are four different white light sources, each placed at a different height (\figref{f:robots:envir}).
 
-\begin{figure}[t]
-\centerline{\includegraphics[width=8cm]{robots//environment.eps}}
-\caption{The robots in the environment as is used in the experiments.}
-\label{f:robots:envir}
-\end{figure}
-
-
 These white light {\scshape (wl)} sources (or light sources for short) all emit their light from black cylindrical boxes with  small slits. The light sources are halogen lights and each box now has a height of 22 cm, a diameter of 16 cm and 3 horizontal slits. Each slit has its centre at a height of 13 cm (measured from the bottom of the box) and is 0.8 cm wide. Although the different slits are intersected by a bar, they can be approximated to be one slit.
 
 The boxes are placed such that the height of the slit varied per light source. The four different heights are distributed with a vertical distance of 3.9 cm. In one experiment the difference in height was changed to 2.9 cm. The robots were adjusted to this environment (or vice versa) so that the light sensors were placed at the same height as the centre of the slits.
 
-\section{The robots}\label{s:robots:robots}
-
-\begin{figure}[t]
-\centerline{\includegraphics[width=8cm]{robots//robot.eps}}
-\caption{One of the {\sc lego} robots used in the experiments.}
-\label{f:robots}
+\begin{figure}
+	\centerline{\includegraphics[width=8cm]{robots//environment.eps}}
+	\caption{The robots in the environment as is used in the experiments.}
+	\label{f:robots:envir}
 \end{figure}
 
-In the experiments two {\sc lego} robots as in \figref{f:robots} are used. Each robot has a set of sensors to observe the world. These sensors are low-level. They can only detect the intensity of light in a particular frequency domain. Other low-level sensors are used to control the robots in their movement. The sensors are connected to a dedicated sensorimotor board, the so-called {\sc smbii}. On the {\sc smbii} all sensors are read at a rate of 40 Hz. The sensor readings are processed according to the software, written in {\sc pdl} (see next section). After the sensors have been processed the {\sc smbii} outputs the actuator commands and sends its appropriate signals to the actuators. The robots are powered by a re-chargeable nickel--cadmium battery pack as used in portable computers.
+\section{The robots}\label{s:robots:robots}
+
+\enlargethispage{1\baselineskip}
+In the experiments two {\sc lego} robots as in \figref{f:robots} are used. Each robot has a set of sensors to observe the world. These sensors are low-level. They can only detect the intensity of light in a particular frequency domain. Other low-level sensors are used to control the robots in their movement. The sensors are connected to a dedicated sensorimotor board, the so-called {\sc smbii}. On the {\sc smbii} all sensors are read at a rate of 40 {\scshape h}{\scriptsize z}. The sensor readings are processed according to the software, written in {\sc pdl} (see next section). After the sensors have been processed the {\sc smbii} outputs the actuator commands and sends its appropriate signals to the actuators. The robots are powered by a re-chargeable nickel--cadmium battery pack as used in portable computers.
 
 In this section the set-up of the sensors and actuators of the robots are discussed first. Secondly the architecture of the {\sc smbii} is discussed briefly.
 
+\begin{figure}
+	\centerline{\includegraphics[width=8cm]{robots//robot.eps}}
+	\caption{One of the {\sc lego} robots used in the experiments.}
+	\label{f:robots}
+\end{figure}
 \subsection{The sensors and actuators}\label{s:robots:sensors}
 
 \begin{figure}[t]
@@ -256,7 +255,7 @@ Appendix \ref{a:pdl} presents the structure of the implemented {\sc pdl} program
 \index{behaviour-based!architecture}
 \index{behaviour-based!cognitive architecture|(}
 
-\begin{figure}[t]
+\begin{figure}
 \centerline{\includegraphics[width=9cm]{lang_games//fsa.eps}}
 \caption{A schematic overview of the developed architecture. See the text for details.}
 \label{f:architscheme}

@@ -1,7 +1,7 @@
 \documentclass[output=short   % long|short|inprep              
 			   %,blackandwhite
 			   %,smallfont
-			   ,draftmode   
+%			   ,draftmode   
 %			   ,draft
 				,leqno
 			  ]{LSP/langsci}                          
@@ -17,11 +17,9 @@
 \maketitle  
 
 \frontmatter
+\tableofcontents
 \include{preface}
 \include{acknowledgements}
-
-
-\tableofcontents    
 \mainmatter
 
 \include{introduction/introduction}
@@ -39,6 +37,12 @@
 \include{appLex}
 
 \backmatter   
+
+% ####################################################################
+\addcontentsline{toc}{chapter}{References}
+\renewcommand{\bibname}{References} % changes default name Bibliography to References
+\ohead{Bibliography}
+\printbibliography
 
 \phantomsection%this allows hyperlink in ToC to work
 \addcontentsline{toc}{chapter}{Indexes} 
@@ -60,11 +64,6 @@
 
 
 
-% ####################################################################
-\addcontentsline{toc}{chapter}{References}
-\renewcommand{\bibname}{References} % changes default name Bibliography to References
-\ohead{Bibliography}
-\printbibliography
 
                               
 \end{document}

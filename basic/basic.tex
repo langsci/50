@@ -207,7 +207,7 @@ U_r = \frac{\sum_{l=1}^L U_{r,l}}{L}
 
 The potential understandability is lower than 1, because the two robots do not always share a similar context. That this happens has already been discussed in the preceding \chapref{ch:lg}.
 
-\begin{table}
+\begin{table}[t]
 \centering
 \begin{tabular}{rd{3}@{~}c@{~}d{3}c@{~}d{3}@{~}c@{~}d{3}}
 \lsptoprule
@@ -241,7 +241,7 @@ The experiment is a guessing game with feedback obtained by means of {\scshape c
 
 \tabref{t:st:param} shows the parameter settings of the most important variables that have been introduced in \chapref{ch:lg}. Unless otherwise mentioned, the parameters are not changed in the different experiments.
 
-\begin{table}
+\begin{table}[t]
 \centering
 \begin{tabular}{ld{-1}}
 \lsptoprule
@@ -280,17 +280,13 @@ In \figref{f:st:plot} (a) the evolution of the communicative success is shown. T
 
 \figref{f:st:ds} shows the discriminative success of an experiment where all possible configurations are used in the discrimination games. The robots interacted as if they were playing language games, only they did not communicate. The speaker only categorised its selected topic, the hearer categorised all its detected segments. Note that more discrimination games are played than when the robots also communicate, since the hearer only plays a discrimination game when it receives an uttered word-form. Furthermore, since each agent plays a discrimination game every language game, the discriminative success is independent of the language games. The average distinctive success over 10 runs of 5,000 language games is $0.984 \pm 0.001$ for robot $r0$ and $0.987 \pm 0.000$ for $r1$. Due to limitations of the implementation it is difficult to extract all possible configurations, so these experiments are not used for language formation.
 
-\begin{figure}[t]
-\centerline{\includegraphics[width=9cm]{basic/dsall.eps}}
-\caption{The discriminative success of 10 runs of 5,000 language games in which only discrimination games were played (i.e. without communication). The discrimination games here considered all possible configurations of categories in their contexts.}
-\label{f:st:ds}
-\end{figure}
-
 Figures \ref{f:st:plot} (c) and (e) show that the specificity and consistency is rather good. When a communication act establishes, whether or not it is successful,\footnote{A communication act is established when the speaker produced an utterance and when the hearer found a matching {\scshape wm} association. This is independent of successful communication.} the robots' utterances specify the referents pretty well and they are also pretty consistent in naming the referent. So, in principle they mastered a good communication system.
 
 The meanings that are used almost uniquely identify a particular referent. This can be seen in \figref{f:st:plot} (d), which shows the distinctiveness of the two robots. When the robots are able to discriminate a segment corresponding to some referent, they do so rather parsimonious (i.e. they tend to use the same meanings), but not very well. The parsimony (\figref{f:st:plot} (f)) is around 0.85. 
 
 So, when the robots are successful in communicating and categorisation, they do so with high accuracy and invariance. \tabref{t:st:averages} shows the average (Avg) scores of the different measures over 10 runs of the complete experiments. All scores given with their standard deviation of the averages over the {\em population} of 10 runs. In forthcoming experiments tables and bar charts with the average scores will be the main comparison source. Plots like in \figref{f:st:plot} will only be used when it is useful to make a certain point.
+
+In \figref{f:st:cs0} the communicative success of one run is shown. It is obvious that this run shows a different evolution than the averaged evolution, as has been shown in \figref{f:st:plot}. The next section will discuss the evolution of the run for which the communicative success has just been shown.
 
 \begin{table}
 \centering
@@ -314,22 +310,25 @@ C1 & 0.811 & $\pm$ & 0.007\\%\hline
 \label{t:st:averages}
 \end{table}
 
-\begin{figure}[t]
+\begin{figure}[p]
 \centerline{\includegraphics[width=9cm]{basic/cs0.eps}}
 \caption{The communicative success of one run. The evolution shows a fast increase towards 30 \%, after which it slowly grows to 50 \% at the end. The evolution further shows a lot of fluctuations. Apparently the robots learn to communicate with ups and downs. A lot of these fluctuations are caused by polysemy and synonymy in the system as will become clear hereafter.}
 \label{f:st:cs0}
 \end{figure}
+\begin{figure}[p]
+	\centerline{\includegraphics[width=9cm]{basic/dsall.eps}}
+	\caption{The discriminative success of 10 runs of 5,000 language games in which only discrimination games were played (i.e. without communication). The discrimination games here considered all possible configurations of categories in their contexts.}
+	\label{f:st:ds}
+\end{figure}
 
-In \figref{f:st:cs0} the communicative success of one run is shown. It is obvious that this run shows a different evolution than the averaged evolution, as has been shown in \figref{f:st:plot}. The next section will discuss the evolution of the run for which the communicative success has just been shown.
-
+\clearpage
 \subsection{The ontological development}\label{s:cat:evol}
 \index{prototype!dynamics|(}
 \index{prototype|(}
 \index{ontology}
-\todo{Table 1.3 should be aligned to join Sect. 1.3.1}
 It is interesting to see how the ontology of prototypical categories develop and evolve in time.
 
-\begin{figure}[t]
+\begin{figure}
 \centering
 \subfigure[WL0-1]{\includegraphics[width=.45\textwidth]{categorization/cats0-1.eps}}
 \subfigure[WL0-2]{\includegraphics[width=.45\textwidth]{categorization/cats0-2.eps}}\\
@@ -433,7 +432,7 @@ Meaning {\scshape m}\oldstylenums{61} (\figref{f:st:compCF} d) shows a different
 \label{f:st:comp}
 \end{figure}
 
-In \figref{f:st:comp} some different competition diagrams are shown. Figure (a) shows the referent-form competition for {\scshape l}\oldstylenums{0}. The synonymy (one-to-many relation between referent and form) is high, as can be inferred from the low relative frequency of winning word-form {\it huma} and the competing elements at the bottom of the plot. Note that not all competitors are shown in this plot. There are quite some more, but these have lower frequencies than the ones that are shown. The synonymy is a result of the relatively low parsimony (i.e. one-to-many relations between referent and meaning) combined with the one-to-many relations between meaning and form. Naturally, synonymy is an antagonising force against the communicative success.\index{synonymy}
+\enlargethispage{1\baselineskip}In \figref{f:st:comp} some different competition diagrams are shown. Figure (a) shows the referent-form competition for {\scshape l}\oldstylenums{0}. The synonymy (one-to-many relation between referent and form) is high, as can be inferred from the low relative frequency of winning word-form {\it huma} and the competing elements at the bottom of the plot. Note that not all competitors are shown in this plot. There are quite some more, but these have lower frequencies than the ones that are shown. The synonymy is a result of the relatively low parsimony (i.e. one-to-many relations between referent and meaning) combined with the one-to-many relations between meaning and form. Naturally, synonymy is an antagonising force against the communicative success.\index{synonymy}
 
 Polysemy of the word-form {\it huma} is also shown in \figref{f:st:comp} (b). At first there is competition between all referents. After 1,000 language games, the tendency to use {\it huma} for naming {\scshape l}\oldstylenums{0} wins the competition. Thus influencing the specificity positively. However, the polysemy antagonises the communicative success. Polysemy is caused by a combination of one-to-many relations between form and meaning and one-to-one relations between meaning and referent, cf. \figref{f:st:comp} (c).
 
@@ -481,7 +480,7 @@ How does the lexicon and ontology grow through time? Is the growth incremental a
 	\label{f:st:growthlex}
 \end{figure}
 
-The number of meanings that are used keep on growing, although slower than in the beginning. \figref{f:st:growthlex} (b) actually shows that the 8 word-forms that have been used successfully are associated with approximately 100 meanings. So, every word-form is associated with on the average 12.5 meanings. The semiotic landscape shown in above shows that this need not be a big problem.
+\newpage The number of meanings that are used keep on growing, although slower than in the beginning. \figref{f:st:growthlex} (b) actually shows that the 8 word-forms that have been used successfully are associated with approximately 100 meanings. So, every word-form is associated with on the average 12.5 meanings. The semiotic landscape shown in above shows that this need not be a big problem.
 \index{ontology!growth|)}
 \index{lexicon!growth|)}
 \index{lexicon|)}
@@ -492,12 +491,16 @@ The experiment introduced was done with 10 runs of 5,000 language games. Most ex
 
 It is unknown exactly when the slight growth stops, but the system does seem to stabilise towards the end. As will be shown in later chapters, some experiments will stabilise before 10,000 games are played.
 
-\begin{figure}[p]
+\enlargethispage{4\baselineskip}
+\begin{figure}[H]
 \centering
 \subfigure[CS]{\includegraphics[width=.45\textwidth]{basic/cs10.eps}}
 \subfigure[DS]{\includegraphics[width=.45\textwidth]{basic/ds10.eps}}\\
 \subfigure[S]{\includegraphics[width=.45\textwidth]{basic/spec10.eps}}
-\subfigure[D]{\includegraphics[width=.45\textwidth]{basic/dist10.eps}}\\
+\subfigure[D]{\includegraphics[width=.45\textwidth]{basic/dist10.eps}}
+\end{figure}
+\begin{figure}[H]
+\centering
 \subfigure[C]{\includegraphics[width=.45\textwidth]{basic/cons10.eps}}
 \subfigure[P]{\includegraphics[width=.45\textwidth]{basic/pars10.eps}}
 \caption{The evolution of the basic experiment with runs of 10,000 language games.}

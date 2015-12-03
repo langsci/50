@@ -36,33 +36,36 @@ This chapter presents the physical interactions of the robots with their environ
 
 The goal of a language game is to communicate a name for one of the light sources that the robots can detect in their environment. To do so, both robots first have to sense their surroundings. One of the robots takes the role of the speaker, the other takes the role of hearer. The speaker selects one sensation of a light source. This light source is the subject of the communication. The speaker looks for a category that relates to the sensation of this light source. When it did this, it searches a word-form that it has associated with this category in the past. This word-form is then communicated to the hearer. 
 
+\enlargethispage{1\baselineskip}
 The hearer, who has also sensed several light sources, tries to interpret the communicated word-form. It looks in its memory if it had stored an association of this word-form with one or more meanings that relate to the sensation of the light sources. If the hearer can find a link between the word-form and some light source, the language game is successful when both robots communicated about the same light source.
 
 In the beginning of the experiments, the robots have no categories or word-forms yet. These are the things that they need to develop. So, when the robots are not able to find a suitable category or a word-form, they may expand their memory in order to do so in the future. And if they were able to do so, they will increase the strength of the used association, which increases the chance that they will be successful in the future. How they do this will be explained in detail in this chapter. In this section, the sub-tasks of a language game will be identified and organised.
 
-\begin{table}
-\centering
-\begin{tabular}{cc}
-\lsptoprule
-{\sc speaker} & {\sc hearer}\\
-\midrule
-\multicolumn{2}{c}{{Get together and align}}\\\hline
-\multicolumn{2}{c}{Sensing, segmentation and feature extraction}\\\hline
-Topic choice & --\\\hline
-{Pointing} & {Topic selection}\\\hline
-\multicolumn{2}{c}{Categorisation}\\\hline
-Production & --\\\hline
--- & Understanding\\\hline
-\multicolumn{2}{c}{Feedback}\\\hline
-\multicolumn{2}{c}{Adaptation}\\\lspbottomrule
-\end{tabular}
-\caption{The language game scenario. The ``Get together and align'' phase is done by the experimenter for practical reasons. ``Pointing'' and ``Topic selection'' may be omitted for methodological reasons. See the text for more details.}
-\label{t:scenario1}
-\end{table}
-
 
 So, how is a language game organised? \tabref{t:scenario1} shows the structure of the language game scenario. In a language game two robots -- a {\scshape speaker} and a {\scshape hearer} -- get together at close distance. In earlier experiments \citep{steelsvogt:1997} the robots came together autonomously. When sensing each other's vicinity, the speaker approached the hearer by using infrared phototaxis. When both robots were close to each other, they aligned such that they faced each other prior to the sensing. This behaviour, however, took approximately 1.5 minutes for each language game. To speed up the current experiments the robots have been brought together manually. The {\sc pdl} source code for finding each other is included in Appendix \ref{a:pdl}. For more details on this part of the language games, consult \citealt{vogt:1997}.  
 
+
+\begin{table}
+	\centering
+	\begin{tabular}{cc}
+		\lsptoprule
+		{\sc speaker} & {\sc hearer}\\
+		\midrule
+		\multicolumn{2}{c}{{Get together and align}}\\\hline
+		\multicolumn{2}{c}{Sensing, segmentation and feature extraction}\\\hline
+		Topic choice & --\\\hline
+		{Pointing} & {Topic selection}\\\hline
+		\multicolumn{2}{c}{Categorisation}\\\hline
+		Production & --\\\hline
+		-- & Understanding\\\hline
+		\multicolumn{2}{c}{Feedback}\\\hline
+		\multicolumn{2}{c}{Adaptation}\\\lspbottomrule
+	\end{tabular}
+	\caption{The language game scenario. The ``Get together and align'' phase is done by the experimenter for practical reasons. ``Pointing'' and ``Topic selection'' may be omitted for methodological reasons. See the text for more details.}
+	\label{t:scenario1}
+\end{table}
+
+\newpage
 When the robots are standing together at close distance, they acquire a spatial view of their surroundings by means of a specialised sensing task. This sensing task results in a spatial view of the robot's surroundings, which is then segmented resulting in a {\scshape set of segments} (or {\scshape context} for short). Each segment is supposed to refer to a light source as detected by the robot and is represented by a set of connected data points. These data points are sensory data that from which the noise is reduced. From these segments feature vectors are extracted that designate some properties of these segments. 
 
 The speaker chooses one segment from the context to be the topic of the language game and tries to categorise its relating feature vector by playing a discrimination game. The discrimination game results in one or more distinctive categories. The hearer identifies one or more segments from the context as a possible topic an tries to categorise its (their) related feature vector(s).
@@ -83,7 +86,7 @@ If the language game was not a success, the lexicon has to be adapted either by 
 
 \section{PDL implementation}
 
-\index{PDL|(}\index{behaviour-based!cognitive architecture|(}
+\index{PDL|(}\index{behaviour-based!cognitive architecture|(}\enlargethispage{1\baselineskip}
 To play a language game, a robot has to perform a sequence of actions. These actions need to be planned. The planning is pre-programmed as a script using finite state automata. There is a finite state automaton ({\sc fsa}) for each role the robots can play: the speaker or hearer. Each finite state automaton is active all the time and when no language game is played, both robots are in state 0. A process called \texttt{DefaultBehavior} decides when an agent goes into state 1 of the speaker-{\sc fsa} or hearer-{\sc fsa}. In each state a set of dynamic processes is activated or inhibited.\footnote{See \chapref{ch:robots} for a general presentation of the behaviour-based cognitive architecture.}
 
 How the physical behaviours of the robots are implemented in {\sc pdl} is presented in Appendix \ref{a:pdl}. \sectref{s:lg:grounded} sketches the architecture as a general architecture for developing cognitive robots. After the introduction of the architecture sensing, segmentation and pointing is discussed in detail.
@@ -128,13 +131,14 @@ rm & Right Motor\\
 ir & Infrared Emitter\\
 \lspbottomrule
 \end{tabular}
-\caption{\todo[inline]{move this to abbreviations.tex?}A list of abbreviations as used in \figref{f:architecture}.}
+\caption{A list of abbreviations as used in \figref{f:architecture}.}
 \label{t:abbr}
 \end{table}
 
 
 \figref{f:architecture} shows how the language games are implemented in the behaviour-based cognitive architecture. The architecture is built of a large set of parallel processes, which are continuously being processed. These processes, however, do model different types of behaviour and should not be viewed at one level of complexity. Rather, the processes are organised hierarchically. 
 
+\newpage
 There is a finite state automaton for the speaker role and one for the hearer. Each state of the finite state automaton activates a set of processes that are shown to the right of the finite state automaton. Those processes that are active respond to information that flows from connected sensors, actuators or other processes. All processes have been implemented in {\scshape pdl} on the real robots in previous versions \citep{steelsvogt:1997}. In the current experiments, the cognitive processes are implemented as software agents that are processed on a {\scshape pc}.
 
 There are reactive processes like taxis, rotate and obstacle-avoidance. All these processes guide the physical behaviour of the robots.
@@ -162,17 +166,17 @@ In the semiotic triangle there is a direct relation between meaning and the refe
 
 \begin{figure}[t]
 \centerline{\includegraphics[width=\textwidth]{discr_games/semiotic1.eps}}
-\caption{The semiotic landscape of a language game can be viewed as a structural coupling. In this landscape, there are two squares, representing the speaker (left) and the hearer (right). The speaker senses a topic, resulting in a perception. In the terminology of this book, this is called sensing. The perception is conceptualised (or categorised) yielding a meaning. This meaning is then verbalised by the speaker and when the hearer receives the utterance (or form), it tries to interpret this. The interpretation results in a meaning which can be applied to a perception. According to this perception, the hearer acts to identify the referent, which should be the same as the topic and thus completing the coupling. When at some point something goes wrong, the agent can adapt their memory. The errors are signalled by means of back propagation. The figure is taken from Steels 1999.\todo[inline]{there is no Steels 1999 in Bib}\index{semiotic landscape}}
+\caption{The semiotic landscape of a language game can be viewed as a structural coupling. In this landscape, there are two squares, representing the speaker (left) and the hearer (right). The speaker senses a topic, resulting in a perception. In the terminology of this book, this is called sensing. The perception is conceptualised (or categorised) yielding a meaning. This meaning is then verbalised by the speaker and when the hearer receives the utterance (or form), it tries to interpret this. The interpretation results in a meaning which can be applied to a perception. According to this perception, the hearer acts to identify the referent, which should be the same as the topic and thus completing the coupling. When at some point something goes wrong, the agent can adapt their memory. The errors are signalled by means of back propagation.\index{semiotic landscape}}
 \label{f:cm:semiotic}
 \end{figure}
 
 \subsection{Sensing, segmentation and feature extraction}\label{s:lg:perception}
 
-
 In the phase of sensing, the goal is that each robot observes its surroundings from its current physical position. To obtain a more or less identical view, the robots start close to each other. Sensing its surroundings means that the robots construct a spatial view of their environment. This spatial view is represented by the recorded sensory data. However the robots cannot obtain a spatial view directly with the sensors they have, because the sensors can only detect light intensity without spatial information. In order to get a spatial view of their environment, either the robots need to have a spatially distributed array of sensors or the robots need to move. Because of the robots' physical limitations (and the sensory-motor board in particular) it is opted to let the robots move. As a side-effect a higher resolution is obtained. To obtain a spatial view of their complete surroundings the robots rotate a full circle around their axis.
 
-The robot's observation of its surroundings results in a set of raw sensory data that represents the scene. However, in order to identify the different light sources, the robots have to find connected regions of the sensory data that relate to the sensing of these light sources. This is done by the {\itshape segmentation} process. The segmentation can result in segments of varying length. To be able to identify a good category it is more efficient to have a description in a consistent manner that designates invariant and useful properties or features of the sensation of the light source. Extracting these features is done by means of what is called {\scshape feature extraction}.
+\newpage The robot's observation of its surroundings results in a set of raw sensory data that represents the scene. However, in order to identify the different light sources, the robots have to find connected regions of the sensory data that relate to the sensing of these light sources. This is done by the {\itshape segmentation} process. The segmentation can result in segments of varying length. To be able to identify a good category it is more efficient to have a description in a consistent manner that designates invariant and useful properties or features of the sensation of the light source. Extracting these features is done by means of what is called {\scshape feature extraction}.
 
+\enlargethispage{1\baselineskip}
 The detection of the raw sensory data is done completely on-board. This data is sent to a {\scshape pc} where it is processed further. So, the segmentation and feature extraction takes place on a {\scshape pc}. This is not necessary but convenient for reasons mentioned above.
 
 \subsubsection{Sensing}
@@ -208,11 +212,12 @@ P & $t$ & $s0$ & $s1$ & $s2$ & $s3$\\
 \label{t:perception1}
 \end{table}
 
+\newpage
 These peaks can all be explained with the characteristics of the sensory channels seen in \figref{f:robots:calibration}, page \pageref{f:robots:calibration}.  The intensity of each peak is dependent on the distance of the robot to the light source. The robot clearly detects light sources $L0$ and $L3$ from nearby; the corresponding sensory channels detect high values and almost all other sensory channels show low noise values. Light sources $L1$ and $L2$ are further away. The corresponding light sensors show relative low values and some adjacent sensory channels show values that are close to the corresponding sensory channels. Values lower than $10$ between the peaks are noise values.
 \index{region of interest}
 \index{correspondence|)}
 
-\begin{figure}
+\begin{figure}[b]
 \centerline{\includegraphics[width=9cm]{lang_games/perception2.eps}}
 \caption{The sensing of the hearer in the same language game situation as in \figref{f:perception1}.}
 \label{f:perception2}
@@ -381,7 +386,7 @@ The prototypical categories are represented by prototypes and some scores: $c=\l
 \index{feature!space}
 It can be useful to define categories at different levels of generality or specificity. If two segments are very distinctive, i.e. the distance between them in the feature space is large, then these segments can be categorised using general categories. However, if the two segments are relatively close to each other in the feature space, the categories may need to be more specific. This means that the regions should be smaller. When sensing a referent under different circumstances in different language games, the extracted feature vectors of the segmented segments differ as well. To select the categories as consistent as possible for various feature vectors relating to some referent in different language games, a general category is most useful. The region of a general category is larger, thus enhancing the chance that different segments of a referent from different language games is represented with the same categories. To enable discrimination under these different conditions and allowing both generality and specificity the categories are constructed in different versions of the feature space.\footnote{Note that the term ``specificity'' is defined differently in the next chapter. There it is defined as a measure that indicates how well a robot names a referent. Here ``specificity'' is used in the more intuitive and common sense.} Each version has an increasing resolution of the feature space.
 
-If the discrimination game is a failure, the ontology has to be expanded. Some new prototypes will be constructed and stored in the robot's memory. It is done by exploiting one arbitrary dimension (or feature) of the feature vector in one of the versions of the feature space. Suppose there are versions of the feature space ${\mathcal F}_\lambda$, where each $\lambda$ designates the resolution of the feature space. In each dimension of the feature space ${\mathcal F}_\lambda$ there are a maximum of $3^\lambda$ exploitations, where $\lambda=0,1,2,\ldots$~. The choice of 3 is more or less arbitrary, but should not be too large. 
+If the discrimination game is a failure, the ontology has to be expanded. Some new prototypes will be constructed and stored in the robot's memory. It is done by exploiting one arbitrary dimension (or feature) of the feature vector in one of the versions of the feature space. Suppose there are versions of the feature space ${\mathcal F}_\lambda$, where each $\lambda$ designates the resolution of the feature space. In each dimension of the feature space ${\mathcal F}_\lambda$ there are a maximum of $3^\lambda$ exploitations, where $\lambda=0,1,2,\ldots$~. The choice of 3 is more or less arbitrary,\enlargethispage{1\baselineskip} but should not be too large. 
 
 Suppose that in the discrimination game the robot tried to categorise feature vector ${\bf f}=(f_0,\ldots,f_n)$. New categories are created now as follows:
 
@@ -535,8 +540,8 @@ At the start of the experiment the category of ${\mathcal F}_0$ is given. This c
 
 The binary subspace method differs from the binary tree method of \citet{steels:1996b} in that a category covers all the $n$ dimensions of the feature space. Steels defines categories in 1 to $n$ dimensions, by taking conjunctions of the nodes in the binary trees. Conjunctions can have nodes at different hierarchical layers. Processing all these possible categories is computationally very costly. Suppose there are six hierarchical layers in the tree (as in the prototype method, the binary subspace method has six feature spaces) and 4 dimensions, which is completely filled. Then there are $6\cdot 4=24$ one-dimensional categories. There are $6^2\cdot 2!=216$ two-dimensional categories. There are $6^3\cdot 2!=432$ three-dimensional categories and $6^4=1296$ four-dimensional categories. This makes a total of 1968 possible categories to be explored. The binary subspace method only considers $n$ dimensional conjunctions of nodes each layered at the same layer in the tree. This yields a maximum of only 6 categories to be explored.
 
-\index{adaptive subspace method}\index{De Jong, Edwin}
-The adaptive subspace method developed by Edwin De Jong also differs from the binary subspace method \citep{dejongvogt:1998,dejong:2000}. Like in the binary subspace method, De Jong splits a category from feature space ${\mathcal F}_\lambda$ in ${\mathcal F}_{\lambda}$ very similar to the binary subspace. However, De Jong's agents directly create a new category, which is the former category splitted in one dimension. Every time this is done, only two new categories are made. In the binary subspace method, more categories may be made. Another difference is that De Jong lets his agents do not create new categories every time the discrimination game fails, but it is done after a fixed number of failures. The choice which subspace is splitted and in which dimension is calculated from some statistics of previous failures to find distinctions. For a detailed explanation of the adaptive subspace method see \citealt{dejongvogt:1998} and \citealt{dejong:2000}.
+\index{adaptive subspace method}\index{de Jong, Edwin}
+The adaptive subspace method developed by Edwin de Jong also differs from the binary subspace method \citep{dejongvogt:1998,dejong:2000}. Like in the binary subspace method, de Jong splits a category from feature space ${\mathcal F}_\lambda$ in ${\mathcal F}_{\lambda}$ very similar to the binary subspace. However, de Jong's agents directly create a new category, which is the former category splitted in one dimension. Every time this is done, only two new categories are made. In the binary subspace method, more categories may be made. Another difference is that de Jong lets his agents do not create new categories every time the discrimination game fails, but it is done after a fixed number of failures. The choice which subspace is splitted and in which dimension is calculated from some statistics of previous failures to find distinctions. For a detailed explanation of the adaptive subspace method see \citealt{dejongvogt:1998} and \citealt{dejong:2000}.
 
 \begin{figure}
 \centering
@@ -590,6 +595,7 @@ The lexicon formation is based on the naming game model introduced by Luc \citet
 
 One of the issues that will be investigated in this book is what type of extra-linguistic information is necessary to guide a meaningful lexicon formation. As mentioned above and in \chapref{ch:intro}, it is not clear what extra-linguistic information infants have at their disposal when learning language. Do they establish joint attention prior to the verbal communication? Or do they receive feedback on the effect of a linguistic interaction? Or is neither at their disposal? 
 
+\enlargethispage{1\baselineskip}
 To investigate whether robots can develop a shared lexicon under these different circumstances, four types of language games have been implemented. In these language games different configurations of the availability of joint attention and feedback have been implemented as shown in \tabref{t:cm:games}. The different games can be summarised as follows:
 
 \begin{description}
@@ -680,6 +686,7 @@ Whether or not joint attention is established, the speaker will try to name the 
 
 So, when the speaker categorised the topic, which yielded a nonempty set of distinctive categories, the speaker will try to name one of these categories. Which category is selected may depend on several criteria and the selection method used. One method has been implemented that could be called a ``lazy search method''. In this method the speaker orders the categories in linear order of decreasing representation score $\mu$. Then it tries to match these categories with a lexical entry one by one until a matching association has been found.
 
+\enlargethispage{1\baselineskip}
 Suppose that $DC'=DC$ is the ordered set of distinctive categories, $L=\{\langle F_i,M_i,\sigma_i \rangle \}$ is the lexicon, $U=\mbox{nil}$ is the utterance (``nil'' means that the utterance has no value yet) and $\sigma_{\mbox{max}}=0$ is the maximum score. The algorithm, based on \citet{steels:1996a} for finding a matching entry can be described as follows:
 
 \begin{enumerate}
@@ -838,7 +845,7 @@ The way the lexicon formation is modelled, the many-to-one relations between mea
 
 In different language games, one meaning can be associated with different forms. The two robots have different categorisations of the world. Partly because they create different categories and associations, but also because in a language game, they view their world from different locations. Suppose that one robot in a language game is at a different location than in previous language games, and suppose that the other robot is in a location it has visited before. The first robot is likely to have a different categorisation of a light source than before, so it may use a different form than in other language games. But if the other robot views the light source from more or less the same location as before, it would prefer the form used in the other language games. It may not know the new form yet and might associate this one with the meaning it already had. Another reason for this one-to-many mapping is that the hearer adopts a word-form with a categorisation of an arbitrary selected segment. It may well be that this category is already associated with another word-form. Logically, if there may be both one-to-many and many-to-one mappings between meaning and form, it is likely there exist many-to-many mappings.
 
-The many-to-many mappings makes the system more complex, especially when one realises that the mappings differ per robot. The reinforcement type of learning (selection and adaptations depending on the rewards) allows the robots to converge a system where the effective associations are used more often. The robots have mechanisms to select associations that have been most effective in the past. This selection is based on the scores which are adapted according to the rewards that are given to the agents. The rewards are based on successful language games. Since a language game is successful when both robots communicate the same referent, the forms that are exchanged will be selected more and more to relate to the same referent. This is so, because in the different language games, the robots have different but returning locations. Once a language game has been successful, the used associations for the robots are reinforced. In another language game, where one robot is at the same location, while the other is not, the latter can learn that the form that is communicated relates to this new situation. If this newly learned association is applicable in a later language game, this game may be successful. Hence this association is reinforced. The more these associations are reinforced, the better the robots can deal with the different categorisations in different locations.
+The many-to-many mappings makes the system more complex, especially\linebreak when one realises that the mappings differ per robot. The reinforcement type of learning (selection and adaptations depending on the rewards) allows the robots to converge a system where the effective associations are used more often. The robots have mechanisms to select associations that have been most effective in the past. This selection is based on the scores which are adapted according to the rewards that are given to the agents. The rewards are based on successful language games. Since a language game is successful when both robots communicate the same referent, the forms that are exchanged will be selected more and more to relate to the same referent. This is so, because in the different language games, the robots have different but returning locations. Once a language game has been successful, the used associations for the robots are reinforced. In another language game, where one robot is at the same location, while the other is not, the latter can learn that the form that is communicated relates to this new situation. If this newly learned association is applicable in a later language game, this game may be successful. Hence this association is reinforced. The more these associations are reinforced, the better the robots can deal with the different categorisations in different locations.
 
 When an association is used successfully this association is reinforced, where\-as lateral associations are inhibited. So, there will be a competition between the different form-meaning associations. This appears to antagonise the force of the dynamics explained above. The adaptations are mainly made at the form-meaning layer. Nevertheless, it will be shown that the robots are capable to deal with this. Because hearer processes the data in different directions (cf. \figref{f:lg:coupling}), the selection it can make often depends on the availability of a distinctive category rather than on the selection preference in its lexicon. This is especially a strong principle when the robots use joint attention. The selection based on the scores is more important when it is not available. In this case the robots are depending on the rewards (feedback) given. Since both joint attention and feedback is provides information about the topic of the language games, the tendency to use a minimal set of forms to name a referent emerges.
 
