@@ -39,10 +39,12 @@
 \backmatter   
 
 % ####################################################################
-\addcontentsline{toc}{chapter}{References}
+%\addcontentsline{toc}{chapter}{References}
 \renewcommand{\bibname}{References} % changes default name Bibliography to References
-\ohead{Bibliography}
+\ohead{References}
 \printbibliography
+
+\cleardoublepage
 
 \phantomsection%this allows hyperlink in ToC to work
 \addcontentsline{toc}{chapter}{Indexes} 
@@ -52,11 +54,11 @@
 \ohead{Name index} 
 \printindex
   
-\phantomsection%this allows hyperlink in ToC to work
-\addcontentsline{toc}{section}{Language index}
-\ohead{Language index} 
-\printindex[lan] 
-  
+%\phantomsection%this allows hyperlink in ToC to work
+%\addcontentsline{toc}{section}{Language index}
+%\ohead{Language index} 
+%\printindex[lan] 
+%  
 \phantomsection%this allows hyperlink in ToC to work
 \addcontentsline{toc}{section}{Subject index}
 \ohead{Subject index} 

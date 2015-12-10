@@ -28,8 +28,8 @@ Fodor argues that concepts can be described by symbols that represent propositio
 
 Concepts are in this Computational Theory of Mind (as Fodor's theory sometimes is called) constructed from a set of propositions. The language of thought (and with that concepts) can, however, not be learned according to Fodor, who denies:
 
-%\index{Fodor, Jerry}
-\index{language!of thought}
+%\is{Fodor, Jerry}
+\is{language!of thought}
 
 \begin{quote}
 [r]oughly, that one can learn a language whose expressive power is greater than that of a language that one already knows. Less roughly, that one can learn a language whose predicates express extensions not expressible by those of a previously available representational system. Still less roughly, that one can learn a language whose predicates express extensions not expressible by predicates of the representational system {\em whose employment mediates the learning}. \citep[86, Fodor's italics]{fodor:1975}
@@ -45,7 +45,7 @@ According to this, the process of concept learning is the testing of hypotheses 
 
 Although the Computational Theory of Mind is controversial, there are still many scientist who adheres to this theory and not the least many {\scshape ai} researchers. This is not surprising, since the theory tries to model cognition computationally, which of course is a nice property since computers are computational devices. It will be shown however that Fodor's Computational Theory of Mind is not necessary for concept and language learning. In particular it will be shown that robots can be developed that can acquire, use and manipulate symbols which are about something that exists in the real world, {\em and} which are initially not available to the robots.
 	
-\subsection{Understanding Chinese}\index{Chinese Room|(}This so-called symbol grounding problem was made clear excellently by John R. Searle with a gedankenexperiment called the ``Chinese Room'' \citep{searle:1980}. In this experiment, Searle considers himself standing in a room in which there is a large data bank of Chinese symbols and a set of rules how to manipulate these symbols. Searle, while in the room receives symbols that represent a Chinese expression. Searle, who does not know any Chinese, manipulates these symbols according to the rules such that he can output (other) Chinese symbols as if it was responding correctly in a human like way, but only in Chinese. Moreover, this room passes the Turing test for speaking and understanding Chinese.
+\subsection{Understanding Chinese}\is{Chinese Room|(}This so-called symbol grounding problem was made clear excellently by John R. Searle with a gedankenexperiment called the ``Chinese Room'' \citep{searle:1980}. In this experiment, Searle considers himself standing in a room in which there is a large data bank of Chinese symbols and a set of rules how to manipulate these symbols. Searle, while in the room receives symbols that represent a Chinese expression. Searle, who does not know any Chinese, manipulates these symbols according to the rules such that he can output (other) Chinese symbols as if it was responding correctly in a human like way, but only in Chinese. Moreover, this room passes the Turing test for speaking and understanding Chinese.
 
 Searle claims that this room cannot understand Chinese because he himself does not. Therefore it is impossible to build a computer program that can have mental states and thus being what Searle calls a ``strong {\scshape ai}''.\footnote{It is not the purpose of this book to show that computer programs can have mental states, but to show that symbols in a robot can be about something.} It is because Searle inside the room does not know what the Chinese symbols are about that Searle concludes that the room does not understand Chinese. Searle argues with a logical structure by using some of the following premises \citep[39]{searle:1984}:
 
@@ -84,22 +84,22 @@ The reason why the phrase ``a physical system which is capable of performing cer
 
 A last point that is made in this section is that Searle does not speak about development. Could Searle learn to understand Chinese if it was in the room from its birth and that he learned to interpret and manipulate the symbols that were presented to him? It is strange that a distinguished philosopher like Searle does not understand that it is possible to develop computer programs which can learn.
 
-\index{Chinese Room|)}\index{Searle, John|)}The Chinese Room introduced the symbol grounding problem as a thought experiment that inspired Stevan Harnad to define his version of the problem \citep{harnad:1990}. Although controversial, the Chinese Room experiment showed that there are nontrivial problems arising when one builds a cognitive robot that should be able to acquire a meaningful language system. The arguments presented against the Chinese Room are the core of the argument why robots can ground language. As shall become clear, there's more to language than just symbol manipulation according to some rules.
+\is{Chinese Room|)}\ia{Searle, {John R.}}The Chinese Room introduced the symbol grounding problem as a thought experiment that inspired Stevan Harnad to define his version of the problem \citep{harnad:1990}. Although controversial, the Chinese Room experiment showed that there are nontrivial problems arising when one builds a cognitive robot that should be able to acquire a meaningful language system. The arguments presented against the Chinese Room are the core of the argument why robots can ground language. As shall become clear, there's more to language than just symbol manipulation according to some rules.
 
 \subsection{Symbol grounding: philosophical or technical?}
 
 \label{s:intro:semiotic}
 
-\index{symbol grounding problem|(}
+\is{symbol grounding problem|(}
 Although it might seem very philosophical up to now, this book in no way tries to solve the philosophical problem of what is meaning. In fact there is no attempt being made in solving any philosophical problem. The only thing that is done here is to translate a philosophical problem into a technical problem, which will be tackled in this work. The solution to the technical problem could then be the meat for the philosophers to solve their problem.
 
 
 Before discussing the symbol grounding problem in more technical detail, it is useful to come up with a working definition of what is meant with a symbol. Harnad's definition of a symbol is very much in line with the standard definition used in artificial intelligence. This definition is primarily based on physical symbol systems introduced by Newell and Simon \citet{newell:1980,newell:1990}. According to Harnad symbols are basically a set of arbitrary tokens that can be manipulated by rules made of tokens; the tokens (either atomic or composite) are ``semantically interpretable'' \citep{harnad:1990}.
 
-\index{semiotics|(}
-\index{symbol|(}
-\index{sign|see{symbol}}
-\index{Peirce, C.S.|(}
+\is{semiotics|(}
+\is{symbol|(}
+\is{sign|see{symbol}}
+\ia{Peirce, C.S.|(}
 
 In this book a definition taken from semiotics will be adopted. Following Charles Sanders Peirce and Umberto \citet{eco:1976,eco:1986} a symbol will be equalled with a \textsc{sign}. Using a different, but more familiar terminology than Peirce  \citet{noth:1990}, a sign consists of three elements \citep{chandler:1994}:\footnote{An instructive introduction into the theory of semiotics can be found on the world-wide web \citep{chandler:1994}. The work of Peirce is collected in \citealt{peirce:1931}.}
 
@@ -109,9 +109,9 @@ In this book a definition taken from semiotics will be adopted. Following Charle
 \item[Object] To which the sign refers. 
 \end{description}
 
-\index{form}
-\index{meaning}
-\index{referent}
+\is{form}
+\is{meaning}
+\is{referent}
 
 
 Rather than using Peirce's terms, the terms adopted in this book are {\scshape form} for representamen, {\scshape meaning} for interpretant and {\scshape referent} for object. The adopted terminology is in line with Steels' terminology \citep{steels:2000}. It is also interesting to note that the Peircean sign is not the same as the Saussurean sign \citep{saussure:1974}. De Saussure does not discuss the notion of the referent. In de Saussure's terminology the form is called ``signifier'' and the meaning is called the ``signified''.
@@ -128,30 +128,30 @@ In the experiments reported in this book, the robots try to develop a shared and
 
 \begin{description}
 
-\item[Referent] The referent is the real world object that is subject of the communication.\index{referent}
+\item[Referent] The referent is the real world object that is subject of the communication.\is{referent}
 
-\item[Meaning] The meaning is the categorisation that is made of the real world object and that is used in the communication.\index{meaning}
+\item[Meaning] The meaning is the categorisation that is made of the real world object and that is used in the communication.\is{meaning}
 
-\item[Form] The form is the name that is communicated. In principle its shape is arbitrary, but in a shared lexicon it is conventionalised through language use.\index{form}
+\item[Form] The form is the name that is communicated. In principle its shape is arbitrary, but in a shared lexicon it is conventionalised through language use.\is{form}
 
-\item[Symbol] A symbol is the relation between the referent, the meaning and the form as illustrated in the semiotic triangle.\index{symbol}
+\item[Symbol] A symbol is the relation between the referent, the meaning and the form as illustrated in the semiotic triangle.\is{symbol}
 
 \end{description}
 
 
-\index{semiotics|)}
-\index{symbol|)}
-\index{Peirce, C.S.|)}
+\is{semiotics|)}
+\is{symbol|)}
+\ia{Peirce, C.S.|)}
 
 
 This brings us to the technically hard part of the symbol grounding problem that remains to be solved: How can an agent construct the relations between a form, meaning and referent? In his article \citet{harnad:1990} recognises three main tasks of grounding symbols:
 
 \begin{description}
-\index{symbol grounding problem!iconisation}
+\is{symbol grounding problem!iconisation}
 \item[Iconisation]Analogue signals need to be transformed to {\scshape iconic representation} (or icons).\footnote{The terms ``icon'' and ``iconisation'', as they are used by Harnad and will be adopted here, should not be confused with Peirce's notion of these terms.} 
-\index{symbol grounding problem!discrimination}
+\is{symbol grounding problem!discrimination}
 \item[Discrimination] ``[The ability] to judge whether two inputs are the same or different, and, if different, how different they are.'' Note that in Harnad's article, discrimination is already pursued at the perceptual level. In this book, discrimination is done at the categorical level.
-\index{symbol grounding problem!identification}\index{invariance}
+\is{symbol grounding problem!identification}\is{invariance}
 \item[Identification] ``[The ability] to be able to assign a unique (usually arbitrary) response -- a ``name'' -- to a class of inputs, treating them all as equivalent or {\em invariant} in some respect.'' (Harnad \citeyear{harnad:1990}, my italics)
 \end{description}
 
@@ -168,21 +168,21 @@ Although people might disagree, for the roboticists this is not more than a tech
 
 \subsection{Grounding symbols in language}
 
-In line with the work of Luc Steels the symbols are grounded in language (see e.g. \citealt{steels:1997a,steels:2000}). Why grounding symbols in language directly and not ground the symbols first and develop a shared lexicon afterwards? Associating the grounded symbols with a lexicon is then a simple task, (see e.g. \citealt{oliphant:1997,steels:1996a}). However, as \citet{wittgenstein:1958} pointed out, the meaning of something depends on how it is used in language. It is situated in the environment of an agent and depends on the bodily experience of it. Language use gives feedback on the appropriateness of the sense that is made of a referent. So, language gives rise to the construction of meanings and the construction of meaning gives rise to language development. Hence, meaning co-evolves with language.\index{language!game}\index{co-evolution}
+In line with the work of Luc Steels the symbols are grounded in language (see e.g. \citealt{steels:1997a,steels:2000}). Why grounding symbols in language directly and not ground the symbols first and develop a shared lexicon afterwards? Associating the grounded symbols with a lexicon is then a simple task, (see e.g. \citealt{oliphant:1997,steels:1996a}). However, as \citet{wittgenstein:1958} pointed out, the meaning of something depends on how it is used in language. It is situated in the environment of an agent and depends on the bodily experience of it. Language use gives feedback on the appropriateness of the sense that is made of a referent. So, language gives rise to the construction of meanings and the construction of meaning gives rise to language development. Hence, meaning co-evolves with language.\is{language!game}\is{co-evolution}
 
 That this approach seems natural can be illustrated with Roussau's paradox. Although for communication, categorisation of reality needs to be similar to different language users, different languages do not always employ the same categorisations. For instance, there are different referential frames to categorise spatial relations in different language communities. In English there are spatial relations like {\em left}, {\em right}, {\em front} and {\em back} relative to some axis. However in Tzetal, a Mayan language, this frame of reference is not used. The Tzetal speakers live in an area with mountains and their frame of reference is absolute in relation to the mountain they are on. The spatial relations in this language can be translated with `uphill', `downhill' and `across'. If something is higher up the mountain in relation to the speaker, they can say ``this something is uphill of me''.
 
 So, if a novel language user enters a language society, how would it know how to categorise such a spatial relation? To know this, the new language user has to learn how to categorise the reality in relation to the language that is used by the particular language society. Therefore it is thought to be necessary to ground meaning in language. How lexicon development interacts with the development of meaning will become clearer in the remainder of this book.
 
 
-\index{symbol grounding problem|)}
-\index{physical!grounding hypothesis|(}
+\is{symbol grounding problem|)}
+\is{physical!grounding hypothesis|(}
 \subsection{Physical grounding hypothesis}\label{s:theory:pgh}
 
 Another approach to grounding is physical grounding. In his article {\em Elephants Don't Play Chess}, Rodney \citet{brooks:1990} proposed the physical grounding hypothesis as an additional constraint to the physical symbol system hypothesis. 
 
-\index{physical!symbol system}
-\index{Brooks, Rodney|(}
+\is{physical!symbol system}
+%\ia{Brooks, Rodney A.|(}
 
 \begin{quote}
 The physical grounding hypothesis states that to build a system that is intelligent it is necessary to have its representations grounded in the physical world. \citep{brooks:1990}
@@ -204,7 +204,7 @@ The argument that Brooks uses to propose the physical grounding hypothesis is th
 
 \begin{figure}
 \centerline{\includegraphics[width=12cm]{theory/evol.eps}}
-\caption{\index{cultural evolution}(a) The evolutionary time-scale of life and cognitive abilities on earth. After the entrance of the great apes, evolution of man went so fast that it cannot be shown on the same plot, unless it is shown in logarithmic scale (see b). It appears from the plot that cultural evolution works much faster than biological evolution. Time-scale is adapted from \citet{brooks:1990}.}
+\caption{\is{cultural evolution}(a) The evolutionary time-scale of life and cognitive abilities on earth. After the entrance of the great apes, evolution of man went so fast that it cannot be shown on the same plot, unless it is shown in logarithmic scale (see b). It appears from the plot that cultural evolution works much faster than biological evolution. Time-scale is adapted from \citet{brooks:1990}.}
 \label{f:theory:evolution}
 \end{figure}
 
@@ -214,19 +214,19 @@ This rapid evolution is illustrated in \figref{f:theory:evolution}. Brooks also 
 [O]nce evolution had symbols and representations things started moving rather quickly. Thus symbols are the key invention ... Without a carefully built physical grounding any symbolic representation will be mismatched to its sensors and actuators. \citep{brooks:1990}
 \end{quote}
 
-\index{physical!grounding hypothesis|)}
-\index{Brooks, Rodney|)}
-\index{subsumption architecture}
-\index{situated embodiment}
+\is{physical!grounding hypothesis|)}
+%\ia{Brooks, Rodney A.|)}
+\is{subsumption architecture}
+\is{situated embodiment}
 
 To explore the physical grounding hypothesis, Brooks and his co-workers at the {\scshape mit ai} Lab developed a software architecture called the {\sc subsumption architecture} \citep{brooks:1986}. This architecture is designed to connect a robot's sensors to its actuators so that it ``embeds the robot correctly in the world'' \citep{brooks:1990}.  The point made by Brooks is that intelligence can emerge from an agent's physical interactions with the world. So, the robot that needs to be built should be both embodied and situated. The approach proposed by Brooks is also known as ``behaviour-based {\scshape ai}''.
 
 
 \subsection{Physical symbol grounding}
-\index{physical!symbol grounding problem|(}
-\index{physical!grounding hypothesis}
-\index{symbol grounding problem}
-\index{physical!symbol system}
+\is{physical!symbol grounding problem|(}
+\is{physical!grounding hypothesis}
+\is{symbol grounding problem}
+\is{physical!symbol system}
 
 The physical grounding hypothesis \citep{brooks:1990} states that intelligent agents should be grounded in the real world. However, it also states that the intelligence need not to be represented with symbols. According to the physical symbol system hypothesis the thus physically grounded agents are no cognitive agents. The physical symbol system hypothesis \citep{newell:1980} states that cognitive agents are {\em physical symbol systems} with the following features \citep[77]{newell:1990}:
 
@@ -301,7 +301,7 @@ rather easy once the essence of being and reacting are available.\newline\citep{
 \end{quote}
 
 Now that it is clear that the physical symbol grounding problem in this work is considered to be a technical problem, the question rises how it is solved. In 1996, Luc Steels published a series of papers in which some simple mechanisms were introduced by which autonomous agents could develop a ``grounded'' lexicon (\citealt{steels:1996a,steels:1996b,steels:1996d,steels:1996e}, for an overview see \citealt{steels:1997b}). Before this work is discussed, a brief introduction in the origins of language is given.
-\index{physical!symbol grounding problem|)}
+\is{physical!symbol grounding problem|)}
 
 \section{Language origins}\label{s:intro:origins}
 
@@ -313,13 +313,13 @@ The capabilities include at least the following things: (1) The ability to assoc
 
 Until the 1950s there was very little research going on about the evolution and origins of language. Since Noam Chomsky wrote his influential paper on syntactic structures \citep{chomsky:1956}, linguistic research and research on the evolution of language boomed. It took until 1976 for the first conference on the origins and evolution of language to be held \citep{harnad:1976}. Most papers of this conference involved empirical research on ape studies, studies on gestural communication and theoretical and philosophical studies. Until very recently, many studies had a high level of speculation and some strange theories were proposed. For an overview of theories that were proposed on the origins and evolution of language until 1996, see \citet{aitchison:1996}.
 
-\index{language!origins}
+\is{language!origins}
 
 \subsection{Computational approaches to language evolution}
 
 With the rise of advanced computer techniques in artificial intelligence ({\scshape ai}) and Artificial Life (ALife), it became possible to study the origins and evolution of language computationally. In the 1990s many such studies were done. It is probably impossible to say with this approach exactly how language originated, but the same is probably true for all other investigations. The only contribution computer techniques can bring is a possible scenario of language evolution. Possible initial conditions and hypotheses can be validated using computer techniques, which may shed light on how language may have emerged. Furthermore, one can rule out some theories, because they do not work on a computer.
 
-\index{Universal Grammar}
+\is{Universal Grammar}
 
 Many early (and still very popular) scenarios were investigated based on Chomsky's theory about a {\sc universal grammar}, which are supposed to be innate.\footnote{One of the reasons why Chomsky's theory is still very popular amongst computational linguistics is that the theory has a computational approach.} According to Chomsky, the innate universal grammar codes ``principles'' and ``parameters'' that enable infants to learn any language. The principles encode universals of languages as they are found in the world. Depending on the language environment of a language learner, the parameters are set, which allows the principles of a particular language to become learnable. So, the quest for computer scientist is to use evolutionary computation techniques to come up with a genetic code of the universal grammar. That this is difficult can already be inferred from the fact that up to now not one non-trivial universal tendency of language is found which is valid for every language.
 
@@ -327,7 +327,7 @@ In the early nineties a different approach gained popularity. This approach is b
 
 Agent based simulations were constructed in which the agents tried to develop (usually an aspect of) language. The agents are made adaptive using techniques taken from {\scshape ai} and adaptive behaviour (or ALife). The main approach taken is a bottom-up approach. In contrast to the top-down approach, where the intelligence is modelled and implemented in rules, the bottom-up approach starts with implementing simple {\em sensorimotor} interfaces and learning rules, and tries to increase the complexity of the intelligent agent step by step.
 
-\index{evolutionary linguistics|(}
+\is{evolutionary linguistics|(}
 
 Various models have been built by a variety of computer scientists and computational linguists to investigate the evolution of language and communication (e.g. \citealt{cangelosiparisi:1998,kirby:1997,maclennan:1991,oliphant:1997,wernerdyer:1991}). It goes beyond the scope of this book to discuss all this research, but there is one research that is of particular interest for this book, namely the work of Mike \citet{oliphant:1997,oliphant:1998,oliphant:2000}.
 
@@ -337,10 +337,10 @@ As long as the communicating agents are aware of the meaning they are signalling
 
 The claim Oliphant makes has implications on why only humans can learn language. According to \citet{oliphant:1998}, animals have difficulty in matching a signal to a meaning when it is not an innate feature of the animal. Although this is arguable (Oliphant refers here to e.g. \citealt{gardners:1969} and \citealt{premack:1971}), he observes the fact that in these animal learning the communication is explicitly taught by the researchers.
 
-\index{evolutionary linguistics|)}
+\is{evolutionary linguistics|)}
 
 \subsection{Steels' approach}\label{s:intro:th}
-\index{language!game}
+\is{language!game}
 
 This adaptive behaviour based approach has also been adopted by Luc Steels (e.g. \citealt{steels:1996a,steels:1996b,steels:1997b}). The work of Steels is based on the notion of {\scshape language games} \citep{wittgenstein:1958}. In language games agents construct a lexicon through cultural interaction, individual adaptation and self-organisation. The view of Wittgenstein is adopted that language gets its meaning through its use and should be investigated accordingly. The research presented in this book is in line with the work done by Luc Steels. This research is part of the ongoing research done at the Sony Computer Science Laboratory in Paris and at the Artificial Intelligence Laboratory of the Free University of Brussels {\scshape (vub)}, both directed by Luc Steels. 
 
@@ -348,7 +348,7 @@ The investigation in Paris and Brussels is done on both simulations and ground\-
 
 Bart de Boer of the {\scshape vub ai} Lab has shown how agents can develop a human-like vowel system through self-organisation \citep{deboer:1997,deboer:1999}. These agents were modelled with a human like vocal tract and auditory system. Through cultural interactions and imitations the agents learned vowel systems as they are found prominently among human languages. 
 
-\index{Talking Heads|(}
+\is{Talking Heads|(}
 
 First in simulations \citep{steels:1996a,steels:1996b} and later in grounded experiments on mobile robots \citep{steelsvogt:1997,vogt:1998a,vogt:1998b,dejongvogt:1998} and on the Talking Heads \citep{belpaeme:1998,kaplan:2000,steels:2000} the emergence of meaning and lexicons have been investigated. Since the mobile robots experiment is the issue of the current book, only the other work will be discussed briefly here. 
 
@@ -366,14 +366,14 @@ For coupling the discrimination game to the naming game, which first has been do
 The Talking Heads consist of a couple of installations that are distributed\linebreak around the world. Installations currently exist in Paris at the Sony {\scshape csl}, in Brussels at the {\scshape vub ai} Lab, in Amsterdam at the Intelligent Autonomous Systems laboratory of the University of Amsterdam. Temporal installations have been operational in Antwerp, Tokyo, Laussane, Cambridge, London and at another site in Paris. Agents can travel the world through the internet and embody themselves into a Talking Head. A Talking Head is a pan-tilt camera connected to a computer. The Talking Heads play language games with the cognitive capacities and memories that each agent has or has acquired. The language games are similar to the ones that are presented in the subsequent chapters. The main difference is that the Talking Heads do not move from their place, which the mobile robots do. The Talking Heads have cameras as their primary sensory apparatus and there are some slight differences in the cognitive capabilities as will become clear in the rest of this book.
 
 
-\index{Talking Heads|)}
-\index{Steels, Luc|)}
-\index{Kaplan, Fr\'ed\'eric}
-\index{AIBO}
+\is{Talking Heads|)}
+\ia{Steels, Luc|)}
+%\ia{Kaplan, Fr\'ed\'eric}
+\is{AIBO}
 
 All these experiments show similar results. Label-representation (or form-meaning) pairs can be grounded in sensorimotor control, for which (cultural) interactions, individual adaptation and self-organisation are the key mechanisms. A similar conclusion will be drawn at the end of this book. The results of the experiments on mobile robots will be compared with the Talking Heads as reported mainly in \citealt{steels:2000}. Other findings based on the different variations of the model, which inspects the different influences of the model will be compared with the PhD thesis of Fr\'ed\'eric Kaplan of Sony {\scshape csl} in Paris \citep{kaplan:2000}.\footnote{Currently Fr\'ed\'eric Kaplan is working on human-machine interaction on the {\sc aibo} robot that looks like a dog and which has been developed by Sony {\scshape csl} in Tokyo. Naturally, the {\sc aibo} learns language according to the same principles advocated by our labs.}
 
-\index{de Jong, Edwin}
+
 
 A last set of experiments that will be brought to the reader's attention is the work done by Edwin de Jong of the {\scshape vub ai} Lab. De Jong has done an interesting experiment in which he showed that the communication systems that emerged under the conditions by which language research is done in Paris and Brussels are indeed complex dynamical systems \citep{dejong:2000}. The communication systems of his own experiments all evolved towards an attractor and he showed empirically that the system was a complex dynamical system.
 
@@ -383,10 +383,10 @@ While doing so, the agents developed an ontology of situation concepts and a lex
 
 One interesting finding of de Jong was that it is not necessary that agents use feedback on the outcome of their linguistic interactions to construct a coherent lexicon, provided that the robots have access to the meaning of such an interaction and lateral inhibition was assured. Hence this confirms the findings of Mike \citet{oliphant:1998}. Questions about the feedback on language games are also issued in the field of human language acquisition.
 
-\index{symbol grounding problem|)}
+\is{symbol grounding problem|)}
 
-\index{child language acquisition|see{language!acquisition}}
-\index{language!acquisition|(}
+\is{child language acquisition|see{language!acquisition}}
+\is{language!acquisition|(}
 \section{Language acquisition}\label{s:intro:acquisition}
 
 Although children learn an existing language, lessons from the language acquisition field may help to understand how humans acquire symbols. This knowledge may in turn help to build a physically grounded symbol system. In the experiments presented in the forthcoming, the robots develop only a lexicon by producing and understanding one word utterances. In the literature of language acquisition, this period is called {\sc early lexicon development}. Infants need to learn how words are associated with meanings. How do they do that?
@@ -395,12 +395,12 @@ In early lexicon development it is important to identify what cues an infant rec
 
 The {\scshape poverty of the stimulus} argument led Chomsky to propose his linguistic theory. Although an adult language user can express an unlimited number of sentences, a language learner receives a limited amount of linguistic information to master the language. With this argument Chomsky concluded that linguistic structures must be innate. But perhaps there are other mechanisms that allow humans to learn language. Some might be learned and some might be innate.
 
-\index{feedback}
-\index{no negative feedback evidence}
+\is{feedback}
+\is{no negative feedback evidence}
 
 A problem that occupies the nativist linguists is the so-called {\scshape no negative feedback evidence} (e.g. \citealt{bowerman:1988}). The problem is that in the innate approach language can only be learned when both positive and negative feedback on language is available to a language learner. However, psychological research has shown that no negative feedback is provided by adult language users \citep{braine:1971}. Demetras and colleagues, however showed that there is more negative feedback provided than assumed \citep{demetrasetal:1986}. In addition, it is perhaps underestimated how much feedback a child can evaluate itself from its environment. Furthermore, feedback is thought to be an important principle in cognitive development (see e.g. \citealt{clancey:1997}).
 
-\index{joint attention}
+\is{joint attention}
 
 One alternative for the feedback, which is assumed to be provided after the linguistic act, is the establishment of joint attention {\em prior} to the linguistic communication. Do children really receive such input? Early studies of Tomasello showed that children can learn better when joint attention is established, as long as this is done spontaneously by the child (\citealt{tomaselloetal:1986}, cited in \citealt{barrett:1995}). Explicit drawing of attention seemed to have a negative side effect. Although it has been assumed that pointing was a frequently used method to draw a child's attention, later studies have argued against such this assumption. Tomasello reported in a later studies that pointing is not necessary for learning language, {\em provided} there is explicit feedback \citep{tomasellobarton:1994}. 
 
@@ -410,7 +410,7 @@ Yet another strategy is proposed by Eve \citet{clark:1993}. She argues that chil
 
 
 So, a lot of strategies appear to be available to a language learner, and there may be more. It is not unlikely that a combination of the available strategies is used; perhaps some more frequent than others. A natural question rises: Which strategies work and which do not? In this book experiments are presented that investigate both the role of feedback and joint attention.
-\index{language!acquisition|)}
+\is{language!acquisition|)}
 
 
 \section{Setting up the goals}\label{s:intro:goals}
@@ -420,27 +420,27 @@ This book presents the development and results of a series of experiments where 
 
 
 The sensory equipment with which the robots detect their world is kept simple, namely sensors that can only detect light intensities. One of the goals was to develop the experiments without changing the simplicity of the robots very much and to keep the control architecture within the behaviour-based design. Luc \citet{steels:1996a} hypothesises three basic mechanisms for language evolution, which have been introduced above: individual adaptation, cultural evolution and self-organisation. 
-\index{self-organisation}
-\index{Steels, Luc}
-\index{behaviour-based!architecture}
+\is{self-organisation}
+\ia{Steels, Luc}
+\is{behaviour-based!architecture}
 
 In a language game, robots produce a sensorimotor behaviour to perceive their environment. The environment consists of a set of light sources, which are distinguishable in height. The raw sensory data that results from this sensing is segmented, yielding a set of segments of which each segment relates to the detection of a light source. These segments can be described by features, which are categorised by the individual robots. The categorisation is processed by so-called {\sc discrimination games} \citep{steels:1996b}. In this process the robots try to develop categories that discriminates one segment from another. The lexicon is formed based on an interaction and adaptation strategy modelled in what has been called {\sc naming games} \citep{steels:1996a}. In a naming game one robot has the role of a speaker and the other robot has the role of the hearer. The speaker tries to name the categorisation (or meaning) of a segment it has chosen to be the topic. The hearer tries to identify the topic using both linguistic and extra-linguistic information when available.
 
-\index{cultural evolution}
-\index{Darwin, Charles}
+\is{cultural evolution}
+\ia{Darwin, Charles}
 
 The language game is adaptive in that the robots can adapt either their ontology or lexicon when they fail to categorise of name the topic. This way they may be successful in future games. In addition, the robots can adapt association strengths that they use to select elements of their ontology or lexicon. The selection principle is very much based on natural selection as proposed by Charles \citet{darwin:1968}, but the evolution is not  spread over generations of organisms, but over ``generations'' of language games. The principle is that the most effective elements are selected more and ineffective ones are selected less frequently, or even not at all. This way the most effective elements of the language are spread in the language community, thus leading to a cultural evolution.
 
-\index{memes}
+\is{memes}
 The idea of cultural evolution has best been described by Richard Dawkins in his book {\em The Selfish Gene} (\citeyear{dawkins:1976}). In this book Dawkins proposes the notion of {\scshape memes}. Memes are elements that carry the notion of ideas, like the idea of a wheel. Like genes, memes are generated as varieties of previous ideas and possibly as complete new ideas. The memes are spread in the society by cultural interactions. The evolution of memes is similar to that of genetic evolution and good memes survive, whereas bad memes do not. However, the cultural evolution is much faster than biological evolution and several generations of memes can occur in a society within the lifetime of an organism. When changing the notion of memes into language elements, a cultural evolution of language arrives. The emergence of language through cultural evolution is based on the same principle as biological evolution, namely self-organisation.
 
 
 Three main research questions are raised in this book:
 
 \begin{enumerate}
-\index{symbol grounding problem}
+\is{symbol grounding problem}
 \item Can the symbol grounding problem be solved with these robots by constructing a lexicon through individual adaptation, (cultural) interaction and self-organisation? And if so, how is this accomplished?
-\index{extra-linguistic information}
+\is{extra-linguistic information}
 \item What are the important types of extra-linguistic information that agents should share when developing a coherent communication system?
 \item What is the influence of the physical conditions and interaction of the robots on developing a grounded lexicon?
 \end{enumerate}
@@ -484,7 +484,7 @@ Extra--linguistic & -- & -- & + & + & $\cdot$ & -- & + & --\\
 \label{t:intro:contrib}
 \end{table}
 
-\index{Billard, Aude}\index{Oliphant, Mike}\index{de Jong, Edwin}\index{Steels, Luc}
+\ia{Billard, Aude}\ia{Oliphant, Mike}\ia{Steels, Luc}
 
 Of the related work, the work of \citet{cangelosiparisi:1998}, \citet{dejong:2000}, and \citet{oliphant:1997} is not grounded in the real world. The work of Cangelosi et al. and de Jong is grounded only in simulations. This makes the grounding process relatively easy, because it avoids the problems that come about when categorising the real world. Oliphant does not ground meaning at all. The work of this book is grounded in the real world.
 

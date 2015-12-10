@@ -9,7 +9,7 @@ The observational language game is explored as a second experiment in \sectref{s
 Instead of doing 10 runs of 5,000 language games, each experiment is done with 10 runs of 10,000 language games. This will make it harder to compare these experiments with previous experiments. On the other hand the resulting systems can be investigated more reliably, because many systems were still learning after 5,000 games. 
 
 \section{The guessing game}\label{s:opt:gg}
-\index{guessing game|(}
+\is{guessing game|(}
 \subsection{The experiments}
 
 The two experiments presented in this section implement the guessing game. The basic experiment has been optimised by changing the following strategies and parameters:
@@ -102,7 +102,7 @@ C1 & 0.857 & $\pm$ & 0.002 & 0.860 & $\pm$ & 0.001\\%\hline
 
 So, the system finally becomes very good in constructing a lexicon by which the robots can communicate about the things they detect in their environment.
 
-\index{semiotic landscape|(}
+\is{semiotic landscape|(}
 The run that will be discussed in more detail below resulted in the lexicon that is displayed in the semiotic landscape shown in \figref{f:opt:semiotic} and is taken from experiment P.1. This figure shows the connections with a strength that represents the frequency of connections that are successfully used. Ideally, the connections between referent-form-referent would be orthogonal, i.e., the couplings of a referent and its form should not cross-connect with other referents.\enlargethispage{\baselineskip}
 
 \begin{figure}
@@ -114,9 +114,9 @@ The run that will be discussed in more detail below resulted in the lexicon that
 This orthogonality criterion is achieved for {\it mety}, {\it luvu} and possibly {\it zigi}. The word-forms {\it kate} and {\it demi} have cross-connections, but these are relatively unimportant because they have low frequencies. More referential polysemy is found for {\it sema} and {\it tyfo}. As will be shown in the discussion, {\it tyfo} gets well established to name \textsc{l}\oldstylenums{1} almost unambiguously. {\it sema} however, provides some instability in the system. 
 
 Comparing this landscape with that of the basic experiment (\figref{f:st:semiotic} at page \pageref{f:st:semiotic}), the system shows more orthogonality and there are less word-forms. \textsc{l}\oldstylenums{0} and \textsc{l}\oldstylenums{2} have synonymous connections, but these are not a big problem, since the different forms are most frequently used to name one referent, i.e., they show low polysemy.
-\index{semiotic landscape|)}
+\is{semiotic landscape|)}
 
-One important result of experiment P.1 is that the number of word-forms the agents use {\em successfully} in the language is much lower than in P.4. The robots used 16 word-forms successfully at the end vs. 34 in P.4 (\figref{f:opt:words} (a), solid lower line). Furthermore, the number of word-forms does not grow after approximately 3,500 games, whereas the vocabulary size increases until the end when $P_s=0.4$. The number of word-forms that have been created by the robots is only slightly above the number of word-forms that have been successfully used. Apparently the robots tend to have more time to adopt word-forms correctly when $P_s=0.1$. \index{lexicon!growth|(}\index{ontology!growth|(}
+One important result of experiment P.1 is that the number of word-forms the agents use {\em successfully} in the language is much lower than in P.4. The robots used 16 word-forms successfully at the end vs. 34 in P.4 (\figref{f:opt:words} (a), solid lower line). Furthermore, the number of word-forms does not grow after approximately 3,500 games, whereas the vocabulary size increases until the end when $P_s=0.4$. The number of word-forms that have been created by the robots is only slightly above the number of word-forms that have been successfully used. Apparently the robots tend to have more time to adopt word-forms correctly when $P_s=0.1$. \is{lexicon!growth|(}\is{ontology!growth|(}
 
 
 \begin{figure}
@@ -128,7 +128,7 @@ One important result of experiment P.1 is that the number of word-forms the agen
 \end{figure}
 
 The one-to-many relations between form and meaning of both systems is high as can be derived from \figref{f:opt:words}. \figref{f:opt:words} (b) shows the ontological growth of categories that are distinctive and of those that are successfully used in the communication (as indicated by  ``\textsc{(cs)}'') for creation probabilities $P_s=0.1$ and $P_s=0.4$. The total numbers of distinctive categories that the agents categorised are ranging from 2,600 for P.1 and 3,100 for P.4. The number of meanings (categories that are used in communication) they successfully use is around 500, which is substantially lower than the number of concepts that could be used. So, the number of successfully employed concepts is roughly 15 times higher than the word-forms that are used when $P_s=0.4$ and it is 31 times higher when $P_s=0.1$. It appears that in case when the creation probability is lower, the robots have more time to associate existing word-forms with meanings rather than to create new ones. This way the amount one-to-many relations between form and meaning increases as a possibly beneficial side effect. The cost of this is that there appears to be a higher level of polysemy. To see whether this is problematic, it is instructive to look at the various competition diagrams of experiment P.1. This is done in the discussion that follows.
-\index{lexicon!growth|)}\index{ontology!growth|)}\index{lexicon|)}
+\is{lexicon!growth|)}\is{ontology!growth|)}\is{lexicon|)}
 
 \subsection{Discussion}
 
@@ -139,7 +139,7 @@ Both the discriminative success and distinctiveness are very close to 1, and the
 
 \subsubsection{One-to-many relations between form and meaning}
 
-\figref{f:opt:ggcomp1} shows various competition diagrams of robot $r0$, relating to referent \textsc{l}\oldstylenums{1} in one of the runs of experiment P.1. Figures (a) and (b) show the referent-form competition. In Figure (a) the co-occurrence frequencies of referent and form independent of their success are displayed. Figure (b) shows the successful co-occurrence of referent and form. Very infrequent occurrences are left out for clarity. Where Figure (a) shows that form {\it tyfo} clearly wins the competition, Figure (b) shows that  in successful games, this form is nearly used uniquely\footnote{Note that this diagram is the same for robot $r1$, since it shows successful co-occurrences only. By definition of the success, they must be the same for both robots.}. Hence light source \textsc{l}\oldstylenums{1} has very little synonymy. \index{synonymy}
+\figref{f:opt:ggcomp1} shows various competition diagrams of robot $r0$, relating to referent \textsc{l}\oldstylenums{1} in one of the runs of experiment P.1. Figures (a) and (b) show the referent-form competition. In Figure (a) the co-occurrence frequencies of referent and form independent of their success are displayed. Figure (b) shows the successful co-occurrence of referent and form. Very infrequent occurrences are left out for clarity. Where Figure (a) shows that form {\it tyfo} clearly wins the competition, Figure (b) shows that  in successful games, this form is nearly used uniquely\footnote{Note that this diagram is the same for robot $r1$, since it shows successful co-occurrences only. By definition of the success, they must be the same for both robots.}. Hence light source \textsc{l}\oldstylenums{1} has very little synonymy. \is{synonymy}
 
 \begin{figure}[p]
 	\centering
@@ -149,11 +149,11 @@ Both the discriminative success and distinctiveness are very close to 1, and the
 	\subfigure[FM-tyfo]{\includegraphics[width=.45\textwidth]{optimal/fc0-0p.eps}}\\
 	\subfigure[FR-tyfo]{\includegraphics[width=.45\textwidth]{optimal/fr0-0p.eps}}
 	\subfigure[FR-tyfo-success]{\includegraphics[width=.45\textwidth]{optimal/fr0-0cs.eps}}
-	\caption{Some competition diagrams of robot $r0$ in one run of experiment P.1. Figures (a) and (b) show referent-form competitions for \textsc{L}\oldstylenums{1}, (a) show its use and (b) shows the successful use. Figure (c) shows the referent-meaning competition for \textsc{L}\oldstylenums{1} and (d) shows the form-meaning competition for {\it tyfo}. Both Figure (c) and (d) show the use. Figures (e) and (f) show the form-referent diagrams for {\it tyfo}, where (e) shows its use, and (f) its effective use.\index{competition diagram}}
+	\caption{Some competition diagrams of robot $r0$ in one run of experiment P.1. Figures (a) and (b) show referent-form competitions for \textsc{L}\oldstylenums{1}, (a) show its use and (b) shows the successful use. Figure (c) shows the referent-meaning competition for \textsc{L}\oldstylenums{1} and (d) shows the form-meaning competition for {\it tyfo}. Both Figure (c) and (d) show the use. Figures (e) and (f) show the form-referent diagrams for {\it tyfo}, where (e) shows its use, and (f) its effective use.\is{competition diagram}}
 	\label{f:opt:ggcomp1}
 \end{figure}
 
-Although there is hardly any synonymy, there is substantial conceptual synonymy. This is nicely shown in the referent-meaning diagram for \textsc{L}\oldstylenums{1} (\figref{f:opt:ggcomp1} (c)). Two meanings are used rather frequently, \textsc{m}\oldstylenums{24} and \textsc{m}\oldstylenums{70}. When looking at the form-meaning diagram for word-form {\it tyfo} (Figure (d)), a similar competition is observed. The frequent meanings that co-occur with {\it tyfo} are \textsc{m}\oldstylenums{24} and \textsc{m}\oldstylenums{70}. So, the lexical one-to-many relations between form and meaning antagonises out the negative side effect of the one-to-many relations between referent and meaning, yielding almost one-to-one relations between form and referent. So, there is little synonymy and polysemy. \index{polysemy}
+Although there is hardly any synonymy, there is substantial conceptual synonymy. This is nicely shown in the referent-meaning diagram for \textsc{L}\oldstylenums{1} (\figref{f:opt:ggcomp1} (c)). Two meanings are used rather frequently, \textsc{m}\oldstylenums{24} and \textsc{m}\oldstylenums{70}. When looking at the form-meaning diagram for word-form {\it tyfo} (Figure (d)), a similar competition is observed. The frequent meanings that co-occur with {\it tyfo} are \textsc{m}\oldstylenums{24} and \textsc{m}\oldstylenums{70}. So, the lexical one-to-many relations between form and meaning antagonises out the negative side effect of the one-to-many relations between referent and meaning, yielding almost one-to-one relations between form and referent. So, there is little synonymy and polysemy. \is{polysemy}
 
 That there is hardly any polysemy can be seen in Figures~\ref{f:opt:ggcomp1} (e) and (f). These figures plot the form-referent diagrams for used (e) and successfully used (f) co-occurrence frequencies. Although some polysemy can be observed, it is hardly present in successful games after, say, 4,000 language games. \tabref{t:opt:legend} shows the legend of some of the meanings that are discussed. Note that most meanings are uniquely used to stand for a particular referent. So, there are mostly one-to-one relations between meaning and referent, which drives the distinctiveness near 1, cf. \figref{f:opt:mr}.
 
@@ -182,11 +182,11 @@ M-70 & $(0.03,0.99,0.03,0.05)_1$\\%\hline
 M-72 & $(0.03,0.01,1.00,0.05)_1$\\%\hline
 \lspbottomrule
 \end{tabular}
-\caption{The legend of some meanings of robot $r0$ in the optimal guessing game as represented by their prototypes. It should be clear that the meanings mostly bare the invariant\index{invariance} property that the sensory channels have values (near) 1 corresponding to the referents they are used for\index{correspondence} which has values in the middle. This meaning acts at feature space ${\mathcal F}_0$, which can only be distinctive if there is only 1 referent in the context of a language game. This meaning is mainly used to categorise \textsc{l}\oldstylenums{0}, although not very frequently. The semiotic landscape (\figref{f:opt:semiotic} shows that \textsc{m}\oldstylenums{19} (in the upper half) is also used to categorise \textsc{l}\oldstylenums{2}. Another interesting meaning is \textsc{m}\oldstylenums{37}, which has high values in dimensions \textsc{wl}\oldstylenums{2} and \textsc{wl}\oldstylenums{3}. It has been used most frequently to categorise \textsc{l}\oldstylenums{2} in the beginning of the experiments. Later it has been used less frequently. \textsc{m}\oldstylenums{49} shows that the sensory channel \textsc{wl}\oldstylenums{3} adjacent to the corresponding sensory channel \textsc{wl}\oldstylenums{2} reads relatively high values when the robot detects \textsc{l}\oldstylenums{2}. This can be inferred from the fact that both dimensions \textsc{wl}\oldstylenums{1} and \textsc{wl}\oldstylenums{3} have high values. That this does not happen all the time is shown with \textsc{m}\oldstylenums{72}, which has low values in each dimension that does not correspond with \textsc{l}\oldstylenums{2}.}
+\caption{The legend of some meanings of robot $r0$ in the optimal guessing game as represented by their prototypes. It should be clear that the meanings mostly bare the invariant\is{invariance} property that the sensory channels have values (near) 1 corresponding to the referents they are used for\is{correspondence} which has values in the middle. This meaning acts at feature space ${\mathcal F}_0$, which can only be distinctive if there is only 1 referent in the context of a language game. This meaning is mainly used to categorise \textsc{l}\oldstylenums{0}, although not very frequently. The semiotic landscape (\figref{f:opt:semiotic} shows that \textsc{m}\oldstylenums{19} (in the upper half) is also used to categorise \textsc{l}\oldstylenums{2}. Another interesting meaning is \textsc{m}\oldstylenums{37}, which has high values in dimensions \textsc{wl}\oldstylenums{2} and \textsc{wl}\oldstylenums{3}. It has been used most frequently to categorise \textsc{l}\oldstylenums{2} in the beginning of the experiments. Later it has been used less frequently. \textsc{m}\oldstylenums{49} shows that the sensory channel \textsc{wl}\oldstylenums{3} adjacent to the corresponding sensory channel \textsc{wl}\oldstylenums{2} reads relatively high values when the robot detects \textsc{l}\oldstylenums{2}. This can be inferred from the fact that both dimensions \textsc{wl}\oldstylenums{1} and \textsc{wl}\oldstylenums{3} have high values. That this does not happen all the time is shown with \textsc{m}\oldstylenums{72}, which has low values in each dimension that does not correspond with \textsc{l}\oldstylenums{2}.}
 \label{t:opt:legend}
 \end{table}
 \clearpage
-\subsubsection{Polysemy and lexical dynamics}\index{polysemy|(}
+\subsubsection{Polysemy and lexical dynamics}\is{polysemy|(}
 
 That relations and competition between referent, meaning and form are not always as nice as in the case above is shown in \figref{f:opt:ggcomp2}. The competition is taken from the same run as the semiotic landscape and the previous example, so $P_s=0.1$.
 
@@ -208,7 +208,7 @@ If such dynamics continues, there will be a break point where there is a trade o
 
 It seems as the dominance for one meaning is taken over by the dominance for the other meaning. This take over is antagonised with the take over of another form for the first meaning. This in turn can feed the competition similarly; thus a vicious circle emerges.
 
-To finish the discussion, look at figures (g) and (h). These figures show the form-referent diagrams of successfully used occurrences of {\it luvu} (g) and {\it kate} (h). Clearly these forms are specifically used to name \textsc{l}\oldstylenums{2}. So, there is huge competition showing one-to-many relations between referent and meaning, meaning and form, and form and meaning. However, there is little polysemy. Note by the way that {\it kate} is not used successfully at all around game 7,000.\index{polysemy|)}
+To finish the discussion, look at figures (g) and (h). These figures show the form-referent diagrams of successfully used occurrences of {\it luvu} (g) and {\it kate} (h). Clearly these forms are specifically used to name \textsc{l}\oldstylenums{2}. So, there is huge competition showing one-to-many relations between referent and meaning, meaning and form, and form and meaning. However, there is little polysemy. Note by the way that {\it kate} is not used successfully at all around game 7,000.\is{polysemy|)}
 
 \begin{figure}[b]
 	\centering
@@ -229,8 +229,8 @@ To finish the discussion, look at figures (g) and (h). These figures show the fo
 
 
 \section{The observational game}\label{s:opt:oli}
-\index{observational game|(}
-\index{joint attention|(}
+\is{observational game|(}
+\is{joint attention|(}
 
 \subsection{The experiment}
 
@@ -323,9 +323,9 @@ For three out of four referents there are clear winning word-forms, although lig
 \end{figure}
 
 
-\figref{f:opt:froli} shows that there is some polysemy, especially for {\it keni}.\index{polysemy} So, it would be interesting how the competition around {\it keni} evolves. It is good to begin with some referent-meaning diagrams of both robots for light sources \textsc{l}\oldstylenums{2} and \textsc{l}\oldstylenums{3} (\figref{f:opt:rcoli}). From these figures it is clear that for \textsc{l}\oldstylenums{2} there is a high level of one-to-many mappings between referent and meaning, whereas \textsc{l}\oldstylenums{3} does not show this very much. Striking is that it is almost equally strong for both robots. Apparently, the synonymy in the lexicon reflects itself on these one-to-many relations between referent and meaning for both robots. It is not unlikely that one of the robots took over these one-to-many relations in its effort to disambiguate the synonymy initiated by the other.\index{synonymy}
+\figref{f:opt:froli} shows that there is some polysemy, especially for {\it keni}.\is{polysemy} So, it would be interesting how the competition around {\it keni} evolves. It is good to begin with some referent-meaning diagrams of both robots for light sources \textsc{l}\oldstylenums{2} and \textsc{l}\oldstylenums{3} (\figref{f:opt:rcoli}). From these figures it is clear that for \textsc{l}\oldstylenums{2} there is a high level of one-to-many mappings between referent and meaning, whereas \textsc{l}\oldstylenums{3} does not show this very much. Striking is that it is almost equally strong for both robots. Apparently, the synonymy in the lexicon reflects itself on these one-to-many relations between referent and meaning for both robots. It is not unlikely that one of the robots took over these one-to-many relations in its effort to disambiguate the synonymy initiated by the other.\is{synonymy}
 
-For robot $r0$ there are basically three meanings that compete for light sources \textsc{l}\oldstylenums{2} and \textsc{l}\oldstylenums{3}. The meaning-form competitions of these meanings are shown in Figures \ref{f:opt:cfoli} (a) to (c). Meaning \textsc{m}\oldstylenums{12}, which is used to categorise \textsc{l}\oldstylenums{3} almost unambiguously, has very little synonymy and {\it keni} clearly wins the competition. This is not very surprising, since \textsc{l}\oldstylenums{3} is both categorised parsimonious and named consistent. The two meanings of \textsc{l}\oldstylenums{2} (\textsc{m}\oldstylenums{28} and \textsc{m}\oldstylenums{36}) reveal more one-to-many relations between meaning and form. For \textsc{m}\oldstylenums{12}, {\it keni} is most frequently used and for \textsc{m}\oldstylenums{36} this is {\it xihu}. In both cases the other name is also competing for these meanings, i.e. {\it xihu} is also competing for \textsc{m}\oldstylenums{12} and {\it keni} for \textsc{m}\oldstylenums{36}. This competition, however is at a low level. The polysemy of {\it keni} is also found back at the lexical level (i.e. in the one-to-many relations between form and meaning), cf. \figref{f:opt:cfoli} (d). \index{polysemy}
+For robot $r0$ there are basically three meanings that compete for light sources \textsc{l}\oldstylenums{2} and \textsc{l}\oldstylenums{3}. The meaning-form competitions of these meanings are shown in Figures \ref{f:opt:cfoli} (a) to (c). Meaning \textsc{m}\oldstylenums{12}, which is used to categorise \textsc{l}\oldstylenums{3} almost unambiguously, has very little synonymy and {\it keni} clearly wins the competition. This is not very surprising, since \textsc{l}\oldstylenums{3} is both categorised parsimonious and named consistent. The two meanings of \textsc{l}\oldstylenums{2} (\textsc{m}\oldstylenums{28} and \textsc{m}\oldstylenums{36}) reveal more one-to-many relations between meaning and form. For \textsc{m}\oldstylenums{12}, {\it keni} is most frequently used and for \textsc{m}\oldstylenums{36} this is {\it xihu}. In both cases the other name is also competing for these meanings, i.e. {\it xihu} is also competing for \textsc{m}\oldstylenums{12} and {\it keni} for \textsc{m}\oldstylenums{36}. This competition, however is at a low level. The polysemy of {\it keni} is also found back at the lexical level (i.e. in the one-to-many relations between form and meaning), cf. \figref{f:opt:cfoli} (d). \is{polysemy}
 
 \begin{figure}[t]
 \centering
@@ -347,11 +347,11 @@ For robot $r0$ there are basically three meanings that compete for light sources
 \label{f:opt:cfoli}
 \end{figure}
 
-Another striking observation when comparing the competition of this experiment with the competition in the guessing games is that at the bottom there is more and stronger competition here, compare e.g. \figref{f:opt:ggcomp2} (a) and \figref{f:opt:rfoli}. Apparently, the observational game strategy is pretty well at developing a coherent lexicon, however the lack of directive feedback allows quite some synonymy.\index{synonymy}
+Another striking observation when comparing the competition of this experiment with the competition in the guessing games is that at the bottom there is more and stronger competition here, compare e.g. \figref{f:opt:ggcomp2} (a) and \figref{f:opt:rfoli}. Apparently, the observational game strategy is pretty well at developing a coherent lexicon, however the lack of directive feedback allows quite some synonymy.\is{synonymy}
 
-So, although the update principle of the scores works relatively good (conform the naming of referents \textsc{l}\oldstylenums{0} and \textsc{l}\oldstylenums{1}), the system still allows both many-to-many relations at each level of comparison, except between meaning and referent, which is almost one-to-one. Recall that the association scores are updated according to an association's use, since the robots consider themselves to be successful whenever they communicated an association. Apparently the use alone cannot disambiguate very strong competitions that are structurally present in the communication.\index{polysemy}\index{synonymy}
-\index{joint attention|)}
-\index{observational game|)}
+So, although the update principle of the scores works relatively good (conform the naming of referents \textsc{l}\oldstylenums{0} and \textsc{l}\oldstylenums{1}), the system still allows both many-to-many relations at each level of comparison, except between meaning and referent, which is almost one-to-one. Recall that the association scores are updated according to an association's use, since the robots consider themselves to be successful whenever they communicated an association. Apparently the use alone cannot disambiguate very strong competitions that are structurally present in the communication.\is{polysemy}\is{synonymy}
+\is{joint attention|)}
+\is{observational game|)}
 
 \section{Summary}
 

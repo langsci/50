@@ -59,11 +59,11 @@ This unreliability has some technical impacts on the experiments. Since data log
 
 \item[Gearing] The motors are not directly connected to the wheels. They are connected to the wheels with a set of gears (see \figref{f:robots:bottom}). The wheels are placed such that they form an axis approximately through the centre of the robot so that it can rotate around this point. A third small caster-wheel is used to stabilise the robot. 
 
-\index{sensors light|(}
+\is{sensors light|(}
 \item[The light sensors] The white light sensors are the most crucial sensors in the experiments. This is because they are used for the perception of the analogue signals that the robots are supposed to ground. Each robot has four white light sensors stacked on top of each other. The sensors have a vertical distance of 3.9 cm between each other. Each sensor is at the same height as a light source (\figref{f:robots:front}). 
 
 The light sensors were calibrated such that the characteristics of all sensors are roughly the same. \figref{f:robots:calibration} shows the characteristics of the calibrated light sensors as empirically measured for the experimental set-up. On the x-axis of each plot the distance of the robot to the light source is given in centimetres; the y-axis shows the intensity of the light in {\sc pdl} values. {\sc pdl} scales the light sensors between 0 and 255, where 0 means no detection of light and 255 means maximum intensity. The calibration of each sensor is done while it was exposed to a corresponding light source. A sensor is said to {\em correspond} with a light source when it has the same height. The complete figure shows the characteristics of the two robots $r0$ and $r1$, each with four sensors ($s0 \ldots s3$).
-\index{correspondence}
+\is{correspondence}
 
 It is notable that for light source $L0$ the characteristics of sensor $s3$ is high at the beginning (\figref{f:robots:calibration} (a) and (e)). This is because for the lowest light source $L0$, sensor $s3$ is higher than the top of the box, which is open. At a larger distance the light coming from the top of this box cannot be seen. 
 
@@ -104,7 +104,7 @@ The robots are also equipped with sensors and actuators that are used for interf
 \label{f:robots:calibration}
 \end{figure}
 
-\index{sensors light|)}
+\is{sensors light|)}
 
 \bigskip\noindent
 This subsection introduced the sensorimotor equipment that the robot carries in the experiments as discussed throughout this book. The next subsection discusses the sensorimotor board in some more detail.
@@ -124,15 +124,15 @@ The computing hardware of the robots is a sensorimotor board, called the {\sc sm
 The Vesta board (see \figref{f:vesta}) contains a Motorola \textsc{mc}\oldstylenums{68332} microcontroller, {128} {\footnotesize k}{\scshape b} {\scshape rom} and {1} {\scshape mb ram}.\footnote{In the original version of the {\sc smbii} there were only {256} {\scriptsize k}{\scshape b} {\scshape ram} \citep{vereertbrugghen:1996}.} The board's micro-controller runs at 16.78 {\scshape mh}{\footnotesize z} at 5 Volt and everything is powered by a pack of rechargeable nickel--cadmium batteries.
 
 The add-on {\sc smb}-{\oldstylenums 2} board (\figref{f:smbii}) contains several {\scshape i/o} chips, bus controllers and connectors. The {\sc smbii} low-level program is run on the kernel and it can interface a user program written in any language as long a the kernel calls are written in \textsc{c}  \citep{vereertbrugghen:1996}. The program that is run on the {\sc smbii} for these experiments is written in the Process Description Language {\sc pdl}. 
-\index{SMBII}
+\is{SMBII}
 
 \section{The Process Description Language}\label{s:robots:PDL}\label{s:robots:pdl}
-\index{PDL|(}
-\index{Process Description Language|see{PDL}}
+\is{PDL|(}
+\is{Process Description Language|see{PDL}}
 
 The robots are programmed in the so-called Process Description Language \citep{steels:1992,steels:1994a,steels:1994b}. {\sc pdl} is designed as a framework for designing software for autonomous agents according to the behaviour-oriented control. 
 
-\index{phototaxis|(}
+\is{phototaxis|(}
 In {\sc pdl} one can decompose a behaviour system in a set of dynamical processes. For instance, one can decompose the behaviour of {\scshape phototaxis} (i.e. moving towards a light source) into two dynamical processes: (1) moving forward and (2) orienting towards the light. {\sc pdl} is designed to implement parallel processes that are virtually evaluated simultaneously to output a summated response. So, suppose there are the two parallel processes (1) and (2) that are evaluated  simultaneously. And suppose further that the output of the two processes are summated to give a motor response. Then the emergent behaviour is phototaxis. 
 
 \begin{figure}
@@ -248,12 +248,12 @@ Taking the two processes together results in the emergent behaviour that the rob
 
 Appendix \ref{a:pdl} presents the structure of the implemented {\sc pdl} program in more detail. In the next section the behaviour based architecture is expanded to incorporate planned behaviours as well.
 
-\index{phototaxis|)}
+\is{phototaxis|)}
 
 \section{Cognitive architecture in PDL}\label{s:robots:architecture}
 	
-\index{behaviour-based!architecture}
-\index{behaviour-based!cognitive architecture|(}
+\is{behaviour-based!architecture}
+\is{behaviour-based!cognitive architecture|(}
 
 \begin{figure}
 \centerline{\includegraphics[width=9cm]{lang_games//fsa.eps}}
@@ -287,18 +287,18 @@ A multi-agent system is a parallel process in which two robots cooperate autonom
 \end{figure}
 
 Because the architecture uses finite state automata, readers may wrongly suggest it is the subsumption architecture proposed by Rodney \citet{brooks:1990}. In the subsumption architecture each process is viewed as a finite state automaton on its own with only one state that models a behaviour (\figref{f:fsa} (a)). The architecture proposed here uses possibly more finite state automata each with a sequence of states that can be entered (\figref{f:fsa} (b)). These finite state automata are used to control planning. A process in the cognitive architecture can be activated by several states, and a particular state can activate several processes. In addition the processes couple the sensors with the motors, like the behaviour-based architecture proposed by Luc \citet{steels:1994b}.
-\index{subsumption architecture|}
-\index{Brooks, Rodney|)}
-\index{dual dynamics}
+\is{subsumption architecture|}
+%\ia{Brooks, Rodney A.|)}
+\is{dual dynamics}
 
 
 The behaviour-based cognitive architecture has strong similarities with the dual dynamics architecture \citep{jaeger:1997}. However, the in the dual dynamics the activation of processes is regulated internally of these processes. There is no explicit finite state automaton that regulates the activation.
 
-\index{PDL|)}
+\is{PDL|)}
 
-\index{behaviour synthesis architecture}
+\is{behaviour synthesis architecture}
 The architecture proposed here is also similar to the architecture proposed by \citet{barnes:1996} and \citet{barnesetal:1997}, called the behaviour synthesis architecture ({\sc bsa}), which synthesises a set of {\em behaviour patterns} with a certain utility (or strength) for accomplishing a task. A {\em behaviour script} controls a sequence of {\em behaviour packets}. Each behaviour packet consists of a set of behaviour patterns, a pre-condition and a post-condition. Comparing the behaviour patterns with the dynamical processes of {\sc pdl}, the behaviour scripts with the finite state automata and the packets with a single state, then the {\sc bsa} is very close to the architecture that has been incorporated here. Main differences with the work of \citet{barnes:1996} is the use of utility functions as its synthesis mechanism. Although the architecture here is developed by a human programmer, \citet{barnesetal:1997} show that planning can be automated using the {\sc bsa}.
-\index{behaviour-based!cognitive architecture|)}
+\is{behaviour-based!cognitive architecture|)}
 
 
 \section{Summary}
