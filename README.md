@@ -3,7 +3,7 @@
 ## Publication Info
 
 - Author: Paul Vogt
-- Publication Date: not yet released
+- Publication Date: 14 December 2015
 - Series: Computational Models of Language Evolution
 - Volume: 2
 
